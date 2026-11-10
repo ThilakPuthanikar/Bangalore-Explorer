@@ -185,6 +185,9 @@ const App = (function () {
     currentTheme = theme;
     StorageService.setTheme(theme);
     document.documentElement.setAttribute("data-theme", theme);
+    document.body.setAttribute("data-theme", theme);
+    document.body.classList.remove("light", "dark");
+    document.body.classList.add(theme);
     const themeBtn = document.getElementById("themeToggle");
     if (themeBtn) {
       themeBtn.textContent = theme === "dark" ? "☀️ Light" : "🌙 Dark";

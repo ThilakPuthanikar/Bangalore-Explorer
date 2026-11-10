@@ -1,230 +1,94 @@
 /**
- * Bangalore Explorer - Modern Components & Magazine UI Stylesheet
- * High-fidelity components for city exploration, mapping, planner, and stories.
+ * Bangalore Explorer (ಬೆಂಗಳೂರು ಎಕ್ಸ್‌ಪ್ಲೋರರ್)
+ * Modern Components Stylesheet
+ * Magazine Cards, Hero Banner, Map, Planner Drawer & Modal 2.0
  */
 
 /* ==========================================================================
-   1. Typography & Utility Helpers
-   ========================================================================== */
-.display-title, .display-heading {
-  font-family: 'Playfair Display', Georgia, serif, -apple-system;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: var(--text-primary);
-}
-
-.text-heading {
-  color: var(--text-primary);
-}
-
-.text-muted {
-  color: var(--text-muted) !important;
-}
-
-.text-secondary {
-  color: var(--text-secondary) !important;
-}
-
-.bg-surface {
-  background-color: var(--bg-secondary) !important;
-}
-
-.bg-surface-variant {
-  background-color: var(--card-bg) !important;
-}
-
-.fs-xs { font-size: 0.75rem; }
-.fs-sm { font-size: 0.875rem; }
-.fs-md { font-size: 1rem; }
-.lead-sm { font-size: 1.05rem; line-height: 1.6; }
-.tracking-wider { letter-spacing: 0.05em; }
-
-.max-w-prose {
-  max-width: 820px;
-}
-
-/* Button & Badge Tokens */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 600;
-  border-radius: var(--radius-sm);
-  padding: 8px 16px;
-  font-size: 0.9rem;
-  transition: all 0.15s ease-in-out;
-  cursor: pointer;
-  border: 1px solid transparent;
-  text-decoration: none;
-  line-height: 1.4;
-}
-
-.btn:active {
-  transform: scale(0.98);
-}
-
-.btn-primary {
-  background-color: var(--accent);
-  color: #ffffff;
-  border-color: var(--accent);
-}
-
-.btn-primary:hover {
-  background-color: var(--accent-hover);
-  border-color: var(--accent-hover);
-  color: #ffffff;
-}
-
-.btn-outline-primary {
-  background-color: transparent;
-  color: var(--accent);
-  border-color: var(--accent);
-}
-
-.btn-outline-primary:hover {
-  background-color: var(--accent-light);
-  color: var(--accent);
-}
-
-.btn-outline-secondary {
-  background-color: transparent;
-  color: var(--text-secondary);
-  border-color: var(--border-color);
-}
-
-.btn-outline-secondary:hover {
-  background-color: var(--card-hover);
-  color: var(--text-primary);
-}
-
-.btn-outline-danger {
-  background-color: transparent;
-  color: #ef4444;
-  border-color: rgba(239, 68, 68, 0.4);
-}
-
-.btn-outline-danger:hover {
-  background-color: rgba(239, 68, 68, 0.1);
-  color: #ef4444;
-}
-
-.btn-sm {
-  padding: 6px 12px;
-  font-size: 0.825rem;
-  border-radius: 6px;
-}
-
-.btn-xs {
-  padding: 4px 8px;
-  font-size: 0.75rem;
-  border-radius: 4px;
-}
-
-.btn-icon {
-  width: 28px;
-  height: 28px;
-  padding: 0;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.badge {
-  display: inline-block;
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  line-height: 1;
-}
-
-.badge-category {
-  background: rgba(15, 23, 42, 0.8);
-  color: #ffffff;
-  backdrop-filter: blur(4px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-/* ==========================================================================
-   2. Hero Section
+   1. Modern Hero Section
    ========================================================================== */
 .hero-section {
   position: relative;
-  padding: 90px 20px 80px;
-  background: linear-gradient(135deg, rgba(11, 13, 19, 0.88), rgba(20, 26, 40, 0.94)),
+  padding: 80px 24px 72px;
+  background: linear-gradient(135deg, rgba(9, 13, 22, 0.88), rgba(17, 24, 39, 0.94)),
               url('../images/home/home1.jpg') center/cover no-repeat;
   color: #ffffff;
-  overflow: hidden;
   border-radius: var(--radius-lg);
-  margin: 12px auto 24px;
+  margin: 8px auto 28px;
   max-width: 1240px;
   width: calc(100% - 24px);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
 }
 
+[data-theme="light"] .hero-section,
 body.light .hero-section {
-  background: linear-gradient(135deg, rgba(248, 250, 252, 0.92), rgba(238, 242, 246, 0.95)),
+  background: linear-gradient(135deg, rgba(248, 250, 252, 0.92), rgba(241, 245, 249, 0.96)),
               url('../images/home/home1.jpg') center/cover no-repeat;
   color: var(--text-primary);
+  border: 1px solid var(--border-color);
 }
 
 .hero-pill-badge {
   display: inline-block;
-  padding: 6px 14px;
-  border-radius: 9999px;
-  background: rgba(59, 130, 246, 0.18);
-  border: 1px solid rgba(59, 130, 246, 0.35);
-  font-size: 0.85rem;
-  font-weight: 600;
+  padding: 6px 16px;
+  border-radius: var(--radius-full);
+  background: rgba(37, 99, 235, 0.16);
+  border: 1px solid rgba(37, 99, 235, 0.35);
+  font-size: 0.84rem;
+  font-weight: 700;
   color: #60a5fa;
+  letter-spacing: 0.02em;
 }
 
+[data-theme="light"] .hero-pill-badge,
 body.light .hero-pill-badge {
-  color: #2563eb;
+  color: var(--accent);
   background: rgba(37, 99, 235, 0.1);
   border-color: rgba(37, 99, 235, 0.25);
 }
 
 .hero-title {
-  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-size: clamp(2.3rem, 5.5vw, 3.8rem);
+  font-weight: 800;
   line-height: 1.15;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 .hero-subtitle {
-  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-size: clamp(1rem, 2vw, 1.2rem);
   opacity: 0.9;
-  max-width: 680px;
+  max-width: 640px;
   margin-left: auto;
   margin-right: auto;
+  line-height: 1.55;
 }
 
 .hero-search-wrapper {
-  max-width: 640px;
-  margin: 0 auto;
+  max-width: 620px;
+  margin: 28px auto 24px;
 }
 
 .hero-search-input-group {
-  position: relative;
   display: flex;
   align-items: center;
   background: var(--bg-secondary);
   border: 1px solid var(--border-color);
-  border-radius: 9999px;
-  padding: 6px 8px 6px 18px;
-  box-shadow: var(--shadow-lg);
-  transition: border-color 0.2s, box-shadow 0.2s;
+  border-radius: var(--radius-full);
+  padding: 6px 8px 6px 20px;
+  box-shadow: var(--shadow-xl);
+  transition: all 0.2s ease;
 }
 
 .hero-search-input-group:focus-within {
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px var(--accent-light);
+  box-shadow: 0 0 0 4px var(--accent-light);
 }
 
 .search-input-icon {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   margin-right: 12px;
-  opacity: 0.7;
+  opacity: 0.65;
 }
 
 .hero-search-input {
@@ -242,17 +106,24 @@ body.light .hero-pill-badge {
 }
 
 .hero-search-btn {
-  border-radius: 9999px;
+  border-radius: var(--radius-full);
   padding: 10px 24px;
+  font-weight: 700;
 }
 
 /* ==========================================================================
-   3. Stats Bar
+   2. Key Stats Bar
    ========================================================================== */
+.stats-bar {
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  padding: 20px 0;
+}
+
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+  gap: 20px;
   text-align: center;
 }
 
@@ -262,43 +133,44 @@ body.light .hero-pill-badge {
 }
 
 .stat-number {
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 800;
   color: var(--accent);
-  font-feature-settings: "tnum";
+  line-height: 1.1;
+  letter-spacing: -0.02em;
 }
 
 .stat-label {
   font-size: 0.8rem;
   font-weight: 600;
   color: var(--text-secondary);
+  margin-top: 4px;
 }
 
 /* ==========================================================================
-   4. Categories Grid
+   3. Categories Grid & Category Showcase Cards
    ========================================================================== */
 .categories-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 20px;
+  gap: 22px;
 }
 
 .category-grid-card {
-  background: var(--bg-secondary);
+  background: var(--card-bg);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
-  padding: 24px 20px;
-  transition: all 0.2s ease;
+  padding: 24px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
   flex-direction: column;
-  position: relative;
-  overflow: hidden;
+  box-shadow: var(--shadow-sm);
 }
 
 .category-grid-card:hover {
   transform: translateY(-4px);
-  border-color: var(--accent);
-  box-shadow: var(--shadow-md);
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-lg);
 }
 
 .category-icon-wrapper {
@@ -320,21 +192,39 @@ body.light .hero-pill-badge {
 }
 
 .category-tagline {
-  font-size: 0.85rem;
+  font-size: 0.86rem;
   color: var(--text-secondary);
-  line-height: 1.45;
-  margin-bottom: 14px;
+  line-height: 1.5;
+  margin-bottom: 16px;
   flex-grow: 1;
 }
 
 .category-count {
   font-size: 0.85rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--accent);
 }
 
+/* Showcase card in Categories view */
+.category-showcase-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.category-mini-card {
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.category-mini-card:hover {
+  transform: translateY(-2px);
+}
+
 /* ==========================================================================
-   5. Landmark Cards Grid (Magazine Editorial Layout)
+   4. Magazine Landmark Cards Grid
    ========================================================================== */
 .landmark-cards-grid {
   display: grid;
@@ -343,35 +233,35 @@ body.light .hero-pill-badge {
 }
 
 .landmark-magazine-card {
-  background: var(--bg-secondary);
+  background: var(--card-bg);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.2s ease;
   box-shadow: var(--shadow-sm);
 }
 
 .landmark-magazine-card:hover {
   transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
-  border-color: rgba(59, 130, 246, 0.3);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--border-hover);
 }
 
 .card-thumb-wrap {
   position: relative;
   width: 100%;
-  height: 210px;
+  aspect-ratio: 16 / 10;
   overflow: hidden;
-  background-color: var(--card-bg);
+  background-color: var(--card-bg-alt);
 }
 
 .card-thumb-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.35s ease;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .landmark-magazine-card:hover .card-thumb-img {
@@ -383,61 +273,87 @@ body.light .hero-pill-badge {
   top: 12px;
   left: 12px;
   display: flex;
-  gap: 6px;
+  gap: 8px;
   align-items: center;
+  z-index: 2;
+}
+
+.badge-category {
+  background: rgba(15, 23, 42, 0.85);
+  color: #ffffff;
+  padding: 4px 10px;
+  border-radius: var(--radius-xs);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  backdrop-filter: blur(8px);
 }
 
 .card-distance-badge {
-  background: rgba(15, 23, 42, 0.8);
+  background: rgba(15, 23, 42, 0.85);
   color: #38bdf8;
+  padding: 4px 8px;
+  border-radius: var(--radius-xs);
   font-size: 0.72rem;
-  font-weight: 600;
-  padding: 3px 8px;
-  border-radius: 4px;
-  backdrop-filter: blur(4px);
+  font-weight: 700;
+  backdrop-filter: blur(8px);
 }
 
 .card-fav-btn {
   position: absolute;
   top: 10px;
   right: 10px;
-  background: rgba(15, 23, 42, 0.7);
-  backdrop-filter: blur(4px);
-  border: none;
-  width: 34px;
-  height: 34px;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   font-size: 1rem;
-  transition: transform 0.15s ease, background 0.15s;
+  z-index: 2;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background 0.15s;
 }
 
 .card-fav-btn:hover {
   transform: scale(1.15);
-  background: rgba(15, 23, 42, 0.9);
+  background: rgba(15, 23, 42, 0.95);
 }
 
 .card-info-wrap {
-  padding: 18px;
+  padding: 18px 20px 20px;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
 }
 
-.card-title {
-  margin: 0;
-  line-height: 1.3;
+.card-meta-row {
+  margin-bottom: 6px;
 }
 
 .card-rating-badge {
   background: rgba(245, 158, 11, 0.15);
-  color: #f59e0b;
-  padding: 2px 6px;
+  color: #d97706;
+  padding: 2px 7px;
   border-radius: 4px;
   font-weight: 700;
+  font-size: 0.75rem;
+}
+
+[data-theme="dark"] .card-rating-badge,
+body.dark .card-rating-badge {
+  color: #fbbf24;
+}
+
+.card-title {
+  margin-bottom: 4px;
+}
+
+.card-subtitle {
+  margin-bottom: 8px;
 }
 
 .card-summary {
@@ -446,47 +362,89 @@ body.light .hero-pill-badge {
   -webkit-box-orient: vertical;
   overflow: hidden;
   line-height: 1.5;
+  margin-bottom: 18px;
+  flex-grow: 1;
+}
+
+.card-actions-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-top: auto;
 }
 
 /* ==========================================================================
-   6. Filter Pills
+   5. Filter Pills Bar (Horizontal Scroll with Hidden Scrollbar)
    ========================================================================== */
 .category-pills-bar {
+  display: flex;
+  gap: 8px;
   overflow-x: auto;
   white-space: nowrap;
-  padding-bottom: 4px;
+  padding: 4px 0 8px;
+  /* Invisible scrollbars */
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+.category-pills-bar::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
 }
 
 .filter-pill {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: var(--card-bg);
+  background: var(--card-bg-alt);
   color: var(--text-secondary);
   border: 1px solid var(--border-color);
-  padding: 7px 14px;
-  border-radius: 9999px;
-  font-size: 0.85rem;
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  font-size: 0.84rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.15s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .filter-pill:hover {
   background: var(--card-hover);
   color: var(--text-primary);
+  border-color: var(--text-secondary);
 }
 
 .filter-pill.active {
   background: var(--accent);
-  color: #ffffff;
+  color: #ffffff !important;
   border-color: var(--accent);
-  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.35);
+}
+
+/* Search filter card in Explore view */
+.search-filter-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
 }
 
 /* ==========================================================================
-   7. Leaflet Map & Custom Markers
+   6. Leaflet Map Frame & Custom Pins
    ========================================================================== */
+.interactive-map-frame {
+  height: calc(100vh - 210px);
+  min-height: 520px;
+  width: 100%;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+}
+
 .custom-map-pin {
   width: 36px;
   height: 42px;
@@ -496,43 +454,47 @@ body.light .hero-pill-badge {
   background-color: var(--pin-color, #2563eb);
   border-radius: 50% 50% 50% 0;
   transform: rotate(-45deg);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   border: 2px solid #ffffff;
 }
 
 .pin-symbol {
   transform: rotate(45deg);
-  font-size: 1.1rem;
+  font-size: 1.15rem;
 }
 
 .map-popup-card {
-  width: 260px;
+  width: 270px;
   border-radius: var(--radius-sm);
   overflow: hidden;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
 }
 
 .map-popup-thumb {
   width: 100%;
-  height: 120px;
+  height: 125px;
   object-fit: cover;
 }
 
 .map-popup-body {
-  padding: 10px 12px;
+  padding: 12px;
 }
 
 .map-popup-cat {
-  font-size: 0.65rem;
+  font-size: 0.68rem;
   font-weight: 700;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
   color: var(--accent);
   display: block;
+  margin-bottom: 2px;
 }
 
 .map-popup-title {
   font-size: 0.95rem;
   font-weight: 700;
-  margin: 2px 0 4px;
+  margin: 0 0 4px;
+  line-height: 1.3;
 }
 
 .map-popup-nb {
@@ -549,6 +511,7 @@ body.light .hero-pill-badge {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  color: var(--text-secondary);
 }
 
 .map-popup-actions {
@@ -556,21 +519,46 @@ body.light .hero-pill-badge {
   gap: 6px;
 }
 
+/* Offline Map Fallback */
+.map-offline-fallback {
+  padding: 32px 20px;
+}
+
+.fallback-map-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.fallback-map-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+}
+
 /* ==========================================================================
-   8. Itineraries & Timeline
+   7. Itineraries & Timeline
    ========================================================================== */
+.itinerary-card {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
 .itinerary-timeline {
   position: relative;
-  padding-left: 28px;
-  margin-top: 20px;
+  padding-left: 32px;
+  margin-top: 24px;
 }
 
 .itinerary-timeline::before {
   content: "";
   position: absolute;
-  top: 10px;
-  bottom: 10px;
-  left: 12px;
+  top: 14px;
+  bottom: 14px;
+  left: 14px;
   width: 2px;
   background-color: var(--border-color);
 }
@@ -582,15 +570,15 @@ body.light .hero-pill-badge {
 
 .timeline-badge {
   position: absolute;
-  left: -28px;
+  left: -32px;
   top: 0;
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   background: var(--accent);
   color: #ffffff;
-  font-size: 0.75rem;
-  font-weight: 700;
+  font-size: 0.78rem;
+  font-weight: 800;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -598,18 +586,18 @@ body.light .hero-pill-badge {
 }
 
 .timeline-content {
-  background: var(--card-bg);
+  background: var(--card-bg-alt);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-sm);
-  padding: 14px 16px;
+  padding: 16px;
 }
 
 .timeline-header {
   display: flex;
-  gap: 12px;
-  font-size: 0.75rem;
+  gap: 14px;
+  font-size: 0.78rem;
   color: var(--text-muted);
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
 .timeline-place-title {
@@ -618,10 +606,10 @@ body.light .hero-pill-badge {
 }
 
 .timeline-note {
-  font-size: 0.875rem;
+  font-size: 0.88rem;
   color: var(--text-secondary);
-  line-height: 1.5;
-  margin-bottom: 10px;
+  line-height: 1.55;
+  margin-bottom: 12px;
 }
 
 .timeline-actions {
@@ -630,12 +618,12 @@ body.light .hero-pill-badge {
 }
 
 /* ==========================================================================
-   9. Personal Trip Planner Drawer
+   8. Personal Trip Planner Drawer
    ========================================================================== */
 .planner-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.55);
   backdrop-filter: blur(4px);
   z-index: 1200;
   opacity: 0;
@@ -653,15 +641,24 @@ body.light .hero-pill-badge {
   top: 0;
   right: 0;
   bottom: 0;
-  width: 380px;
+  width: 400px;
   max-width: 90vw;
   background: var(--bg-secondary);
   border-left: 1px solid var(--border-color);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-xl);
   z-index: 1250;
   transform: translateX(100%);
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   overflow-y: auto;
+  /* Invisible scrollbar */
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+.planner-drawer::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
 }
 
 .planner-drawer.is-open {
@@ -670,25 +667,112 @@ body.light .hero-pill-badge {
 
 .drawer-close-btn {
   position: absolute;
-  top: 14px;
-  right: 14px;
+  top: 16px;
+  right: 16px;
   background: transparent;
   border: none;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   color: var(--text-secondary);
   cursor: pointer;
   z-index: 10;
+  line-height: 1;
+}
+
+.drawer-close-btn:hover {
+  color: var(--text-primary);
+}
+
+.planner-stop-item {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  margin-bottom: 10px;
+  transition: border-color 0.15s ease;
+}
+
+.planner-stop-item:hover {
+  border-color: var(--border-hover);
 }
 
 /* ==========================================================================
-   10. Modal 2.0 Enhancements
+   9. Accessible Modal 2.0
    ========================================================================== */
-.modal-hero-wrapper {
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(8px);
+  z-index: 1500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+  overflow-y: auto;
+  scrollbar-width: none !important;
+}
+
+.modal-backdrop::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.modal-backdrop.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-card {
   position: relative;
-  height: 240px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  max-width: 720px;
   width: 100%;
   overflow: hidden;
-  background: var(--card-bg);
+  box-shadow: var(--shadow-xl);
+  animation: modalPop 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalPop {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(8px);
+  color: #ffffff;
+  border: none;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: transform 0.15s ease, background 0.15s;
+}
+
+.modal-close-btn:hover {
+  transform: scale(1.1);
+  background: rgba(15, 23, 42, 0.95);
+}
+
+.modal-hero-wrapper {
+  position: relative;
+  height: 260px;
+  width: 100%;
+  overflow: hidden;
 }
 
 .modal-hero-img {
@@ -700,13 +784,13 @@ body.light .hero-pill-badge {
 .modal-hero-gradient {
   position: absolute;
   inset: 0;
-  background: linear-gradient(transparent 40%, rgba(0,0,0,0.85));
+  background: linear-gradient(transparent 40%, rgba(0, 0, 0, 0.85));
 }
 
 .modal-hero-meta {
   position: absolute;
-  bottom: 14px;
-  left: 16px;
+  bottom: 16px;
+  left: 20px;
   display: flex;
   gap: 8px;
 }
@@ -714,21 +798,21 @@ body.light .hero-pill-badge {
 .visitor-info-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-  background: var(--card-bg);
-  padding: 16px;
+  gap: 14px;
+  background: var(--card-bg-alt);
+  padding: 18px;
   border-radius: var(--radius-sm);
   border: 1px solid var(--border-color);
 }
 
 .info-cell {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   align-items: flex-start;
 }
 
 .info-icon {
-  font-size: 1.25rem;
+  font-size: 1.3rem;
   line-height: 1;
 }
 
@@ -736,14 +820,50 @@ body.light .hero-pill-badge {
   font-size: 0.72rem;
   text-transform: uppercase;
   color: var(--text-muted);
+  font-weight: 700;
+  letter-spacing: 0.04em;
   display: block;
 }
 
 .info-val {
-  font-size: 0.85rem;
-  font-weight: 500;
-  margin: 0;
+  font-size: 0.86rem;
+  font-weight: 600;
+  margin: 2px 0 0;
   line-height: 1.35;
+  color: var(--text-primary);
+}
+
+/* ==========================================================================
+   10. Stories / Chronicles Layout
+   ========================================================================== */
+.stories-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 22px;
+}
+
+.story-preview-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.story-preview-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.story-detail-body {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+.story-detail-body p {
+  margin-bottom: 20px;
 }
 
 /* ==========================================================================
@@ -751,20 +871,26 @@ body.light .hero-pill-badge {
    ========================================================================== */
 .app-toast {
   position: fixed;
-  bottom: 24px;
+  bottom: 30px;
   left: 50%;
   transform: translateX(-50%) translateY(100px);
   background: #0f172a;
   color: #ffffff;
-  padding: 10px 20px;
-  border-radius: 9999px;
-  font-size: 0.875rem;
+  padding: 10px 22px;
+  border-radius: var(--radius-full);
+  font-size: 0.88rem;
   font-weight: 600;
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-xl);
   z-index: 2000;
   opacity: 0;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   pointer-events: none;
+}
+
+[data-theme="dark"] .app-toast,
+body.dark .app-toast {
+  background: #1e293b;
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .app-toast.show {
@@ -773,7 +899,7 @@ body.light .hero-pill-badge {
 }
 
 /* ==========================================================================
-   12. Bottom Mobile Navigation
+   12. Bottom Mobile Navigation Bar
    ========================================================================== */
 .bottom-mobile-nav {
   display: none;
@@ -781,12 +907,13 @@ body.light .hero-pill-badge {
   bottom: 0;
   left: 0;
   right: 0;
-  height: 60px;
+  height: 62px;
   background: var(--bg-glass);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-top: 1px solid var(--border-color);
   z-index: 900;
-  padding: 0 12px;
+  padding: 0 16px;
   justify-content: space-around;
   align-items: center;
 }
@@ -795,33 +922,253 @@ body.light .hero-pill-badge {
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-decoration: none;
   color: var(--text-secondary);
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   font-weight: 600;
+  text-decoration: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px 8px;
+  transition: color 0.15s ease;
 }
 
 .bottom-nav-item span {
   font-size: 1.25rem;
   line-height: 1;
+  margin-bottom: 2px;
 }
 
 .bottom-nav-item.active {
   color: var(--accent);
 }
 
+/* ==========================================================================
+   13. Responsive Media Queries & Utility Complements
+   ========================================================================== */
+.position-relative { position: relative !important; }
+.position-absolute { position: absolute !important; }
+.bottom-0 { bottom: 0 !important; }
+.start-0 { left: 0 !important; }
+.top-0 { top: 0 !important; }
+.end-0 { right: 0 !important; }
+.opacity-75 { opacity: 0.75 !important; }
+.opacity-90 { opacity: 0.9 !important; }
+.list-unstyled { list-style: none !important; padding-left: 0 !important; margin: 0 !important; }
+.img-fluid { max-width: 100% !important; height: auto !important; }
+.border-primary { border-color: var(--accent) !important; }
+.bg-white { background-color: #ffffff !important; }
+.tracking-wider { letter-spacing: 0.05em !important; }
+.max-w-prose { max-width: 780px !important; margin-left: auto; margin-right: auto; }
+
+.badge-rating {
+  background: rgba(245, 158, 11, 0.2) !important;
+  color: #f59e0b !important;
+  border: 1px solid rgba(245, 158, 11, 0.35) !important;
+}
+
+[data-theme="light"] .badge-rating,
+body.light .badge-rating {
+  background: rgba(217, 119, 6, 0.12) !important;
+  color: #b45309 !important;
+  border-color: rgba(217, 119, 6, 0.25) !important;
+}
+
+.history-callout, .history-banner {
+  background: var(--card-bg-alt);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius-xs);
+  padding: 14px 18px;
+  margin: 16px 0;
+}
+
+.visitor-guidelines-card {
+  background: var(--card-bg-alt);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+}
+
+.planner-empty-state {
+  padding: 48px 20px;
+  color: var(--text-muted);
+}
+
+.planner-thumb {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-xs);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.stop-index {
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.fav-count-badge, .planner-count-badge {
+  padding: 2px 7px;
+  border-radius: 9999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.footer-links a {
+  color: var(--text-muted);
+  transition: color 0.15s ease;
+}
+
+.footer-links a:hover {
+  color: var(--accent);
+}
+
+/* Page transitions & containers */
+.explore-page, .categories-page, .stories-page, .about-page, .favorites-page, .destination-detail-page {
+  animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Story and Itinerary Typography */
+.story-preview-title, .story-title, .itinerary-title {
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.story-preview-sub, .story-subtitle, .itinerary-summary {
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+.timeline-time {
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.timeline-nb {
+  color: var(--text-muted);
+}
+
+.place-link {
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.place-link:hover {
+  color: var(--accent);
+}
+
+/* Modal typography & layout */
+.modal-heading {
+  margin-bottom: 16px;
+}
+
+.modal-title {
+  font-weight: 800;
+  line-height: 1.25;
+  color: var(--text-primary);
+}
+
+.modal-subtitle {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.modal-location {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.modal-description {
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+.modal-footer-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* Planner Drawer Layout */
+.planner-panel-inner {
+  padding: 24px 20px;
+}
+
+.planner-stops-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 16px 0;
+}
+
+.planner-actions {
+  margin-top: 16px;
+}
+
+/* Utilities */
+.fs-3 { font-size: 1.75rem !important; }
+.pb-4 { padding-bottom: 24px !important; }
+.brand-sub { font-size: 0.72rem; color: var(--text-muted); }
+
+.destination-hero-frame {
+  max-height: 460px;
+  overflow: hidden;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+
+.destination-hero-frame img {
+  width: 100%;
+  max-height: 460px;
+  object-fit: cover;
+}
+
 @media (max-width: 768px) {
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
   }
+  
   .bottom-mobile-nav {
     display: flex;
   }
+  
   body {
-    padding-bottom: 70px;
+    padding-bottom: 68px;
   }
+  
   .visitor-info-grid {
     grid-template-columns: 1fr;
   }
+  
+  .header {
+    top: 6px;
+    margin: 6px auto;
+    padding: 8px 14px;
+    width: calc(100% - 16px);
+  }
+  
+  .hero-section {
+    padding: 56px 18px 48px;
+    margin-top: 6px;
+    width: calc(100% - 16px);
+  }
+  
+  .hero-search-input-group {
+    padding: 4px 6px 4px 16px;
+  }
+  
+  .hero-search-btn {
+    padding: 8px 16px;
+  }
 }
-
