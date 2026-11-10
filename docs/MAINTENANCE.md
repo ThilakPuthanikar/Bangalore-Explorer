@@ -1,196 +1,137 @@
-# Developer Maintenance & Operations Guide
+# Maintenance & Developer Guide: Bangalore Explorer
 
 ---
 
-## 1. Directory Structure Reference
+## 1. Project Directory Structure
 
 ```text
 Bangalore-Explorer/
-├── index.html                   # HTML shell (markup, metadata, header, containers)
-├── README.md                    # Primary repository overview
-│
-├── assets/
-│   ├── css/
-│   │   └── styles.css           # Central stylesheet with CSS custom properties
-│   │
-│   ├── js/
-│   │   ├── data.js              # Centralized datasets (SECTIONS, DATA, HOME, ABOUT)
-│   │   ├── modal.js             # Detail modal dialog controller
-│   │   └── app.js               # Navigation, i18n, theming, and section renderers
-│   │
-│   └── images/
-│       ├── logo/                # Brand identity logo
-│       ├── home/                # Images used on the Home landing page
-│       ├── about/               # Archival images used in About history page
-│       └── landmarks/           # Categorized subfolders for each sector
-│           ├── temples/
-│           ├── it/
-│           ├── shopping/
-│           ├── sports/
-│           ├── entertainment/
-│           ├── banks/
-│           ├── hotels/
-│           └── hospitals/
-│
-└── docs/
-    ├── PROJECT_OVERVIEW.md      # Purpose, audience, architecture, and tech decisions
-    ├── FEATURES.md              # Feature inventory and catalog of all 48 places
-    └── MAINTENANCE.md           # This maintenance guide
+├── index.html                   # Semantic HTML5 application shell & navigation
+├── manifest.json                # PWA manifest for installability & mobile icons
+├── sw.js                        # Cache-first service worker for offline support
+├── README.md                    # Main project presentation & documentation
+├── docs/                        # Consolidated developer & product documentation
+│   ├── PROJECT_OVERVIEW.md      # Purpose, scope, architecture & stack
+│   ├── FEATURES.md              # Feature matrix, mapping, planner & data schema
+│   └── MAINTENANCE.md           # Maintenance procedures, adding places & testing
+└── assets/
+    ├── css/
+    │   ├── styles.css           # Core reset, tokens, layout & typography
+    │   └── components.css       # Magazine cards, hero, map, planner & modal
+    ├── js/
+    │   ├── data.js              # Centralized bilingual database (68+ places, 9 categories)
+    │   ├── geo.js               # Geolocation API, Haversine formula & directions URLs
+    │   ├── storage.js           # LocalStorage state management (favorites, planner, recent)
+    │   ├── search.js            # In-memory bilingual search & multi-facet engine
+    │   ├── map.js               # Leaflet.js interactive map coordinator & SVG pins
+    │   ├── planner.js           # Curated itineraries & Personal Trip Planner controller
+    │   ├── router.js            # Client-side hash router with deep-linking
+    │   ├── modal.js             # Accessible focus-trapped Modal 2.0 controller
+    │   └── app.js               # Master application bootstrapper & view renderer
+    └── images/
+        ├── logo/                # Project logo & PWA icons
+        ├── backgrounds/         # Editorial patterns and banner imagery
+        ├── home/                # Hero banners
+        ├── about/               # About page photography
+        ├── stories/             # Cultural chronicles illustrations
+        └── landmarks/           # Categorized destination photography
+            ├── heritage/        # Vidhana Soudha, Palaces, Fort
+            ├── nature/          # Cubbon Park, Bannerghatta, Lakes
+            ├── food/            # Street food, legendary tiffin rooms
+            ├── shopping/        # KR Market, Commercial St, Chickpet
+            ├── tech/            # IISc, ITPB, Manyata, Infosys
+            ├── temples/         # ISKCON, Bull Temple, Gavi Gangadhareshwara
+            ├── sports/          # Chinnaswamy, Kanteerava, Wonderla
+            ├── hotels/          # Leela Palace, Taj West End, Oberoi
+            └── essential/       # Kempegowda Airport T2, Majestic, Hospitals
 ```
 
 ---
 
-## 2. Managing Landmark Data
+## 2. Adding or Editing a Destination
 
-All landmark data is centralized inside `assets/js/data.js`.
+All destinations are maintained in `assets/js/data.js` inside the `PLACES` array.
 
-### 2.1 How to Add a New Landmark
-1. Place the optimized photograph in the appropriate category folder:
-   `assets/images/landmarks/<category>/<filename>.jpg`
-2. Open `assets/js/data.js` and locate the target category key inside `DATA` (e.g. `temples`, `it`, `hotels`).
-3. Append a new landmark object:
-   ```javascript
-   {
-     en: {
-       title: "New Landmark Name",
-       short: "One-sentence summary displayed on the card front.",
-       long: "Comprehensive 2–3 paragraph historical or contextual description displayed inside the detail modal."
-     },
-     ka: {
-       title: "ಹೊಸ ಸ್ಥಳದ ಹೆಸರು",
-       short: "ಕಾರ್ಡ್ ಮೇಲೆ ಪ್ರದರ್ಶಿಸಲಾಗುವ ಸಂಕ್ಷಿಪ್ತ ವಿವರಣೆ.",
-       long: "ಮೋಡಲ್ ಒಳಗೆ ಪ್ರದರ್ಶಿಸಲಾಗುವ ವಿವರವಾದ ಲೇಖನ."
-     },
-     img: "assets/images/landmarks/<category>/<filename>.jpg"
-   }
-   ```
-4. Refresh the browser. The card will automatically render in the sector's grid and modal viewer.
+To add a new destination:
 
-### 2.2 How to Update Content (English or Kannada)
-1. Open `assets/js/data.js`.
-2. Locate the place under `DATA[category]`.
-3. Update `en.title`, `en.short`, or `en.long` for English changes.
-4. Update `ka.title`, `ka.short`, or `ka.long` for Kannada changes.
-5. Save the file. Changes take effect on the next browser refresh.
-
----
-
-## 3. Managing Images & Static Assets
-
-### 3.1 Adding or Replacing an Image
-- **Image Specifications:**
-  - Recommended Card Dimensions: **600×400px** to **800×500px** (3:2 or 16:9 aspect ratio).
-  - Recommended Format: **JPEG** or **WebP** at 80–85% compression quality.
-  - File Size Target: Keep under **100 KB** per landmark photo for rapid mobile loading.
-- **Replacement Step:**
-  - Save the new image with the existing filename in `assets/images/landmarks/<category>/` to overwrite it, or update the `img` path in `assets/js/data.js`.
-
-### 3.2 Updating the Logo
-- Place the new logo at `assets/images/logo/logo.png`.
-- Recommended dimensions: **192×192px** PNG (supports high-DPI displays while keeping file size under 50 KB).
-
----
-
-## 4. Managing Categories & Navigation
-
-### 4.1 Adding a New Category
-1. Open `assets/js/data.js`.
-2. In the `SECTIONS` array, append a new section definition:
-   ```javascript
-   { id: "parks", label: { en: "Parks", ka: "ಉದ್ಯಾನಗಳು" } }
-   ```
-3. In the `DATA` object, create the corresponding array:
-   ```javascript
-   DATA.parks = [
-     // Array of landmark objects
-   ];
-   ```
-4. Create the corresponding image folder: `assets/images/landmarks/parks/`.
-5. Refresh the browser. The navigation bar and new category page will build automatically.
-
----
-
-## 5. Modifying Styles & Themes
-
-All styling resides in `assets/css/styles.css`.
-
-### 5.1 Adjusting Theme Colors
-Modify the CSS custom properties in section 2 of `styles.css`:
-```css
-:root {
-  /* Dark Mode Variables */
-  --bg-primary: #0b0d13;
-  --card-bg: rgba(255, 255, 255, 0.035);
-  --accent: #3b82f6;
-  --text-primary: #f1f5f9;
-  --text-secondary: #94a3b8;
-}
-
-body.light {
-  /* Light Mode Variables */
-  --bg-primary: #f8fafc;
-  --card-bg: #ffffff;
-  --accent: #2563eb;
-  --text-primary: #0f172a;
-  --text-secondary: #475569;
-}
-```
-
-### 5.2 Card Grid Layout
-To adjust card sizing across devices, update:
-```css
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: var(--gap);
+```javascript
+{
+  id: "new-destination-slug",
+  name: "English Landmark Name",
+  kannadaName: "ಕನ್ನಡ ಹೆಗ್ಗುರುತಿನ ಹೆಸರು",
+  category: "heritage-culture", // Must match one of the 9 canonical category IDs
+  tags: ["Heritage", "Architecture", "Central Bengaluru"],
+  neighbourhood: "Vasanth Nagar",
+  neighbourhoodKn: "ವಸಂತ ನಗರ",
+  coordinates: { lat: 12.998845, lng: 77.592106 },
+  shortDesc: "1-2 sentence English summary for cards.",
+  shortDescKn: "1-2 ವಾಕ್ಯದ ಕನ್ನಡ ಸಂಕ್ಷಿಪ್ತ ವಿವರ.",
+  fullDesc: "Comprehensive 2-3 paragraph architectural and historical profile.",
+  fullDescKn: "ಸಮಗ್ರ 2-3 ಪ್ಯಾರಾಗ್ರಾಫ್ ಕನ್ನಡ ವಿವರ.",
+  history: "Verified historical origins, commissioning year, and significance.",
+  historyKn: "ಐತಿಹಾಸಿಕ ಹಿನ್ನೆಲೆ ಮತ್ತು ಮಹತ್ವ.",
+  image: "assets/images/landmarks/heritage/new-destination.jpg",
+  visitorInfo: {
+    timing: "10:00 AM - 5:30 PM (Open daily)",
+    timingKn: "ಬೆಳಗ್ಗೆ 10:00 ರಿಂದ ಸಂಜೆ 5:30 (ಪ್ರತಿದಿನ)",
+    fee: "₹250 for adults; free for children below 5",
+    feeKn: "ವಯಸ್ಕರಿಗೆ ₹250; 5 ವರ್ಷದೊಳಗಿನ ಮಕ್ಕಳಿಗೆ ಉಚಿತ",
+    bestTime: "Morning hours for outdoor photography",
+    bestTimeKn: "ಮುಂಜಾನೆಯ ವೇಳೆ ಛಾಯಾಗ್ರಹಣಕ್ಕೆ ಸೂಕ್ತ",
+    nearestMetro: "Cubbon Park Metro (Purple Line) - 1.2 km",
+    nearestMetroKn: "ಕಬ್ಬನ್ ಪಾರ್ಕ್ ಮೆಟ್ರೋ (ಪರ್ಪಲ್ ಲೈನ್) - 1.2 ಕಿ.ಮೀ",
+    duration: "1.5 - 2 hours",
+    durationKn: "1.5 - 2 ಗಂಟೆಗಳು"
+  },
+  rating: 4.8,
+  featured: true // Set true to feature on Home page spotlight
 }
 ```
 
 ---
 
-## 6. JavaScript Architecture Reference
+## 3. Image Optimization Standards
 
-- **`assets/js/data.js`:** Pure data file defining global constants (`SECTIONS`, `DATA`, `ABOUT_CONTENT`, `HOME_CONTENT`).
-- **`assets/js/modal.js`:** Encapsulated `ModalController` module managing dialog states, keyboard `Escape` handling, and body scroll locking (`body.modal-open`).
-- **`assets/js/app.js`:** Application entry point managing navigation, language switching, theme toggling, DOM generation, and `localStorage` preference synchronization.
-
----
-
-## 7. Local Testing & Verification
-
-1. **Syntax Check:**
-   Verify JavaScript syntax without errors:
-   ```bash
-   node -c assets/js/data.js
-   node -c assets/js/modal.js
-   node -c assets/js/app.js
-   ```
-2. **Local HTTP Server Test:**
-   ```bash
-   python -m http.server 8000
-   ```
-   Open `http://localhost:8000` and verify:
-   - All 11 navigation links work and toggle views.
-   - Switching language preserves the currently active page.
-   - Detail modal opens on card click and closes on `Escape` keypress.
-   - Theme toggle remembers preference after page reload.
-   - Mobile menu opens on screens $\le 768\text{px}$.
+1. **Resolution:** Recommended 1200x800 or 1000x667 pixels.
+2. **Format:** Progressive JPEG (`.jpg`) or WebP (`.webp`).
+3. **File Size:** Target under 350 KB per image for instant mobile delivery.
+4. **Naming:** Kebab-case naming reflecting the slug (`assets/images/landmarks/<category>/<slug>.jpg`).
 
 ---
 
-## 8. Deployment Guide
+## 4. Code Quality & Syntax Validation
 
-### Deploying to GitHub Pages
-1. Push your changes to GitHub:
-   ```bash
-   git add .
-   git commit -m "Refactor codebase and update documentation"
-   git push origin main
-   ```
-2. Navigate to your repository on GitHub:
-   - Click **Settings** → **Pages**.
-   - Under **Build and deployment** → **Source**, select **Deploy from a branch**.
-   - Select branch **`main`** and folder **`/ (root)`**.
-   - Click **Save**.
-3. Your site will be live at `https://<username>.github.io/Bangalore-Explorer/` within 1–2 minutes.
+To verify the syntax of all JavaScript files across the application:
 
+```powershell
+Get-ChildItem -Path "assets\js" -Filter *.js | ForEach-Object {
+  node -c $_.FullName
+}
+```
+
+To verify that all image paths referenced in `data.js` exist on disk:
+
+```powershell
+node -e "
+const fs = require('fs');
+const { PLACES } = require('./assets/js/data.js');
+let missing = 0;
+PLACES.forEach(p => {
+  if (!fs.existsSync(p.image)) {
+    console.warn('Missing image for:', p.id, p.image);
+    missing++;
+  }
+});
+if (missing === 0) console.log('All image references verified successfully!');
+"
+```
+
+---
+
+## 5. Deployment Guidelines
+
+Bangalore Explorer is 100% static:
+- **GitHub Pages:** Set publishing branch to `main`, folder to `/ (root)`.
+- **Netlify:** Drag and drop the repository folder or link the git repository with publish directory `.`.
+- **Vercel:** Import project as "Other" static framework with output directory `.`.
+- **Apache / Nginx:** Copy all files directly to the web root (`/var/www/html/`). No server runtime or PHP required.

@@ -1,0 +1,19 @@
+{
+  "name": "Bangalore Explorer | ಬೆಂಗಳೂರು ಎಕ್ಸ್‌ಪ್ಲೋರರ್",
+  "short_name": "BangaloreExplorer",
+  "description": "Discover, explore, and experience Bengaluru with curated destinations, verified GPS coordinates, interactive maps, itineraries, and stories.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "assets/images/logo/logo.png",
+      "sizes": "192x192 512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
+

@@ -1,38 +1,78 @@
 # Bangalore Explorer (ಬೆಂಗಳೂರು ಎಕ್ಸ್‌ಪ್ಲೋರರ್)
 
-An elegant, lightweight, zero-dependency static web application showcasing the cultural heritage, technology hubs, healthcare excellence, and vibrant urban lifestyle of Bangalore (Bengaluru), India.
+[![Bengaluru](https://img.shields.io/badge/City-Bengaluru-047857?style=for-the-badge)](https://en.wikipedia.org/wiki/Bangalore)
+[![Bilingual](https://img.shields.io/badge/Language-English%20%7C%20%E0%B2%95%E0%B2%A8%E0%B3%8D%E0%B2%A8%E0%B2%A1-b45309?style=for-the-badge)](#bilingual-experience)
+[![Leaflet](https://img.shields.io/badge/Mapping-Leaflet%20%2B%20OSM-2563eb?style=for-the-badge)](#interactive-map)
+[![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](#license)
 
-Features complete bilingual support in **English** and **Kannada**, dark/light mode theming, an interactive Google Map, and a curated catalog of 48 prominent landmarks across 8 civic sectors.
+A modern, high-performance, client-side bilingual city discovery platform celebrating the royal heritage, botanical gardens, historic silk bazaars, street food culture, and technological innovation of **Namma Bengaluru**.
+
+Designed with an editorial travel-magazine aesthetic, Bangalore Explorer connects tourists, newcomers, and proud residents to **68+ verified destinations** across **9 discovery sectors** with zero mandatory backend, zero tracking, and zero paid API keys.
 
 ---
 
-## Key Features
+## Key Highlights
 
-- **Bilingual Experience:** Seamless, instant language switching between English and Kannada with 100% content parity and persistent preference storage (`localStorage`).
-- **Curated Sector Directory:** 48 landmark cards spanning 8 civic categories:
-  - 🛕 **Temples:** ISKCON, Bull Temple, Banashankari, Dodda Ganapathi, Gavi Gangadhareshwara, Kote Venkataramana.
-  - 💻 **IT Campuses:** Infosys, Wipro, TCS, IBM, Google, Microsoft.
-  - 🛍️ **Shopping & Lifestyle:** UB City, Phoenix Marketcity, Orion Mall, Church Street, Garuda Mall, Mantri Mall.
-  - 🏏 **Sports & Athletics:** M Chinnaswamy Stadium, Kanteerava Stadium, Padukone-Dravid Centre, Bangalore FC, Bangalore Golf Club, Decathlon.
-  - 🎡 **Entertainment & Parks:** Wonderla, PVR Cinemas, Innovative Film City, Lalbagh Botanical Garden, Visvesvaraya Museum, Snow City.
-  - 🏦 **Banks & Financial Services:** State Bank of India, HDFC Bank, ICICI Bank, Bank of America, Canara Bank, Citibank.
-  - 🏨 **Hotels & Hospitality:** Leela Palace, Taj Hotel, ITC Gardenia, The Oberoi, RCB Cafe, Sheraton Grand.
-  - 🏥 **Hospitals & Healthcare:** Manipal Hospital, Apollo Hospital, BGS Hospital, Narayana Health, Victoria Hospital, Bangalore Hospital.
-- **Landmark Detail Modal:** Accessible popup dialog presenting full landmark descriptions and high-resolution imagery. Supports keyboard `Escape` dismissal and prevents background scroll.
-- **Rich Historical Overview:** Comprehensive narrative detailing Bengaluru's heritage from ancient dynasties (Ganga, Chola), Kempe Gowda I (1537 CE), Hyder Ali, Tipu Sultan, and the British Cantonment, to the modern IT revolution.
-- **Interactive Geospatial Map:** Custom Google My Maps layer with landmark markers, transit information, and area highlights.
-- **Theme Switching:** Dark Mode and Light Mode with smooth CSS variable transitions and remembered preferences.
-- **Fully Responsive:** Fluid layouts adapting seamlessly from desktop widescreen down to mobile devices with a slide-down navigation drawer.
+- **68+ Verified Destinations:** Spanning palaces, forts, botanical lungs, century-old tiffin houses, high streets, silk petes, tech campuses, stadiums, and transit junctions.
+- **Custom High-Resolution Photography:** Pristine, magazine-grade travel photography generated specifically for iconic Bengaluru landmarks (Vidhana Soudha, Bangalore Palace, Tipu Sultan's Summer Palace, Bengaluru Fort, Cubbon Park, Bannerghatta National Park, Sankey Tank, Ulsoor Lake, KR Market, Commercial Street, Chickpet, Gandhi Bazaar).
+- **Zero-Key Interactive Mapping:** Built on Leaflet.js and OpenStreetMap with custom color-coded SVG markers, interactive popups, category layer filtering, and automatic offline fallback.
+- **Turn-by-Turn Navigation:** Instant Google Maps driving, walking, and transit directions from the user's location via official URL routing schemes.
+- **Privacy-First Geolocation:** Requests location strictly upon explicit user interaction ("Near Me" / "Get Directions"), computing real-time distances via the Haversine formula without ever probing location on page load.
+- **6 Curated Day Itineraries:** Ready-to-explore walking and transit trails (Royal Heritage Trail, Green Heart Walk, South Bengaluru Culture & Tiffin Circuit, Silk Bazaars & Street Food, Silicon Plateau Circuit, Wildlife & Lakes Escape).
+- **Personal Trip Planner:** Build, customize, and reorder custom routes with one-click multi-stop route export directly into Google Maps.
+- **4 Bengaluru Chronicles:** Rich, long-form historical narratives on Kempe Gowda's Four Watchtowers, the Garden City botanical legacy (from Hyder Ali to Krumbiegel), the 500-year history of Chickpet weavers, and the Silicon Plateau revolution.
+- **100% Bilingual Parity:** Flawless English and authentic Kannada (*ಕನ್ನಡ*) parity across all navigation, titles, descriptions, and visitor guidelines.
+- **Client-Side SPA Architecture:** Lightweight hash-based router supporting deep linking (`#/destination/:id`, `#/itineraries`, `#/map`, `#/explore`) with zero page reloads.
+- **Accessible Light & Dark Theming:** High-contrast design tokens with smooth CSS transitions and remembered user preference.
+- **PWA & Offline Ready:** Web App Manifest and Service Worker providing cache-first offline capability and installability on mobile devices.
+
+---
+
+## Discovery Sectors
+
+| Sector | Icon | Description | Featured Places |
+|---|---|---|---|
+| **Heritage & Culture** | 🏛️ | Palaces, historic forts & colonial monuments | Vidhana Soudha, Bangalore Palace, Tipu Summer Palace, Bengaluru Fort, Attara Kacheri |
+| **Nature & Outdoors** | 🌿 | Sprawling botanical gardens & serene lakes | Cubbon Park, Lalbagh Botanical Garden, Bannerghatta Park, Sankey Tank, Ulsoor Lake |
+| **Food & Dining** | ☕ | Legendary tiffin rooms & street food alleys | VV Puram Food Street, MTR Lalbagh, Vidyarthi Bhavan, CTR Malleswaram, Brahmin's Coffee |
+| **Shopping & Bazaars** | 🛍️ | Asia's flower hub, pure silk lanes & malls | KR Market, Commercial Street, Chickpet Silk Market, Gandhi Bazaar, UB City, Orion Mall |
+| **Tech & Innovation** | 💻 | World-renowned software campuses & science | IISc Bangalore, ITPB Whitefield, Infosys Electronic City, Wipro, TCS, Manyata Park |
+| **Temples & Spirituality** | 🕉️ | Ancient stone monoliths, caves & gopurams | ISKCON Temple, Bull Temple, Banashankari, Gavi Gangadhareshwara, Dodda Ganapathi |
+| **Sports & Recreation** | 🏏 | Cricket grounds, stadiums & theme parks | Chinnaswamy Stadium, Kanteerava, Padukone-Dravid Centre, Wonderla, Visvesvaraya Museum |
+| **Hotels & Stays** | 🏨 | Regal heritage hospitality & 5-star suites | The Leela Palace, Taj West End, ITC Gardenia, The Oberoi, Sheraton Grand |
+| **Essential Services** | 🏥 | Transit hubs, international airport & healthcare | Kempegowda Airport T2, Majestic Railway Hub, Manipal Hospital, Apollo, Victoria Hospital |
+
+---
+
+## Quick Start & Running Locally
+
+Bangalore Explorer requires **no build step, no npm install, and no backend server**.
+
+### Option 1: Direct Browser
+Simply double-click `index.html` in your file explorer to open it directly in Chrome, Firefox, Safari, or Edge.
+
+### Option 2: Local Static Server (Recommended)
+Using Python:
+```bash
+python -m http.server 8000
+```
+Or using Node.js `npx serve`:
+```bash
+npx serve .
+```
+Then navigate to `http://localhost:8000` in your browser.
 
 ---
 
 ## Technology Stack
 
-- **Markup:** HTML5 (Semantic, accessible landmarks)
-- **Styling:** Vanilla CSS3 (CSS Custom Properties, CSS Grid, Flexbox, Glassmorphism)
-- **Scripting:** Vanilla ECMAScript 2015+ (ES6+)
-- **Mapping:** Google My Maps Embed API
-- **Dependencies:** **Zero external dependencies** (No frameworks, bundlers, or npm packages required)
+- **Markup:** HTML5 Semantic Living Standard
+- **Presentation:** CSS3 Custom Properties, CSS Grid, Flexbox, Glassmorphism
+- **Scripting:** Pure Vanilla ECMAScript 2015+ (ES6+)
+- **Mapping:** Leaflet.js 1.9.4 + OpenStreetMap (Zero API key / zero billing)
+- **Directions:** Official Google Maps Direction & Multi-Stop Waypoint URL scheme
+- **Storage:** Browser `localStorage` (Favorites, trip planner, recent items, theme, language)
+- **Offline / PWA:** Web App Manifest (`manifest.json`) + Service Worker (`sw.js`)
 
 ---
 
@@ -40,74 +80,47 @@ Features complete bilingual support in **English** and **Kannada**, dark/light m
 
 ```text
 Bangalore-Explorer/
-├── index.html                           # Main entry point (semantic HTML shell)
-├── README.md                            # Project overview and instructions
-│
-├── assets/
-│   ├── css/
-│   │   └── styles.css                   # Responsive, themable stylesheet
-│   │
-│   ├── js/
-│   │   ├── data.js                      # Bilingual datasets (SECTIONS, DATA, HOME, ABOUT)
-│   │   ├── modal.js                     # Accessible landmark detail modal controller
-│   │   └── app.js                       # Navigation, i18n, theme, and page controller
-│   │
-│   └── images/
-│       ├── logo/                        # Brand logo asset (optimized)
-│       ├── home/                        # Home section highlight imagery
-│       ├── about/                       # Historical overview illustrations
-│       └── landmarks/                   # Categorized landmark photographs
-│           ├── temples/
-│           ├── it/
-│           ├── shopping/
-│           ├── sports/
-│           ├── entertainment/
-│           ├── banks/
-│           ├── hotels/
-│           └── hospitals/
-│
-└── docs/
-    ├── PROJECT_OVERVIEW.md              # Project purpose, architecture, and scope
-    ├── FEATURES.md                      # Feature inventory, 48-place catalog & future scope
-    └── MAINTENANCE.md                   # Developer maintenance and deployment guide
+├── index.html                   # Semantic HTML5 application shell & navigation
+├── manifest.json                # PWA manifest
+├── sw.js                        # Service worker for offline caching
+├── README.md                    # Main project overview & documentation
+├── docs/                        # Consolidated documentation
+│   ├── PROJECT_OVERVIEW.md      # Architecture, objectives & scope
+│   ├── FEATURES.md              # Complete feature matrix & data schema
+│   └── MAINTENANCE.md           # Developer & maintenance guidelines
+└── assets/
+    ├── css/
+    │   ├── styles.css           # Core styling, variables & layout
+    │   └── components.css       # Magazine cards, hero, map, planner & modal
+    ├── js/
+    │   ├── data.js              # 68+ places, 9 categories, 6 trails, 4 chronicles
+    │   ├── geo.js               # Geolocation, Haversine formula & routing URLs
+    │   ├── storage.js           # LocalStorage state management
+    │   ├── search.js            # Instant bilingual search & filter engine
+    │   ├── map.js               # Leaflet.js interactive map coordinator
+    │   ├── planner.js           # Curated itineraries & custom trip planner
+    │   ├── router.js            # Client-side hash router
+    │   ├── modal.js             # Accessible focus-trapped Modal 2.0
+    │   └── app.js               # Master application bootstrapper
+    └── images/
+        ├── logo/                # Project logo & PWA icons
+        ├── backgrounds/         # Editorial backgrounds & patterns
+        ├── home/                # Hero banners
+        ├── about/               # About page photography
+        ├── stories/             # Cultural chronicles illustrations
+        └── landmarks/           # Categorized landmark photography
 ```
 
 ---
 
-## Local Setup & Execution
+## Documentation Links
 
-Because Bangalore Explorer has zero build steps or package dependencies, running it locally is instant:
-
-### Option 1: Direct File Execution (Simplest)
-Double-click `index.html` or open it in any web browser (`file:///path/to/index.html`).
-
-### Option 2: Local HTTP Server (Recommended)
-Using Python (pre-installed on most systems):
-```bash
-# Python 3
-python -m http.server 8000
-```
-Then visit `http://localhost:8000` in your browser.
-
-Using Node.js:
-```bash
-npx serve .
-```
+- [Project Overview & Architecture](docs/PROJECT_OVERVIEW.md)
+- [Complete Feature Matrix & Data Contracts](docs/FEATURES.md)
+- [Maintenance, Testing & Adding Destinations](docs/MAINTENANCE.md)
 
 ---
 
-## Static Deployment
+## License
 
-The project is ready for one-click deployment to any static web hosting platform:
-
-- **GitHub Pages:** Go to your repository **Settings** → **Pages** → Source: **Deploy from a branch** (`main` / root).
-- **Vercel / Netlify / Cloudflare Pages:** Connect your GitHub repository and deploy directly with root directory defaults.
-
----
-
-## Repository Information
-
-- **Author:** Thilak Puthanikar
-- **Repository:** [https://github.com/ThilakPuthanikar/Bangalore-Explorer](https://github.com/ThilakPuthanikar/Bangalore-Explorer)
-- **License:** Open educational and civic exploration resource.
-
+Crafted with ❤️ for Namma Bengaluru. Free and open source for educational and community exploration under the MIT License.

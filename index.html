@@ -1,69 +1,169 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Explore Bengaluru (Bangalore), the Garden City & Silicon Valley of India. Discover temples, IT hubs, shopping, sports, entertainment, hotels, hospitals, and history with full English and Kannada support.">
-    <title>Bangalore Explorer</title>
+    <meta name="description" content="Discover, explore, and experience Bengaluru (Bangalore) with curated destinations, verified GPS coordinates, interactive OpenStreetMap, curated itineraries, cultural stories, and authentic bilingual English and Kannada coverage.">
+    <title>Bangalore Explorer | ಬೆಂಗಳೂರು ಎಕ್ಸ್‌ಪ್ಲೋರರ್</title>
+
+    <!-- Preconnect Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Leaflet.js Mapping Library (Free, zero-key, zero-cost) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+    <!-- Application Stylesheets -->
     <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#2563eb">
+    <link rel="icon" type="image/png" href="assets/images/logo/logo.png">
   </head>
-  <body class="theme-on">
+  <body>
+    <!-- Top Global Header -->
     <header class="header">
       <div class="header-left">
-        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu" aria-expanded="false">
+        <button class="mobile-menu-btn" id="mobileNavToggle" aria-label="Toggle navigation menu" aria-expanded="false">
           ☰
         </button>
-        <a href="#home" class="brand">
-          <img src="assets/images/logo/logo.png" alt="Bangalore Explorer Logo" class="logo">
+
+        <a href="#/home" class="brand">
+          <img src="assets/images/logo/logo.png" alt="Bangalore Explorer Emblem" class="logo">
           <div class="title">
             <span class="appname">Bangalore Explorer</span>
-            <span class="subtitle">Explore the City of Bangalore</span>
+            <span class="subtitle brand-sub">Bengaluru City Guide</span>
           </div>
         </a>
-        <nav class="menu" id="navMenu" aria-label="Main navigation"></nav>
+
+        <!-- Primary Navigation Menu -->
+        <nav class="menu" id="primaryNavMenu" aria-label="Main navigation">
+          <a href="#/home" class="nav-link" id="nav-link-home">Home</a>
+          <a href="#/explore" class="nav-link" id="nav-link-explore">Explore</a>
+          <a href="#/categories" class="nav-link" id="nav-link-categories">Categories</a>
+          <a href="#/map" class="nav-link" id="nav-link-map">Map</a>
+          <a href="#/itineraries" class="nav-link" id="nav-link-itineraries">Itineraries</a>
+          <a href="#/stories" class="nav-link" id="nav-link-stories">Stories</a>
+          <a href="#/about" class="nav-link" id="nav-link-about">About</a>
+        </nav>
       </div>
 
+      <!-- Action Controls -->
       <div class="controls">
-        <div class="lang-dropdown" id="langDropdown">
-          <button class="lang-btn" id="langBtn" aria-haspopup="true">
-            <span id="langLabel">English</span> ▾
-          </button>
-          <div class="lang-list" id="langList" role="menu">
-            <button data-lang="en">English</button>
-            <button data-lang="ka">ಕನ್ನಡ</button>
-          </div>
+        <!-- Language Switcher -->
+        <div class="lang-select-wrapper">
+          <select id="langSelect" class="lang-btn" aria-label="Select Language">
+            <option value="en">English</option>
+            <option value="ka">ಕನ್ನಡ</option>
+          </select>
         </div>
 
-        <div class="theme-wrap" title="Toggle theme">
-          <span class="theme-emoji" id="themeEmoji" aria-hidden="true">🌙</span>
-          <div class="switch" id="themeSwitch" role="switch" tabindex="0" aria-label="Toggle light and dark theme">
-            <div class="knob"></div>
-          </div>
-        </div>
+        <!-- Saved Favorites Shortcut -->
+        <a href="#/favorites" class="btn btn-sm btn-outline-secondary d-none d-sm-inline-flex" title="Saved Favorites">
+          ❤️ <span class="badge fav-count-badge bg-danger text-white ms-1">0</span>
+        </a>
+
+        <!-- Personal Trip Planner Trigger -->
+        <button class="btn btn-sm btn-primary planner-drawer-trigger" title="Personal Trip Planner">
+          🗺️ <span class="badge planner-count-badge bg-white text-primary ms-1">0</span>
+        </button>
+
+        <!-- Theme Toggle -->
+        <button id="themeToggle" class="btn btn-sm btn-outline-secondary" aria-label="Toggle Theme">
+          🌙 Dark
+        </button>
       </div>
     </header>
 
-    <main class="container">
-      <div class="sections" id="sections"></div>
-    </main>
+    <!-- Dynamic Main Content Area -->
+    <main id="main-app-content" class="app-main"></main>
 
     <!-- Landmark Detail Modal Dialog -->
     <div class="modal-backdrop" id="modalBackdrop" aria-hidden="true" role="dialog" aria-modal="true">
-      <div class="modal">
-        <button class="close" id="modalClose" aria-label="Close details">✕</button>
-        <div class="topimg">
-          <img id="modalImg" src="" alt="">
-        </div>
-        <div class="content">
-          <h3 id="modalTitle"></h3>
-          <p id="modalText"></p>
-        </div>
+      <div class="modal-card" id="modalCard">
+        <!-- Injected dynamically by ModalController -->
       </div>
     </div>
 
-    <!-- Scripts (Ordered for dependency-free static execution) -->
+    <!-- Personal Trip Planner Drawer -->
+    <div class="planner-backdrop" id="plannerBackdrop"></div>
+    <aside class="planner-drawer" id="plannerDrawer" aria-label="Trip Planner Drawer">
+      <button class="drawer-close-btn planner-drawer-trigger" aria-label="Close trip planner">&times;</button>
+      <div id="planner-drawer-content">
+        <!-- Injected dynamically by PlannerController -->
+      </div>
+    </aside>
+
+    <!-- Bottom Mobile Navigation Bar -->
+    <nav class="bottom-mobile-nav" aria-label="Mobile Bottom Navigation">
+      <a href="#/home" class="bottom-nav-item active">
+        <span>🏠</span>
+        <small>Home</small>
+      </a>
+      <a href="#/explore" class="bottom-nav-item">
+        <span>🔍</span>
+        <small>Explore</small>
+      </a>
+      <a href="#/map" class="bottom-nav-item">
+        <span>🗺️</span>
+        <small>Map</small>
+      </a>
+      <a href="#/itineraries" class="bottom-nav-item">
+        <span>🚶</span>
+        <small>Trails</small>
+      </a>
+      <button class="bottom-nav-item planner-drawer-trigger bg-transparent border-0" aria-label="Open planner">
+        <span>📝</span>
+        <small>Trip (<span class="planner-count-badge">0</span>)</small>
+      </button>
+    </nav>
+
+    <!-- Global Footer -->
+    <footer class="app-footer bg-surface border-top py-5 mt-5">
+      <div class="container text-center">
+        <img src="assets/images/logo/logo.png" alt="Logo" width="48" height="48" class="mb-3 opacity-90">
+        <h4 class="h5 mb-2">Bangalore Explorer | ಬೆಂಗಳೂರು ಎಕ್ಸ್‌ಪ್ಲೋರರ್</h4>
+        <p class="text-muted fs-sm max-w-prose mx-auto mb-4">
+          A client-side bilingual city discovery platform celebrating 500 years of Bengaluru heritage, royal architecture, lush botanical gardens, and the modern silicon revolution. Built with privacy-first vanilla web standards.
+        </p>
+        <div class="footer-links d-flex justify-content-center gap-3 flex-wrap fs-sm mb-4">
+          <a href="#/home" class="text-muted text-decoration-none">Home</a>
+          <a href="#/explore" class="text-muted text-decoration-none">Destinations</a>
+          <a href="#/categories" class="text-muted text-decoration-none">Categories</a>
+          <a href="#/map" class="text-muted text-decoration-none">Interactive Map</a>
+          <a href="#/itineraries" class="text-muted text-decoration-none">Day Trails</a>
+          <a href="#/stories" class="text-muted text-decoration-none">Chronicles</a>
+          <a href="#/about" class="text-muted text-decoration-none">About</a>
+        </div>
+        <p class="text-muted fs-xs mb-0">
+          © 2026 Bangalore Explorer. Crafted for Namma Bengaluru. No cookies, no tracking, 100% static & open.
+        </p>
+      </div>
+    </footer>
+
+    <!-- Scripts (Ordered for static client-side execution) -->
+    <!-- 1. Leaflet Mapping Library -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <!-- 2. Master Data Store (68+ Places, 9 Categories, 6 Itineraries, 4 Stories) -->
     <script src="assets/js/data.js"></script>
+    <!-- 3. Geolocation & Direction Service -->
+    <script src="assets/js/geo.js"></script>
+    <!-- 4. LocalStorage & State Management -->
+    <script src="assets/js/storage.js"></script>
+    <!-- 5. Bilingual Search Engine -->
+    <script src="assets/js/search.js"></script>
+    <!-- 6. Interactive Leaflet Map Controller -->
+    <script src="assets/js/map.js"></script>
+    <!-- 7. Trip Planner & Itineraries Controller -->
+    <script src="assets/js/planner.js"></script>
+    <!-- 8. Hash Router -->
+    <script src="assets/js/router.js"></script>
+    <!-- 9. Accessible Modal Controller -->
     <script src="assets/js/modal.js"></script>
+    <!-- 10. Master App Coordinator -->
     <script src="assets/js/app.js"></script>
   </body>
 </html>

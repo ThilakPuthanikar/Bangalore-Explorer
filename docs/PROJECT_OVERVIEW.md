@@ -1,112 +1,63 @@
-# Project Overview: Bangalore Explorer
+# Project Overview: Bangalore Explorer (ಬೆಂಗಳೂರು ಎಕ್ಸ್‌ಪ್ಲೋರರ್)
 
 ---
 
 ## 1. Project Introduction
 
-**Bangalore Explorer** (*ಬೆಂಗಳೂರು ಎಕ್ಸ್‌ಪ್ಲೋರರ್*) is a client-side static web application that acts as a digital travel and civic guide to the metropolis of Bengaluru, Karnataka, India. 
+**Bangalore Explorer** (*ಬೆಂಗಳೂರು ಎಕ್ಸ್‌ಪ್ಲೋರರ್*) is a high-performance, client-side bilingual city-discovery platform that serves as a premier digital travel and cultural guide to the metropolis of Bengaluru, Karnataka, India.
 
-The application provides an accessible, ad-free directory of 48 curated landmarks spanning 8 key sectors: heritage temples, major IT campuses, luxury and high-street shopping, premier sports stadiums, entertainment parks, leading commercial banks, luxury hotels, and tertiary care hospitals. It also features a comprehensive bilingual historical overview and an interactive Google My Maps integration.
+Evolved from an earlier college project into a modern travel-magazine platform, Bangalore Explorer showcases **68+ verified destinations** across **9 thematic discovery sectors**: Heritage & Culture, Nature & Outdoors, Food & Heritage Dining, Shopping & Bazaars, Technology & Innovation, Temples & Spirituality, Sports & Recreation, Hotels & Stays, and Essential Services & Transit.
+
+The platform provides verified GPS coordinates, zero-key interactive mapping via Leaflet.js and OpenStreetMap, turn-by-turn driving and transit routing via Google Maps, 6 curated day itineraries, an interactive Personal Trip Planner with multi-waypoint route export, 4 historical/cultural chronicles, and 100% authentic bilingual language parity in English and Kannada.
 
 ---
 
 ## 2. Objectives
 
-1. **Curated Civic Discovery:** Provide quick, organized access to key attractions, infrastructure hubs, and institutions across Bangalore.
-2. **First-Class Bilingual Accessibility:** Deliver full language parity in both English and Kannada, allowing local citizens and international visitors to access the same quality of information.
-3. **Zero-Friction Static Delivery:** Ensure the platform runs without backends, databases, npm dependencies, or build tools, making it accessible even on modest hardware or offline environments.
-4. **Clean Engineering Standards:** Maintain a clean separation of concerns among markup (`index.html`), presentation (`styles.css`), data (`data.js`), and logic (`app.js`, `modal.js`).
+1. **Curated City Discovery:** Provide tourists, newcomers, residents, and students with rich, verified insights into Bengaluru's landmarks, heritage monuments, botanical gardens, street food hubs, and technology parks.
+2. **First-Class Bilingual Parity:** Deliver 100% authentic language parity in both English and Kannada (*ಕನ್ನಡ*), honouring the cultural roots of Karnataka with zero machine-translated or Hindi text.
+3. **Privacy-First Geolocation:** Respect user privacy by requesting browser location *only* upon explicit user action ("Near Me" / "Get Directions"), calculating real-time distances via the Haversine formula, and never probing location automatically on page load.
+4. **Zero-Key, Zero-Cost Architecture:** Eliminate third-party API billing, developer accounts, SQL backends, and server costs by combining client-side Leaflet.js + OpenStreetMap with standard Google Maps URL navigation schemes.
+5. **Modern Magazine UI/UX:** Elevate the visual identity to a responsive, editorial travel-magazine aesthetic with custom high-resolution photography, card hover elevation, category color palettes, and accessible dark/light theming.
+6. **Robust Offline Support:** Deliver Progressive Web App (PWA) readiness with `manifest.json` and `sw.js` for seamless offline exploration.
 
 ---
 
 ## 3. Target Audience
 
-- **Tourists & Visitors:** Individuals seeking historical landmarks, botanical gardens, and leisure attractions.
-- **Relocating Professionals:** Tech workers exploring major technology parks, banking facilities, and hospitality services.
-- **Local Kannada-Speaking Citizens:** Residents seeking civic information in their mother tongue.
-- **Students & Researchers:** Learners interested in Bengaluru's historical progression from the Ganga and Chola dynasties to Kempe Gowda I, the British Cantonment, and modern industrial hubs.
+- **Tourists & Global Visitors:** Travelers seeking verified visiting hours, entry fees, metro connectivity, and royal history.
+- **Residents & Weekend Explorers:** Bengaluru citizens exploring walking trails, flower markets, street food streets, and botanical gardens.
+- **Relocating Professionals & Students:** Tech newcomers navigating IT corridors, hospitals, transit junctions, and commercial districts.
+- **Heritage & Culture Enthusiasts:** Learners interested in the 500-year evolution from Kempe Gowda's four watchtowers to the Silicon Valley of Asia.
 
 ---
 
-## 4. Main Application Functionality
+## 4. Architectural Summary
 
-1. **Bilingual Engine:** Complete, instant switching between English and Kannada for all navigation items, descriptions, and historical essays. Language preference is persisted in `localStorage`.
-2. **Dark / Light Theme Switcher:** Theme toggle using CSS variables, updating body classes (`theme-on` vs `light`), knob position, and moon (`🌙`) / sun (`☀️`) iconography. Theme preference is persisted in `localStorage`.
-3. **Sector Card Grids:** 8 category grids displaying 6 cards each. Cards feature photographs, titles, and summaries, and adapt responsively using CSS Grid.
-4. **Detail Modal Dialog:** Overlay dialog displaying full-resolution imagery, titles, and 2–3 paragraph comprehensive descriptions. Fully accessible with keyboard `Escape` dismissal, click-outside dismissal, and background scroll locking.
-5. **Interactive Google Map:** Embedded custom Google My Maps layer displaying landmark markers and city transit lines.
-6. **Chronological History:** In-depth article detailing Bengaluru's chronology from 350 CE to the post-independence IT revolution.
-7. **Civic Landing Experience:** Engaging Home section with hero banner, categorized highlights, and quick navigation pills.
-
----
-
-## 5. Technology Stack
-
-- **Markup:** HTML5 Living Standard
-- **Styles:** Custom CSS3 with CSS Variables, Flexbox, and CSS Grid
-- **Scripts:** Vanilla ECMAScript 2015+ (ES6+)
-- **External Embeds:** Google My Maps Embed iframe
-- **Runtime Dependencies:** None
-- **Build / Packaging Tools:** None
+| Layer | Technology | Details |
+|---|---|---|
+| **Structure** | Semantic HTML5 | Clean, single-page application shell (`index.html`) |
+| **Presentation** | CSS3 Custom Properties | Editorial design system (`styles.css` & `components.css`) |
+| **Data Engine** | Vanilla ES6 JavaScript | Centralized bilingual data store (`data.js`) |
+| **Geolocation** | Web Geolocation API | Haversine formula & directions URL builder (`geo.js`) |
+| **Storage** | Web Storage API | Favorites, custom trip planner, and user state (`storage.js`) |
+| **Search** | Client-Side In-Memory | Instant bilingual search & filter engine (`search.js`) |
+| **Mapping** | Leaflet.js & OpenStreetMap | Free, zero-key interactive map with SVG pins (`map.js`) |
+| **Trip Planning** | Custom Controller | 6 curated trails & multi-stop Google Maps exporter (`planner.js`) |
+| **Routing** | Client-Side Hash Router | Deep-linking, history, and view rendering (`router.js`) |
+| **Dialogs** | Accessible Modal 2.0 | Focus trapping, escape listener, and visitor info (`modal.js`) |
+| **PWA & Offline** | Web App Manifest & Service Worker | Cache-first offline shell (`manifest.json` & `sw.js`) |
 
 ---
 
-## 6. High-Level Architecture
+## 5. Information Architecture & Discovery Categories
 
-The application is structured as a **Client-Side Single Page Application (SPA)**:
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│                          Browser                            │
-│                                                             │
-│   ┌──────────────┐   ┌──────────────┐   ┌───────────────┐   │
-│   │  index.html  │──▶│  styles.css  │   │  Google Maps  │   │
-│   │ (HTML Shell) │   │ (Appearance) │   │  (Embed API)  │   │
-│   └──────┬───────┘   └──────────────┘   └───────▲───────┘   │
-│          │                                      │           │
-│          ▼                                      │           │
-│   ┌──────────────┐   ┌──────────────┐           │           │
-│   │   data.js    │──▶│    app.js    │───────────┘           │
-│   │ (Data Store) │   │ (Controller) │                       │
-│   └──────────────┘   └──────┬───────┘                       │
-│                             │                               │
-│                             ▼                               │
-│                      ┌──────────────┐                       │
-│                      │   modal.js   │                       │
-│                      │(Dialog logic)│                       │
-│                      └──────────────┘                       │
-└─────────────────────────────────────────────────────────────┘
-                               │
-                               ▼
-        ┌──────────────────────────────────────────────┐
-        │        assets/images/ (Organized Media)      │
-        │   - logo/     - home/     - about/           │
-        │   - landmarks/{temples, it, shopping, ...}   │
-        └──────────────────────────────────────────────┘
-```
-
-- **Execution Flow:** `index.html` loads scripts sequentially. `data.js` initializes global datasets. `modal.js` prepares dialog event listeners. `app.js` initializes state from `localStorage`, builds navigation, renders all sections, activates the active page, and binds event listeners.
-- **DOM Rendering Strategy:** Sections are pre-rendered into `<section class="page" id="page-<id>">` elements. Navigation toggles the `.active` class (`display: none` vs `display: block`).
-
----
-
-## 7. Important Technical Decisions
-
-| Decision | Context | Rationale |
-| :--- | :--- | :--- |
-| **Vanilla Architecture** | Static college project. | Zero build configuration, instant startup, no `node_modules` overhead, and maximum long-term stability. |
-| **Script Tag Ordering** | Alternative to ES modules. | Avoids browser CORS restrictions when opened directly via `file:///` URLs while maintaining clean code separation. |
-| **In-Memory Bilingual Data** | Paired EN/KA records in `data.js`. | Allows instantaneous language switching with zero network roundtrips. |
-| **CSS Custom Properties** | Light/dark mode implementation. | Instantaneous theme toggling without stylesheet swaps or CSS-in-JS libraries. |
-| **LocalStorage State Persistence** | Preserving user selections. | Remembers language and theme choices across browser visits without requiring user accounts or cookies. |
-
----
-
-## 8. Current Project Scope & Architectural Constraints
-
-- **Scope:** Read-only civic information directory. The application does not collect user data, process payments, or support user-generated reviews.
-- **Constraints:**
-  - **No Dynamic Backend:** Adding or editing places requires updating `assets/js/data.js` and adding images to `assets/images/landmarks/`.
-  - **Google Maps Decoupling:** The Google My Maps embed is managed via an external Google account and rendered in a sandboxed iframe. Clicking a landmark card cannot programmatically move pins on the embedded map.
-  - **Local Static Storage:** Place bookmarks and favorites are not implemented in the current scope.
-
+1. **Heritage & Culture (`heritage-culture`):** Vidhana Soudha, Bangalore Palace, Tipu Sultan's Summer Palace, Bengaluru Fort, Attara Kacheri.
+2. **Nature & Outdoors (`nature-outdoors`):** Lalbagh Botanical Garden, Cubbon Park, Bannerghatta Biological Park, Sankey Tank, Ulsoor Lake.
+3. **Food & Heritage Dining (`food-dining`):** VV Puram Food Street, Mavalli Tiffin Room (MTR), Vidyarthi Bhavan, CTR Malleswaram, RCB Cafe.
+4. **Shopping & Bazaars (`shopping-markets`):** KR Flower Market, Commercial Street, Chickpet Silk Market, Gandhi Bazaar, UB City, Orion Mall, Phoenix Marketcity.
+5. **Technology & Innovation (`technology-innovation`):** IISc, ITPB Whitefield, Infosys Electronic City, Wipro, TCS, Manyata Tech Park.
+6. **Temples & Spirituality (`temples-spirituality`):** ISKCON Temple, Bull Temple, Banashankari Temple, Gavi Gangadhareshwara, Dodda Ganapathi.
+7. **Sports & Recreation (`sports-recreation`):** M. Chinnaswamy Stadium, Kanteerava Stadium, Padukone-Dravid Centre, Wonderla, Visvesvaraya Museum.
+8. **Hotels & Stays (`stay-accommodation`):** The Leela Palace, Taj West End, ITC Gardenia, The Oberoi, Sheraton Grand.
+9. **Essential Services & Transit (`essential-services`):** Kempegowda International Airport (T2), KSR Bengaluru Majestic Hub, Manipal Hospital, Apollo Hospital, Victoria Hospital, State Bank of India.
