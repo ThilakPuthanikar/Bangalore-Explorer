@@ -18,7 +18,6 @@ const App = (function () {
   let activeMapSearch = "";
   let activeMapCategory = "all";
   let activeMapSelectedId = null;
-  let activeMapEngine = "interactive"; // "interactive" (Leaflet 68+ Places) | "mymaps" (Google My Maps Embed)
 
   // UI Strings Dictionary
   const I18N = {
@@ -817,7 +816,7 @@ const App = (function () {
               ${Icons.get("navigation", { size: 14 })}
             </button>
             <button
-              class="btn btn-sm ${inPlan ? "btn-secondary" : "btn-outline-secondary"} d-inline-flex align-items-center justify-content-center"
+              class="btn btn-sm ${inPlan ? "btn-secondary is-in-plan" : "btn-outline-secondary"} d-inline-flex align-items-center justify-content-center"
               onclick="App.togglePlanner('${place.id}')"
               title="${inPlan ? t("inTrip") : t("addToTrip")}"
             >
@@ -919,68 +918,35 @@ const App = (function () {
   }
 
   /**
-   * Split-Screen Interactive Map View & Classic Google My Maps
+   * Split-Screen Interactive Landmarks Map View (All 68+ Destinations)
    */
   function renderMapView() {
     const mainEl = document.getElementById("main-app-content");
     if (!mainEl) return;
 
-    const switcherHtml = `
+    const mapHeaderHtml = `
       <div class="map-controls-header bg-surface border-bottom px-3 py-2 d-flex justify-content-between align-items-center flex-wrap gap-2">
         <div class="d-flex align-items-center gap-2">
-          <div class="map-view-switcher">
-            <button
-              class="map-view-switch-btn ${activeMapEngine === "interactive" ? "active" : ""}"
-              onclick="App.setMapEngine('interactive')"
-              title="${currentLang === "ka" ? "ಸಂವಾದಾತ್ಮಕ ತಾಣಗಳ ನಕ್ಷೆ (68+ ಸ್ಥಳಗಳು)" : "Interactive Landmark Map (68+ Destinations)"}"
-            >
-              ${Icons.get("map", { size: 14 })} <span>${currentLang === "ka" ? "ಸ್ಥಳಗಳ ನಕ್ಷೆ (68+)" : "Landmarks Map (68+)"}</span>
-            </button>
-            <button
-              class="map-view-switch-btn ${activeMapEngine === "mymaps" ? "active" : ""}"
-              onclick="App.setMapEngine('mymaps')"
-              title="${currentLang === "ka" ? "ಕ್ಲಾಸಿಕ್ ಗೂಗಲ್ ಮೈ ಮ್ಯಾಪ್ಸ್" : "Classic Google My Maps (Curated Embed)"}"
-            >
-              ${Icons.get("layers", { size: 14 })} <span>${currentLang === "ka" ? "ಕ್ಲಾಸಿಕ್ ಗೂಗಲ್ ಮ್ಯಾಪ್" : "Classic Google Map"}</span>
-            </button>
+          <div class="d-inline-flex align-items-center gap-2 text-primary font-weight-bold fs-sm">
+            ${Icons.get("map-pin", { size: 16 })}
+            <span>${currentLang === "ka" ? "ಬೆಂಗಳೂರು ಸ್ಥಳಗಳ ನಕ್ಷೆ (68+ ತಾಣಗಳು)" : "Landmarks Map (68+ Destinations)"}</span>
           </div>
         </div>
         <div class="d-flex align-items-center gap-2">
-          ${
-            activeMapEngine === "interactive"
-              ? `
-            <button class="btn btn-sm btn-outline-primary d-inline-flex align-items-center gap-1" onclick="MapController.locateUser()">
-              ${Icons.get("navigation", { size: 13 })} <span>${t("nearMe")}</span>
-            </button>
-            <button class="btn btn-sm btn-outline-secondary d-md-none d-inline-flex align-items-center gap-1" id="mapMobileToggleBtn" onclick="App.toggleMapMobileMode()">
-              ${Icons.get("list", { size: 13 })} <span id="mapToggleBtnLabel">${currentLang === "ka" ? "ಪಟ್ಟಿ" : "List"}</span>
-            </button>
-          `
-              : `
-            <a href="${MapController.getMyMapsUrl()}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-primary d-inline-flex align-items-center gap-1">
-              ${Icons.get("external-link", { size: 13 })} <span>${currentLang === "ka" ? "ಗೂಗಲ್‌ನಲ್ಲಿ ತೆರೆಯಿರಿ" : "Open in Google Maps"}</span>
-            </a>
-          `
-          }
+          <button class="btn btn-sm btn-outline-primary d-inline-flex align-items-center gap-1" onclick="MapController.locateUser()">
+            ${Icons.get("navigation", { size: 13 })} <span>${t("nearMe")}</span>
+          </button>
+          <button class="btn btn-sm btn-outline-secondary d-md-none d-inline-flex align-items-center gap-1" id="mapMobileToggleBtn" onclick="App.toggleMapMobileMode()">
+            ${Icons.get("list", { size: 13 })} <span id="mapToggleBtnLabel">${currentLang === "ka" ? "ಪಟ್ಟಿ" : "List"}</span>
+          </button>
         </div>
       </div>
     `;
 
-    if (activeMapEngine === "mymaps") {
-      mainEl.innerHTML = `
-        <section class="map-page-wrapper">
-          ${switcherHtml}
-          <div id="map-container-area" class="flex-grow-1 overflow-hidden" style="height: calc(100vh - 128px);"></div>
-        </section>
-      `;
-      MapController.renderGoogleMyMaps("map-container-area");
-      return;
-    }
-
     // Default: Interactive Split-Screen Map View
     mainEl.innerHTML = `
       <section class="map-page-wrapper">
-        ${switcherHtml}
+        ${mapHeaderHtml}
         <div class="map-split-layout" id="mapSplitLayout">
           <!-- Left Sidebar Places List -->
           <aside class="map-sidebar-list" id="mapSidebarList">
@@ -994,8 +960,31 @@ const App = (function () {
                   value="${activeMapSearch}"
                   autocomplete="off"
                 />
+                <button
+                  class="map-search-clear-btn"
+                  id="mapSearchClearBtn"
+                  onclick="App.clearMapSearch()"
+                  style="${activeMapSearch ? 'display: flex;' : 'display: none;'}"
+                  title="Clear search"
+                >
+                  ${Icons.get("x", { size: 13 })}
+                </button>
               </div>
-              <div class="map-sidebar-pills">
+
+              <div class="d-flex justify-content-between align-items-center mb-2 px-1">
+                <span class="fs-xs text-uppercase text-muted fw-bold d-inline-flex align-items-center gap-1">
+                  ${Icons.get("layers", { size: 12 })} <span>${currentLang === "ka" ? "ವರ್ಗಗಳು" : "Categories"}</span>
+                </span>
+                <button
+                  class="btn-reset-map-filter fs-xs text-primary bg-transparent border-0 p-0 ${activeMapCategory !== "all" || activeMapSearch ? "" : "d-none"}"
+                  id="mapFilterResetBtn"
+                  onclick="App.resetMapFilters()"
+                >
+                  ${Icons.get("x", { size: 11 })} ${currentLang === "ka" ? "ಎಲ್ಲಾ ತಾಣಗಳು" : "Reset Filter"}
+                </button>
+              </div>
+
+              <div class="map-sidebar-pills" id="mapSidebarPills">
                 ${renderMapCategoryPills()}
               </div>
             </div>
@@ -1018,6 +1007,14 @@ const App = (function () {
     if (mapSearchInput) {
       mapSearchInput.addEventListener("input", (e) => {
         activeMapSearch = e.target.value.trim().toLowerCase();
+        const clearBtn = document.getElementById("mapSearchClearBtn");
+        if (clearBtn) {
+          clearBtn.style.display = activeMapSearch ? "flex" : "none";
+        }
+        const resetBtn = document.getElementById("mapFilterResetBtn");
+        if (resetBtn) {
+          resetBtn.classList.toggle("d-none", activeMapCategory === "all" && !activeMapSearch);
+        }
         renderMapPlacesList();
       });
     }
@@ -1033,11 +1030,6 @@ const App = (function () {
     }, 120);
   }
 
-  function setMapEngine(engine) {
-    activeMapEngine = engine;
-    renderMapView();
-  }
-
   function renderMapCategoryPills() {
     const list = [
       { id: "all", label: t("allCategories"), icon: "sparkles" },
@@ -1051,9 +1043,9 @@ const App = (function () {
       .map(
         (c) => `
       <button
-        class="filter-pill ${activeMapCategory === c.id ? "active" : ""}"
+        class="map-filter-pill ${activeMapCategory === c.id ? "active" : ""}"
         onclick="App.setMapCategory('${c.id}')"
-        style="padding: 4px 10px; font-size: 0.76rem;"
+        title="${c.label}"
       >
         ${Icons.get(c.icon, { size: 12 })} <span>${c.label}</span>
       </button>
@@ -1149,12 +1141,46 @@ const App = (function () {
 
   function setMapCategory(catId) {
     activeMapCategory = catId;
-    const pillsContainer = document.querySelector(".map-sidebar-pills");
+    const pillsContainer = document.getElementById("mapSidebarPills") || document.querySelector(".map-sidebar-pills");
+    if (pillsContainer) {
+      pillsContainer.innerHTML = renderMapCategoryPills();
+    }
+    const resetBtn = document.getElementById("mapFilterResetBtn");
+    if (resetBtn) {
+      resetBtn.classList.toggle("d-none", activeMapCategory === "all" && !activeMapSearch);
+    }
+    renderMapPlacesList();
+    MapController.renderMarkers(catId);
+  }
+
+  function clearMapSearch() {
+    activeMapSearch = "";
+    const input = document.getElementById("mapSearchInput");
+    if (input) input.value = "";
+    const clearBtn = document.getElementById("mapSearchClearBtn");
+    if (clearBtn) clearBtn.style.display = "none";
+    const resetBtn = document.getElementById("mapFilterResetBtn");
+    if (resetBtn) {
+      resetBtn.classList.toggle("d-none", activeMapCategory === "all");
+    }
+    renderMapPlacesList();
+  }
+
+  function resetMapFilters() {
+    activeMapSearch = "";
+    activeMapCategory = "all";
+    const input = document.getElementById("mapSearchInput");
+    if (input) input.value = "";
+    const clearBtn = document.getElementById("mapSearchClearBtn");
+    if (clearBtn) clearBtn.style.display = "none";
+    const resetBtn = document.getElementById("mapFilterResetBtn");
+    if (resetBtn) resetBtn.classList.add("d-none");
+    const pillsContainer = document.getElementById("mapSidebarPills") || document.querySelector(".map-sidebar-pills");
     if (pillsContainer) {
       pillsContainer.innerHTML = renderMapCategoryPills();
     }
     renderMapPlacesList();
-    MapController.renderMarkers(catId);
+    MapController.renderMarkers("all");
   }
 
   function selectMapPlace(placeId) {
@@ -1206,29 +1232,68 @@ const App = (function () {
   }
 
   /**
-   * Stories View
+   * Stories View - Editorial Magazine Grid
    */
   function renderStoriesView() {
     const mainEl = document.getElementById("main-app-content");
     if (!mainEl) return;
 
+    // High-resolution heritage cover images for each story
+    const storyCovers = {
+      "kempegowda-four-towers": "assets/images/destinations/nature-outdoors/lalbagh-botanical-garden.jpg",
+      "garden-city-legacy": "assets/images/destinations/nature-outdoors/cubbon-park.jpg",
+      "pete-silk-lanes": "assets/images/destinations/shopping-markets/chickpet-market.jpg",
+      "silicon-plateau-revolution": "assets/images/destinations/technology-innovation/iisc-bangalore.jpg"
+    };
+
     const cardsHtml = STORIES.map((story) => {
       const title = currentLang === "ka" ? story.title.ka : story.title.en;
       const sub = currentLang === "ka" ? story.subtitle.ka : story.subtitle.en;
+      const coverImg = storyCovers[story.id] || "assets/images/destinations/nature-outdoors/cubbon-park.jpg";
+
+      // Render up to 3 landmark tags with avatars
+      const relatedPills = (story.relatedPlaces || []).slice(0, 3).map((pId) => {
+        const p = PLACES.find((item) => item.id === pId);
+        if (!p) return "";
+        const name = currentLang === "ka" ? p.kannadaName : p.name;
+        return `
+          <a href="#/destination/${p.id}" class="story-related-pill" title="${name}">
+            <img src="${p.image}" alt="${name}" class="story-related-avatar" loading="lazy">
+            <span>${name}</span>
+          </a>
+        `;
+      }).filter(Boolean).join("");
+
       return `
-        <article class="story-card card mb-4 shadow-sm border-0 overflow-hidden">
-          <div class="card-body p-4">
-            <div class="d-flex justify-content-between align-items-center mb-2">
-              <span class="badge bg-secondary text-white d-inline-flex align-items-center gap-1">${Icons.get("book-open", { size: 12 })} ${story.era}</span>
-              <span class="text-muted fs-xs d-inline-flex align-items-center gap-1">${Icons.get("clock", { size: 12 })} ${story.readingTime} read</span>
+        <article class="story-magazine-card">
+          <div class="story-cover-wrap">
+            <img src="${coverImg}" alt="${title}" class="story-cover-img" loading="lazy">
+            <div class="story-cover-overlay"></div>
+            <div class="story-cover-badges">
+              <span class="story-era-badge">${Icons.get("book-open", { size: 12 })} ${story.era}</span>
+              <span class="story-time-badge">${Icons.get("clock", { size: 12 })} ${story.readingTime} ${currentLang === "ka" ? "ಓದು" : "read"}</span>
             </div>
-            <h2 class="story-title h3 mb-2">
-              <a href="#/story/${story.id}" class="text-decoration-none text-heading">${title}</a>
+          </div>
+          <div class="story-magazine-body">
+            <div class="story-tags-strip mb-2">
+              ${(story.tags || []).slice(0, 2).map((tg) => `<span class="badge bg-surface-variant text-muted border">${tg}</span>`).join(" ")}
+            </div>
+            <h2 class="story-headline">
+              <a href="#/story/${story.id}">${title}</a>
             </h2>
-            <p class="story-subtitle lead-sm text-muted mb-4">${sub}</p>
-            <a href="#/story/${story.id}" class="btn btn-primary">
-              ${t("readStory")} →
-            </a>
+            <p class="story-synopsis">${sub}</p>
+            ${relatedPills ? `
+              <div class="story-related-strip">
+                <span class="story-related-label">${Icons.get("map-pin", { size: 12 })} ${currentLang === "ka" ? "ಸಂಬಂಧಿತ ತಾಣಗಳು:" : "Featured Places:"}</span>
+                <div class="story-related-list">${relatedPills}</div>
+              </div>
+            ` : ""}
+            <div class="story-magazine-footer">
+              <a href="#/story/${story.id}" class="btn btn-primary btn-sm d-inline-flex align-items-center gap-2">
+                <span>${t("readStory")}</span>
+                ${Icons.get("arrow-right", { size: 15 })}
+              </a>
+            </div>
           </div>
         </article>
       `;
@@ -1238,10 +1303,13 @@ const App = (function () {
       <section class="stories-page py-4">
         <div class="container">
           <div class="section-intro text-center mb-5">
+            <span class="badge bg-secondary-soft text-secondary px-3 py-1 rounded-full mb-2 fw-semibold">
+              ${Icons.get("book-open", { size: 14 })} ${currentLang === "ka" ? "ಬೆಂಗಳೂರು ಸಾಂಸ್ಕೃತಿಕ ಕಥನಗಳು" : "Bengaluru Historical Chronicles"}
+            </span>
             <h1 class="display-title mb-2">${t("storiesTitle")}</h1>
             <p class="section-lead text-muted">${t("storiesSubtitle")}</p>
           </div>
-          <div class="stories-container max-w-prose mx-auto">
+          <div class="story-magazine-grid">
             ${cardsHtml}
           </div>
         </div>
@@ -1384,11 +1452,11 @@ const App = (function () {
                     <button class="btn btn-primary d-inline-flex align-items-center gap-2" onclick="GeoService.openDirections(${place.coordinates.lat}, ${place.coordinates.lng}, '${encodeURIComponent(place.name)}')">
                       ${Icons.get("navigation", { size: 15 })} <span>${t("getDirections")}</span>
                     </button>
-                    <button class="btn ${inPlan ? "btn-secondary" : "btn-outline-primary"} d-inline-flex align-items-center gap-2" onclick="App.togglePlanner('${place.id}'); App.renderDestinationDetail('${place.id}');">
+                    <button class="btn ${inPlan ? "btn-secondary is-in-plan" : "btn-outline-primary"} d-inline-flex align-items-center gap-2" onclick="App.togglePlanner('${place.id}'); App.renderDestinationDetail('${place.id}');">
                       ${Icons.get(inPlan ? "check" : "plus", { size: 15 })} <span>${inPlan ? t("inTrip") : t("addToTrip")}</span>
                     </button>
                     <button class="btn ${isFav ? "btn-danger" : "btn-outline-secondary"} d-inline-flex align-items-center gap-2" onclick="App.toggleFavorite('${place.id}'); App.renderDestinationDetail('${place.id}');">
-                      ${Icons.get(isFav ? "heart-filled" : "heart", { size: 15, class: isFav ? "text-danger" : "" })} <span>${isFav ? t("savedFavorites") : "Save to Favorites"}</span>
+                      ${Icons.get(isFav ? "heart-filled" : "heart", { size: 15 })} <span>${isFav ? t("savedFavorites") : "Save to Favorites"}</span>
                     </button>
                   </div>
                 </div>
@@ -1465,39 +1533,158 @@ const App = (function () {
   }
 
   /**
-   * About View
+   * About View - Rich Illustrated Editorial & City History
    */
   function renderAboutView() {
     const mainEl = document.getElementById("main-app-content");
     if (!mainEl) return;
 
-    const aboutData = ABOUT_CONTENT || {};
-    const title = currentLang === "ka" ? aboutData.title?.ka || "ಬೆಂಗಳೂರು ಬಗ್ಗೆ" : aboutData.title?.en || "About Bangalore";
-    const text = currentLang === "ka" ? aboutData.content?.ka || "" : aboutData.content?.en || "";
+    const isKa = currentLang === "ka";
+
+    // Fast facts data
+    const fastFacts = [
+      {
+        icon: "landmark",
+        value: isKa ? "1537 ಕ್ರಿ.ಶ." : "1537 CE",
+        label: isKa ? "ನಾಡಪ್ರಭು ಕೆಂಪೇಗೌಡರಿಂದ ಸ್ಥಾಪನೆ" : "Founded by Kempe Gowda I",
+        sub: isKa ? "ಮಣ್ಣಿನ ಕೋಟೆ & ನಾಲ್ಕು ಗೋಪುರಗಳು" : "Mud fort & 4 boundary towers"
+      },
+      {
+        icon: "trees",
+        value: isKa ? "920 ಮೀ." : "920 m",
+        label: isKa ? "ಸಮುದ್ರ ಮಟ್ಟದಿಂದ ಎತ್ತರ" : "High Elevation Plateau",
+        sub: isKa ? "ವರ್ಷವಿಡೀ ಆಹ್ಲಾದಕರ ಹವಾಮಾನ" : "Pleasant year-round weather"
+      },
+      {
+        icon: "sparkles",
+        value: isKa ? "13.5M+" : "13.5M+",
+        label: isKa ? "ಕಾಸ್ಮೋಪಾಲಿಟನ್ ಜನಸಂಖ್ಯೆ" : "Cosmopolitan Population",
+        sub: isKa ? "ವಿಶ್ವದ ಪ್ರಮುಖ ತಂತ್ರಜ್ಞಾನ ಕೇಂದ್ರ" : "India's premier tech hub"
+      },
+      {
+        icon: "compass",
+        value: isKa ? "1000+" : "1000+",
+        label: isKa ? "ಉದ್ಯಾನಗಳು & ಹಸಿರು ತಾಣಗಳು" : "Parks & Green Lungs",
+        sub: isKa ? "ಲಾಲ್‌ಬಾಗ್ & ಕಬ್ಬನ್ ಪಾರ್ಕ್ ಪರಂಪರೆ" : "Lalbagh & Cubbon Park legacy"
+      }
+    ];
+
+    const fastFactsHtml = fastFacts.map((fact) => `
+      <div class="about-fact-card">
+        <div class="about-fact-icon">${Icons.get(fact.icon, { size: 24 })}</div>
+        <div class="about-fact-value">${fact.value}</div>
+        <div class="about-fact-label">${fact.label}</div>
+        <div class="about-fact-sub text-muted">${fact.sub}</div>
+      </div>
+    `).join("");
+
+    // 4 Detailed Historical & Cultural Chapters
+    const chapters = [
+      {
+        chapterNum: isKa ? "ಅಧ್ಯಾಯ 1" : "Chapter 1",
+        era: isKa ? "1537 ಕ್ರಿ.ಶ. • ಆರಂಭ & ಪೇಟೆ ಸ್ಥಾಪನೆ" : "1537 CE • Origin & The Mud Fort",
+        title: isKa ? "ಬೆಂದಕಾಳೂರು ಮತ್ತು ಕೆಂಪೇಗೌಡರ ಕಾವಲು ಗೋಪುರಗಳು" : "The Legend of Boiled Beans & Kempe Gowda's Mud Fort",
+        img: "assets/images/about/ab.jpg",
+        content: isKa
+          ? "ಬೆಂಗಳೂರು ಎಂಬ ಹೆಸರು 'ಬೆಂದ ಕಾಳು ಊರು' (ಬೇಯಿಸಿದ ಕಾಳುಗಳ ಊರು) ಎಂಬ ಪದದಿಂದ ಬಂದಿದೆ ಎಂದು ಐತಿಹ್ಯ ಹೇಳುತ್ತದೆ. ಹೊಯ್ಸಳ ರಾಜ ವೀರ ಬಲ್ಲಾಳ II ಬೇಟೆಯಾಡಲು ಹೋಗಿ ದಾರಿತಪ್ಪಿದಾಗ, ಒಬ್ಬ ವೃದ್ಧೆ ನೀಡಿದ ಬೇಯಿಸಿದ ಅವರೆಕಾಳುಗಳನ್ನು ತಿಂದು ಹಸಿವು ತಣಿಸಿಕೊಂಡು ಈ ಊರಿಗೆ 'ಬೆಂದ ಕಾಳೂರು' ಎಂದು ಹೆಸರಿಟ್ಟನೆಂಬುದು ಜನಪ್ರಿಯ ನಂಬಿಕೆ. 1537ರಲ್ಲಿ ವಿಜಯನಗರ ಸಾಮ್ರಾಜ್ಯದ ಯಳಹಂಕ ನಾಡಪ್ರಭು ಕೆಂಪೇಗೌಡ I ಅವರು ಮಣ್ಣಿನ ಕೋಟೆ ನಿರ್ಮಿಸಿ ಆಧುನಿಕ ಬೆಂಗಳೂರು ಪೇಟೆಗೆ ಶಂಕುಸ್ಥಾಪನೆ ಮಾಡಿದರು. ಅವರ ಕಾಲದಲ್ಲಿ ಚಿಕ್ಕಪೇಟೆ, ಬಳೇಪೇಟೆ, ಅಕ್ಕಿಪೇಟೆ ಮೊದಲಾದ ವ್ಯಾಪಾರ ಬೀದಿಗಳು ಹಾಗೂ ಕೆರೆ-ಕಟ್ಟೆಗಳು ನಿರ್ಮಾಣಗೊಂಡವು."
+          : "The legend of Bengaluru traces back to 'Benda Kaalu Ooru' (The Town of Boiled Beans), when Hoysala King Veera Ballala II lost his way in the dense forest and was offered boiled beans by a humble elderly woman. In 1537 CE, Nadaprabhu Kempe Gowda I, a chieftain under the Vijayanagara Empire, laid the foundation of modern Bengaluru by constructing a mud fort and four cardinal stone watchtowers. He planned thriving commercial petes (bazaars) specialized in silk, rice, and grain, surrounded by interconnecting lakes and water tanks."
+      },
+      {
+        chapterNum: isKa ? "ಅಧ್ಯಾಯ 2" : "Chapter 2",
+        era: isKa ? "1760 – 1947 • ರಾಜ ಪರಂಪರೆ & ಕಂಟೋನ್ಮೆಂಟ್" : "1760 – 1947 • Royal Heritage & The Cantonment",
+        title: isKa ? "ಒಡೆಯರ್, ಟಿಪ್ಪು ಸುಲ್ತಾನ್ ಮತ್ತು ಬ್ರಿಟಿಷ್ ಕಂಟೋನ್ಮೆಂಟ್" : "Tipu's Retreat, Wadiyar Grandeur & British Cantonment",
+        img: "assets/images/destinations/heritage-culture/bangalore-palace.jpg",
+        content: isKa
+          ? "18ನೇ ಶತಮಾನದಲ್ಲಿ ಹೈದರಾಲಿ ಮತ್ತು ಟಿಪ್ಪು ಸುಲ್ತಾನ್ ಬೆಂಗಳೂರನ್ನು ಬಲವರ್ಧಿತ ಕೋಟೆ ಮತ್ತು ಲಾಲ್‌ಬಾಗ್ ತೋಟದ ಮೂಲಕ ವೈಭವೀಕರಿಸಿದರು. 1799ರಲ್ಲಿ ಶ್ರೀರಂಗಪಟ್ಟಣ ಪತನದ ನಂತರ, ಒಡೆಯರ್ ರಾಜವಂಶವು ಮೈಸೂರು ಸಂಸ್ಥಾನದ ಅಧಿಕಾರವನ್ನು ಮರಳಿ ಪಡೆಯಿತು ಮತ್ತು ಟ್ಯೂಡರ್ ಶೈಲಿಯ ಭವ್ಯ ಬೆಂಗಳೂರು ಅರಮನೆಯನ್ನು ನಿರ್ಮಿಸಿತು. 1809ರಲ್ಲಿ ಬ್ರಿಟಿಷರು ನಗರದ ಪೂರ್ವದಲ್ಲಿ ಕಂಟೋನ್ಮೆಂಟ್ ಸ್ಥಾಪಿಸಿದರು. ಇದರಿಂದ ಪಾರಂಪರಿಕ ಪೇಟೆ ಹಾಗೂ ಪಾಶ್ಚಾತ್ಯ ಶೈಲಿಯ ಕಂಟೋನ್ಮೆಂಟ್ ಎಂಬ ವಿಭಿನ್ನ ಸಂಸ್ಕೃತಿಗಳು ಜೊತೆಜೊತೆಯಾಗಿ ಬೆಳೆದವು."
+          : "In the 18th century, Hyder Ali and his son Tipu Sultan enriched Bengaluru with their summer retreat and the royal botanical gardens of Lalbagh. Following Tipu's fall in 1799, the Wadiyar dynasty reclaimed sovereignty under British protection and constructed the opulent Tudor-revival Bangalore Palace. In 1809, the British established their vast military Cantonment, bringing European boulevards, colonial bungalows, and Gothic cathedrals that developed in fascinating tandem with the indigenous Pete bazaar culture."
+      },
+      {
+        chapterNum: isKa ? "ಅಧ್ಯಾಯ 3" : "Chapter 3",
+        era: isKa ? "1909 – ಇಂದಿನವರೆಗೆ • ವಿಜ್ಞಾನ & ಐಟಿ ಕ್ರಾಂತಿ" : "1909 – Present • Science Citadel & Silicon Valley",
+        title: isKa ? "ಸರ್ ಎಂ.ವಿ., ಐಐಎಸ್‌ಸಿ ಹಾಗೂ ಭಾರತದ ಸಿಲಿಕಾನ್ ವ್ಯಾಲಿ" : "Sir M.V., IISc & The Silicon Plateau Revolution",
+        img: "assets/images/destinations/technology-innovation/iisc-bangalore.jpg",
+        content: isKa
+          ? "ಮೈಸೂರಿನ ದಿವಾನರಾಗಿದ್ದ ಭಾರತ ರತ್ನ ಸರ್ ಎಂ. ವಿಶ್ವೇಶ್ವರಯ್ಯ ಅವರ ಮುನ್ನೋಟ ಮತ್ತು ಜೆ.ಎನ್. ಟಾಟಾ ಅವರ ಸಹಯೋಗದಿಂದ 1909ರಲ್ಲಿ ಭಾರತೀಯ ವಿಜ್ಞಾನ ಸಂಸ್ಥೆ (IISc) ಸ್ಥಾಪನೆಯಾಯಿತು. ಸ್ವಾತಂತ್ರ್ಯಾನಂತರ ಹೆಚ್.ಎ.ಎಲ್. (HAL), ಬಿ.ಇ.ಎಲ್. (BEL), ಇಸ್ರೋ (ISRO) ಮೊದಲಾದ ರಾಷ್ಟ್ರೀಯ ಹೆಗ್ಗುರುತು ಸಂಸ್ಥೆಗಳು ಬೆಂಗಳೂರನ್ನು ಭಾರತದ ವೈಮಾನಿಕ ಹಾಗೂ ವೈಜ್ಞಾನಿಕ ರಾಜಧಾನಿಯಾಗಿ ರೂಪಿಸಿದವು. 1980ರ ದಶಕದ ನಂತರ ಆರಂಭವಾದ ಸಾಫ್ಟ್‌ವೇರ್ ಕ್ರಾಂತಿ ನಗರವನ್ನು ಜಾಗತಿಕ ಸಿಲಿಕಾನ್ ವ್ಯಾಲಿಯಾಗಿ ರೂಪಿಸಿತು."
+          : "Under the forward-thinking vision of Bharat Ratna Sir M. Visvesvaraya and visionary industrialist Jamsetji Tata, the Indian Institute of Science (IISc) was chartered in 1909, cementing Bengaluru as India's intellectual capital. Following independence, public sector titans including HAL, ISRO, and BEL anchored aerospace and defense here. From the 1980s onwards, pioneering software companies and world-class tech campuses propelled Bengaluru onto the world stage as the Silicon Valley of India."
+      },
+      {
+        chapterNum: isKa ? "ಅಧ್ಯಾಯ 4" : "Chapter 4",
+        era: isKa ? "ಸಂಸ್ಕೃತಿ & ಜೀವನಶೈಲಿ • ಪರಂಪರೆ" : "Culture & Lifestyle • Living Soul",
+        title: isKa ? "ಕನ್ನಡ ಸಾಹಿತ್ಯ, ಫಿಲ್ಟರ್ ಕಾಫಿ & ಹಬ್ಬಗಳ ಸಂಭ್ರಮ" : "Kannada Literary Soul, Tiffin Heritage & Filter Coffee",
+        img: "assets/images/about/ab2.jpg",
+        content: isKa
+          ? "ಬೆಂಗಳೂರು ಕೇವಲ ತಂತ್ರಜ್ಞಾನವಲ್ಲ, ಅಪಾರ ಸಾಂಸ್ಕೃತಿಕ ಶ್ರೀಮಂತಿಕೆಯನ್ನು ಹೊಂದಿದೆ. ಕನ್ನಡ ಭಾಷೆಯ 8 ಜ್ಞಾನಪೀಠ ಪ್ರಶಸ್ತಿ ಪುರಸ್ಕೃತರ ಚಿಂತನೆಗಳು, ಬೆಂಗಳೂರು ಕರಗ ಶಕ್ತ್ಯುತ್ಸವ, ಕಡಲೆಕಾಯಿ ಪರಿಷೆಯ ಸಂಭ್ರಮ ನಗರದ ಆತ್ಮವಾಗಿದೆ. ಗಾಂಧಿ ಬಜಾರ್, ಮಲ್ಲೇಶ್ವರಂ ಮತ್ತು ವಿ.ವಿ. ಪುರಂನ ಬಿಸಿಬಿಸಿ ರವಾ ಇಡ್ಲಿ, ಬೆಣ್ಣೆ ಮಸಾಲೆ ದೋಸೆ ಹಾಗೂ ಘಮಘಮಿಸುವ ಫಿಲ್ಟರ್ ಕಾಫಿ ಸಂಸ್ಕೃತಿ ಬೆಂಗಳೂರಿನ ದಿನಚರಿಯ ಜೀವನಾಡಿಯಾಗಿದೆ."
+          : "Beyond algorithms, Bengaluru possesses an authentic, warm soul. It is celebrated for 8 Jnanpith literary laureates, the 800-year-old Bengaluru Karaga Shaktiotsava, and the lively Kadalekai Parishe (groundnut fair) in Basavanagudi. Century-old legendary tiffin institutions like MTR, Vidyarthi Bhavan, and CTR serve crispy golden benne masala dosas and frothy brass-davara filter coffee that form the timeless morning ritual of the city."
+      }
+    ];
+
+    const chaptersHtml = chapters.map((chap, idx) => {
+      const isReverse = idx % 2 !== 0;
+      return `
+        <article class="about-chapter-card ${isReverse ? "row-reverse" : ""}">
+          <div class="about-chapter-img-wrap">
+            <img src="${chap.img}" alt="${chap.title}" class="about-chapter-img" loading="lazy">
+          </div>
+          <div class="about-chapter-body">
+            <div class="about-chapter-meta mb-2">
+              <span class="badge bg-primary-soft text-primary fw-semibold">${chap.chapterNum}</span>
+              <span class="text-muted fs-xs">${chap.era}</span>
+            </div>
+            <h3 class="about-chapter-title mb-3">${chap.title}</h3>
+            <p class="about-chapter-text">${chap.content}</p>
+          </div>
+        </article>
+      `;
+    }).join("");
 
     mainEl.innerHTML = `
       <section class="about-page py-5">
-        <div class="container max-w-prose mx-auto">
-          <div class="text-center mb-5">
-            <img src="assets/images/logo/logo.png" alt="Bangalore Explorer" class="mb-3" width="90" height="90">
-            <h1 class="display-title mb-2">${title}</h1>
-            <p class="lead text-muted">${t("tagline")}</p>
+        <div class="container">
+          <!-- Hero Header -->
+          <div class="text-center mb-5 max-w-prose mx-auto">
+            <img src="assets/images/logo/logo.png" alt="Bangalore Explorer" class="mb-3 rounded-circle shadow-sm" width="84" height="84">
+            <div class="mb-2">
+              <span class="badge bg-primary-soft text-primary px-3 py-1 rounded-full fw-semibold d-inline-flex align-items-center gap-1">
+                ${Icons.get("landmark", { size: 14 })} ${isKa ? "ಅಧಿಕೃತ ನಗರ ಮಾರ್ಗದರ್ಶಿ" : "Official Bengaluru City Guide"}
+              </span>
+            </div>
+            <h1 class="display-title mb-2">${isKa ? "ಬೆಂಗಳೂರು ಮಹಾನಗರದ ಚರಿತ್ರೆ & ಪರಿಚಯ" : "About Bengaluru: The Garden City & Silicon Plateau"}</h1>
+            <p class="section-lead text-muted">${isKa ? "500+ ವರ್ಷಗಳ ರಾಜ ಪರಂಪರೆ, ಹಸಿರು ಉದ್ಯಾನಗಳು, ವೈಜ್ಞಾನಿಕ ಸಾಧನೆಗಳು ಹಾಗೂ ಮುಕ್ತ ದ್ವಿಭಾಷಾ ನಗರ ಮಾರ್ಗದರ್ಶಿ." : "A living chronicle spanning 500+ years of royal petes, verdant tree-lined boulevards, scientific breakthroughs, and open digital culture."}</p>
           </div>
 
-          <div class="card p-4 mb-4 border-0 shadow-sm bg-surface">
-            <h3 class="h4 mb-3 text-primary d-flex align-items-center gap-2">${Icons.get("trees", { size: 20 })} <span>${currentLang === "ka" ? "ನಗರದ ಪರಿಚಯ" : "The City Overview"}</span></h3>
-            <p class="lead-sm text-body-secondary mb-3">${text}</p>
+          <!-- Fast Facts Grid -->
+          <div class="about-fast-facts-grid mb-5">
+            ${fastFactsHtml}
           </div>
 
-          <div class="card p-4 mb-4 border-0 shadow-sm bg-surface">
-            <h3 class="h4 mb-3 text-primary d-flex align-items-center gap-2">${Icons.get("sparkles", { size: 20 })} <span>${currentLang === "ka" ? "ಯೋಜನೆಯ ಧ್ಯೇಯ" : "Mission & Architecture"}</span></h3>
-            <p class="fs-sm text-body-secondary">
+          <!-- Illustrated Historical Chapters -->
+          <div class="about-chapters-container mb-5">
+            <div class="text-center mb-4">
+              <h2 class="h3 fw-bold text-heading">${isKa ? "ಬೆಂಗಳೂರಿನ ಐತಿಹಾಸಿಕ ಪಯಣ" : "The Chronological Journey"}</h2>
+              <p class="text-muted fs-sm">${isKa ? "ಪ್ರಾಚೀನ ಬೆಂದಕಾಳೂರಿನಿಂದ ಇಂದಿನ ಜಾಗತಿಕ ತಂತ್ರಜ್ಞಾನ ರಾಜಧಾನಿಯವರೆಗೆ" : "From 16th-century mud fort to India's premier global tech metropolis"}</p>
+            </div>
+            ${chaptersHtml}
+          </div>
+
+          <!-- Open Platform Architecture -->
+          <div class="card p-4 p-md-5 border-0 shadow-sm bg-surface rounded-xl">
+            <div class="d-flex align-items-center gap-2 mb-3 text-primary">
+              ${Icons.get("sparkles", { size: 22 })}
+              <h3 class="h4 mb-0 fw-bold">${isKa ? "ಮುಕ್ತ ತಂತ್ರಜ್ಞಾನ ಮತ್ತು ನೈತಿಕ ವಿನ್ಯಾಸ" : "Open Architecture & Ethical Static Design"}</h3>
+            </div>
+            <p class="lead-sm text-body-secondary mb-3">
               ${
-                currentLang === "ka"
-                  ? "ಬೆಂಗಳೂರು ಎಕ್ಸ್‌ಪ್ಲೋರರ್ ಒಂದು ಮುಕ್ತ, ದ್ವಿಭಾಷಾ ನಗರ ಮಾರ್ಗದರ್ಶಿಯಾಗಿದೆ. ಇದು ಯಾವುದೇ ಪಾವತಿಸಿದ ಎಪಿಐಗಳು ಅಥವಾ ಸರ್ವರ್ ಅಗತ್ಯವಿಲ್ಲದೆ, ಸಂಪೂರ್ಣ ಕ್ಲೈಂಟ್ ಸೈಡ್ ತಂತ್ರಜ್ಞಾನದಲ್ಲಿ ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತದೆ. ಲೀಫ್‌ಲೆಟ್, ಓಪನ್‌ಸ್ಟ್ರೀಟ್‌ಮ್ಯಾಪ್ ಹಾಗೂ ಗೂಗಲ್ ಮ್ಯಾಪ್ಸ್ ಡೈರೆಕ್ಷನ್ ಲಿಂಕ್‌ಗಳ ಮೂಲಕ ಬಳಕೆದಾರರಿಗೆ ನಿಖರ ಮಾರ್ಗದರ್ಶನ ನೀಡುತ್ತದೆ."
-                  : "Bangalore Explorer is an open, high-performance, bilingual digital city guide. Built with zero mandatory backend, zero tracking, and zero paid API keys, it couples Leaflet OpenStreetMap tiles with dark matter styling and Google Maps URL routing to deliver a premium discovery experience across 68+ verified landmarks."
+                isKa
+                  ? "ಬೆಂಗಳೂರು ಎಕ್ಸ್‌ಪ್ಲೋರರ್ ಒಂದು ಮುಕ್ತ, ಸಂಪೂರ್ಣ ಕ್ಲೈಂಟ್ ಸೈಡ್ ದ್ವಿಭಾಷಾ ನಗರ ಮಾರ್ಗದರ್ಶಿಯಾಗಿದೆ. ಯಾವುದೇ ರನ್‌ಟೈಮ್ ಸರ್ವರ್, ಟ್ರ್ಯಾಕಿಂಗ್ ಅಥವಾ ಪಾವತಿಸಿದ ಮ್ಯಾಪ್ ಎಪಿಐ ಅಗತ್ಯವಿಲ್ಲದೆ ಗಿಟ್‌ಹಬ್ ಪೇಜಸ್‌ನಲ್ಲಿ ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತದೆ. ಲೀಫ್‌ಲೆಟ್ ಓಪನ್‌ಸ್ಟ್ರೀಟ್‌ಮ್ಯಾಪ್, ಡಾರ್ಕ್ ಮ್ಯಾಟರ್ ಸಿಎಸ್‌ಎಸ್ ಫಿಲ್ಟರ್ ಮತ್ತು ಗೂಗಲ್ ಮ್ಯಾಪ್ಸ್ ಡೈರೆಕ್ಷನ್ ರೂಟಿಂಗ್ ಮೂಲಕ 68+ ನೈಜ ತಾಣಗಳ ನಿಖರ ಮಾರ್ಗದರ್ಶನ ನೀಡುತ್ತದೆ."
+                  : "Bangalore Explorer 2.0 is an open, high-performance, bilingual digital city platform engineered exclusively with browser-native HTML5, CSS3, and modern JavaScript modules. Deployed frictionlessly to GitHub Pages with zero mandatory Node servers, zero tracking, and zero paid API keys, it couples Leaflet OpenStreetMap tiles with dark matter styling and multi-stop Google Maps URL navigation to offer instant, reliable access to 68+ verified Bengaluru landmarks."
               }
             </p>
+            <div class="d-flex flex-wrap gap-2 pt-2 border-top">
+              <span class="badge bg-surface-variant text-muted border">${Icons.get("check", { size: 12 })} 100% Serverless Static</span>
+              <span class="badge bg-surface-variant text-muted border">${Icons.get("check", { size: 12 })} 68+ Verified Landmarks</span>
+              <span class="badge bg-surface-variant text-muted border">${Icons.get("check", { size: 12 })} Zero Paid API Keys</span>
+              <span class="badge bg-surface-variant text-muted border">${Icons.get("check", { size: 12 })} Kannada & English Parity</span>
+            </div>
           </div>
         </div>
       </section>
@@ -1513,7 +1700,8 @@ const App = (function () {
     clearSearchQuery,
     resetAllFilters,
     setMapCategory,
-    setMapEngine,
+    clearMapSearch,
+    resetMapFilters,
     selectMapPlace,
     highlightMapPlace,
     toggleMapMobileMode,

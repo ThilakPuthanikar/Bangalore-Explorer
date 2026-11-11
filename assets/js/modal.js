@@ -168,7 +168,7 @@ const ModalController = (function () {
           <button class="btn btn-primary flex-grow-1 d-inline-flex align-items-center justify-content-center gap-2" onclick="GeoService.openDirections(${place.coordinates?.lat || 12.9716}, ${place.coordinates?.lng || 77.5946}, '${encodeURIComponent(place.name)}')">
             ${Icons.get("navigation", { size: 16 })} <span>${dirText}</span>
           </button>
-          <button class="btn ${inPlan ? "btn-secondary" : "btn-outline-primary"} d-inline-flex align-items-center gap-2" onclick="ModalController.togglePlannerAction('${place.id}')">
+          <button class="btn ${inPlan ? "btn-secondary is-in-plan" : "btn-outline-primary"} d-inline-flex align-items-center gap-2" onclick="ModalController.togglePlannerAction('${place.id}')">
             ${Icons.get(inPlan ? "check" : "plus", { size: 16 })} <span>${planText}</span>
           </button>
           <button class="btn ${isFav ? "btn-danger" : "btn-outline-secondary"} d-inline-flex align-items-center gap-2" onclick="ModalController.toggleFavoriteAction('${place.id}')" title="Favorite">

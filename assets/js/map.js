@@ -34,8 +34,6 @@ const MapController = (function () {
     cartoDark: "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
   };
 
-  const MY_MAPS_EMBED_URL = "https://www.google.com/maps/d/u/0/embed?mid=1pXvLrRbetLahyrEdzNnfaCJoM25uvXg&ehbc=2E312F";
-
   const TILE_ATTRIBUTION =
     '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors';
 
@@ -307,32 +305,6 @@ const MapController = (function () {
     `;
   }
 
-  function renderGoogleMyMaps(containerId = "map-container") {
-    const container = document.getElementById(containerId);
-    if (!container) return;
-
-    if (mapInstance) {
-      mapInstance.remove();
-      mapInstance = null;
-      currentTileLayer = null;
-    }
-
-    container.innerHTML = `
-      <div class="mymaps-view-wrapper">
-        <div class="mymaps-frame-card">
-          <iframe
-            src="${MY_MAPS_EMBED_URL}"
-            class="mymaps-iframe"
-            title="${activeLang === "ka" ? "ಬೆಂಗಳೂರು ಸಂವಾದಾತ್ಮಕ ನಕ್ಷೆ" : "Bangalore City Interactive Map"}"
-            loading="lazy"
-            sandbox="allow-scripts allow-same-origin allow-popups"
-            allowfullscreen
-          ></iframe>
-        </div>
-      </div>
-    `;
-  }
-
   function setLanguage(lang) {
     activeLang = lang;
     if (mapInstance) {
@@ -359,8 +331,6 @@ const MapController = (function () {
     focusPlace,
     locateUser,
     switchTileTheme,
-    renderGoogleMyMaps,
-    getMyMapsUrl: () => MY_MAPS_EMBED_URL,
     setLanguage,
     onSelect,
     getMap: () => mapInstance
