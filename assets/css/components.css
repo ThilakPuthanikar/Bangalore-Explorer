@@ -216,11 +216,37 @@ body.light .hero-pill-badge {
 
 .category-mini-card {
   cursor: pointer;
-  transition: transform 0.15s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .category-mini-card:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+}
+
+.category-mini-card-thumb-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background-color: var(--card-bg-alt);
+  margin-bottom: 8px;
+}
+
+.category-mini-card-thumb {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.category-mini-card:hover .category-mini-card-thumb {
+  transform: scale(1.04);
 }
 
 /* ==========================================================================
@@ -252,7 +278,7 @@ body.light .hero-pill-badge {
 .card-thumb-wrap {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 3 / 2;
   overflow: hidden;
   background-color: var(--card-bg-alt);
 }
@@ -663,6 +689,27 @@ body.dark .card-rating-badge {
 .map-leaflet-canvas {
   width: 100%;
   height: 100%;
+}
+
+/* ==========================================================================
+   Leaflet Tile Pane Dark Mode Filter (Zero-Key Pure CSS Dark Matter)
+   ========================================================================== */
+[data-theme="dark"] .map-leaflet-canvas .leaflet-tile-pane,
+[data-theme="dark"] .interactive-map-frame .leaflet-tile-pane,
+[data-theme="dark"] .leaflet-container .leaflet-tile-pane,
+.map-dark-tiles .leaflet-tile-pane {
+  filter: brightness(0.6) invert(1) contrast(3) hue-rotate(200deg) saturate(0.3) brightness(0.7);
+}
+
+[data-theme="light"] .map-leaflet-canvas .leaflet-tile-pane,
+[data-theme="light"] .interactive-map-frame .leaflet-tile-pane,
+[data-theme="light"] .leaflet-container .leaflet-tile-pane {
+  filter: none;
+}
+
+.map-leaflet-canvas .leaflet-container,
+.interactive-map-frame.leaflet-container {
+  background: var(--bg-surface, #0b0f17) !important;
 }
 
 /* Google My Maps Responsive Iframe Container */

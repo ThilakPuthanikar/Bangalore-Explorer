@@ -28,15 +28,16 @@ const MapController = (function () {
   };
 
   const TILE_URLS = {
-    light: "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",
-    dark: "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
-    osm: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+    osm: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+    // Optional authenticated CARTO endpoint if key is provided on window.CARTO_API_KEY
+    cartoLight: "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",
+    cartoDark: "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
   };
 
   const MY_MAPS_EMBED_URL = "https://www.google.com/maps/d/u/0/embed?mid=1pXvLrRbetLahyrEdzNnfaCJoM25uvXg&ehbc=2E312F";
 
   const TILE_ATTRIBUTION =
-    '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions" target="_blank" rel="noopener">CARTO</a>';
+    '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors';
 
   /**
    * Create custom SVG Leaflet DivIcon for pins
@@ -109,22 +110,48 @@ const MapController = (function () {
   }
 
   /**
-   * Apply appropriate CartoDB tile layer based on active theme
+   * Apply appropriate tile layer and styling based on active theme
    */
   function applyTileTheme(theme) {
     if (!mapInstance) return;
 
-    const url = theme === "dark" ? TILE_URLS.dark : TILE_URLS.light;
+    // Use zero-key OpenStreetMap tiles by default (no watermarks, 100% free)
+    // If a CARTO_API_KEY is explicitly configured on window, use Carto
+    let url = TILE_URLS.osm;
+    let subdomains = "abc";
+    let attribution = TILE_ATTRIBUTION;
+
+    if (window.CARTO_API_KEY) {
+      url = (theme === "dark" ? TILE_URLS.cartoDark : TILE_URLS.cartoLight) + `?key=${window.CARTO_API_KEY}`;
+      subdomains = "abcd";
+      attribution += ' &copy; <a href="https://carto.com/attributions" target="_blank" rel="noopener">CARTO</a>';
+    }
 
     if (currentTileLayer) {
+      // If we are using OSM and the layer is already added, just update container theme
+      if (!window.CARTO_API_KEY && currentTileLayer._url === TILE_URLS.osm) {
+        updateMapContainerTheme(theme);
+        return;
+      }
       mapInstance.removeLayer(currentTileLayer);
     }
 
     currentTileLayer = L.tileLayer(url, {
-      attribution: TILE_ATTRIBUTION,
-      subdomains: "abcd",
+      attribution: attribution,
+      subdomains: subdomains,
       maxZoom: 19
     }).addTo(mapInstance);
+
+    updateMapContainerTheme(theme);
+  }
+
+  function updateMapContainerTheme(theme) {
+    if (!mapInstance) return;
+    const container = mapInstance.getContainer();
+    if (container) {
+      container.setAttribute("data-map-theme", theme);
+      container.classList.toggle("map-dark-tiles", theme === "dark");
+    }
   }
 
   function switchTileTheme(theme) {

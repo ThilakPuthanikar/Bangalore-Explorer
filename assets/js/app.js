@@ -887,8 +887,10 @@ const App = (function () {
                   return `
                   <div class="col-md-3 col-6">
                     <div class="category-mini-card" onclick="Router.navigate('/destination/${p.id}')">
-                      <img src="${p.image}" alt="${title}" class="img-fluid rounded mb-1" style="height: 120px; width: 100%; object-fit: cover;" onerror="this.src='assets/images/placeholder.jpg'">
-                      <h6 class="fs-sm mb-0 text-truncate font-weight-bold">${title}</h6>
+                      <div class="category-mini-card-thumb-wrap">
+                        <img src="${p.image}" alt="${title}" class="category-mini-card-thumb" loading="lazy" onerror="this.src='assets/images/placeholder.jpg'">
+                      </div>
+                      <h6 class="fs-sm mb-1 text-truncate font-weight-bold">${title}</h6>
                       <small class="text-muted fs-xs d-inline-flex align-items-center gap-1">${Icons.get("map-pin", { size: 10 })} ${currentLang === "ka" ? p.neighbourhoodKn : p.neighbourhood}</small>
                     </div>
                   </div>
@@ -1274,9 +1276,11 @@ const App = (function () {
       .filter(Boolean)
       .map((p) => `
         <div class="col-md-3 col-6">
-          <div class="card p-2 text-center h-100" onclick="Router.navigate('/destination/${p.id}')" style="cursor: pointer;">
-            <img src="${p.image}" class="rounded mb-2" style="height: 100px; object-fit: cover;" onerror="this.src='assets/images/placeholder.jpg'">
-            <h6 class="fs-xs font-weight-bold mb-0">${currentLang === "ka" ? p.kannadaName : p.name}</h6>
+          <div class="category-mini-card" onclick="Router.navigate('/destination/${p.id}')">
+            <div class="category-mini-card-thumb-wrap">
+              <img src="${p.image}" class="category-mini-card-thumb" loading="lazy" onerror="this.src='assets/images/placeholder.jpg'">
+            </div>
+            <h6 class="fs-xs font-weight-bold mb-0 text-truncate text-center">${currentLang === "ka" ? p.kannadaName : p.name}</h6>
           </div>
         </div>
       `)
@@ -1490,8 +1494,8 @@ const App = (function () {
             <p class="fs-sm text-body-secondary">
               ${
                 currentLang === "ka"
-                  ? "ಬೆಂಗಳೂರು ಎಕ್ಸ್‌ಪ್ಲೋರರ್ ಒಂದು ಮುಕ್ತ, ದ್ವಿಭಾಷಾ ನಗರ ಮಾರ್ಗದರ್ಶಿಯಾಗಿದೆ. ಇದು ಯಾವುದೇ ಪಾವತಿಸಿದ ಎಪಿಐಗಳು ಅಥವಾ ಸರ್ವರ್ ಅಗತ್ಯವಿಲ್ಲದೆ, ಸಂಪೂರ್ಣ ಕ್ಲೈಂಟ್ ಸೈಡ್ ತಂತ್ರಜ್ಞಾನದಲ್ಲಿ ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತದೆ. ಲೀಫ್‌ಲೆಟ್, ಕಾರ್ಟೋಡಿಬಿ ಡಾರ್ಕ್ ಮ್ಯಾಟರ್ ಹಾಗೂ ಗೂಗಲ್ ಮ್ಯಾಪ್ಸ್ ಡೈರೆಕ್ಷನ್ ಲಿಂಕ್‌ಗಳ ಮೂಲಕ ಬಳಕೆದಾರರಿಗೆ ನಿಖರ ಮಾರ್ಗದರ್ಶನ ನೀಡುತ್ತದೆ."
-                  : "Bangalore Explorer is an open, high-performance, bilingual digital city guide. Built with zero mandatory backend, zero tracking, and zero paid API keys, it couples Leaflet CartoDB Voyager and Dark Matter tiles with Google Maps URL routing to deliver a premium discovery experience across 68+ verified landmarks."
+                  ? "ಬೆಂಗಳೂರು ಎಕ್ಸ್‌ಪ್ಲೋರರ್ ಒಂದು ಮುಕ್ತ, ದ್ವಿಭಾಷಾ ನಗರ ಮಾರ್ಗದರ್ಶಿಯಾಗಿದೆ. ಇದು ಯಾವುದೇ ಪಾವತಿಸಿದ ಎಪಿಐಗಳು ಅಥವಾ ಸರ್ವರ್ ಅಗತ್ಯವಿಲ್ಲದೆ, ಸಂಪೂರ್ಣ ಕ್ಲೈಂಟ್ ಸೈಡ್ ತಂತ್ರಜ್ಞಾನದಲ್ಲಿ ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತದೆ. ಲೀಫ್‌ಲೆಟ್, ಓಪನ್‌ಸ್ಟ್ರೀಟ್‌ಮ್ಯಾಪ್ ಹಾಗೂ ಗೂಗಲ್ ಮ್ಯಾಪ್ಸ್ ಡೈರೆಕ್ಷನ್ ಲಿಂಕ್‌ಗಳ ಮೂಲಕ ಬಳಕೆದಾರರಿಗೆ ನಿಖರ ಮಾರ್ಗದರ್ಶನ ನೀಡುತ್ತದೆ."
+                  : "Bangalore Explorer is an open, high-performance, bilingual digital city guide. Built with zero mandatory backend, zero tracking, and zero paid API keys, it couples Leaflet OpenStreetMap tiles with dark matter styling and Google Maps URL routing to deliver a premium discovery experience across 68+ verified landmarks."
               }
             </p>
           </div>

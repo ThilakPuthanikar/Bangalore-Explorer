@@ -148,7 +148,7 @@ const PLACES = [
     "fullDescKn": "ಕೆಂಗಲ್ ಹನುಮಂತಯ್ಯನವರ ಸಂಕಲ್ಪದಿಂದ 1956ರಲ್ಲಿ ನಿರ್ಮಾಣಗೊಂಡ ವಿಧಾನ ಸೌಧವು ಭಾರತದ ಅತಿ ದೊಡ್ಡ ಶಾಸನ ಸಭೆಯ ಕಟ್ಟಡವಾಗಿದೆ. ಮಲ್ಲಸಂದ್ರ ಹಾಗೂ ಹೆಸರಘಟ್ಟದಿಂದ ತರಲಾದ ಶುದ್ಧ ಗ್ರಾನೈಟ್ ಶಿಲೆಗಳಿಂದ ನಿರ್ಮಿತವಾದ ಈ ಮಹಾಸೌಧದಲ್ಲಿ ನವ-ದ್ರಾವಿಡ ಕೆತ್ತನೆಗಳು, ಬೃಹತ್ ಕಂಬಗಳು ಹಾಗೂ ನಾಲ್ಕು ಮುಖದ ಸಿಂಹ ಲಾಂಛನವಿರುವ ಕೇಂದ್ರ ಗುಮ್ಮಟವಿದೆ.",
     "history": "Inaugurated on 10 October 1956 as a monument of democratic self-rule and architectural mastery.",
     "historyKn": "1956ರ ಅಕ್ಟೋಬರ್ 10 ರಂದು ಪ್ರಜಾಪ್ರಭುತ್ವದ ಸಂಕೇತವಾಗಿ ಮತ್ತು ಸ್ಥಳೀಯ ಶಿಲ್ಪಕಲೆಯ ಗೌರವವಾಗಿ ಲೋಕಾರ್ಪಣೆಗೊಂಡಿತು.",
-    "image": "assets/images/landmarks/heritage/vidhana-soudha.jpg",
+    "image": "assets/images/destinations/heritage-culture/vidhana-soudha.jpg",
     "visitorInfo": {
       "timing": "Exterior viewing anytime; Sunday & Holiday illumination 6:00 PM - 8:30 PM",
       "timingKn": "ಹೊರಗಿನಿಂದ ಯಾವುದೇ ಸಮಯದಲ್ಲಿ ವೀಕ್ಷಿಸಬಹುದು; ಭಾನುವಾರ/ರಜಾದಿನ ಸಂಜೆ 6:00 - 8:30 ದೀಪಾಲಂಕಾರ",
@@ -187,7 +187,7 @@ const PLACES = [
     "fullDescKn": "1884ರಲ್ಲಿ ಚಾಮರಾಜೇಂದ್ರ ಒಡೆಯರ್ ಅವರಿಂದ ಖರೀದಿಸಲ್ಪಟ್ಟ ಬೆಂಗಳೂರು ಅರಮನೆಯು ಇಂಗ್ಲೆಂಡಿನ ವಿಂಡ್ಸರ್ ಕ್ಯಾಸಲ್ ಮಾದರಿಯಲ್ಲಿ ನಿರ್ಮಿತವಾಗಿದೆ. ಮರದ ಕೆತ್ತನೆಗಳು, ಟ್ಯೂಡರ್ ಕಮಾನುಗಳು, ರಾಜಾ ರವಿವರ್ಮರ ಅಪರೂಪದ ತೈಲವರ್ಣ ಚಿತ್ರಗಳು ಮತ್ತು ರಾಜಮನೆತನದ ಆಯುಧಗಳು ಇಲ್ಲಿ ವೀಕ್ಷಣೆಗೆ ಲಭ್ಯವಿದೆ.",
     "history": "Built originally by Rev. J. Garrett in 1878 and acquired by the Royal House of Mysore in 1884.",
     "historyKn": "ರೆವ್. ಜೆ. ಗ್ಯಾರೆಟ್ ಅವರಿಂದ 1878 ರಲ್ಲಿ ಪ್ರಾರಂಭವಾಗಿ, ನಂತರ ಮೈಸೂರು ಸಂಸ್ಥಾನದ ಒಡೆಯರ್ ಒಡೆತನಕ್ಕೆ ಸೇರಿತು.",
-    "image": "assets/images/landmarks/heritage/bangalore-palace.jpg",
+    "image": "assets/images/destinations/heritage-culture/bangalore-palace.jpg",
     "visitorInfo": {
       "timing": "10:00 AM - 5:30 PM (Open daily)",
       "timingKn": "ಬೆಳಗ್ಗೆ 10:00 ರಿಂದ ಸಂಜೆ 5:30 (ಪ್ರತಿದಿನ)",
@@ -226,7 +226,7 @@ const PLACES = [
     "fullDescKn": "ಹೈದರ್ ಅಲಿಯವರ ಕಾಲದಲ್ಲಿ ಪ್ರಾರಂಭವಾಗಿ 1791ರಲ್ಲಿ ಟಿಪ್ಪು ಸುಲ್ತಾನರಿಂದ ಪೂರ್ಣಗೊಂಡ ಈ ಕಟ್ಟಡವು ಸಂಪೂರ್ಣ ಕೆತ್ತನೆಯ ತೇಗದ ಮರದಿಂದ ನಿರ್ಮಾಣವಾಗಿದೆ. ಆಕರ್ಷಕ ಕಮಾನುಗಳು, ಬಣ್ಣದ ಮರದ ಕಂಬಗಳು ಹಾಗೂ ಮ್ಯೂಸಿಯಂನಲ್ಲಿ ಹಳೆಯ ದಾಖಲೆಗಳು ಮತ್ತು ಟಿಪ್ಪುವಿನ ಸಿಂಹಾಸನದ ಪ್ರತಿಕೃತಿ ಇವೆ.",
     "history": "Served as Tipu Sultan's summer retreat until his death in the Fourth Anglo-Mysore War in 1799.",
     "historyKn": "1791 ರಿಂದ 1799 ರವರೆಗೆ ಟಿಪ್ಪು ಸುಲ್ತಾನರ ಆಡಳಿತ ಹಾಗೂ ಬೇಸಿಗೆಯ ಬಿಡಾರವಾಗಿ ಬಳಕೆಯಾಗಿತ್ತು.",
-    "image": "assets/images/landmarks/heritage/tipu-summer-palace.jpg",
+    "image": "assets/images/destinations/heritage-culture/tipu-summer-palace.jpg",
     "visitorInfo": {
       "timing": "8:30 AM - 5:30 PM (Daily)",
       "timingKn": "ಬೆಳಗ್ಗೆ 8:30 ರಿಂದ ಸಂಜೆ 5:30 (ಪ್ರತಿದಿನ)",
@@ -265,7 +265,7 @@ const PLACES = [
     "fullDescKn": "ಬೆಂಗಳೂರು ನಗರದ ಉಗಮ ಸ್ಥಾನವಾದ ಈ ಕೋಟೆಯನ್ನು 1537ರಲ್ಲಿ ನಾಡಪ್ರಭು ಕೆಂಪೇಗೌಡರು ಮಣ್ಣಿನಿಂದ ಕಟ್ಟಿಸಿದರು. ನಂತರ 1761ರಲ್ಲಿ ಹೈದರ್ ಅಲಿ ಗ್ರಾನೈಟ್ ಶಿಲೆಗಳಿಂದ ಭದ್ರಪಡಿಸಿದರು. ಇಲ್ಲಿರುವ ದೆಹಲಿ ಬಾಗಿಲಿನ ಕೆತ್ತನೆಗಳು, ಕಾವಲುಗಾರರ ಕೊಠಡಿಗಳು ನಗರದ ವೀರ ಇತಿಹಾಸವನ್ನು ಸಾರುತ್ತವೆ.",
     "history": "Site of the intense Siege of Bangalore during the Third Anglo-Mysore War in March 1791.",
     "historyKn": "1791ರ ಮೂರನೇ ಆಂಗ್ಲೋ-ಮೈಸೂರು ಯುದ್ಧದ ಪ್ರಮುಖ ಕದನ ನಡೆದ ಐತಿಹಾಸಿಕ ಸ್ಥಳ.",
-    "image": "assets/images/landmarks/heritage/bengaluru-fort.jpg",
+    "image": "assets/images/destinations/heritage-culture/bengaluru-fort.jpg",
     "visitorInfo": {
       "timing": "8:30 AM - 5:30 PM (Daily)",
       "timingKn": "ಬೆಳಗ್ಗೆ 8:30 ರಿಂದ ಸಂಜೆ 5:30 (ಪ್ರತಿದಿನ)",
@@ -305,7 +305,7 @@ const PLACES = [
     "fullDescKn": "1870ರಲ್ಲಿ ನಿರ್ಮಾಣಗೊಂಡ ಕಬ್ಬನ್ ಪಾರ್ಕ್ ನಗರದ ಹೃದಯಭಾಗದಲ್ಲಿದೆ. ಸಾವಿರಾರು ಬೃಹತ್ ಮರಗಳು, ಬಿದಿರಿನ ಪೊದೆಗಳು, ವಾಕಿಂಗ್ ಟ್ರ್ಯಾಕ್‌ಗಳು ಹಾಗೂ ಕೆಂಪು ಬಣ್ಣದ ಐತಿಹಾಸಿಕ ಕೇಂದ್ರ ಗ್ರಂಥಾಲಯ (ಶೇಷಾದ್ರಿ ಅಯ್ಯರ್ ಭವನ) ಇಲ್ಲಿನ ಮುಖ್ಯ ಆಕರ್ಷಣೆ.",
     "history": "Originally established in 1870 under the Mysore State Administration; officially renamed Sri Chamarajendra Park in 1927.",
     "historyKn": "1870ರಲ್ಲಿ ಸ್ಥಾಪಿತವಾಗಿ, 1927ರಲ್ಲಿ ನಾಲ್ವಡಿ ಕೃಷ್ಣರಾಜ ಒಡೆಯರ್ ಆಡಳಿತದಲ್ಲಿ ಶ್ರೀ ಚಾಮರಾಜೇಂದ್ರ ಒಡೆಯರ್ ಪಾರ್ಕ್ ಎಂದು ಮರುನಾಮಕರಣವಾಯಿತು.",
-    "image": "assets/images/landmarks/nature/cubbon-park.jpg",
+    "image": "assets/images/destinations/nature-outdoors/cubbon-park.jpg",
     "visitorInfo": {
       "timing": "6:00 AM - 7:00 PM (Walking open from 5:00 AM; Traffic closed on Sundays)",
       "timingKn": "ಬೆಳಗ್ಗೆ 6:00 ರಿಂದ ಸಂಜೆ 7:00 (ಭಾನುವಾರ ಸಂಪೂರ್ಣ ವಾಹನ ಮುಕ್ತ)",
@@ -345,7 +345,7 @@ const PLACES = [
     "fullDescKn": "1971ರಲ್ಲಿ ಸ್ಥಾಪಿತವಾದ ಬನ್ನೇರುಘಟ್ಟ ಜೈವಿಕ ಉದ್ಯಾನವು ದಕ್ಷಿಣ ಬೆಂಗಳೂರಿನಲ್ಲಿದೆ. ಇಲ್ಲಿ ವನ್ಯಜೀವಿಗಳ ತೆರೆದ ವಾಹನ ಸಫಾರಿ, ದೇಶದ ಮೊದಲ ವರ್ಣರಂಜಿತ ಚಿಟ್ಟೆ ಪಾರ್ಕ್, ಆನೆಗಳ ಶಿಬಿರ ಹಾಗೂ ನೈಸರ್ಗಿಕ ಪ್ರಾಣಿಸಂಗ್ರಹಾಲಯವಿದೆ.",
     "history": "Declared a National Park in 1974; later designated as a biological park for wildlife conservation and education in 2002.",
     "historyKn": "1974ರಲ್ಲಿ ರಾಷ್ಟ್ರೀಯ ಉದ್ಯಾನವೆಂದು ಘೋಷಿಸಲ್ಪಟ್ಟು, 2002ರಲ್ಲಿ ಜೈವಿಕ ಉದ್ಯಾನವಾಗಿ ಪುನರ್ವ್ಯವಸ್ಥೆಗೊಂಡಿತು.",
-    "image": "assets/images/landmarks/nature/bannerghatta-national-park.jpg",
+    "image": "assets/images/destinations/nature-outdoors/bannerghatta-national-park.jpg",
     "visitorInfo": {
       "timing": "9:30 AM - 5:00 PM (Closed on Tuesdays)",
       "timingKn": "ಬೆಳಗ್ಗೆ 9:30 ರಿಂದ ಸಂಜೆ 5:00 (ಮಂಗಳವಾರ ರಜೆ)",
@@ -385,7 +385,7 @@ const PLACES = [
     "fullDescKn": "1876ರ ಬರಗಾಲದ ನಂತರ ಬೆಂಗಳೂರಿಗೆ ಕುಡಿಯುವ ನೀರು ಪೂರೈಸಲು ಬ್ರಿಟಿಷ್ ಇಂಜಿನಿಯರ್ ಕರ್ನಲ್ ರಿಚರ್ಡ್ ಹೈರಮ್ ಸ್ಯಾಂಕಿ 1882ರಲ್ಲಿ ಈ ಕೆರೆಯನ್ನು ನಿರ್ಮಿಸಿದರು. ಪ್ರಸ್ತುತ ಇದು ಮಲ್ಲೇಶ್ವರಂ ಹಾಗೂ ಸದಾಶಿವನಗರದ ಮಧ್ಯೆ ವಾಕಿಂಗ್, ಪಕ್ಷಿ ವೀಕ್ಷಣೆ ಹಾಗೂ ಬೋಟಿಂಗ್‌ಗೆ ಜನಪ್ರಿಯ ಸ್ಥಳವಾಗಿದೆ.",
     "history": "Constructed in 1882 as Gandhadhakoti Kere; designed to interconnect with Dharmambudhi and Millers tanks.",
     "historyKn": "1882ರಲ್ಲಿ ನಿರ್ಮಿತವಾದ ಈ ಕೆರೆಯು ನಗರದ ಪ್ರಾಚೀನ ಕೆರೆ ಜಾಲದ ಅವಿಭಾಜ್ಯ ಅಂಗವಾಗಿತ್ತು.",
-    "image": "assets/images/landmarks/nature/sankey-tank.jpg",
+    "image": "assets/images/destinations/nature-outdoors/sankey-tank.jpg",
     "visitorInfo": {
       "timing": "6:00 AM - 10:00 AM & 4:00 PM - 8:00 PM (Daily)",
       "timingKn": "ಬೆಳಗ್ಗೆ 6:00 - 10:00 ಮತ್ತು ಸಂಜೆ 4:00 - 8:00 (ಪ್ರತಿದಿನ)",
@@ -425,7 +425,7 @@ const PLACES = [
     "fullDescKn": "16ನೇ ಶತಮಾನದಲ್ಲಿ ಎರಡನೇ ಕೆಂಪೇಗೌಡರಿಂದ ನಿರ್ಮಿಸಲ್ಪಟ್ಟ ಹಲಸೂರು ಕೆರೆ 120 ಎಕರೆ ವಿಸ್ತಾರವಾಗಿದೆ. ಈ ಕೆರೆಯಲ್ಲಿ ಹಚ್ಚಹಸಿರಿನ ನಡುಗಡ್ಡೆಗಳಿದ್ದು, ವಾಕಿಂಗ್, ಬೋಟಿಂಗ್ ಹಾಗೂ ವಿಶ್ರಾಂತಿಗೆ ಪೂರ್ವ ಬೆಂಗಳೂರಿನ ಪ್ರಮುಖ ಕೇಂದ್ರವಾಗಿದೆ.",
     "history": "Excavated in the late 16th century by Kempe Gowda II; served as the water lifeline for Halasuru village and British cantonment.",
     "historyKn": "16ನೇ ಶತಮಾನದಲ್ಲಿ ನಿರ್ಮಾಣವಾಗಿ ನಂತರ ಬ್ರಿಟಿಷ್ ಕಂಟೋನ್ಮೆಂಟ್ ಅವಧಿಯಲ್ಲಿ ವಿಸ್ತರಣೆಗೊಂಡಿತು.",
-    "image": "assets/images/landmarks/nature/ulsoor-lake.jpg",
+    "image": "assets/images/destinations/nature-outdoors/ulsoor-lake.jpg",
     "visitorInfo": {
       "timing": "6:00 AM - 10:00 AM & 4:00 PM - 7:30 PM (Closed Wednesdays)",
       "timingKn": "ಬೆಳಗ್ಗೆ 6:00 - 10:00 ಮತ್ತು ಸಂಜೆ 4:00 - 7:30 (ಬುಧವಾರ ರಜೆ)",
@@ -465,7 +465,7 @@ const PLACES = [
     "fullDescKn": "1928ರಲ್ಲಿ ನಾಲ್ವಡಿ ಕೃಷ್ಣರಾಜ ಒಡೆಯರ್ ಹೆಸರಿನಲ್ಲಿ ಸ್ಥಾಪಿತವಾದ ಕೆ.ಆರ್. ಮಾರುಕಟ್ಟೆಯು ಏಷ್ಯಾದ ಪ್ರಸಿದ್ಧ ಹೂವಿನ ಮಾರುಕಟ್ಟೆಗಳಲ್ಲಿ ಒಂದಾಗಿದೆ. ಮುಂಜಾನೆ 4 ರಿಂದ 8 ಗಂಟೆಯವರೆಗೆ ಇಲ್ಲಿ ನಡೆಯುವ ಹೂವಿನ ವ್ಯಾಪಾರ, ಬಣ್ಣಬಣ್ಣದ ಸೇವಂತಿಗೆ, ಮಲ್ಲಿಗೆ, ಗುಲಾಬಿಗಳ ರಾಶಿ ಪ್ರವಾಸಿಗರಿಗೆ ಕಣ್ಮನ ಸೆಳೆಯುವ ಅನುಭವ ನೀಡುತ್ತದೆ.",
     "history": "Constructed on the battlefield of the 1791 Anglo-Mysore War; inaugurated as a modern municipal market in 1928.",
     "historyKn": "1791ರ ಕೋಟೆಯ ಯುದ್ಧಭೂಮಿ ಪ್ರದೇಶದಲ್ಲಿ 1928ರಲ್ಲಿ ಆಧುನಿಕ ಮಾರುಕಟ್ಟೆಯಾಗಿ ಸ್ಥಾಪನೆಯಾಯಿತು.",
-    "image": "assets/images/landmarks/shopping/kr-market.jpg",
+    "image": "assets/images/destinations/shopping-markets/kr-market.jpg",
     "visitorInfo": {
       "timing": "4:00 AM - 10:00 PM (Flower auction peaks 5:00 AM - 8:00 AM)",
       "timingKn": "ಮುಂಜಾನೆ 4:00 ರಿಂದ ರಾತ್ರಿ 10:00 (ಹೂವಿನ ವ್ಯಾಪಾರ 5:00 - 8:00ಕ್ಕೆ ಉತ್ತುಂಗ)",
@@ -505,7 +505,7 @@ const PLACES = [
     "fullDescKn": "ಬ್ರಿಟಿಷ್ ಕಂಟೋನ್ಮೆಂಟ್ ಕಾಲದಿಂದಲೂ ಪ್ರಸಿದ್ಧವಾಗಿರುವ ಕಮರ್ಷಿಯಲ್ ಸ್ಟ್ರೀಟ್ ಬೆಂಗಳೂರಿನ ಶಾಪಿಂಗ್ ಪ್ರಿಯರ ಸ್ವರ್ಗ. ಇಲ್ಲಿ ಬಟ್ಟೆಗಳು, ಸಾಂಪ್ರದಾಯಿಕ ಉಡುಪುಗಳು, ಬೆಳ್ಳಿಯ ಆಭರಣಗಳು, ಆಕರ್ಷಕ ಪಾದರಕ್ಷೆಗಳು ಮತ್ತು ಬೀದಿ ಬದಿಯ ತಿಂಡಿಗಳು ಲಭ್ಯವಿದೆ.",
     "history": "Developed during the early 19th century as the commercial spine serving the British Civil & Military Station.",
     "historyKn": "19ನೇ ಶತಮಾನದ ಆರಂಭದಲ್ಲಿ ಬ್ರಿಟಿಷ್ ಕಂಟೋನ್ಮೆಂಟ್ ನಾಗರಿಕರಿಗಾಗಿ ಪ್ರಮುಖ ವ್ಯಾಪಾರ ರಸ್ತೆಯಾಗಿ ಅಭಿವೃದ್ಧಿಗೊಂಡಿತು.",
-    "image": "assets/images/landmarks/shopping/commercial-street.jpg",
+    "image": "assets/images/destinations/shopping-markets/commercial-street.jpg",
     "visitorInfo": {
       "timing": "10:30 AM - 9:30 PM (All days)",
       "timingKn": "ಬೆಳಗ್ಗೆ 10:30 ರಿಂದ ರಾತ್ರಿ 9:30 (ಎಲ್ಲಾ ದಿನ)",
@@ -545,7 +545,7 @@ const PLACES = [
     "fullDescKn": "ಕೆಂಪೇಗೌಡರ ಕಾಲದಲ್ಲಿ ಸ್ಥಾಪಿತವಾದ ಚಿಕ್ಕಪೇಟೆಯು 400ಕ್ಕೂ ಹೆಚ್ಚು ವರ್ಷಗಳಿಂದ ರೇಷ್ಮೆ ವ್ಯಾಪಾರದ ಪ್ರಮುಖ ಕೇಂದ್ರವಾಗಿದೆ. ಅಸಲಿ ಮೈಸೂರು ರೇಷ್ಮೆ, ಬನಾರಸ್, ಕಾಂಜೀವರಂ ಸೀರೆಗಳು ಹಾಗೂ ಮದುವೆ ಶಾಪಿಂಗ್‌ಗೆ ಈ ಇತಿಹಾಸ ಪ್ರಸಿದ್ಧ ಮಾರುಕಟ್ಟೆ ಜನಪ್ರಿಯವಾಗಿದೆ.",
     "history": "One of the original designated commercial quarters established by Kempe Gowda I during the founding of Bangalore in 1537.",
     "historyKn": "1537ರಲ್ಲಿ ಕೆಂಪೇಗೌಡರು ಬೆಂಗಳೂರನ್ನು ಕಟ್ಟಿದಾಗ ವ್ಯಾಪಾರಕ್ಕಾಗಿ ರೂಪಿಸಿದ ಮೂಲ ಪೇಟೆಗಳಲ್ಲಿ ಒಂದಾಗಿದೆ.",
-    "image": "assets/images/landmarks/shopping/chickpet-market.jpg",
+    "image": "assets/images/destinations/shopping-markets/chickpet-market.jpg",
     "visitorInfo": {
       "timing": "10:30 AM - 9:00 PM (Most stores closed on Sunday afternoons)",
       "timingKn": "ಬೆಳಗ್ಗೆ 10:30 ರಿಂದ ರಾತ್ರಿ 9:00 (ಭಾನುವಾರ ಮಧ್ಯಾಹ್ನ ಕೆಲವು ಅಂಗಡಿಗಳು ಮುಚ್ಚಿರುತ್ತವೆ)",
@@ -585,7 +585,7 @@ const PLACES = [
     "fullDescKn": "ಬಸವನಗುಡಿಯ ಗಾಂಧಿ ಬಜಾರ್ ಹಳೆ ಬೆಂಗಳೂರಿನ ಸಾಂಸ್ಕೃತಿಕ ಹೆಗ್ಗುರುತಾಗಿದೆ. ಮರಗಳ ನೆರಳಿನಲ್ಲಿ ಹೂವಿನ ಅಂಗಡಿಗಳು, ಪೂಜಾ ಸಾಮಗ್ರಿಗಳು, ಸಾಹಿತ್ಯಿಕ ಚರ್ಚೆಗಳು ಹಾಗೂ ಸಮೀಪದ ವಿದ್ಯಾರ್ಥಿ ಭವನದ ಮಸಾಲೆ ದೋಸೆಯ ಪರಿಮಳ ಇಲ್ಲಿನ ವೈಶಿಷ್ಟ್ಯ.",
     "history": "Developed during the early 1900s as the primary marketplace of the historic Basavanagudi residential extension.",
     "historyKn": "20ನೇ ಶತಮಾನದ ಆರಂಭದಲ್ಲಿ ಬಸವನಗುಡಿ ಬಡಾವಣೆಯ ಪ್ರಮುಖ ವಾಣಿಜ್ಯ ಕೇಂದ್ರವಾಗಿ ರೂಪುಗೊಂಡಿತು.",
-    "image": "assets/images/landmarks/shopping/gandhi-bazaar.jpg",
+    "image": "assets/images/destinations/shopping-markets/gandhi-bazaar-market.jpg",
     "visitorInfo": {
       "timing": "6:30 AM - 9:30 PM (Daily)",
       "timingKn": "ಬೆಳಗ್ಗೆ 6:30 ರಿಂದ ರಾತ್ರಿ 9:30 (ಪ್ರತಿದಿನ)",
@@ -625,7 +625,7 @@ const PLACES = [
     "fullDescKn": "ರಾಜಾಜಿನಗರದಲ್ಲಿರುವ ಇಸ್ಕಾನ್ ಶ್ರೀ ರಾಧಾ-ಕೃಷ್ಣ ದೇವಸ್ಥಾನವು ಡ್ರಾವಿಡ ಶೈಲಿಯ ಅದ್ಭುತ ಕಟ್ಟಡವಾಗಿದೆ. ಇಲ್ಲಿ ಚಿನ್ನದ ಗೋಪುರಗಳು ಮತ್ತು ಆರು ದೇವರ ಸನ್ನಿಧಿಗಳು ಇವೆ. ಪ್ರತಿದಿನ ಪೂಜೆ, ಭಜನೆ ಮತ್ತು ಸಾಂಸ್ಕೃತಿಕ ಕಾರ್ಯಕ್ರಮಗಳು ನಡೆಯುತ್ತವೆ. ದೇವಸ್ಥಾನದಲ್ಲಿ ಸಂಗ್ರಹಾಲಯ, ವೇದ ಗ್ರಂಥಾಲಯ ಮತ್ತು ಪ್ರಸಾದವನ್ನು ನೀಡುವ ದೊಡ್ಡ ಆಹಾರ ಮಂದಿರವಿದೆ. ಇದು ಬೆಂಗಳೂರಿನ ಪ್ರಮುಖ ಆಧ್ಯಾತ್ಮಿಕ ಸ್ಥಳಗಳಲ್ಲಿ ಒಂದಾಗಿದೆ.",
     "history": "An established cultural and urban landmark in Bengaluru.",
     "historyKn": "ಬೆಂಗಳೂರಿನ ಪ್ರಸಿದ್ಧ ಸಾಂಸ್ಕೃತಿಕ ಹಾಗೂ ನಗರ ಹೆಗ್ಗುರುತು.",
-    "image": "assets/images/landmarks/temples/tem1.jpg",
+    "image": "assets/images/destinations/temples-spirituality/iskcon-temple.jpg",
     "visitorInfo": {
       "timing": "4:15 AM - 5:00 AM & 7:15 AM - 1:00 PM & 4:15 PM - 8:20 PM",
       "timingKn": "ಮುಂಜಾನೆ 4:15 - 5:00, ಬೆಳಗ್ಗೆ 7:15 - ಮಧ್ಯಾಹ್ನ 1:00, ಸಂಜೆ 4:15 - ರಾತ್ರಿ 8:20",
@@ -665,7 +665,7 @@ const PLACES = [
     "fullDescKn": "ಬಸವನಗುಡಿಯಲ್ಲಿ ಕೆಂಪೇಗೌಡರು ಕಟ್ಟಿಸಿದ ಬುಲ್ ದೇವಾಲಯವು ಶಿವನ ವಾಹನ ನಂದಿಗೆ ಸಮರ್ಪಿತವಾಗಿದೆ. ಇಲ್ಲಿ 15 ಅಡಿ ಎತ್ತರದ ಏಕಶಿಲಾ ನಂದಿ ಮೂರ್ತಿಯಿದೆ. ಇದು ಜಗತ್ತಿನ ಅತಿ ದೊಡ್ಡ ನಂದಿ ಪ್ರತಿಮೆಗಳಲ್ಲೊಂದು. ಪ್ರತಿವರ್ಷ ನಡೆಯುವ ಕಡಲೆಕಾಯಿ ಪರಿಷೆಯ ಸಮಯದಲ್ಲಿ ಸಾವಿರಾರು ಭಕ್ತರು ಇಲ್ಲಿ ಸೇರುತ್ತಾರೆ. ಇದು ಧಾರ್ಮಿಕ ಮತ್ತು ಸಾಂಸ್ಕೃತಿಕ ಮಹತ್ವವನ್ನು ಹೊಂದಿದ ಸ್ಥಳವಾಗಿದೆ.",
     "history": "An established cultural and urban landmark in Bengaluru.",
     "historyKn": "ಬೆಂಗಳೂರಿನ ಪ್ರಸಿದ್ಧ ಸಾಂಸ್ಕೃತಿಕ ಹಾಗೂ ನಗರ ಹೆಗ್ಗುರುತು.",
-    "image": "assets/images/landmarks/temples/tem2.jpg",
+    "image": "assets/images/destinations/temples-spirituality/bull-temple.jpg",
     "visitorInfo": {
       "timing": "6:00 AM - 1:30 PM & 3:30 PM - 8:30 PM",
       "timingKn": "ಬೆಳಗ್ಗೆ 6:00 - ಮಧ್ಯಾಹ್ನ 1:30 ಮತ್ತು ಮಧ್ಯಾಹ್ನ 3:30 - ರಾತ್ರಿ 8:30",
@@ -704,7 +704,7 @@ const PLACES = [
     "fullDescKn": "ಕನಕಪುರ ರಸ್ತೆಯಲ್ಲಿರುವ ಬನಶಂಕರಿ ದೇವಸ್ಥಾನವು ಪಾರ್ವತಿಯ ಅವತಾರವಾದ ಬನಶಂಕರಿ ದೇವಿಗೆ ಸಮರ್ಪಿತವಾಗಿದೆ. ಇಲ್ಲಿ ವಿಶೇಷವಾಗಿ ರಾಹುಕಾಲದ ಸಮಯದಲ್ಲಿ ಪೂಜೆ ನಡೆಯುವುದು ಇದರ ವೈಶಿಷ್ಟ್ಯವಾಗಿದೆ. ಪ್ರತಿವರ್ಷ ಬನಶಂಕರಿ ಜಾತ್ರೆಯಲ್ಲಿ ಸಾವಿರಾರು ಭಕ್ತರು ಭಾಗವಹಿಸುತ್ತಾರೆ. ಈ ದೇವಸ್ಥಾನವು ಶಕ್ತಿ ಪೂಜೆಯ ಪ್ರಮುಖ ಕೇಂದ್ರವಾಗಿ ಪರಿಗಣಿಸಲಾಗುತ್ತದೆ. ಇದು ಬೆಂಗಳೂರಿನ ಪ್ರಸಿದ್ಧ ಆಧ್ಯಾತ್ಮಿಕ ತಾಣವಾಗಿದೆ.",
     "history": "An established cultural and urban landmark in Bengaluru.",
     "historyKn": "ಬೆಂಗಳೂರಿನ ಪ್ರಸಿದ್ಧ ಸಾಂಸ್ಕೃತಿಕ ಹಾಗೂ ನಗರ ಹೆಗ್ಗುರುತು.",
-    "image": "assets/images/landmarks/temples/tem6.jpg",
+    "image": "assets/images/destinations/temples-spirituality/banashankari-temple.jpg",
     "visitorInfo": {
       "timing": "6:00 AM - 1:00 PM & 4:30 PM - 8:30 PM (Special Rahukala pooja on Tuesdays/Fridays)",
       "timingKn": "ಬೆಳಗ್ಗೆ 6:00 - ಮಧ್ಯಾಹ್ನ 1:00 ಮತ್ತು ಸಂಜೆ 4:30 - ರಾತ್ರಿ 8:30",
@@ -744,7 +744,7 @@ const PLACES = [
     "fullDescKn": "ಬಸವನಗುಡಿಯಲ್ಲಿ ಇರುವ ದೊಡ್ಡ ಗಣಪತಿ ದೇವಾಲಯವು ಗಣೇಶನಿಗೆ ಸಮರ್ಪಿತವಾಗಿದೆ. ಇಲ್ಲಿ 18 ಅಡಿ ಎತ್ತರ ಮತ್ತು 16 ಅಡಿ ಅಗಲದ ಭವ್ಯ ಗಣೇಶನ ವಿಗ್ರಹವಿದೆ. ವಿಶೇಷ ದಿನಗಳಲ್ಲಿ ಈ ವಿಗ್ರಹವನ್ನು ಬೆಣ್ಣೆಯಿಂದ ಅಲಂಕರಿಸಲಾಗುತ್ತದೆ. ಗಣೇಶ ಚತುರ್ಥಿಯ ಸಂದರ್ಭದಲ್ಲಿ ಇಲ್ಲಿ ಭಕ್ತರ ದೊಡ್ಡ ಗುಂಪು ಸೇರುತ್ತದೆ. ಇದು ಬೆಂಗಳೂರಿನ ಅತ್ಯಂತ ಜನಪ್ರಿಯ ಗಣೇಶ ದೇವಸ್ಥಾನಗಳಲ್ಲಿ ಒಂದಾಗಿದೆ.",
     "history": "An established cultural and urban landmark in Bengaluru.",
     "historyKn": "ಬೆಂಗಳೂರಿನ ಪ್ರಸಿದ್ಧ ಸಾಂಸ್ಕೃತಿಕ ಹಾಗೂ ನಗರ ಹೆಗ್ಗುರುತು.",
-    "image": "assets/images/landmarks/temples/tem3.jpg",
+    "image": "assets/images/destinations/temples-spirituality/dodda-ganapathi-temple.jpg",
     "visitorInfo": {
       "timing": "6:00 AM - 12:30 PM & 5:30 PM - 9:00 PM",
       "timingKn": "ಬೆಳಗ್ಗೆ 6:00 - ಮಧ್ಯಾಹ್ನ 12:30 ಮತ್ತು ಸಂಜೆ 5:30 - ರಾತ್ರಿ 9:00",
@@ -784,7 +784,7 @@ const PLACES = [
     "fullDescKn": "ಗವಿಪುರದಲ್ಲಿರುವ ಗವಿ ಗಂಗಾಧರೇಶ್ವರ ದೇವಸ್ಥಾನವು ಶಿವನಿಗೆ ಸಮರ್ಪಿತವಾದ ಗುಹಾ ದೇವಾಲಯವಾಗಿದೆ. ಇದು ಏಕಶಿಲಾ ಸ್ತಂಭಗಳು ಮತ್ತು ಪುರಾತನ ಶಿಲ್ಪಗಳಿಂದ ಪ್ರಸಿದ್ಧವಾಗಿದೆ. ಪ್ರತಿವರ್ಷ ಮಕರ ಸಂಕ್ರಾಂತಿಯಂದು ಸೂರ್ಯನ ಬೆಳಕು ದೇವರ ವಿಗ್ರಹದ ಮೇಲೆ ಬೀಳುವ ಅದ್ಭುತ ಇಲ್ಲಿ ಕಾಣಬಹುದು. ಅನೇಕ ಭಕ್ತರು ಮತ್ತು ಇತಿಹಾಸ ಪ್ರಿಯರು ಇಲ್ಲಿ ಭೇಟಿ ನೀಡುತ್ತಾರೆ. ಇದು ಬೆಂಗಳೂರಿನ ಪುರಾತನ ದೇವಾಲಯಗಳಲ್ಲಿ ಒಂದಾಗಿದೆ.",
     "history": "An established cultural and urban landmark in Bengaluru.",
     "historyKn": "ಬೆಂಗಳೂರಿನ ಪ್ರಸಿದ್ಧ ಸಾಂಸ್ಕೃತಿಕ ಹಾಗೂ ನಗರ ಹೆಗ್ಗುರುತು.",
-    "image": "assets/images/landmarks/temples/tem5.jpg",
+    "image": "assets/images/destinations/temples-spirituality/gavi-gangadhareshwara-temple.jpg",
     "visitorInfo": {
       "timing": "6:00 AM - 12:30 PM & 6:00 PM - 8:30 PM",
       "timingKn": "ಬೆಳಗ್ಗೆ 6:00 - ಮಧ್ಯಾಹ್ನ 12:30 ಮತ್ತು ಸಂಜೆ 6:00 - ರಾತ್ರಿ 8:30",
@@ -824,7 +824,7 @@ const PLACES = [
     "fullDescKn": "ಬೆಂಗಳೂರು ಕೋಟೆಯ ಹತ್ತಿರ ಇರುವ ಕೋಟೆ ವೆಂಕಟರಮಣ ದೇವಸ್ಥಾನವು ವಿಷ್ಣುವಿನ ರೂಪವಾದ ವೆಂಕಟರಮಣನಿಗೆ ಸಮರ್ಪಿತವಾಗಿದೆ. ಇದು ವಿಜಯನಗರ ಶೈಲಿಯ ವಾಸ್ತುಶಿಲ್ಪವನ್ನು ಹೊಂದಿದ್ದು, ಅದ್ಭುತ ಶಿಲ್ಪಕಲೆ ಮತ್ತು ಗೋಪುರವನ್ನು ಒಳಗೊಂಡಿದೆ. ಕೆಂಪೇಗೌಡರ ಕಾಲದ ಇತಿಹಾಸದೊಂದಿಗೆ ಇದು ಆಳವಾಗಿ ಸಂಪರ್ಕ ಹೊಂದಿದೆ. ಪ್ರತಿದಿನ ಭಕ್ತರು ಪೂಜೆಗಾಗಿ ಇಲ್ಲಿ ಬರುತ್ತಾರೆ. ಇದು ಬೆಂಗಳೂರಿನ ಹೆರಿಟೇಜ್ ಚಿಹ್ನೆಯಾಗಿದೆ.",
     "history": "An established cultural and urban landmark in Bengaluru.",
     "historyKn": "ಬೆಂಗಳೂರಿನ ಪ್ರಸಿದ್ಧ ಸಾಂಸ್ಕೃತಿಕ ಹಾಗೂ ನಗರ ಹೆಗ್ಗುರುತು.",
-    "image": "assets/images/landmarks/temples/tem4.jpg",
+    "image": "assets/images/destinations/temples-spirituality/kote-venkataramana-temple.jpg",
     "visitorInfo": {
       "timing": "8:00 AM - 12:00 PM & 6:00 PM - 8:30 PM",
       "timingKn": "ಬೆಳಗ್ಗೆ 8:00 - ಮಧ್ಯಾಹ್ನ 12:00 ಮತ್ತು ಸಂಜೆ 6:00 - ರಾತ್ರಿ 8:30",
@@ -863,7 +863,7 @@ const PLACES = [
     "fullDescKn": "ಇನ್ಫೋಸಿಸ್ ಬೆಂಗಳೂರಿನಲ್ಲಿ ಮೂಲಹೊಂದಿದ ಜಾಗತಿಕ ಮಟ್ಟದ ಐಟಿ ಸೇವಾ ಸಂಸ್ಥೆಯಾಗಿದೆ. ಇದರ ಕ್ಯಾಂಪಸ್‌ಗಳಲ್ಲಿ ಸಾಫ್ಟ್‌ವೇರ್ ಅಭಿವೃದ್ಧಿ, ಸಲಹಾ ಸೇವೆಗಳು ಮತ್ತು ತಂತ್ರಜ್ಞಾನ ತಂಡಗಳು ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತವೆ. ಹೊಸ ಪದವೀಧರರು ಮತ್ತು ಸಿಬ್ಬಂದಿಗೆ ತರಬೇತಿ ಮತ್ತು ನವೀನತೆ ಲ್ಯಾಬ್‌ಗಳು ದೊರೆಯುತ್ತವೆ. ಕಂಪನಿ ಡಿಜಿಟಲ್ ಪರಿವರ್ತನೆ, ಸ್ವಯಂಚಾಲನೆ ಮತ್ತು ಎಂಟರ್‌ಪ್ರೈಸ್ ಪರಿಹಾರಗಳಲ್ಲಿ ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತದೆ. ಬೆಂಗಳೂರಿನ ಪ್ರವೃತ್ತಿ ತಂತ್ರಜ್ಞಾನ ಪರಿಸರದಲ್ಲಿ ಇದು ಪ್ರಮುಖ ಉದ್ಯೋಗದಾಯಕವಾಗಿದೆ.",
     "history": "An established cultural and urban landmark in Bengaluru.",
     "historyKn": "ಬೆಂಗಳೂರಿನ ಪ್ರಸಿದ್ಧ ಸಾಂಸ್ಕೃತಿಕ ಹಾಗೂ ನಗರ ಹೆಗ್ಗುರುತು.",
-    "image": "assets/images/landmarks/it/it1.jpg",
+    "image": "assets/images/destinations/technology-innovation/infosys-electronic-city.jpg",
     "visitorInfo": {
       "timing": "9:00 AM - 6:00 PM (Authorized visitors & employees only)",
       "timingKn": "ಬೆಳಗ್ಗೆ 9:00 - ಸಂಜೆ 6:00 (ಅಧಿಕೃತ ಸಂದರ್ಶಕರಿಗೆ ಮಾತ್ರ)",
@@ -902,7 +902,7 @@ const PLACES = [
     "fullDescKn": "ವಿಪ್ರೊ ಬೆಂಗಳೂರಿನಲ್ಲಿ ಬಲವಾದ ನೆಲೆ ಹೊಂದಿರುವ ಪ್ರಮುಖ ಐಟಿ ಹಾಗೂ ಸಲಹಾ ಸಂಸ್ಥೆ. ಇದು ಕ್ಲೌಡ್, ಎಂಜಿನಿಯರಿಂಗ್, ಐಟಿ ಸಲಹೆ ಮತ್ತು ವ್ಯವಹಾರ ಪ್ರಕ್ರಿಯೆ ಪರಿಹಾರಗಳನ್ನು ಜಾಗತಿಕ ಗ್ರಾಹಕರಿಗೆ ನೀಡುತ್ತದೆ. ದೊಡ್ಡ ಡೆವಲಪ್‌ಮೆಂಟ್ ಕೇಂದ್ರಗಳಲ್ಲಿ ಉತ್ಪನ್ನ ಎಂಜಿನಿಯರಿಂಗ್ ಮತ್ತು ಎಂಟರ್‌ಪ್ರೈಸ್ ಯೋಜನೆಗಳ ಮೇಲೆ ಕೆಲಸ ನಡೆಯುತ್ತದೆ. ವಿಪ್ರೊ ಕೌಶಲ್ಯಾಭಿವೃದ್ಧಿ, ಪರಿಸರ ಪದক্ষেপ ಮತ್ತು ಶೈಕ್ಷಣಿಕ ಸಹಯೋಗಗಳಲ್ಲಿ ಹೂಡಿಕೆ ಮಾಡುತ್ತದೆ. ಹಲವು ವೃತ್ತಿಪರರು ವೈವಿಧ್ಯಮಯ ಪ್ರಾಜೆಕ್ಟ್ ಅನುಭವಕ್ಕಾಗಿ ವಿಪ್ರೊವನ್ನು ಆಯ್ಕೆಮಾಡುತ್ತಾರೆ.",
     "history": "An established cultural and urban landmark in Bengaluru.",
     "historyKn": "ಬೆಂಗಳೂರಿನ ಪ್ರಸಿದ್ಧ ಸಾಂಸ್ಕೃತಿಕ ಹಾಗೂ ನಗರ ಹೆಗ್ಗುರುತು.",
-    "image": "assets/images/landmarks/it/it2.jpg",
+    "image": "assets/images/destinations/technology-innovation/wipro-sarjapur.jpg",
     "visitorInfo": {
       "timing": "9:00 AM - 6:00 PM (Official entry only)",
       "timingKn": "ಬೆಳಗ್ಗೆ 9:00 - ಸಂಜೆ 6:00 (ಅಧಿಕೃತ ಪ್ರವೇಶ)",
@@ -941,7 +941,7 @@ const PLACES = [
     "fullDescKn": "ಟಿಸಿಎಸ್ ಬೆಂಗಳೂರಿನಲ್ಲಿ ಅನೇಕ ಕೇಂದ್ರಗಳನ್ನು ಹೊಂದಿರುವ ಭಾರತದ ಅತಿ ದೊಡ್ಡ ಐಟಿ ಸೇವಾ ಸಂಸ್ಥೆಗಳಲ್ಲಿ ಒಂದಾಗಿದೆ. ಕಂಪನಿ ಎಂಟರ್‌ಪ್ರೈಸ್ ಸಾಫ್ಟ್‌ವೇರ್ ಅಭಿವೃದ್ಧಿ, ಡೆಲಿವರಿ ಕೇಂದ್ರಗಳು ಮತ್ತು ಬ್ಯಾಂಕಿಂಗ್, ಆರೋಗ್ಯ ಹಾಗೂ ಚಿಲ್ಲರೆ ಕ್ಷೇತ್ರಗಳಿಗೆ ಸೇವೆಗಳನ್ನು ನೀಡುತ್ತದೆ. ಟಿಸಿಎಸ್ ಹೊಸ ಪದವೀಧರರನ್ನು ಪ್ರಾಜೆಕ್ಟ್ ತಂಡಗಳಿಗೆ ಸೇರಿಸಲು ವ್ಯಾಪಕ ನೇಮಕ ಮತ್ತು ತರಬೇತಿ ಕಾರ್ಯಕ್ರಮಗಳನ್ನು ನಡೆಸುತ್ತದೆ. ಇದರ ದೊಡ್ಡ ಉದ್ಯೋಗ ಶಕ್ತಿ ಮತ್ತು ಡೆಲಿವರಿ ಜಾಲ ಬೆಂಗಳೂರು ಐಟಿ ಆರ್ಥಿಕತೆಗೆ ದೊಡ್ಡ ಕೊಡುಗೆ ನೀಡುತ್ತದೆ. ಸಂಸ್ಥೆಯು ಸಂಶೋಧನಾ ಮತ್ತು ಕಾಲೇಜು ಸಹಕಾರಗಳಲ್ಲಿ ಸಹ ಸಕ್ರಿಯವಾಗಿದೆ.",
     "history": "An established cultural and urban landmark in Bengaluru.",
     "historyKn": "ಬೆಂಗಳೂರಿನ ಪ್ರಸಿದ್ಧ ಸಾಂಸ್ಕೃತಿಕ ಹಾಗೂ ನಗರ ಹೆಗ್ಗುರುತು.",
-    "image": "assets/images/landmarks/it/it3.jpg",
+    "image": "assets/images/destinations/technology-innovation/tcs-whitefield.jpg",
     "visitorInfo": {
       "timing": "9:00 AM - 6:00 PM (Authorized entry)",
       "timingKn": "ಬೆಳಗ್ಗೆ 9:00 - ಸಂಜೆ 6:00 (ಅಧಿಕೃತ ಪ್ರವೇಶ)",
@@ -980,7 +980,7 @@ const PLACES = [
     "fullDescKn": "ಐಬಿಎಂ ಬೆಂಗಳೂರಿನ ಸಂಶೋಧನಾ ಪ್ರಯೋಗಾಲಯಗಳು ಮತ್ತು ತಂತ್ರಜ್ಞಾನ ತಂಡಗಳನ್ನು ಪಾಲಿಸುತ್ತದೆ, ಇಲ್ಲಿ ಕ್ಲೌಡ್, ಕೃತಕ ಬುದ್ಧಿಮತ್ತೆ, ಹೈಬ್ರಿಡ್ ವೇದಿಕೆಗಳು ಮತ್ತು ಎಂಟರ್‌ಪ್ರೈಸ್ ಪರಿಹಾರಗಳ ಮೇಲೆ ಕೆಲಸ ಮಾಡಲಾಗುತ್ತದೆ. ಸ್ಥಳೀಯ ಕೇಂದ್ರಗಳು ಸಂಶೋಧನೆ, ಉತ್ಪನ್ನ ಎಂಜಿನಿಯರಿಂಗ್ ಮತ್ತು ದೊಡ್ಡ ಗ್ರಾಹಕ ಯೋಜನೆಗಳಲ್ಲಿ ತೊಡಗಿವೆ. ಐಬಿಎಂ ಸ್ಟಾರ್ಟಪ್‌ಗಳು, ವಿಶ್ವವಿದ್ಯಾಲಯಗಳು ಮತ್ತು ಕೈಗಾರಿಕೆಯೊಂದಿಗೆ ಹೊಸ ತಂತ್ರಜ್ಞಾನಗಳ ಪ್ರಯೋಗಗಳಿಗೆ ಸಹಕಾರ ನೀಡುತ್ತದೆ. ಈ ಕಚೇರಿಗಳು ಜಾಗತಿಕ ಉತ್ಪನ್ನ ತಂಡಗಳು ಮತ್ತು ಬೆಂಬಲ ಕಾರ್ಯಗಳನ್ನು ಒಳಗೊಂಡಿರುತ್ತವೆ. ಐಬಿಎಂನ ದೀರ್ಘಕಾಲೀನ ನೆಲೆ ಬೆಂಗಳೂರು ಸಂಶೋಧನಾ ಮತ್ತು ಉದ್ಯಮ ಪ್ರವೇಶಕ್ಕೆ ಸಹಕಾರ ನೀಡಿದೆ.",
     "history": "An established cultural and urban landmark in Bengaluru.",
     "historyKn": "ಬೆಂಗಳೂರಿನ ಪ್ರಸಿದ್ಧ ಸಾಂಸ್ಕೃತಿಕ ಹಾಗೂ ನಗರ ಹೆಗ್ಗುರುತು.",
-    "image": "assets/images/landmarks/it/it4.jpg",
+    "image": "assets/images/destinations/technology-innovation/ibm-manyata.jpg",
     "visitorInfo": {
       "timing": "9:00 AM - 6:00 PM (Authorized)",
       "timingKn": "ಬೆಳಗ್ಗೆ 9:00 - ಸಂಜೆ 6:00",
@@ -1019,7 +1019,7 @@ const PLACES = [
     "fullDescKn": "ಗೂಗಲ್‌ನ ಎಂಜಿನಿಯರಿಂಗ್ ಮತ್ತು ಉತ್ಪನ್ನ ತಂಡಗಳು ಬೆಂಗಳೂರಿನಲ್ಲಿ ಕ್ಲೌಡ್, ಸರ್ಚ್, ಮ್ಯಾಪ್ಸ್, ಜಾಹಿರಾತು ಮತ್ತು ಭಾರತ-ನಿರ್ದೇಶಿತ ಉತ್ಪನ್ನಗಳ ಮೇಲೆ ಕೆಲಸ ಮಾಡುತ್ತವೆ. ಇಲ್ಲಿ ಎಂಜಿನಿಯರ್‌ಗಳು, ಉತ್ಪನ್ನ ನಿರ್ವಹಕರು ಮತ್ತು ಸಂಶೋಧಕರು ತಳೆಯುವ ವ್ಯವಸ್ಥೆಗಳ ಮತ್ತು ಸ್ಥಳೀಕೃತ ಫೀಚರ್‌ಗಳ ಮೇಲೆ ಕೆಲಸ ಮಾಡುತ್ತಾರೆ. ಗೂಗಲ್ ಭಾರತೀಯ ಬಳಕೆದಾರರಿಗೆ ಭಾಷಾ ಉಪಕರಣಗಳು ಮತ್ತು ಡೆವಲಪರ್ ಕಾರ್ಯಕ್ರಮಗಳಲ್ಲಿ ಹೂಡಿಕೆ ಮಾಡುತ್ತದೆ. ಕ್ಯಾಂಪಸ್‌ಗಳಲ್ಲಿ ಲ್ಯಾಬ್‌ಗಳು, ವರ್ಕ್‌ಶಾಪ್‌ಗಳು ಮತ್ತು ಸಮುದಾಯ ಉಪಕ್ರಮಗಳಿವೆ. ಅನೇಕ ಎಂಜಿನಿಯರ್‌ಗಳು ಹಠಾತ್ ಸವಾಲಿನ ಪ್ರಾಜೆಕ್ಟ್‌ಗಳು ಮತ್ತು ಸೇರಿಕೊಂಡ ಕಾರ್ಯಸಂಸ್ಕೃತಿಗಾಗಿ ಗೂಗಲ್ ಅನ್ನು ಆಯ್ಕೆಮಾಡುತ್ತಾರೆ.",
     "history": "An established cultural and urban landmark in Bengaluru.",
     "historyKn": "ಬೆಂಗಳೂರಿನ ಪ್ರಸಿದ್ಧ ಸಾಂಸ್ಕೃತಿಕ ಹಾಗೂ ನಗರ ಹೆಗ್ಗುರುತು.",
-    "image": "assets/images/landmarks/it/it5.jpg",
+    "image": "assets/images/destinations/technology-innovation/google-bagmane-constellation.jpg",
     "visitorInfo": {
       "timing": "9:00 AM - 6:00 PM (Employees and invited guests only)",
       "timingKn": "ಬೆಳಗ್ಗೆ 9:00 - ಸಂಜೆ 6:00 (ಆಹ್ವಾನಿತರಿಗೆ ಮಾತ್ರ)",
@@ -1058,7 +1058,7 @@ const PLACES = [
     "fullDescKn": "ಮೈಕ್ರೋಸಾಫ್ಟ್ ಬೆಂಗಳೂರಿನಲ್ಲಿ ಅಭಿವೃದ್ಧಿ ಕೇಂದ್ರಗಳನ್ನು ನಡೆಸುತ್ತದೆ, ಇಲ್ಲಿ Azure ಕ್ಲೌಡ್, ಉತ್ಪಾದಕತೆ ಸಾಧನಗಳು, ಡೆವಲಪರ್ ವೇದಿಕೆಗಳು ಮತ್ತು AI ಸೇವೆಗಳ ಮೇಲೆಯೂ ಕೆಲಸವಿರುತ್ತದೆ. ಇಲ್ಲಿ ತಂಡಗಳು ಕ್ಲೌಡ್ ಮೂಲಸೌಕರ್ಯ, ಎಂಟರ್‌ಪ್ರೈಸ್ ಸಾಫ್ಟ್‌ವೇರ್ ಮತ್ತು ಜಾಗತಿಕವಾಗಿ ಬಳಸಲಾಗುವ ಉಪಕರಣಗಳನ್ನು ಅಭಿವೃದ್ಧಿಪಡಿಸುತ್ತವೆ. ಮೈಕ್ರೋಸಾಫ್ಟ್ ಸ್ಟಾರ್ಟ್‌ಅಪ್‌ಗಳು, ವಿಶ್ವವಿದ್ಯಾಲಯಗಳು ಮತ್ತು ಗ್ರಾಹಕರೊಂದಿಗೆ ಉತ್ಪನ್ನ ಅಭಿವೃದ್ಧಿ ಮತ್ತು ಸಂಶೋಧನೆಗಾಗಿ ಸಹಕಾರ ಮಾಡುತ್ತದೆ. ಕಚೇರಿಗಳಲ್ಲಿ ಉತ್ಪನ್ನ ಎಂಜಿನಿಯರಿಂಗ್, ಬೆಂಬಲ ಮತ್ತು ವ್ಯವಹಾರ ತಂಡಗಳಿರುವುದರಿಂದ ಜಾಗತಿಕ ಹೊಣೆಗಾರಿಕೆಗಳು ಕವುತ್ತವೆ. ಮೈಕ್ರೋಸಾಫ್ಟ್ ಬೆಂಗಳೂರಿನ ತಂತ್ರಜ್ಞಾನ ಪರಿಸರಕ್ಕೆ ಪ್ರಮುಖ ಕೊಡುಗೆ ನೀಡುವ ನೌಕರರೊಂದಿಗಿನ ಸಂಸ್ಥೆಯಾಗಿದೆ.",
     "history": "An established cultural and urban landmark in Bengaluru.",
     "historyKn": "ಬೆಂಗಳೂರಿನ ಪ್ರಸಿದ್ಧ ಸಾಂಸ್ಕೃತಿಕ ಹಾಗೂ ನಗರ ಹೆಗ್ಗುರುತು.",
-    "image": "assets/images/landmarks/it/it6.jpg",
+    "image": "assets/images/destinations/technology-innovation/microsoft-prestige-fern.jpg",
     "visitorInfo": {
       "timing": "9:00 AM - 6:00 PM (Official)",
       "timingKn": "ಬೆಳಗ್ಗೆ 9:00 - ಸಂಜೆ 6:00 (ಅಧಿಕೃತ)",
@@ -1098,7 +1098,7 @@ const PLACES = [
     "fullDescKn": "ಯುಬಿ ಸಿಟಿ ಬೆಂಗಳೂರಿನ ಅತ್ಯಂತ ಐಷಾರಾಮಿ ಶಾಪಿಂಗ್ ಸ್ಥಳಗಳಲ್ಲಿ ಒಂದಾಗಿದೆ. ಇಲ್ಲಿ ಅಂತರರಾಷ್ಟ್ರೀಯ ಬ್ರ್ಯಾಂಡ್‌ಗಳು, ಸುಸಜ್ಜಿತ ರೆಸ್ಟೋರೆಂಟ್‌ಗಳು ಮತ್ತು ವಿಶಿಷ್ಟ ಅಂಗಡಿಗಳು ಇವೆ. ಮುಕ್ತಾಂಗಣದಲ್ಲಿ ಸಾಂಸ್ಕೃತಿಕ ಮತ್ತು ಜೀವನ ಶೈಲಿ ಕಾರ್ಯಕ್ರಮಗಳು ನಡೆಯುತ್ತವೆ. ಇದು ರಾತ್ರಿ ಜೀವನ ಮತ್ತು ವಾರಾಂತ್ಯದ ಕೂಟಗಳಿಗೂ ಪ್ರಸಿದ್ಧವಾಗಿದೆ. ಶಾಪಿಂಗ್ ಮತ್ತು ಮನರಂಜನೆಗಾಗಿ ಅನೇಕರು ಇಲ್ಲಿ ಭೇಟಿ ನೀಡುತ್ತಾರೆ.",
     "history": "An established cultural and urban landmark in Bengaluru.",
     "historyKn": "ಬೆಂಗಳೂರಿನ ಪ್ರಸಿದ್ಧ ಸಾಂಸ್ಕೃತಿಕ ಹಾಗೂ ನಗರ ಹೆಗ್ಗುರುತು.",
-    "image": "assets/images/landmarks/shopping/mall3.jpg",
+    "image": "assets/images/destinations/shopping-markets/ub-city.jpg",
     "visitorInfo": {
       "timing": "11:00 AM - 11:30 PM (Daily)",
       "timingKn": "ಬೆಳಗ್ಗೆ 11:00 ರಿಂದ ರಾತ್ರಿ 11:30 (ಪ್ರತಿದಿನ)",
@@ -1137,7 +1137,7 @@ const PLACES = [
     "fullDescKn": "ಫೀನಿಕ್ಸ್ ಮಾರ್ಕೆಟ್‌ಸಿಟಿ ಬೆಂಗಳೂರಿನ ಅತಿ ದೊಡ್ಡ ಮಾಲ್‌ಗಳಲ್ಲಿ ಒಂದಾಗಿದೆ. ಇಲ್ಲಿ ಫ್ಯಾಷನ್ ಬ್ರ್ಯಾಂಡ್‌ಗಳು, ಎಲೆಕ್ಟ್ರಾನಿಕ್ಸ್ ಮತ್ತು ಜೀವನ ಶೈಲಿ ಅಂಗಡಿಗಳು ಲಭ್ಯ. ಮಲ್ಟಿಪ್ಲೆಕ್ಸ್ ಮತ್ತು ಆಹಾರ ಮಳಿಗೆಗಳೂ ಇವೆ. ಹಂಗಾಮಿ ಕಾರ್ಯಕ್ರಮಗಳು ಮತ್ತು ಸಂಗೀತ ಕಛೇರಿಗಳು ನಡೆಯುತ್ತವೆ. ಕುಟುಂಬಗಳು ಮತ್ತು ಯುವಕರು ಶಾಪಿಂಗ್, ಚಿತ್ರಗಳು ಮತ್ತು ಊಟಕ್ಕಾಗಿ ಆಗಾಗ್ಗೆ ಭೇಟಿ ನೀಡುತ್ತಾರೆ.",
     "history": "An established cultural and urban landmark in Bengaluru.",
     "historyKn": "ಬೆಂಗಳೂರಿನ ಪ್ರಸಿದ್ಧ ಸಾಂಸ್ಕೃತಿಕ ಹಾಗೂ ನಗರ ಹೆಗ್ಗುರುತು.",
-    "image": "assets/images/landmarks/shopping/mall2.jpg",
+    "image": "assets/images/destinations/shopping-markets/phoenix-marketcity.jpg",
     "visitorInfo": {
       "timing": "10:00 AM - 10:00 PM (Open daily)",
       "timingKn": "ಬೆಳಗ್ಗೆ 10:00 ರಿಂದ ರಾತ್ರಿ 10:00 (ಪ್ರತಿದಿನ)",
@@ -1177,7 +1177,7 @@ const PLACES = [
     "fullDescKn": "ಓರಿಯನ್ ಮಾಲ್ ಒಂದು ಪ್ರಸಿದ್ಧ ಶಾಪಿಂಗ್ ಮತ್ತು ಮನರಂಜನೆ ಕೇಂದ್ರವಾಗಿದೆ. ಇದು ಸುಂದರ ಸರೋವರದ ತೀರದಲ್ಲಿ ಇರುವುದರಿಂದ ವಿಶಿಷ್ಟ ಆಕರ್ಷಣೆ ಹೊಂದಿದೆ. ಅಂತರರಾಷ್ಟ್ರೀಯ ಬ್ರ್ಯಾಂಡ್‌ಗಳು, ರೆಸ್ಟೋರೆಂಟ್‌ಗಳು ಮತ್ತು ಗೇಮಿಂಗ್ ವಲಯಗಳಿವೆ. ಇಲ್ಲಿ ಹಬ್ಬಗಳು ಮತ್ತು ವಿಶೇಷ ಪ್ರದರ್ಶನಗಳು ಆಯೋಜಿಸಲಾಗುತ್ತವೆ. ಕುಟುಂಬಗಳು ಮತ್ತು ಯುವಕರು ಭೇಟಿ ನೀಡಲು ಇಷ್ಟಪಡುವ ಸ್ಥಳವಾಗಿದೆ.",
     "history": "An established cultural and urban landmark in Bengaluru.",
     "historyKn": "ಬೆಂಗಳೂರಿನ ಪ್ರಸಿದ್ಧ ಸಾಂಸ್ಕೃತಿಕ ಹಾಗೂ ನಗರ ಹೆಗ್ಗುರುತು.",
-    "image": "assets/images/landmarks/shopping/mall1.jpg",
+    "image": "assets/images/destinations/shopping-markets/orion-mall.jpg",
     "visitorInfo": {
       "timing": "10:00 AM - 10:00 PM (Daily)",
       "timingKn": "ಬೆಳಗ್ಗೆ 10:00 ರಿಂದ ರಾತ್ರಿ 10:00 (ಪ್ರತಿದಿನ)",
@@ -1217,7 +1217,7 @@ const PLACES = [
     "fullDescKn": "ಚರ್ಚ್ ಸ್ಟ್ರೀಟ್ ಬೆಂಗಳೂರಿನ ಜೀವಂತ ಬೀದಿಗಳಲ್ಲಿ ಒಂದು. ಇಲ್ಲಿ ಪುಸ್ತಕ ಅಂಗಡಿಗಳು, ಕಾಫೇಗಳು ಮತ್ತು ವಿವಿಧ ಆಹಾರ ಮಳಿಗೆಗಳಿವೆ. ರಾತ್ರಿ ಜೀವನ, ಲೈವ್ ಸಂಗೀತ ಮತ್ತು ಬೀದಿ ಕಲೆಗಾಗಿ ಇದು ಪ್ರಸಿದ್ಧ. ವಾರಾಂತ್ಯದಲ್ಲಿ ಯುವಕರ ನೆಚ್ಚಿನ ತಾಣವಾಗುತ್ತದೆ. ಸಾಂಸ್ಕೃತಿಕವಾಗಿ ಇದು ಜನರನ್ನು ಒಗ್ಗೂಡಿಸುವ ಪ್ರಮುಖ ಸ್ಥಳವಾಗಿದೆ.",
     "history": "An established cultural and urban landmark in Bengaluru.",
     "historyKn": "ಬೆಂಗಳೂರಿನ ಪ್ರಸಿದ್ಧ ಸಾಂಸ್ಕೃತಿಕ ಹಾಗೂ ನಗರ ಹೆಗ್ಗುರುತು.",
-    "image": "assets/images/landmarks/shopping/mall4.jpg",
+    "image": "assets/images/destinations/shopping-markets/church-street.jpg",
     "visitorInfo": {
       "timing": "10:00 AM - 11:00 PM (Pedestrianized on weekends)",
       "timingKn": "ಬೆಳಗ್ಗೆ 10:00 ರಿಂದ ರಾತ್ರಿ 11:00 (ವಾರಾಂತ್ಯದಲ್ಲಿ ವಾಹನ ಮುಕ್ತ)",
@@ -1256,7 +1256,7 @@ const PLACES = [
     "fullDescKn": "ಗರೂಡಾ ಮಾಲ್ ಬೆಂಗಳೂರಿನ ಮಧ್ಯಭಾಗದಲ್ಲಿದೆ. ಇಲ್ಲಿ ಅನೇಕ ಅಂಗಡಿಗಳು, ರೆಸ್ಟೋರೆಂಟ್‌ಗಳು ಮತ್ತು ಮಲ್ಟಿಪ್ಲೆಕ್ಸ್ ಚಿತ್ರಮಂದಿರವಿದೆ. ಕೇಂದ್ರದಲ್ಲಿರುವುದರಿಂದ ಸುಲಭವಾಗಿ ತಲುಪಬಹುದು. ಇದು ಕುಟುಂಬಗಳು, ವಿದ್ಯಾರ್ಥಿಗಳು ಮತ್ತು ಉದ್ಯೋಗಿಗಳಿಗೆ ಆಕರ್ಷಕವಾಗಿದೆ. ಹಬ್ಬಗಳು ಮತ್ತು ವಿಶೇಷ ಮಾರಾಟದ ಸಮಯದಲ್ಲಿ ಹೆಚ್ಚಿನ ಜನರು ಭೇಟಿ ನೀಡುತ್ತಾರೆ.",
     "history": "An established cultural and urban landmark in Bengaluru.",
     "historyKn": "ಬೆಂಗಳೂರಿನ ಪ್ರಸಿದ್ಧ ಸಾಂಸ್ಕೃತಿಕ ಹಾಗೂ ನಗರ ಹೆಗ್ಗುರುತು.",
-    "image": "assets/images/landmarks/shopping/mall5.jpg",
+    "image": "assets/images/destinations/shopping-markets/garuda-mall.jpg",
     "visitorInfo": {
       "timing": "10:00 AM - 10:00 PM (Daily)",
       "timingKn": "ಬೆಳಗ್ಗೆ 10:00 ರಿಂದ ರಾತ್ರಿ 10:00 (ಪ್ರತಿದಿನ)",
@@ -1295,7 +1295,7 @@ const PLACES = [
     "fullDescKn": "ಮಂತ್ರಿ ಮಾಲ್ ಮಲ್ಲೇಶ್ವರಂ ಭಾಗದಲ್ಲಿರುವ ದೊಡ್ಡ ಮಾಲ್‌ಗಳಲ್ಲಿ ಒಂದಾಗಿದೆ. ಇಲ್ಲಿ ಫ್ಯಾಷನ್ ಬ್ರ್ಯಾಂಡ್‌ಗಳು, ಗೃಹೋಪಯೋಗಿ ವಸ್ತುಗಳು ಮತ್ತು ರೆಸ್ಟೋರೆಂಟ್‌ಗಳಿವೆ. ವಾರಾಂತ್ಯದಲ್ಲಿ ಇದು ಖರೀದಿದಾರರಿಂದ ತುಂಬಿರುತ್ತದೆ. ಮಕ್ಕಳಿಗೆ ಮತ್ತು ಕುಟುಂಬಗಳಿಗೆ ಮನರಂಜನೆ ವಲಯಗಳಿವೆ. ಪ್ರತಿದಿನದ ಶಾಪಿಂಗ್ ಮತ್ತು ಮನರಂಜನೆಗೆ ಇದು ಸೂಕ್ತ ಸ್ಥಳವಾಗಿದೆ.",
     "history": "An established cultural and urban landmark in Bengaluru.",
     "historyKn": "ಬೆಂಗಳೂರಿನ ಪ್ರಸಿದ್ಧ ಸಾಂಸ್ಕೃತಿಕ ಹಾಗೂ ನಗರ ಹೆಗ್ಗುರುತು.",
-    "image": "assets/images/landmarks/shopping/mall6.jpg",
+    "image": "assets/images/destinations/shopping-markets/mantri-square-mall.jpg",
     "visitorInfo": {
       "timing": "9:30 AM - 10:30 PM (Daily)",
       "timingKn": "ಬೆಳಗ್ಗೆ 9:30 ರಿಂದ ರಾತ್ರಿ 10:30 (ಪ್ರತಿದಿನ)",
@@ -1335,7 +1335,7 @@ const PLACES = [
     "fullDescKn": "ಎಂ ಚಿನ್ನಸ್ವಾಮಿ ಸ್ಟೇಡಿಯಂ ಬೆಂಗಳೂರು ಹೃದಯಭಾಗದಲ್ಲಿರುವ ಭಾರತದ ಪ್ರಮುಖ ಕ್ರಿಕೆಟ್ ಮೈದಾನಗಳಲ್ಲಿ ಒಂದಾಗಿದೆ. ಇಲ್ಲಿ ನಿಯಮಿತವಾಗಿ ಅಂತರರಾಷ್ಟ್ರೀಯ ಟೆಸ್ಟ್ ಪಂದ್ಯಗಳು, ಏಕದಿನ ಮತ್ತು ಐಪಿಎಲ್ ಪಂದ್ಯಗಳು ನಡೆಯುತ್ತವೆ ಮತ್ತು ರಾಯಲ್ ಚಾಲೆಂಜರ್ಸ್ ಬೆಂಗಳೂರು ತಂಡದ ಗೃಹ ಪಂದ್ಯಗಳಿಗಾಗಿ ಪ್ರಸಿದ್ಧವಾಗಿದೆ. ಮೈದಾನವು 30,000ಕ್ಕೂ ಹೆಚ್ಚು ಪ್ರೇಕ್ಷಕರಿಗೆ ಆಸನ ಮತ್ತು ಆಧುನಿಕ ಫ್ಲಡ್‌ಲೈಟ್ಸ್, ಆಟಗಾರರ ಸೌಲಭ್ಯಗಳು ಮತ್ತು ವೈಯಕ್ತಿಕ ಅತಿಥಿ ಸ್ಥಳಗಳನ್ನು ಹೊಂದಿದೆ. ಇತ್ತೀಚಿನ ವರ್ಷಗಳಲ್ಲಿ ಅನೇಕ ನೆನಪಿನೀಯ ಪಂದ್ಯಗಳು ಇಲ್ಲಿ ನಡೆದಿವೆ. ದೇಶೀಯ ಟೂರ್ನಿಗಳು, ಸಂಗೀತ ಕಾರ್ಯಕ್ರಮಗಳು ಮತ್ತು ಕೆಲವು ಸಾರ್ವಜನಿಕ ಆಚರಣೆಗಳಿಗೂ ಇದು ವೇದಿಕೆ ಆಗಿದೆ.",
     "history": "An established cultural and urban landmark in Bengaluru.",
     "historyKn": "ಬೆಂಗಳೂರಿನ ಪ್ರಸಿದ್ಧ ಸಾಂಸ್ಕೃತಿಕ ಹಾಗೂ ನಗರ ಹೆಗ್ಗುರುತು.",
-    "image": "assets/images/landmarks/sports/sp1.jpg",
+    "image": "assets/images/destinations/sports-recreation/chinnaswamy-stadium.jpg",
     "visitorInfo": {
       "timing": "Match days per schedule; KSCA club open to members",
       "timingKn": "ಪಂದ್ಯಗಳ ದಿನದಂದು ನಿಗದಿತ ವೇಳಾಪಟ್ಟಿಯಂತೆ",
@@ -1374,7 +1374,7 @@ const PLACES = [
     "fullDescKn": "ಕಾಂತೀರವ ಸ್ಟೇಡಿಯಂ ಬೆಂಗಳೂರಿನ ಅತಿ ದೊಡ್ಡ ಬಹು-ಕ್ರೀಡೆ ಕ್ಯಾಂಪಸ್ ಆಗಿದ್ದು ಅഥ್ಲೆಟಿಕ್ಸ್, ಫುಟ್ಬಾಲ್ ಮತ್ತು ಇತರ ಮೈದಾನ ಕ್ರೀಡೆಗಳಿಗೆ ಸಹಾಯಕವಾಗಿದೆ. ಇದು ರಾಜ್ಯ ಹಾಗೂ ರಾಷ್ಟ್ರೀಯ ಮಟ್ಟದ ಸ್ಪರ್ಧೆಗಳಿಗೆ ಮತ್ತು ಶಾಲಾ/ಕಾಲೇಜು ಟೂರ್ನಾಮೆಂಟ್‌ಗಳಿಗೆ ಆತಿಥ್ಯ ವಹಿಸಿದೆ. ಮೈದಾನದಲ್ಲಿ ಅಭ್ಯಾಸ ಸ್ಥಳಗಳು, ಆಟಗಾರರ ತರಬೇತಿ ಸೌಲಭ್ಯಗಳು ಮತ್ತು ಮೂಲ ಜಿಮ್ ವ್ಯವಸ್ಥೆಗಳಿವೆ. ಕೆಲವೊಮ್ಮೆ ಇದು ಸಾಂಸ್ಕೃತಿಕ ಕಾರ್ಯಕ್ರಮಗಳು ಮತ್ತು ಸಾರ್ವಜನಿಕ ಸಭೆಗಳಿಗೂ ವೇದಿಕೆ ಆಗುತ್ತದೆ. ಸ್ಥಳೀಯ კლუბ್‌ಗಳು ಮತ್ತು ಸಮುದಾಯ ಇವೆಂಟ್‌ಗಳು ನಿಯಮಿತವಾಗಿ ಇದನ್ನು ಬಳಸುತ್ತವೆ.",
     "history": "An established cultural and urban landmark in Bengaluru.",
     "historyKn": "ಬೆಂಗಳೂರಿನ ಪ್ರಸಿದ್ಧ ಸಾಂಸ್ಕೃತಿಕ ಹಾಗೂ ನಗರ ಹೆಗ್ಗುರುತು.",
-    "image": "assets/images/landmarks/sports/sp2.jpg",
+    "image": "assets/images/destinations/sports-recreation/kanteerava-stadium.jpg",
     "visitorInfo": {
       "timing": "5:30 AM - 9:00 AM (Athletes) & Event hours",
       "timingKn": "ಬೆಳಗ್ಗೆ 5:30 - 9:00 (ಕ್ರೀಡಾಪಟುಗಳಿಗೆ) ಹಾಗೂ ಪಂದ್ಯದ ವೇಳೆ",
@@ -1414,7 +1414,7 @@ const PLACES = [
     "fullDescKn": "ಪಡುಕೋಣೆ-ದ್ರಾವಿಡ್ ಕ್ರೀಡಾ ಕೇಂದ್ರವು ಪ್ರತಿಭಾವಂತ ಆಟಗಾರರನ್ನು ಬೆಳೆಸಲು ಸ್ಥಾಪಿತವಾದ ಉನ್ನತ ಮಟ್ಟದ ತರಬೇತಿ ಅಕಾಡೆಮಿಯಾಗಿದೆ. ಬ್ಯಾಡ್ಮಿಂಟನ್, ಕ್ರಿಕೆಟ್ ಮತ್ತು ಈಜು ಮುಂತಾದ ವಿಭಾಗಗಳಲ್ಲಿ ವಿಶೇಷ ತರಬೇತಿ, ಕ್ರೀಡಾ ವಿಜ್ಞಾನ ಬೆಂಬಲ, ಫಿಸಿಯೋಥೆರಪಿ ಮತ್ತು ಪುನಶ್ಚೇತನ ಸೌಲಭ್ಯಗಳನ್ನು ಒದಗಿಸುತ್ತದೆ. ಕೇಂದ್ರವು ನೌಕಾಪ್ರವೇಶ ಮತ್ತು ಅನ್-ನೌಕಾ ಕಾರ್ಯಕ್ರಮಗಳು, ಪ್ರತಿಭಾ ಗುರುತಿಸುವ ಶಿಬಿರಗಳು ಮತ್ತು ಯುವಕರಿಗೆ yönelik ಅಭಿಯಾನಗಳನ್ನು ನಡೆಸುತ್ತದೆ. ಅನುಭವಿಗಳ ತರಬೇತುದಾರರು ಮತ್ತು ಆಧುನಿಕ ಮೂಲಸೌಕರ್ಯದಿಂದ ಇದು ರಾಷ್ಟ್ರೀಯ ಮತ್ತು ಅಂತರರಾಷ್ಟ್ರೀಯ ಸ್ಪರ್ಧಿಗಳಿಗೆ ಆಟಗಾರರನ್ನು ಸಿದ್ಧಪಡಿಸಲು ಪ್ರಯತ್ನಿಸುತ್ತದೆ. ಇದು ಬೆಂಗಳೂರಿನ ಕ್ರೀಡಾ ಪರಿಕಲ್ಪನೆಗೆ ಒಂದು ಪ್ರಮುಖ ಅಂಶವಾಗಿದೆ.",
     "history": "An established cultural and urban landmark in Bengaluru.",
     "historyKn": "ಬೆಂಗಳೂರಿನ ಪ್ರಸಿದ್ಧ ಸಾಂಸ್ಕೃತಿಕ ಹಾಗೂ ನಗರ ಹೆಗ್ಗುರುತು.",
-    "image": "assets/images/landmarks/sports/sp3.jpg",
+    "image": "assets/images/destinations/sports-recreation/padukone-dravid-centre.jpg",
     "visitorInfo": {
       "timing": "6:00 AM - 9:00 PM (Prior membership/booking required)",
       "timingKn": "ಬೆಳಗ್ಗೆ 6:00 ರಿಂದ ರಾತ್ರಿ 9:00 (ಮುಂಗಡ ನೋಂದಣಿ ಅಗತ್ಯ)",
@@ -1453,7 +1453,7 @@ const PLACES = [
     "fullDescKn": "ಬೆಂಗಳೂರು ಫುಟ್ಬಾಲ್ ಕ್ಲಬ್ ಯುವ ಅಭಿವೃದ್ದಿ ಕಾರ್ಯಕ್ರಮಗಳನ್ನು ನಡೆಸುತ್ತದೆ ಮತ್ತು ಪ್ರಾದೇಶಿಕ ಹಾಗೂ ಸ್ಥಳೀಯ ಲೀಗ್‌ಗಳಲ್ಲಿ ಸ್ಪರ್ಧಿಸುತ್ತದೆ. ಕ್ಲಬ್ ಜಮೀನಿನ ಮಟ್ಟದ ತರಬೇತಿ, ವಯೋಮಿತಿ ತಂಡಗಳು ಮತ್ತು ನಿಯಮಿತ ಪಂದ್ಯಗಳ ಮೂಲಕ ಆಟಗಾರರನ್ನು ಅಭಿವೃದ್ಧಿಪಡಿಸಲು ಗಮನಹರಿಸುತ್ತದೆ. ತರಬೇತಿ ಶಿಬಿರಗಳು, ಪ್ರತಿಭಾ ಹುಡುಕಾಟ ಕಾರ್ಯಕ್ರಮಗಳು ಮತ್ತು ಶಾಲಾ ಸಹಕಾರಗಳ ಮೂಲಕ ಯುವ ಪ್ರತಿಭೆಯನ್ನು ಗುರುತಿಸಿ ತರಬೇತು ಮಾಡುತ್ತದೆ. ಸಮುದಾಯ ಸಂಪರ್ಕ ಮತ್ತು ನಿಯಮಿತ ಪಂದ್ಯಗಳ ಮೂಲಕ ಸ್ಥಳೀಯ ಆಟಗಾರರಿಗೆ ಅನುಭವ ದೊರಕುತ್ತದೆ. ಬೆಂಗಳೂರು ನಗರದಲ್ಲಿ ಫುಟ್ಬಾಲಿನ ಸಂಸ್ಕೃತಿಯನ್ನು ಉತ್ತೇಜಿಸಲು ಈ ಕ್ಲಬ್ ಪ್ರಮುಖ ಪಾತ್ರ ವಹಿಸುತ್ತದೆ.",
     "history": "An established cultural and urban landmark in Bengaluru.",
     "historyKn": "ಬೆಂಗಳೂರಿನ ಪ್ರಸಿದ್ಧ ಸಾಂಸ್ಕೃತಿಕ ಹಾಗೂ ನಗರ ಹೆಗ್ಗುರುತು.",
-    "image": "assets/images/landmarks/sports/sp4.jpg",
+    "image": "assets/images/destinations/sports-recreation/bangalore-football-stadium.jpg",
     "visitorInfo": {
       "timing": "6:00 AM - 8:00 PM (Match schedules vary)",
       "timingKn": "ಬೆಳಗ್ಗೆ 6:00 ರಿಂದ ರಾತ್ರಿ 8:00 (ಪಂದ್ಯಗಳ ವೇಳೆ ಬದಲಾವಣೆ)",
@@ -1492,7 +1492,7 @@ const PLACES = [
     "fullDescKn": "ಬೆಂಗಳೂರು ಗಾಲ್ಫ್ ಕ್ಲಬ್ ಐತಿಹಾಸಿಕ ಮತ್ತು ಗಣನೀಯ ಗಾಲ್ಫ್ ಕೋರ್ಸ್ ಆಗಿದ್ದು ಉತ್ತಮವಾಗಿ ನಿರ್ವಹಿಸಿದ ಫೇರ್ವೇ ಮತ್ತು ಗ್ರೀನ್‌ಗಳನ್ನು ಹೊಂದಿದೆ. ಇದು ಸದಸ್ಯತ್ವ ಆಧಾರಿತ ಆಟ, ಅಭ್ಯಾಸ ರೇಂಜ್ ಮತ್ತು ಪ್ರಾಥಮಿಕದ ಆರಂಬದಿನಿಂದ ಅನುಭವಿ ಗಾಲ್ಫರ್‌ಗಳಿಗಾಗಿ ತರಬೇತಿಗಳನ್ನು ಒದಗಿಸುತ್ತದೆ. ಕ್ಲಬ್ ಅಮೇಟಿಯರ್ ಟೂರ್ನಿಗಳು ಮತ್ತು ಸಾಮಾಜಿಕ ಗಾಲ್ಫ್ ಕಾರ್ಯಕ್ರಮಗಳನ್ನು ಆಯೋಜಿಸಿ ಸದಸ್ಯರು ಮತ್ತು ಭೇಟಿ ಮಾಡುವವರನ್ನು ಆಹ್ವಾನಿಸುತ್ತದೆ. ಹಿರಿಯ ಮರಗಳು ಮತ್ತು ಸೌಂದರ್ಯಯುತ ಲಾನ್‌ಗಳಿಂದ ನಿಕಟ ಪರಿಸರವು ಕ್ರೀಡೆಗೆ ಶಾಂತ ವಾತಾವರಣ ನೀಡುತ್ತದೆ. ದೀರ್ಘಕಾಲದಿಂದ ಇದು ಬೆಂಗಳೂರಿನ ಮನರಂಜನೆ ಮತ್ತು ಕ್ರೀಡಾ ಜೀವನದ ಭಾಗವಾಗಿದೆ.",
     "history": "An established cultural and urban landmark in Bengaluru.",
     "historyKn": "ಬೆಂಗಳೂರಿನ ಪ್ರಸಿದ್ಧ ಸಾಂಸ್ಕೃತಿಕ ಹಾಗೂ ನಗರ ಹೆಗ್ಗುರುತು.",
-    "image": "assets/images/landmarks/sports/sp5.jpg",
+    "image": "assets/images/destinations/sports-recreation/bangalore-golf-club.jpg",
     "visitorInfo": {
       "timing": "6:00 AM - 10:00 PM (Members and affiliated club guests)",
       "timingKn": "ಬೆಳಗ್ಗೆ 6:00 ರಿಂದ ರಾತ್ರಿ 10:00 (ಸದಸ್ಯರಿಗೆ ಮತ್ತು ಅತಿಥಿಗಳಿಗೆ)",
@@ -1531,7 +1531,7 @@ const PLACES = [
     "fullDescKn": "ಡೆಕಾಥ್ಲಾನ್ ಒಂದು ದೊಡ್ಡ ಕ್ರೀಡಾ ಚಿಲ್ಲರೆ ಅಂಗಡಿ ಆಗಿದ್ದು ಖರೀದಿ ಜೊತೆಗೆ ಕ್ರೀಡಾ ಅನುಭವಗಳನ್ನು ಒದಗಿಸುತ್ತದೆ. ಅಂಗಡಿಯಲ್ಲಿ ಹಲವಾರು ಕ್ರೀಡೆಗಳಿಗೆ ಉಪಕರಣಗಳಿರುವ අතර ಗ್ರಾಹಕರು ಖರೀದಿಗೆ ಮೊದಲು ಉಪಕರಣಗಳನ್ನು ಪರೀಕ್ಷಿಸಲು ಡೆಮೊ ಜೋನ್‌ಗಳು ದೊರೆಯುತ್ತವೆ. ಕಾರ್ಯಾಗಾರಗಳು, ಪ್ರಾಥಮಿಕ ತರಬೇತಿ ಸೆಷನ್‌ಗಳು ಮತ್ತು ಸಮುದಾಯ ಕಾರ್ಯಕ್ರಮಗಳು ಸಕ್ರಿಯ ಜೀವನಶೈಲಿಯನ್ನು ಉತ್ತೇಜಿಸಲು ನಿಯಮಿತವಾಗಿಯೇ ನಡೆಯುತ್ತವೆ. ಕುಟುಂಬಗಳು ಮತ್ತು ಹವ್ಯಾಸಿಗಳು here ಉತ್ಪನ್ನಗಳನ್ನು ಪರೀಕ್ಷಿಸಿ ಹೊಸ ಕೌಶಲ್ಯಗಳನ್ನು ಕಲಿಯುತ್ತಾರೆ. ಡೆಕಾಥ್ಲಾನ್ ಕ್ರೀಡೆಗಳನ್ನು ಜನಸಾಮಾನ್ಯರಿಗೆ ತಲುಪಿಸುವಲ್ಲಿ ಪಾತ್ರ ವಹಿಸುತ್ತದೆ.",
     "history": "An established cultural and urban landmark in Bengaluru.",
     "historyKn": "ಬೆಂಗಳೂರಿನ ಪ್ರಸಿದ್ಧ ಸಾಂಸ್ಕೃತಿಕ ಹಾಗೂ ನಗರ ಹೆಗ್ಗುರುತು.",
-    "image": "assets/images/landmarks/sports/sp6.jpg",
+    "image": "assets/images/destinations/sports-recreation/decathlon-anphora.jpg",
     "visitorInfo": {
       "timing": "10:00 AM - 9:30 PM (Daily)",
       "timingKn": "ಬೆಳಗ್ಗೆ 10:00 ರಿಂದ ರಾತ್ರಿ 9:30 (ಪ್ರತಿದಿನ)",
@@ -1570,7 +1570,7 @@ const PLACES = [
     "fullDescKn": "ವಂಡರ್‌ಲಾ ಬೆಂಗಳೂರಿನ ಹತ್ತಿರದ ಅತ್ಯಂತ ಜನಪ್ರಿಯ ಮನರಂಜನಾ ಉದ್ಯಾನಗಳಲ್ಲಿ ಒಂದಾಗಿದೆ, ಇಲ್ಲಿ ವಿವಿಧ ರೋಮಾಂಚಕ ರೈಡ್‌ಗಳು ಮತ್ತು ಜಲ ಆಕರ್ಷಣೆಗಳಿವೆ. ಮಕ್ಕಳ ಮತ್ತು ಕುಟುಂಬದವರಿಗಾಗಿ ವಿಶೇಷ ವಿಭಾಗಗಳಿವೆ, ಇದು ಸುರಕ್ಷಿತ ಮತ್ತು ಆನಂದಕರ ಅನುಭವವನ್ನು ಒದಗಿಸುತ್ತದೆ. ವರ್ಷಾವರೆಗೂ ಹಬ್ಬದ ಕಾರ್ಯಕ್ರಮಗಳು ಮತ್ತು ನೇರ ಪ್ರದರ್ಶನಗಳು ಆಯೋಜಿಸಲಾಗುತ್ತವೆ. ಉದ್ಯಾನದಲ್ಲಿ ರೆಸ್ಟೋರೆಂಟ್‌ಗಳು, ಸ್ಮಾರಕ ಅಂಗಡಿಗಳು ಮತ್ತು ಪಿಕ್ನಿಕ್ ಪ್ರದೇಶಗಳಿವೆ. ವೀಕ್ಷಕರು ದಿನವನ್ನು ಸಂಪೂರ್ಣವಾಗಿ ರೈಡ್‌ಗಳನ್ನು ಅನುಭವಿಸುವುದು, ಪ್ರದರ್ಶನಗಳನ್ನು ಆನಂದಿಸುವುದು ಮತ್ತು ವಿಶ್ರಾಂತ ಸ್ಥಳಗಳಲ್ಲಿ ವಿಶ್ರಾಂತಿಯಾಗಿರುವುದು ಕಳೆಯಬಹುದು.",
     "history": "An established cultural and urban landmark in Bengaluru.",
     "historyKn": "ಬೆಂಗಳೂರಿನ ಪ್ರಸಿದ್ಧ ಸಾಂಸ್ಕೃತಿಕ ಹಾಗೂ ನಗರ ಹೆಗ್ಗುರುತು.",
-    "image": "assets/images/landmarks/entertainment/ent5.jpg",
+    "image": "assets/images/destinations/sports-recreation/wonderla-amusement-park.jpg",
     "visitorInfo": {
       "timing": "11:00 AM - 6:00 PM (Weekdays), 11:00 AM - 7:00 PM (Weekends/Holidays)",
       "timingKn": "ಬೆಳಗ್ಗೆ 11:00 - ಸಂಜೆ 6:00 (ವಾರದ ದಿನ), 11:00 - ಸಂಜೆ 7:00 (ವಾರಾಂತ್ಯ)",
@@ -1609,7 +1609,7 @@ const PLACES = [
     "fullDescKn": "ಪಿವಿಆರ್ ಸಿನೆಮಾಸ್ ಹಲವಾರು ಪರದೆಗಳೊಂದಿಗೆ ಮತ್ತು ಆರಾಮದಾಯಕ ಆಸನಗಳೊಂದಿಗೆ ಪ್ರೀಮಿಯಂ ಚಿತ್ರ ವೀಕ್ಷಣಾ ಅನುಭವವನ್ನು ನೀಡುತ್ತದೆ. ಇದು ನವೀಕೃತ ಚಿತ್ರಗಳನ್ನು ಉನ್ನತ ಗುಣಮಟ್ಟದ ಧ್ವನಿ ಮತ್ತು ಪ್ರೋಜೆಕ್ಷನ್ ವ್ಯವಸ್ಥೆಗಳಿಂದ ತೋರಿಸುತ್ತದೆ. ಮಲ್ಟಿಪ್ಲೆಕ್ಸ್‌ನಲ್ಲಿ ಆಹಾರ ಕೋರ್ಸ್‌ಗಳು ಮತ್ತು ತಿಂಡಿ ಅಂಗಡಿಗಳು ಲಭ್ಯವಿವೆ. ವಿಶೇಷ ಪ್ರದರ್ಶನಗಳು ಮತ್ತು ಚಲನಚಿತ್ರೋತ್ಸವಗಳು ನಿಯಮಿತವಾಗಿ ಆಯೋಜಿಸಲಾಗುತ್ತವೆ. ಪಿವಿಆರ್ ಕುಟುಂಬಗಳು, ವಿದ್ಯಾರ್ಥಿಗಳು ಮತ್ತು ಚಿತ್ರಪ್ರಿಯರನ್ನು ಮನರಂಜನೆಗಾಗಿ ಆಕರ್ಷಿಸುತ್ತದೆ.",
     "history": "An established cultural and urban landmark in Bengaluru.",
     "historyKn": "ಬೆಂಗಳೂರಿನ ಪ್ರಸಿದ್ಧ ಸಾಂಸ್ಕೃತಿಕ ಹಾಗೂ ನಗರ ಹೆಗ್ಗುರುತು.",
-    "image": "assets/images/landmarks/entertainment/ent2.jpg",
+    "image": "assets/images/destinations/sports-recreation/pvr-cinemas-forum.jpg",
     "visitorInfo": {
       "timing": "9:00 AM - Midnight (Show schedules vary)",
       "timingKn": "ಬೆಳಗ್ಗೆ 9:00 ರಿಂದ ಮಧ್ಯರಾತ್ರಿ (ಪ್ರದರ್ಶನದ ಸಮಯಕ್ಕೆ ತಕ್ಕಂತೆ)",
@@ -1648,7 +1648,7 @@ const PLACES = [
     "fullDescKn": "ಇನ್ನೋವೇಟಿವ್ ಫಿಲ್ಮ್ ಸಿಟಿ ಬೆಂಗಳೂರಿನ ಹತ್ತಿರದ ವಿಶಿಷ್ಟ ಮನರಂಜನಾ ಕೇಂದ್ರವಾಗಿದೆ, ಇದು ಥೀಮ್ ಪಾರ್ಕ್ ರೈಡ್‌ಗಳು ಮತ್ತು ಚಿತ್ರ ಸಂಬಂಧಿತ ಆಕರ್ಷಣೆಗಳನ್ನು ಒಟ್ಟುಗೂಡಿಸುತ್ತದೆ. ಇಲ್ಲಿ ಮೇಣದ ಸಂಗೃಹಾಲಯ, ಡೈನೋಸಾರ್ ಪಾರ್ಕ್, ಸಾಹಸ ಚಟುವಟಿಕೆಗಳು ಮತ್ತು ನೇರ ಪ್ರದರ್ಶನಗಳಿವೆ. ವೀಕ್ಷಕರು ಮಕ್ಕಳ ಮತ್ತು ವಯಸ್ಕರಿಗಾಗಿ ವಿಭಿನ್ನ ವಲಯಗಳನ್ನು ಅನ್ವೇಷಿಸಬಹುದು. ವರ್ಷಾವರೆಗೂ ಹಬ್ಬ ಮತ್ತು ವಿಶೇಷ ಕಾರ್ಯಕ್ರಮಗಳು ನಡೆಯುತ್ತವೆ. ಈ ಕೇಂದ್ರವು ಶಿಕ್ಷಣ, ಫೋಟೋಗ್ರಫಿ ಮತ್ತು ಸಂವಹನಾತ್ಮಕ ಅನುಭವಗಳ ಅವಕಾಶವನ್ನು ಒದಗಿಸುತ್ತದೆ.",
     "history": "An established cultural and urban landmark in Bengaluru.",
     "historyKn": "ಬೆಂಗಳೂರಿನ ಪ್ರಸಿದ್ಧ ಸಾಂಸ್ಕೃತಿಕ ಹಾಗೂ ನಗರ ಹೆಗ್ಗುರುತು.",
-    "image": "assets/images/landmarks/entertainment/ent1.jpg",
+    "image": "assets/images/destinations/sports-recreation/innovative-film-city.jpg",
     "visitorInfo": {
       "timing": "10:00 AM - 7:00 PM (Daily)",
       "timingKn": "ಬೆಳಗ್ಗೆ 10:00 ರಿಂದ ಸಂಜೆ 7:00 (ಪ್ರತಿದಿನ)",
@@ -1688,7 +1688,7 @@ const PLACES = [
     "fullDescKn": "ಲಾಲ್‌ಬಾಗ್ ಉದ್ಯಾನ ಬೆಂಗಳೂರಿನ ಪ್ರಸಿದ್ಧ ಐತಿಹಾಸಿಕ ಉದ್ಯಾನವಾಗಿದೆ, ಇದು ಅಪರೂಪದ ಸಸ್ಯಗಳು ಮತ್ತು ಗ್ಲಾಸ್‌ಹೌಸ್‌ನಿಂದ ಖ್ಯಾತಿಯಾಗಿದೆ. ಹೂವು ಪ್ರದರ್ಶನಗಳು, ಶೈಕ್ಷಣಿಕ ಪ್ರವಾಸಗಳು ಮತ್ತು ನೇರ ನಡಿಗೆಗಳೊಂದಿಗೆ ಪ್ರಕೃತಿ ಪ್ರಿಯರಿಗೆ ಅನುಕೂಲವಾಗಿದೆ. ವ್ಯಾಪಕ ಭೂಮಿಯಲ್ಲಿ ಸರೋವರಗಳು, ಜಲಪಾತಗಳು ಮತ್ತು ಶತಮಾನಗಳ ಹಳೆಯ ಮರಗಳಿವೆ. ಇಲ್ಲಿ ಸಸ್ಯೋದ್ಯಾನ ಸಂಶೋಧನೆ ಮತ್ತು ಸಂರಕ್ಷಣಾ ಯೋಜನೆಗಳು ನಡೆಯುತ್ತವೆ. ವೀಕ್ಷಕರು ವರ್ಷಾವರೆಗೂ ಪಿಕ್ನಿಕ್, ಫೋಟೋಗ್ರಫಿ ಮತ್ತು ಸಸ್ಯ ವೈವಿಧ್ಯವನ್ನು ತಿಳಿಯಲು ಬರುವರು.",
     "history": "An established cultural and urban landmark in Bengaluru.",
     "historyKn": "ಬೆಂಗಳೂರಿನ ಪ್ರಸಿದ್ಧ ಸಾಂಸ್ಕೃತಿಕ ಹಾಗೂ ನಗರ ಹೆಗ್ಗುರುತು.",
-    "image": "assets/images/landmarks/entertainment/ent7.jpg",
+    "image": "assets/images/destinations/nature-outdoors/lalbagh-botanical-garden.jpg",
     "visitorInfo": {
       "timing": "6:00 AM - 7:00 PM (Daily; Free entry 6:00 AM - 9:00 AM and 6:00 PM - 7:00 PM)",
       "timingKn": "ಬೆಳಗ್ಗೆ 6:00 ರಿಂದ ಸಂಜೆ 7:00 (ಮುಂಜಾನೆ 6-9 ಮತ್ತು ಸಂಜೆ 6-7 ಉಚಿತ ಪ್ರವೇಶ)",
@@ -1728,7 +1728,7 @@ const PLACES = [
     "fullDescKn": "ವಿಶ್ವೇಶ್ವರಯ್ಯ ಮ್ಯೂಸಿಯಂ ವಿವಿಧ ಇಂಜಿನಿಯರಿಂಗ್ ಮತ್ತು ತಂತ್ರಜ್ಞಾನ ಪ್ರದರ್ಶನಗಳನ್ನು ತೋರಿಸುತ್ತದೆ, ಇದರಲ್ಲಿ ಮಾದರಿಗಳು, ಉಪಕರಣಗಳು ಮತ್ತು ಸಂವಹನಾತ್ಮಕ ಪ್ರದರ್ಶನಗಳಿವೆ. ಇದು ಪ್ರಖ್ಯಾತ ಎಂಜಿನಿಯರ್ ಮತ್ತು ರಾಜಕಾರಣಿ ಸರ್ ಎಂ. ವಿಶ್ವೇಶ್ವರಯ್ಯನ ಹೆಸರಿನಲ್ಲಿ ಸ್ಥಾಪಿಸಲಾಗಿದೆ. ವಿದ್ಯಾರ್ಥಿಗಳು ಮತ್ತು ಮನರಂಜನೆ ಆಸಕ್ತರು ಶೈಕ್ಷಣಿಕ ಕಾರ್ಯಕ್ರಮಗಳು ಮತ್ತು ಕಾರ್ಯಾಗಾರಗಳಲ್ಲಿ ಭಾಗವಹಿಸಬಹುದು. ವೀಕ್ಷಕರು ಐತಿಹಾಸಿಕ ಆವಿಷ್ಕಾರಗಳು ಮತ್ತು ವೈಜ್ಞಾನಿಕ ತತ್ತ್ವಗಳನ್ನು ತಿಳಿಯಬಹುದು. ಮ್ಯೂಸಿಯಂ ಜ್ಞಾನ, ಸಂಶೋಧನೆ ಮತ್ತು ಪ್ರೇರಣೆಗೆ ಅಮೂಲ್ಯ ಸಂಪನ್ಮೂಲವಾಗಿದೆ.",
     "history": "An established cultural and urban landmark in Bengaluru.",
     "historyKn": "ಬೆಂಗಳೂರಿನ ಪ್ರಸಿದ್ಧ ಸಾಂಸ್ಕೃತಿಕ ಹಾಗೂ ನಗರ ಹೆಗ್ಗುರುತು.",
-    "image": "assets/images/landmarks/entertainment/ent8.jpg",
+    "image": "assets/images/destinations/sports-recreation/visvesvaraya-museum.jpg",
     "visitorInfo": {
       "timing": "9:30 AM - 6:00 PM (Open all days except Deepavali & Ganesha)",
       "timingKn": "ಬೆಳಗ್ಗೆ 9:30 ರಿಂದ ಸಂಜೆ 6:00 (ದೀಪಾವಳಿ ಮತ್ತು ಗಣೇಶ ಹಬ್ಬ ಹೊರತುಪಡಿಸಿ ಪ್ರತಿದಿನ)",
@@ -1767,7 +1767,7 @@ const PLACES = [
     "fullDescKn": "ಸ್ನೋ ಸಿಟಿ ಬೆಂಗಳೂರು ನಗರದಲ್ಲಿ ಒಳಾಂಗಣ ಹಿಮ ಆಧಾರಿತ ಮನರಂಜನೆ ಒದಗಿಸುತ್ತದೆ. ವೀಕ್ಷಕರು ಕೃತಕ ಹಿಮ, ಹಿಮದ ಸ್ಲೈಡ್‌ಗಳು, ಐಸ್ ಸ್ಕೇಟಿಂಗ್ ಮತ್ತು ಹಿಮದ ಗುಂಡಿ ಯುದ್ಧವನ್ನು ಅನುಭವಿಸಬಹುದು. ಉದ್ಯಾನವು ಕುಟುಂಬ ಮತ್ತು ಮಕ್ಕಳಿಗಾಗಿ ಸುರಕ್ಷಿತ ಆಟದ ಸ್ಥಳಗಳನ್ನು ಒದಗಿಸುತ್ತದೆ. ಹಬ್ಬದ ಸಮಯದಲ್ಲಿ ಮತ್ತು ಚಳಿಗಾಲದ ಥೀಮ್ ಪ್ರದರ್ಶನಗಳು ನಡೆಯುತ್ತವೆ. ಟ್ರಾಪಿಕಲ್ ನಗರದಲ್ಲಿ ಹಿಮದ ವಿಶಿಷ್ಟ ಅನುಭವವನ್ನು ನೀಡುವ Snow City ಸ್ಥಳೀಯರು ಮತ್ತು ಪ್ರವಾಸಿಗರನ್ನು ಆಕರ್ಷಿಸುತ್ತದೆ.",
     "history": "An established cultural and urban landmark in Bengaluru.",
     "historyKn": "ಬೆಂಗಳೂರಿನ ಪ್ರಸಿದ್ಧ ಸಾಂಸ್ಕೃತಿಕ ಹಾಗೂ ನಗರ ಹೆಗ್ಗುರುತು.",
-    "image": "assets/images/landmarks/entertainment/ent6.jpg",
+    "image": "assets/images/destinations/sports-recreation/snow-city.jpg",
     "visitorInfo": {
       "timing": "10:00 AM - 8:00 PM (45-minute sessions)",
       "timingKn": "ಬೆಳಗ್ಗೆ 10:00 ರಿಂದ ರಾತ್ರಿ 8:00 (45 ನಿಮಿಷಗಳ ಸೆಷನ್‌ಗಳು)",
@@ -1806,7 +1806,7 @@ const PLACES = [
     "fullDescKn": "ಸ್ಟೇಟ್ ಬ್ಯಾಂಕ್ ಆಫ್ ಇಂಡಿಯಾ (ಎಸ್‌ಬಿಐ) ಭಾರತದ ಅತಿದೊಡ್ಡ ಸಾರ್ವಜನಿಕ ವಲಯದ ಬ್ಯಾಂಕ್‌ಗಳಲ್ಲಿ ಒಂದಾಗಿದೆ. ಇದು ಸೇವಿಂಗ್ಸ್ ಖಾತೆ, ಸಾಲಗಳು ಮತ್ತು ಹೂಡಿಕೆ ಪರಿಹಾರಗಳನ್ನು ಒಳಗೊಂಡ ವಿವಿಧ ಬ್ಯಾಂಕಿಂಗ್ ಸೇವೆಗಳನ್ನು ಒದಗಿಸುತ್ತದೆ. ಬೆಂಗಳೂರು ಮತ್ತು ದೇಶಾದ್ಯಾಂತ ಎಸ್‌ಬಿಐ ಶಾಖೆ ಮತ್ತು ಎಟಿಎಂ ಜಾಲವು ವ್ಯಾಪಕವಾಗಿದೆ. ಬ್ಯಾಂಕ್ ತನ್ನ ನಂಬಿಗಸ್ತ ಗ್ರಾಹಕ ಸೇವೆ ಮತ್ತು ಆರ್ಥಿಕ ಉತ್ಪನ್ನಗಳಿಗೆ ಪ್ರಸಿದ್ಧವಾಗಿದೆ. ಎಸ್‌ಬಿಐ ಡಿಜಿಟಲ್ ಬ್ಯಾಂಕಿಂಗ್, ಮೊಬೈಲ್ ಅಪ್ಲಿಕೇಶನ್ ಮತ್ತು ಆನ್‌ಲೈನ್ ಲೆನ್ದೆನೆಯನ್ನು ಸಹ ಒದಗಿಸುತ್ತದೆ. ಇದು ವೈಯಕ್ತಿಕ ಮತ್ತು ಕಾರ್ಪೊರೇಟ್ ಗ್ರಾಹಕರಿಗೂ ಆರ್ಥಿಕ ಅಭಿವೃದ್ಧಿ ಮತ್ತು ಭದ್ರತೆಗಾಗಿ ಸೇವೆ ನೀಡುತ್ತದೆ.",
     "history": "An established cultural and urban landmark in Bengaluru.",
     "historyKn": "ಬೆಂಗಳೂರಿನ ಪ್ರಸಿದ್ಧ ಸಾಂಸ್ಕೃತಿಕ ಹಾಗೂ ನಗರ ಹೆಗ್ಗುರುತು.",
-    "image": "assets/images/landmarks/banks/ban1.jpg",
+    "image": "assets/images/destinations/essential-services/state-bank-of-india.jpg",
     "visitorInfo": {
       "timing": "10:00 AM - 4:00 PM (Monday - Saturday; closed 2nd & 4th Sat)",
       "timingKn": "ಬೆಳಗ್ಗೆ 10:00 ರಿಂದ ಸಂಜೆ 4:00 (2 ಮತ್ತು 4ನೇ ಶನಿವಾರ ರಜೆ)",
@@ -1845,7 +1845,7 @@ const PLACES = [
     "fullDescKn": "ಎಚ್‌ಡಿಎಫ್‌ಸಿ ಬ್ಯಾಂಕ್ ಭಾರತದಲ್ಲಿ ಪ್ರಮುಖ ಖಾಸಗಿ ವಲಯದ ಬ್ಯಾಂಕ್ ಆಗಿದ್ದು, ರಿಟೇಲ್ ಮತ್ತು ಕಾರ್ಪೊರೇಟ್ ಬ್ಯಾಂಕಿಂಗ್ ಸೇವೆಗಳನ್ನು ಒದಗಿಸುತ್ತದೆ. ಇದು ಪರ್ಸನಲ್ ಲೋನ್‌ಗಳು, ಕ್ರೆಡಿಟ್ ಕಾರ್ಡ್‌ಗಳು, ಸೇವಿಂಗ್‌ ಖಾತೆಗಳು ಮತ್ತು ಸಂಪತ್ತು ನಿರ್ವಹಣಾ ಪರಿಹಾರಗಳನ್ನು ನೀಡುತ್ತದೆ. ಬೆಂಗಳೂರು ನಗರದಲ್ಲಿ ಹಲವಾರು ಶಾಖೆಗಳು ಮತ್ತು ಎಟಿಎಂಗಳು ಲಭ್ಯವಿವೆ, ಇದು ಸುಲಭವಾದ ಬ್ಯಾಂಕಿಂಗ್ ಅನುಭವವನ್ನು ಒದಗಿಸುತ್ತದೆ. ಬ್ಯಾಂಕ್ ತನ್ನ ಗ್ರಾಹಕ ಸ್ನೇಹಿ ಸೇವೆಗಳು ಮತ್ತು ಡಿಜಿಟಲ್ ಬ್ಯಾಂಕಿಂಗ್ ಪ್ಲಾಟ್‌ಫಾರ್ಮ್‌ಗಳಿಗಾಗಿ ಪ್ರಸಿದ್ಧವಾಗಿದೆ. ಹೂಡಿಕೆ ಮತ್ತು ಸಮುದಾಯ ಶಿಕ್ಷಣ ಕಾರ್ಯಕ್ರಮಗಳನ್ನು ಸಹ ನಡೆಸುತ್ತದೆ. ಎಚ್‌ಡಿಎಫ್‌ಸಿ ಬ್ಯಾಂಕ್ ನವೀನ ಉತ್ಪನ್ನಗಳು ಮತ್ತು ತಂತ್ರಜ್ಞಾನ ಪರಿಹಾರಗಳೊಂದಿಗೆ ತನ್ನ ಸೇವೆಗಳನ್ನು ವಿಸ್ತರಿಸುತ್ತಿದೆ.",
     "history": "An established cultural and urban landmark in Bengaluru.",
     "historyKn": "ಬೆಂಗಳೂರಿನ ಪ್ರಸಿದ್ಧ ಸಾಂಸ್ಕೃತಿಕ ಹಾಗೂ ನಗರ ಹೆಗ್ಗುರುತು.",
-    "image": "assets/images/landmarks/banks/ban3.jpg",
+    "image": "assets/images/destinations/essential-services/hdfc-bank-regional.jpg",
     "visitorInfo": {
       "timing": "9:30 AM - 3:30 PM (Mon-Sat, closed 2nd/4th Sat)",
       "timingKn": "ಬೆಳಗ್ಗೆ 9:30 ರಿಂದ ಮಧ್ಯಾಹ್ನ 3:30",
@@ -1884,7 +1884,7 @@ const PLACES = [
     "fullDescKn": "ಐಸಿಐಸಿಐ ಬ್ಯಾಂಕ್ ವೈಯಕ್ತಿಕ ಬ್ಯಾಂಕಿಂಗ್, ಕಾರ್ಪೊರೇಟ್ ಬ್ಯಾಂಕಿಂಗ್ ಮತ್ತು ಡಿಜಿಟಲ್ ಬ್ಯಾಂಕಿಂಗ್ ಪರಿಹಾರಗಳನ್ನು ಒಳಗೊಂಡ ವ್ಯಾಪಕ ಹಣಕಾಸು ಸೇವೆಗಳನ್ನು ಒದಗಿಸುತ್ತದೆ. ಇದು ಸಾಲಗಳು, ವಿಮೆ, ಕ್ರೆಡಿಟ್ ಕಾರ್ಡ್‌ಗಳು ಮತ್ತು ಹೂಡಿಕೆ ಅವಕಾಶಗಳನ್ನು ನೀಡುತ್ತದೆ. ಬೆಂಗಳೂರು ನಗರದಲ್ಲಿ ಹಲವಾರು ಶಾಖೆಗಳು ಮತ್ತು ಎಟಿಎಂಗಳು ಸುಲಭ ಲಭ್ಯತೆಯನ್ನು ಒದಗಿಸುತ್ತವೆ. ಬ್ಯಾಂಕ್ ಗ್ರಾಹಕ ತೃಪ್ತಿಯ, ನವೀನ ಸೇವೆಗಳು ಮತ್ತು ಆಧುನಿಕ ಬ್ಯಾಂಕಿಂಗ್ ತಂತ್ರಜ್ಞಾನಗಳಿಗೆ ಒತ್ತು ನೀಡುತ್ತದೆ. ವೈಯಕ್ತಿಕರು ಮತ್ತು ವ್ಯವಹಾರಗಳಿಗೆ ನಿಯಮಿತ ಹಣಕಾಸು ಕಾರ್ಯಾಗಾರಗಳು ಮತ್ತು ಸಲಹೆ ಸೇವೆಗಳು ಲಭ್ಯವಿವೆ. ಐಸಿಐಸಿಐ ಬ್ಯಾಂಕ್ ಆರ್ಥಿಕ ಅಭಿವೃದ್ಧಿ ಮತ್ತು ಹಣಕಾಸು ಒಳಗೊಂಡಿಕೆಯನ್ನು ಬೆಂಬಲಿಸಲು ಪ್ರಮುಖ ಪಾತ್ರವಹಿಸುತ್ತದೆ.",
     "history": "An established cultural and urban landmark in Bengaluru.",
     "historyKn": "ಬೆಂಗಳೂರಿನ ಪ್ರಸಿದ್ಧ ಸಾಂಸ್ಕೃತಿಕ ಹಾಗೂ ನಗರ ಹೆಗ್ಗುರುತು.",
-    "image": "assets/images/landmarks/banks/ban4.jpg",
+    "image": "assets/images/destinations/essential-services/icici-bank-towers.jpg",
     "visitorInfo": {
       "timing": "9:30 AM - 3:30 PM (Mon-Sat, closed 2nd/4th Sat)",
       "timingKn": "ಬೆಳಗ್ಗೆ 9:30 ರಿಂದ ಮಧ್ಯಾಹ್ನ 3:30",
@@ -1923,7 +1923,7 @@ const PLACES = [
     "fullDescKn": "ಬ್ಯಾಂಕ್ ಆಫ್ ಅಮೆರಿಕ ಬೆಂಗಳೂರು ನಗರದಲ್ಲಿ ಕಾರ್ಪೊರೇಟ್ ಮತ್ತು ಅಂತಾರಾಷ್ಟ್ರೀಯ ಬ್ಯಾಂಕಿಂಗ್ ಸೇವೆಗಳನ್ನು ಒದಗಿಸುತ್ತದೆ. ಹೂಡಿಕೆ, ವ್ಯಾಪಾರ ಹಣಕಾಸು, ಟ್ರೆಜರಿ ನಿರ್ವಹಣೆ ಮತ್ತು ಸಂಪತ್ತು ಸಲಹೆಗಳಿಗೆ ಪರಿಹಾರಗಳನ್ನು ನೀಡುತ್ತದೆ. ಬಹುರಾಷ್ಟ್ರೀಯ ಗ್ರಾಹಕರು ಮತ್ತು ವ್ಯವಹಾರಗಳಿಗೆ ಅನುಭವಸಂಪನ್ನ ಸಿಬ್ಬಂದಿ ಮಾರ್ಗದರ್ಶನ ನೀಡುತ್ತಾರೆ. ಬ್ಯಾಂಕ್ ಆಫ್ ಅಮೆರಿಕ ಪಾಲನಾ, ರಿಸ್ಕ್ ನಿರ್ವಹಣೆ ಮತ್ತು ನವೀನ ಹಣಕಾಸು ಉತ್ಪನ್ನಗಳಿಗೆ ಒತ್ತು ನೀಡುತ್ತದೆ. ಗ್ರಾಹಕರಿಗೆ ನಿಯಮಿತ ತರಬೇತಿ ಮತ್ತು ಕಾರ್ಯಾಗಾರಗಳು ಆಯೋಜಿಸಲಾಗುತ್ತವೆ. ಇದು ಜಾಗತಿಕ ಬ್ಯಾಂಕಿಂಗ್ ಕಾರ್ಯಾಚರಣೆಗಳು ಮತ್ತು ಅಂತರರಾಷ್ಟ್ರೀಯ ಹಣಕಾಸು ಸೇವೆಗಳಲ್ಲಿ ಪ್ರಮುಖ ಪಾತ್ರವಹಿಸುತ್ತದೆ.",
     "history": "An established cultural and urban landmark in Bengaluru.",
     "historyKn": "ಬೆಂಗಳೂರಿನ ಪ್ರಸಿದ್ಧ ಸಾಂಸ್ಕೃತಿಕ ಹಾಗೂ ನಗರ ಹೆಗ್ಗುರುತು.",
-    "image": "assets/images/landmarks/banks/ban5.jpg",
+    "image": "assets/images/destinations/essential-services/bank-of-america-merrill.jpg",
     "visitorInfo": {
       "timing": "9:00 AM - 5:00 PM (Corporate office)",
       "timingKn": "ಬೆಳಗ್ಗೆ 9:00 - ಸಂಜೆ 5:00 (ಕಾರ್ಪೊರೇಟ್ ಕಚೇರಿ)",
@@ -1962,7 +1962,7 @@ const PLACES = [
     "fullDescKn": "ಕನರಾ ಬ್ಯಾಂಕ್ ರಾಷ್ಟ್ರೀಕೃತ ಬ್ಯಾಂಕ್ ಆಗಿದ್ದು, ವೈಯಕ್ತಿಕ ಮತ್ತು ಕಾರ್ಪೊರೇಟ್ ಬ್ಯಾಂಕಿಂಗ್ ಸೇವೆಗಳನ್ನು ಒದಗಿಸುತ್ತದೆ. ಇದು ಸರಕಾರದ ಯೋಜನೆಗಳು, ಕೃಷಿ ಸಾಲಗಳು ಮತ್ತು ಹಣಕಾಸು ಒಳಗೊಂಡಿಕೆ ಕಾರ್ಯಕ್ರಮಗಳನ್ನು ಬೆಂಬಲಿಸುತ್ತದೆ. ಬೆಂಗಳೂರು ನಗರದಲ್ಲಿ ಶಾಖೆಗಳು ಮತ್ತು ಎಟಿಎಂಗಳಿವೆ, ಇದು ಗ್ರಾಹಕರಿಗೆ ಸುಲಭ ಲಭ್ಯತೆಯನ್ನು ಒದಗಿಸುತ್ತದೆ. ಕನರಾ ಬ್ಯಾಂಕ್ ಸೇವಿಂಗ್ ಖಾತೆ, ಸ್ಥಿರ ಠೇವಣಿ ಮತ್ತು ಡಿಜಿಟಲ್ ಬ್ಯಾಂಕಿಂಗ್ ಪ್ಲಾಟ್‌ಫಾರ್ಮ್‌ಗಳನ್ನು ಒದಗಿಸುತ್ತದೆ. ಸಮುದಾಯಗಳು ಮತ್ತು ವ್ಯವಹಾರಗಳಿಗೆ ನಿಯಮಿತ ಹಣಕಾಸು ಜಾಗೃತಿ ಕಾರ್ಯಕ್ರಮಗಳು ನಡೆಯುತ್ತವೆ. ಬ್ಯಾಂಕ್ ವಿಶ್ವಾಸಾರ್ಹತೆ, ಬಲವಾದ ಹಾಜರಿ ಮತ್ತು ಗ್ರಾಹಕ ಕೇಂದ್ರಿತ ಸೇವೆಗಾಗಿ ಪ್ರಸಿದ್ಧವಾಗಿದೆ.",
     "history": "An established cultural and urban landmark in Bengaluru.",
     "historyKn": "ಬೆಂಗಳೂರಿನ ಪ್ರಸಿದ್ಧ ಸಾಂಸ್ಕೃತಿಕ ಹಾಗೂ ನಗರ ಹೆಗ್ಗುರುತು.",
-    "image": "assets/images/landmarks/banks/ban2.jpg",
+    "image": "assets/images/destinations/essential-services/canara-bank-head-office.jpg",
     "visitorInfo": {
       "timing": "10:00 AM - 4:00 PM (Mon-Sat, closed 2nd/4th Sat)",
       "timingKn": "ಬೆಳಗ್ಗೆ 10:00 ರಿಂದ ಸಂಜೆ 4:00 (2 ಮತ್ತು 4ನೇ ಶನಿವಾರ ರಜೆ)",
@@ -2001,7 +2001,7 @@ const PLACES = [
     "fullDescKn": "ಸಿಟಿಬ್ಯಾಂಕ್ ಬೆಂಗಳೂರಿನಲ್ಲಿ ಜಾಗತಿಕ ಬ್ಯಾಂಕಿಂಗ್ ಪರಿಹಾರಗಳು, ಸಂಪತ್ತು ನಿರ್ವಹಣೆ ಮತ್ತು ಕಾರ್ಪೊರೇಟ್ ಸೇವೆಗಳಿಗೆ ಒತ್ತು ನೀಡುತ್ತದೆ. ಸುಗಮ ಬ್ಯಾಂಕಿಂಗ್‌ಗಾಗಿ ಹೂಡಿಕೆ ಸಲಹೆ, ಸಾಲಗಳು, ಕ್ರೆಡಿಟ್ ಕಾರ್ಡ್‌ಗಳು ಮತ್ತು ಡಿಜಿಟಲ್ ಪ್ಲಾಟ್‌ಫಾರ್ಮ್‌ಗಳನ್ನು ಒದಗಿಸುತ್ತದೆ. ಸಿಟಿಬ್ಯಾಂಕ್ ಅಂತಾರಾಷ್ಟ್ರೀಯ ಗ್ರಾಹಕರು ಮತ್ತು ಉನ್ನತ ನೆಟ್ ಮೌಲ್ಯದ ವ್ಯಕ್ತಿಗಳಿಗೆ ಸಹಾಯ ಮಾಡಲು ಅನುಭವಸಂಪನ್ನ ತಂಡಗಳನ್ನು ಹೊಂದಿದೆ. ಜಾಗೃತಿ ಕಾರ್ಯಕ್ರಮಗಳು ಮತ್ತು ಹಣಕಾಸು ಕಾರ್ಯಾಗಾರಗಳು ನಿಯಮಿತವಾಗಿ ಆಯೋಜಿಸಲಾಗುತ್ತವೆ. ಬ್ಯಾಂಕ್ ಗ್ರಾಹಕ ತೃಪ್ತಿ, ಭದ್ರತೆ ಮತ್ತು ನವೀನ ಹಣಕಾಸು ಉತ್ಪನ್ನಗಳಿಗೆ ಒತ್ತು ನೀಡುತ್ತದೆ. ಇದು ಅಂತರರಾಷ್ಟ್ರೀಯ ಮತ್ತು ದೇಶೀಯ ಬ್ಯಾಂಕಿಂಗ್ ಕಾರ್ಯಾಚರಣೆಗಳಲ್ಲಿ ಪ್ರಮುಖ ಪಾತ್ರವಹಿಸುತ್ತದೆ.",
     "history": "An established cultural and urban landmark in Bengaluru.",
     "historyKn": "ಬೆಂಗಳೂರಿನ ಪ್ರಸಿದ್ಧ ಸಾಂಸ್ಕೃತಿಕ ಹಾಗೂ ನಗರ ಹೆಗ್ಗುರುತು.",
-    "image": "assets/images/landmarks/banks/ban6.jpg",
+    "image": "assets/images/destinations/essential-services/citibank-axis-mgroad.jpg",
     "visitorInfo": {
       "timing": "10:00 AM - 3:30 PM (Mon-Sat, closed 2nd/4th Sat)",
       "timingKn": "ಬೆಳಗ್ಗೆ 10:00 ರಿಂದ ಮಧ್ಯಾಹ್ನ 3:30",
@@ -2040,7 +2040,7 @@ const PLACES = [
     "fullDescKn": "ಲೀಲಾ ಪ್ಯಾಲೆಸ್ ಬೆಂಗಳೂರು ನಗರದ ಐಷಾರಾಮಿ ಐದು-ತಾರೆ ಹೋಟೆಲ್ ಆಗಿದ್ದು, ವಿಶ್ವ ಮಟ್ಟದ ಆತಿಥ್ಯವನ್ನು ಒದಗಿಸುತ್ತದೆ. ಇದು ಸೌಕರ್ಯಸಂಪನ್ನವಾದ ಕೋಠಡಿಗಳು, ಸೂಟ್‌ಗಳು ಮತ್ತು ವಿಲ್ಲಾಗಳೊಂದಿಗೆ ಆರಾಮದಾಯಕ ವಾಸಸ್ಥಳವನ್ನು ನೀಡುತ್ತದೆ. ಅತಿಥಿಗಳು ಅಂತಾರಾಷ್ಟ್ರೀಯ ಮತ್ತು ಭಾರತೀಯ ಪಾಕಶಾಲೆಗಳಲ್ಲಿ ಉತ್ತಮ ಆಹಾರವನ್ನು ಆನಂದಿಸಬಹುದು. ಹೋಟೆಲ್ ಸ್ಪಾ ಮತ್ತು ವೆಲ್‍ನೆಸ್, ಸಭಾಂಗಣಗಳು, ಕಾರ್ಯಕ್ರಮ ಸ್ಥಳಗಳು ಮತ್ತು ವೈಯಕ್ತಿಕ ಸೇವೆಗಳನ್ನು ಒದಗಿಸುತ್ತದೆ. ಸುಂದರವಾದ ಉದ್ಯಾನಗಳು ಮತ್ತು ಈಜುಕೋಠಡಿಗಳು ಅನುಭವವನ್ನು ಹೆಚ್ಚಿಸುತ್ತವೆ. ಲೀಲಾ ಪ್ಯಾಲೆಸ್ ವಿಶ್ರಾಂತಿ, ವ್ಯವಹಾರ ಪ್ರಯಾಣಿಕರು ಮತ್ತು ವಿಶೇಷ ಸಂದರ್ಭಗಳಿಗೆ ಅತ್ಯುತ್ತಮವಾಗಿದೆ.",
     "history": "An established cultural and urban landmark in Bengaluru.",
     "historyKn": "ಬೆಂಗಳೂರಿನ ಪ್ರಸಿದ್ಧ ಸಾಂಸ್ಕೃತಿಕ ಹಾಗೂ ನಗರ ಹೆಗ್ಗುರುತು.",
-    "image": "assets/images/landmarks/hotels/hot2.jpg",
+    "image": "assets/images/destinations/stay-accommodation/the-leela-palace.jpg",
     "visitorInfo": {
       "timing": "24 Hours (Check-in 2:00 PM, Check-out 12:00 PM)",
       "timingKn": "24 ಗಂಟೆ (ಚೆಕ್-ಇನ್ ಮಧ್ಯಾಹ್ನ 2:00, ಚೆಕ್-ಔಟ್ ಮಧ್ಯಾಹ್ನ 12:00)",
@@ -2079,7 +2079,7 @@ const PLACES = [
     "fullDescKn": "ತಾಜ್ ಹೋಟೆಲ್ ಬೆಂಗಳೂರಿನ ಪ್ರಸಿದ್ಧ ಪರಂಪರೆಯ ಐಷಾರಾಮಿ ಹೋಟೆಲ್ ಆಗಿದ್ದು, ಉತ್ತಮ ಸೇವೆ ಮತ್ತು ಆರಾಮವನ್ನು ಒದಗಿಸುತ್ತದೆ. ಶೈಲಿಪೂರ್ಣ ಶೈಲಿ ಮತ್ತು ಆಧುನಿಕ ಸೌಕರ್ಯಗಳೊಂದಿಗೆ ಕೋಠಡಿಗಳು ಮತ್ತು ಸೂಟ್‌ಗಳನ್ನು ವಿನ್ಯಾಸಗೊಳಿಸಲಾಗಿದೆ. ಅತಿಥಿಗಳು ವಿಶೇಷ ರೆಸ್ಟೋರೆಂಟ್‌ಗಳಲ್ಲಿ ಆಹಾರ ಅನುಭವವನ್ನು ಆನಂದಿಸಬಹುದು. ಹೋಟೆಲ್ ಮದುವೆ, ಸಭೆ ಮತ್ತು ಹಬ್ಬದ ಕಾರ್ಯಕ್ರಮಗಳಿಗೆ ಸ್ಥಳಗಳನ್ನು ಹೊಂದಿದೆ. ವೆಲ್‍ನೆಸ್ ಸೌಲಭ್ಯಗಳು ಮತ್ತು ಕನ್ಸಿಯರ್ಜ್ ಸೇವೆಗಳು ಸ್ಮರಣೀಯ ವಾಸವನ್ನು ಖಾತ್ರಿಗೊಳಿಸುತ್ತವೆ. ತಾಜ್ ಹೋಟೆಲ್ ಪರಂಪರೆಯ ಆಕರ್ಷಣೆ ಮತ್ತು ಆಧುನಿಕ ಐಷಾರಾಮಿ ಅನುಭವವನ್ನು ಸಂಯೋಜಿಸುತ್ತದೆ.",
     "history": "An established cultural and urban landmark in Bengaluru.",
     "historyKn": "ಬೆಂಗಳೂರಿನ ಪ್ರಸಿದ್ಧ ಸಾಂಸ್ಕೃತಿಕ ಹಾಗೂ ನಗರ ಹೆಗ್ಗುರುತು.",
-    "image": "assets/images/landmarks/hotels/hot1.jpg",
+    "image": "assets/images/destinations/stay-accommodation/the-taj-west-end.jpg",
     "visitorInfo": {
       "timing": "24 Hours (Check-in 2:00 PM, Check-out 12:00 PM)",
       "timingKn": "24 ಗಂಟೆ ಲಭ್ಯವಿದೆ",
@@ -2118,7 +2118,7 @@ const PLACES = [
     "fullDescKn": "ಐಟಿಸಿ ಗಾರ್ಡೀನಿಯಾ ಬೆಂಗಳೂರು ನಗರದಲ್ಲಿ ಪರಿಸರ ಸ್ನೇಹಿ ಐಷಾರಾಮಿ ಮತ್ತು ಆಧುನಿಕ ಸೌಲಭ್ಯಗಳನ್ನು ಒದಗಿಸುವ ಪ್ರೀಮಿಯಂ ವ್ಯಾಪಾರ ಹೋಟೆಲ್ ಆಗಿದೆ. ಹೋಟೆಲ್‌ನಲ್ಲಿ ವ್ಯಾಪಕ ಕೋಠಡಿಗಳು, ಸೂಟ್‌ಗಳು ಮತ್ತು ಸಭಾಂಗಣಗಳಿವೆ, ಇದು ಕಾರ್ಪೊರೇಟ್ ಮತ್ತು ವಿಶ್ರಾಂತಿ ಪ್ರಯಾಣಿಕರಿಗೆ ಅನುಕೂಲವಾಗಿದೆ. ಹಲವಾರು ಆಹಾರ ಆಯ್ಕೆಗಳು ಐಷಾರಾಮಿ ಪರಿಸರದಲ್ಲಿ ಅಂತಾರಾಷ್ಟ್ರೀಯ ಮತ್ತು ಭಾರತೀಯ ಪಾಕಶಾಲೆಯನ್ನು ಒದಗಿಸುತ್ತವೆ. ಅತಿಥಿಗಳು ಸ್ಪಾ, ಫಿಟ್ನೆಸ್ ಮತ್ತು ಮನರಂಜನಾ ಸೌಲಭ್ಯಗಳನ್ನು ಆನಂದಿಸಬಹುದು. ಐಟಿಸಿ ಗಾರ್ಡೀನಿಯಾ ಸ್ಥಿರತೆಯನ್ನು, ಸೇವಾ ಶ್ರೇಷ್ಠತೆಯನ್ನು ಮತ್ತು ಅತಿಥಿ ತೃಪ್ತಿಯನ್ನು ಪ್ರಾಶಸ್ತ್ಯ ನೀಡುತ್ತದೆ. ವ್ಯವಹಾರ ಸಭೆಗಳು, ಕಾರ್ಯಕ್ರಮಗಳು ಮತ್ತು ಆರಾಮದಾಯಕ ನಗರ ವಾಸಕ್ಕೆ ಇದು ಪರಿಪೂರ್ಣವಾಗಿದೆ.",
     "history": "An established cultural and urban landmark in Bengaluru.",
     "historyKn": "ಬೆಂಗಳೂರಿನ ಪ್ರಸಿದ್ಧ ಸಾಂಸ್ಕೃತಿಕ ಹಾಗೂ ನಗರ ಹೆಗ್ಗುರುತು.",
-    "image": "assets/images/landmarks/hotels/hot3.jpg",
+    "image": "assets/images/destinations/stay-accommodation/itc-gardenia.jpg",
     "visitorInfo": {
       "timing": "24 Hours (Check-in 3:00 PM, Check-out 12:00 PM)",
       "timingKn": "24 ಗಂಟೆ ತೆರೆದಿರುತ್ತದೆ",
@@ -2157,7 +2157,7 @@ const PLACES = [
     "fullDescKn": "ದಿ ಓಬೆರಾಯ್ ಬೆಂಗಳೂರಿನ ಐಷಾರಾಮಿ ಆತಿಥ್ಯ ಸರಣಿ ಆಗಿದ್ದು, ಶ್ರೇಷ್ಟ ಸೇವೆ ಮತ್ತು ಶಾಂತ ವಾತಾವರಣವನ್ನು ಒದಗಿಸುತ್ತದೆ. ಕೋಠಡಿಗಳು ಮತ್ತು ಸೂಟ್‌ಗಳು ಆಧುನಿಕ ಸೌಲಭ್ಯಗಳೊಂದಿಗೆ ಸೊಬಗುಮಯವಾಗಿ ಅಲಂಕೃತಗೊಳಿಸಲಾಗಿದೆ. ಅತಿಥಿಗಳು ಸಿಗ್ನೇಚರ್ ರೆಸ್ಟೋರೆಂಟ್‌ಗಳಲ್ಲಿ ಉನ್ನತ ಮಟ್ಟದ ಆಹಾರವನ್ನು ಅನುಭವಿಸಬಹುದು ಮತ್ತು ಸ್ಪಾ ಮತ್ತು ವೆಲ್‍ನೆಸ್ ಕೇಂದ್ರಗಳಲ್ಲಿ ವಿಶ್ರಾಂತಿಯಾಗಬಹುದು. ಹೋಟೆಲ್ ವೈಯಕ್ತಿಕ ಕನ್ಸಿಯರ್ಜ್ ಸೇವೆ, ಕಾರ್ಯಕ್ರಮ ನಿರ್ವಹಣೆ ಮತ್ತು ಮನರಂಜನಾ ಚಟುವಟಿಕೆಗಳನ್ನು ಒದಗಿಸುತ್ತದೆ. ಹಸಿರಿನ ಉದ್ಯಾನಗಳು ಮತ್ತು ಶಾಂತ ಪರಿಸರಗಳು ಅತಿಥಿ ಅನುಭವವನ್ನು ಹೆಚ್ಚಿಸುತ್ತವೆ. ಲೀಜರ್ ಮತ್ತು ವ್ಯವಹಾರ ಪ್ರಯಾಣಿಕರಿಗೆ ಸುಖ ಹಾಗೂ ಐಷಾರಾಮಿ ಅನುಭವಕ್ಕಾಗಿ ದಿ ಓಬೆರಾಯ್ ಪರಿಪೂರ್ಣವಾಗಿದೆ.",
     "history": "An established cultural and urban landmark in Bengaluru.",
     "historyKn": "ಬೆಂಗಳೂರಿನ ಪ್ರಸಿದ್ಧ ಸಾಂಸ್ಕೃತಿಕ ಹಾಗೂ ನಗರ ಹೆಗ್ಗುರುತು.",
-    "image": "assets/images/landmarks/hotels/hot4.jpg",
+    "image": "assets/images/destinations/stay-accommodation/the-oberoi-bengaluru.jpg",
     "visitorInfo": {
       "timing": "24 Hours",
       "timingKn": "24 ಗಂಟೆ",
@@ -2197,7 +2197,7 @@ const PLACES = [
     "fullDescKn": "ಆರ್ ಸಿ ಬಿ ಕಾಫೆ ಬೆಂಗಳೂರಿನ ಜನಪ್ರಿಯ ಕ್ರಿಕೆಟ್ ಥೀಮ್ ಕಫೆ ಮತ್ತು ಲೌಂಜ್ ಆಗಿದೆ. ಇದು ಕ್ರಿಕೆಟ್ ಅಲಂಕಾರ, ದೊಡ್ಡ ಪರದೆಗಳು ಮತ್ತು ನೇರ ಪಂದ್ಯ ಪ್ರದರ್ಶನಗಳೊಂದಿಗೆ ಉಲ್ಲಾಸಕರ ವಾತಾವರಣವನ್ನು ನೀಡುತ್ತದೆ. ಅತಿಥಿಗಳು ಥೀಮ್ ಆಹಾರ, ಪಾನೀಯಗಳು ಮತ್ತು ತಿಂಡಿಗಳನ್ನು ಆನಂದಿಸಬಹುದು ಮತ್ತು ಸಾಮಾಜಿಕ ಸಂವಹನ ನಡೆಸಬಹುದು. ಕಫೆ ಕ್ರಿಕೆಟ್ ಸಂಬಂಧಿತ ಕಾರ್ಯಕ್ರಮಗಳು, ಸ್ಪರ್ಧೆಗಳು ಮತ್ತು ಅಭಿಮಾನಿ ಚಟುವಟಿಕೆಗಳನ್ನು ಆಯೋಜಿಸುತ್ತದೆ. ಕ್ರೀಡೆ ಪ್ರಿಯರು ಮತ್ತು ಕುಟುಂಬಗಳಿಗೆ ಇದು ಮೆಚ್ಚಿನ ಸ್ಥಳವಾಗಿದೆ. ಆರ್ ಸಿ ಬಿ ಕಾಫೆ ಮನರಂಜನೆ ಮತ್ತು ವಿಶ್ರಾಂತಿಯುಳ್ಳ ಸುಲಭವಾದ ಸ್ಥಳಗಳನ್ನು ಒದಗಿಸುತ್ತದೆ.",
     "history": "An established cultural and urban landmark in Bengaluru.",
     "historyKn": "ಬೆಂಗಳೂರಿನ ಪ್ರಸಿದ್ಧ ಸಾಂಸ್ಕೃತಿಕ ಹಾಗೂ ನಗರ ಹೆಗ್ಗುರುತು.",
-    "image": "assets/images/landmarks/hotels/hot5.jpg",
+    "image": "assets/images/destinations/food-dining/rcb-bar-and-cafe.jpg",
     "visitorInfo": {
       "timing": "11:00 AM - 1:00 AM (Daily)",
       "timingKn": "ಬೆಳಗ್ಗೆ 11:00 ರಿಂದ ರಾತ್ರಿ 1:00 (ಪ್ರತಿದಿನ)",
@@ -2236,7 +2236,7 @@ const PLACES = [
     "fullDescKn": "ಶೆರೇಟನ್ ಗ್ರ್ಯಾಂಡ್ ಬೆಂಗಳೂರು ನಗರದಲ್ಲಿ ನವೀನ ಕೊಠಡಿಗಳು ಮತ್ತು ವಿಶ್ವಮಟ್ಟದ ಸೌಲಭ್ಯಗಳೊಂದಿಗೆ ಅಂತಾರಾಷ್ಟ್ರೀಯ ಐಷಾರಾಮಿ ಹೋಟೆಲ್ ಆಗಿದೆ. ಇದು ಸಭಾಂಗಣಗಳು, ಭೋಜನಾಲಯಗಳು ಮತ್ತು ಉನ್ನತ ಮಟ್ಟದ ಆಹಾರ ಆಯ್ಕೆಗಳನ್ನು ಒದಗಿಸುತ್ತದೆ. ಅತಿಥಿಗಳು ಫಿಟ್ನೆಸ್ ಕೇಂದ್ರಗಳು, ಸ್ಪಾ ಚಿಕಿತ್ಸೆಗಳು ಮತ್ತು ಮನರಂಜನಾ ಚಟುವಟಿಕೆಗಳನ್ನು ಅನುಭವಿಸಬಹುದು. ಹೋಟೆಲ್ ಅತ್ಯುತ್ತಮ ಸೇವೆ, ಆರಾಮ ಮತ್ತು ವಿವರಗಳಿಗೆ ಗಮನ ನೀಡುತ್ತದೆ. ಇದು ವ್ಯವಹಾರ ಮತ್ತು ವಿಶ್ರಾಂತಿ ಪ್ರಯಾಣಿಕರಿಗೆ ತಕ್ಕಂತೆ ಉಚಿತವಾಗಿದೆ. ಶೆರೇಟನ್ ಗ್ರ್ಯಾಂಡ್ ಪ್ರೀಮಿಯಂ ನಗರ ಅನುಭವವನ್ನು ಜಾಗತಿಕ ಆತಿಥ್ಯ ಮಾನದಂಡಗಳೊಂದಿಗೆ ಒದಗಿಸುತ್ತದೆ.",
     "history": "An established cultural and urban landmark in Bengaluru.",
     "historyKn": "ಬೆಂಗಳೂರಿನ ಪ್ರಸಿದ್ಧ ಸಾಂಸ್ಕೃತಿಕ ಹಾಗೂ ನಗರ ಹೆಗ್ಗುರುತು.",
-    "image": "assets/images/landmarks/hotels/hot6.jpg",
+    "image": "assets/images/destinations/stay-accommodation/sheraton-grand-brigade-gateway.jpg",
     "visitorInfo": {
       "timing": "24 Hours (Check-in 3:00 PM)",
       "timingKn": "24 ಗಂಟೆ ಸೇವೆ ಲಭ್ಯ",
@@ -2275,7 +2275,7 @@ const PLACES = [
     "fullDescKn": "ಮಣಿಪಾಲ್ ಆಸ್ಪತ್ರೆ ಬೆಂಗಳೂರು ನಗರದಲ್ಲಿ ಪ್ರಮುಖ ಬಹು-ವಿಶೇಷ ತೃತೀಯ ಕಾಳಜಿ ಕೇಂದ್ರವಾಗಿದೆ. ಇದು ತುರ್ತು ಚಿಕಿತ್ಸೆ, ಶಸ್ತ್ರಚಿಕಿತ್ಸೆ ಮತ್ತು ವಿಶೇಷ ವಿಭಾಗಗಳನ್ನು ಒಳಗೊಂಡ ಉನ್ನತ ಮಟ್ಟದ ವೈದ್ಯಕೀಯ ಸೇವೆಗಳನ್ನು ಒದಗಿಸುತ್ತದೆ. ಆಸ್ಪತ್ರೆ ನಿಖರ ಚಿಕಿತ್ಸೆಗಾಗಿ ಆಧುನಿಕ ನಿರ್ಧಾರಾತ್ಮಕ ಸಾಧನಗಳು ಮತ್ತು ತಂತ್ರಜ್ಞಾನವನ್ನು ಹೊಂದಿದೆ. ಪರಿಣಿತ ವೈದ್ಯರು ಮತ್ತು ತರಬೇತಿಪ್ರಾಪ್ತ ಸಿಬ್ಬಂದಿ ಉತ್ತಮ ರೋಗಿ ಆರೈಕೆಯನ್ನು ಒದಗಿಸುತ್ತಾರೆ. ಮಣಿಪಾಲ್ ಆಸ್ಪತ್ರೆ ರೋಗಿಗಳ ಸುರಕ್ಷತೆ, ಆರಾಮ ಮತ್ತು ಸಂಪೂರ್ಣ ಆರೋಗ್ಯ ಪರಿಹಾರಗಳನ್ನು ಗಮನಿಸುತ್ತದೆ. ಸ್ಥಳೀಯ ಮತ್ತು ಅಂತರರಾಷ್ಟ್ರೀಯ ರೋಗಿಗಳಿಗೆ ವ್ಯಾಪಕ ವೈದ್ಯಕೀಯ ಸಹಾಯವನ್ನು ನೀಡುತ್ತದೆ.",
     "history": "An established cultural and urban landmark in Bengaluru.",
     "historyKn": "ಬೆಂಗಳೂರಿನ ಪ್ರಸಿದ್ಧ ಸಾಂಸ್ಕೃತಿಕ ಹಾಗೂ ನಗರ ಹೆಗ್ಗುರುತು.",
-    "image": "assets/images/landmarks/hospitals/hos2.jpg",
+    "image": "assets/images/destinations/essential-services/manipal-hospital-oldairport.jpg",
     "visitorInfo": {
       "timing": "24/7 Emergency & Inpatient; OPD 8:00 AM - 8:00 PM",
       "timingKn": "24/7 ತುರ್ತು ಸೇವೆ; ಒಪಿಡಿ ಬೆಳಗ್ಗೆ 8:00 ರಿಂದ ರಾತ್ರಿ 8:00",
@@ -2314,7 +2314,7 @@ const PLACES = [
     "fullDescKn": "ಅಪೋಲೊ ಆಸ್ಪತ್ರೆ ಬೆಂಗಳೂರಿನ ಪ್ರಮುಖ ಖಾಸಗಿ ಆರೋಗ್ಯ ಸಂಸ್ಥೆಯಾಗಿದ್ದು, ಬಹು-ವಿಶೇಷ ಚಿಕಿತ್ಸೆಗಳನ್ನು ಒದಗಿಸುತ್ತದೆ. ಇದು ಉನ್ನತ ಮಟ್ಟದ ನಿರ್ಧಾರಾತ್ಮಕ ಸೇವೆಗಳು, ತುರ್ತು ಚಿಕಿತ್ಸೆ ಮತ್ತು ವಿಶೇಷ ವೈದ್ಯಕೀಯ ಆರೈಕೆಯನ್ನು ನೀಡುತ್ತದೆ. ಅನುಭವಸಂಪನ್ನ ವೈದ್ಯರು ಮತ್ತು ಸಿಬ್ಬಂದಿ ವೈಯಕ್ತಿಕ ಗಮನ ಮತ್ತು ಉತ್ತಮ ಗುಣಮಟ್ಟದ ಆರೈಕೆಯನ್ನು ಖಾತ್ರಿಗೊಳಿಸುತ್ತಾರೆ. ಅಪೋಲೊ ಆಸ್ಪತ್ರೆ ಆಧುನಿಕ ತಂತ್ರಜ್ಞಾನ, ರೋಗಿ ಸುರಕ್ಷತೆ ಮತ್ತು ಆರಾಮಕ್ಕೆ ಒತ್ತು ನೀಡುತ್ತದೆ. ಇದು ಆರೋಗ್ಯ ಕಾರ್ಯಕ್ರಮಗಳು ಮತ್ತು ಜಾಗೃತಿ ಚಟುವಟಿಕೆಗಳನ್ನು ಸಹ ಒದಗಿಸುತ್ತದೆ. ಸ್ಥಳೀಯ ಮತ್ತು ಅಂತರರಾಷ್ಟ್ರೀಯ ರೋಗಿಗಳಿಗೆ ವಿಶ್ವಾಸಾರ್ಹ ಆರೈಕೆಯನ್ನು ನೀಡುತ್ತದೆ.",
     "history": "An established cultural and urban landmark in Bengaluru.",
     "historyKn": "ಬೆಂಗಳೂರಿನ ಪ್ರಸಿದ್ಧ ಸಾಂಸ್ಕೃತಿಕ ಹಾಗೂ ನಗರ ಹೆಗ್ಗುರುತು.",
-    "image": "assets/images/landmarks/hospitals/hos1.jpg",
+    "image": "assets/images/destinations/essential-services/apollo-hospital-bannerghatta.jpg",
     "visitorInfo": {
       "timing": "24/7 Emergency; OPD 8:30 AM - 7:30 PM",
       "timingKn": "24/7 ತುರ್ತು ಸೇವೆ ಲಭ್ಯವಿದೆ",
@@ -2353,7 +2353,7 @@ const PLACES = [
     "fullDescKn": "ಬಿಜಿಎಸ್ ಆಸ್ಪತ್ರೆ ಹೃದಯ, ಅಸ್ಥಿ ಮತ್ತು ಸಾಮಾನ್ಯ ವೈದ್ಯಕೀಯ ಸೇವೆಗಳನ್ನು ಒಳಗೊಂಡ ವ್ಯಾಪಕ ಆರೋಗ್ಯ ಸೇವೆಗಳನ್ನು ಒದಗಿಸುತ್ತದೆ. ಇದು ಆಧುನಿಕ ನಿರ್ಧಾರಾತ್ಮಕ ಮತ್ತು ಚಿಕಿತ್ಸೆ ಸೌಲಭ್ಯಗಳನ್ನು ಹೊಂದಿದೆ. ಪರಿಣಿತ ವೈದ್ಯರು ಮತ್ತು ಸಿಬ್ಬಂದಿ ವೈಯಕ್ತಿಕ ಆರೈಕೆಯನ್ನು ಮತ್ತು ನಿರಂತರ ಪರಿಶೀಲನೆ ನೀಡುತ್ತಾರೆ. ಆಸ್ಪತ್ರೆ ರೋಗಿ ಸುರಕ್ಷತೆ, ಆರಾಮ ಮತ್ತು ಸಂಪೂರ್ಣ ಚಿಕಿತ್ಸೆ ವಿಧಾನಗಳಿಗೆ ಒತ್ತು ನೀಡುತ್ತದೆ. ವಿಭಿನ್ನ ವೈದ್ಯಕೀಯ ಅಗತ್ಯಗಳಿಗೆ ವಿಶೇಷ ವಿಭಾಗಗಳು ಲಭ್ಯವಿವೆ. ಬಿಜಿಎಸ್ ಆಸ್ಪತ್ರೆ ಇನ್ಪೇಷೆಂಟ್ ಮತ್ತು ಔಟ್‌ಪೇಷೆಂಟ್ ಎರಡಕ್ಕೂ ಆಧುನಿಕ ಆರೋಗ್ಯ ಪರಿಹಾರಗಳನ್ನು ನೀಡುತ್ತದೆ.",
     "history": "An established cultural and urban landmark in Bengaluru.",
     "historyKn": "ಬೆಂಗಳೂರಿನ ಪ್ರಸಿದ್ಧ ಸಾಂಸ್ಕೃತಿಕ ಹಾಗೂ ನಗರ ಹೆಗ್ಗುರುತು.",
-    "image": "assets/images/landmarks/hospitals/hos6.jpg",
+    "image": "assets/images/destinations/essential-services/bgs-gleneagles-hospital.jpg",
     "visitorInfo": {
       "timing": "24/7 Emergency; OPD 9:00 AM - 6:00 PM",
       "timingKn": "24/7 ತುರ್ತು ಸೇವೆ; ಒಪಿಡಿ ಬೆಳಗ್ಗೆ 9:00 - ಸಂಜೆ 6:00",
@@ -2392,7 +2392,7 @@ const PLACES = [
     "fullDescKn": "ನಾರಾಯಣ ಆಸ್ಪತ್ರೆ ಬೆಂಗಳೂರು ನಗರದಲ್ಲಿ ಹೃದಯ ಚಿಕಿತ್ಸಾ ಮತ್ತು ಇತರ ವಿಶೇಷ ವೈದ್ಯಕೀಯ ಸೇವೆಗಳಲ್ಲಿ ಪರಿಣತವಾಗಿದೆ. ಇದು ಶಸ್ತ್ರಚಿಕಿತ್ಸೆ, ನಿರ್ಧಾರಾತ್ಮಕ ಸೇವೆಗಳು ಮತ್ತು ತುರ್ತು ಚಿಕಿತ್ಸೆಗಳನ್ನು ಆಧುನಿಕ ತಂತ್ರಜ್ಞಾನದೊಂದಿಗೆ ಒದಗಿಸುತ್ತದೆ. ಅನುಭವಸಂಪನ್ನ ವೈದ್ಯಕೀಯ ತಂಡಗಳು ರೋಗಿಗಳಿಗೆ ನಿಖರ ಮತ್ತು ಸಮಯೋಚಿತ ಆರೈಕೆಯನ್ನು ಖಾತ್ರಿಗೊಳಿಸುತ್ತವೆ. ನಾರಾಯಣ ಆಸ್ಪತ್ರೆ ರೋಗಿ ಸುರಕ್ಷತೆ, ಆರಾಮ ಮತ್ತು ಸೌಲಭ್ಯಕ್ಕೆ ಒತ್ತು ನೀಡುತ್ತದೆ. ಆಸ್ಪತ್ರೆ ತಡೆಯುವ ಆರೋಗ್ಯ ಕಾರ್ಯಕ್ರಮಗಳು ಮತ್ತು ವೆಲ್‍ನೆಸ್ ಚಟುವಟಿಕೆಗಳನ್ನು ಸಹ ಒದಗಿಸುತ್ತದೆ. ಇದು ಸ್ಥಳೀಯ ಮತ್ತು ಅಂತರರಾಷ್ಟ್ರೀಯ ರೋಗಿಗಳಿಗೆ ಸೇವೆ ನೀಡುತ್ತದೆ.",
     "history": "An established cultural and urban landmark in Bengaluru.",
     "historyKn": "ಬೆಂಗಳೂರಿನ ಪ್ರಸಿದ್ಧ ಸಾಂಸ್ಕೃತಿಕ ಹಾಗೂ ನಗರ ಹೆಗ್ಗುರುತು.",
-    "image": "assets/images/landmarks/hospitals/hos3.jpg",
+    "image": "assets/images/destinations/essential-services/narayana-health-city.jpg",
     "visitorInfo": {
       "timing": "24/7 Emergency & Cardiac Trauma; OPD 8:00 AM - 7:00 PM",
       "timingKn": "24/7 ತುರ್ತು ಹೃದ್ರೋಗ ಚಿಕಿತ್ಸೆ; ಒಪಿಡಿ ಬೆಳಗ್ಗೆ 8:00 - ಸಂಜೆ 7:00",
@@ -2431,7 +2431,7 @@ const PLACES = [
     "fullDescKn": "ವಿಕ್ಟೋರಿಯಾ ಆಸ್ಪತ್ರೆ ಬೆಂಗಳೂರು ನಗರದ ಐತಿಹಾಸಿಕ ಸರ್ಕಾರಿ ಆಸ್ಪತ್ರೆಯಾಗಿದೆ ಮತ್ತು ವ್ಯಾಪಕ ಸಾರ್ವಜನಿಕ ಆರೋಗ್ಯ ಸೇವೆಗಳನ್ನು ಒದಗಿಸುತ್ತದೆ. ಇದು ಔಟ್‌ಪೇಷೆಂಟ್ ಮತ್ತು ಇನ್ಪೇಷೆಂಟ್ ಆರೈಕೆ, ತುರ್ತು ಚಿಕಿತ್ಸೆ ಮತ್ತು ವಿಶೇಷ ವಿಭಾಗಗಳನ್ನು ಒದಗಿಸುತ್ತದೆ. ಆಸ್ಪತ್ರೆಯಲ್ಲಿ ಅನುಭವಸಂಪನ್ನ ವೈದ್ಯಕೀಯ ಸಿಬ್ಬಂದಿ ಮತ್ತು ಆಧುನಿಕ ನಿರ್ಧಾರಾತ್ಮಕ ಸಾಧನಗಳಿವೆ. ವಿಕ್ಟೋರಿಯಾ ಆಸ್ಪತ್ರೆ ಸಾರ್ವಜನಿಕ ಆರೋಗ್ಯ, ರೋಗಿ ಸುರಕ್ಷತೆ ಮತ್ತು ಆರ್ಥಿಕವಾಗಿ ಲಭ್ಯವಿರುವ ಆರೈಕೆಗೆ ಒತ್ತು ನೀಡುತ್ತದೆ. ವೈದ್ಯಕೀಯ ವಿದ್ಯಾರ್ಥಿಗಳು ಮತ್ತು ಆರೋಗ್ಯ ವೃತ್ತಿಪರರಿಗಾಗಿ ತರಬೇತಿ ಕಾರ್ಯಕ್ರಮಗಳನ್ನು ಆಯೋಜಿಸಲಾಗುತ್ತದೆ. ಇದು ವೈವಿಧ್ಯಮಯ ಜನಸಂಖ್ಯೆಗೆ ಸೇವೆ ನೀಡುತ್ತದೆ ಮತ್ತು ಸಮುದಾಯ ಆರೋಗ್ಯ ಕಾರ್ಯಚಟುವಟಿಕೆಗಳಿಗೆ ಕೊಡುಗೆ ನೀಡುತ್ತದೆ.",
     "history": "An established cultural and urban landmark in Bengaluru.",
     "historyKn": "ಬೆಂಗಳೂರಿನ ಪ್ರಸಿದ್ಧ ಸಾಂಸ್ಕೃತಿಕ ಹಾಗೂ ನಗರ ಹೆಗ್ಗುರುತು.",
-    "image": "assets/images/landmarks/hospitals/hos4.jpg",
+    "image": "assets/images/destinations/essential-services/victoria-hospital-bmc.jpg",
     "visitorInfo": {
       "timing": "24/7 Emergency & Trauma Centre; OPD 9:00 AM - 1:00 PM",
       "timingKn": "24/7 ತುರ್ತು ಆಘಾತ ಚಿಕಿತ್ಸಾ ಕೇಂದ್ರ; ಒಪಿಡಿ ಬೆಳಗ್ಗೆ 9:00 - ಮಧ್ಯಾಹ್ನ 1:00",
@@ -2470,7 +2470,7 @@ const PLACES = [
     "fullDescKn": "ಬೆಂಗಳೂರು ಆಸ್ಪತ್ರೆ ಬಹು-ವಿಶೇಷ ಆರೋಗ್ಯ ಸೇವೆಗಳನ್ನು ಒದಗಿಸುತ್ತದೆ, ಇದರಲ್ಲಿ ತುರ್ತು, ಇನ್ಪೇಷೆಂಟ್ ಮತ್ತು ಔಟ್‌ಪೇಷೆಂಟ್ ಆರೈಕೆ ಸೇರಿದೆ. ಇದು ವಿವಿಧ ವೈದ್ಯಕೀಯ ಸ್ಥಿತಿಗಳಿಗಾಗಿ ಆಧುನಿಕ ನಿರ್ಧಾರಾತ್ಮಕ ಮತ್ತು ಚಿಕಿತ್ಸೆ ಸೌಲಭ್ಯಗಳನ್ನು ಹೊಂದಿದೆ. ಪರಿಣಿತ ವೈದ್ಯರು ಮತ್ತು ತರಬೇತಿಪ್ರಾಪ್ತ ಸಿಬ್ಬಂದಿ ಉನ್ನತ ಗುಣಮಟ್ಟದ, ರೋಗಿ-ಕೇಂದ್ರಿತ ಆರೈಕೆಯನ್ನು ಒದಗಿಸುತ್ತಾರೆ. ಆಸ್ಪತ್ರೆ ಸುರಕ್ಷತೆ, ಆರಾಮ ಮತ್ತು ವೈಯಕ್ತಿಕ ಚಿಕಿತ್ಸಾ ಯೋಜನೆಗಳಿಗೆ ಒತ್ತು ನೀಡುತ್ತದೆ. ಇದು ಸ್ಥಳೀಯ ಮತ್ತು ಅಂತರರಾಷ್ಟ್ರೀಯ ರೋಗಿಗಳಿಗೆ ವಿಶ್ವಾಸಾರ್ಹ ಆರೈಕೆಯನ್ನು ಒದಗಿಸುತ್ತದೆ. ಬೆಂಗಳೂರು ಆಸ್ಪತ್ರೆ ಆಧುನಿಕ ಮೂಲಸೌಕರ್ಯ ಮತ್ತು ವೃತ್ತಿಪರ ವೈದ್ಯಕೀಯ ಸೇವೆಗಳಿಗೆ ಪ್ರಸಿದ್ಧವಾಗಿದೆ.",
     "history": "An established cultural and urban landmark in Bengaluru.",
     "historyKn": "ಬೆಂಗಳೂರಿನ ಪ್ರಸಿದ್ಧ ಸಾಂಸ್ಕೃತಿಕ ಹಾಗೂ ನಗರ ಹೆಗ್ಗುರುತು.",
-    "image": "assets/images/landmarks/hospitals/hos5.jpg",
+    "image": "assets/images/destinations/essential-services/the-bangalore-hospital.jpg",
     "visitorInfo": {
       "timing": "24/7 Emergency; OPD 9:00 AM - 6:00 PM",
       "timingKn": "24/7 ತುರ್ತು ಸೇವೆ; ಒಪಿಡಿ ಬೆಳಗ್ಗೆ 9:00 - ಸಂಜೆ 6:00",
@@ -2510,7 +2510,7 @@ const PLACES = [
     "fullDescKn": "ವಿವಿ ಪುರಂನ ತಿಂಡಿ ಬೀದಿಯು ಸಂಜೆಯಾಗುತ್ತಿದ್ದಂತೆ ಪರಿಮಳಭರಿತ ರುಚಿಯ ಲೋಕವಾಗಿ ಮಾರ್ಪಡುತ್ತದೆ. ವಿ.ಬಿ. ಬೇಕರಿಯ ಕಾಂಗ್ರೆಸ್ ಬನ್, ಬಿಸಿ ಅಕ್ಕಿ ರೊಟ್ಟಿ, ರಾಗಿ ರೊಟ್ಟಿ, ದಾವಣಗೆರೆ ಬೆಣ್ಣೆ ದೋಸೆ, ಗುಲ್ಕನ್ ಐಸ್‌ಕ್ರೀಮ್ ಮತ್ತು ಬಿಸಿ ಬಾದಾಮಿ ಹಾಲು ಇಲ್ಲಿನ ಜನಪ್ರಿಯ ತಿನಿಸುಗಳು.",
     "history": "Flourished in the mid-20th century as a gathering strip for evening street food near Sajjan Rao Circle.",
     "historyKn": "20ನೇ ಶತಮಾನದ ಮಧ್ಯಭಾಗದಲ್ಲಿ ಸಜ್ಜನ್ ರಾವ್ ಸರ್ಕಲ್ ಬಳಿ ಸಂಜೆಯ ಉಪಾಹಾರ ಪ್ರಿಯರಿಗಾಗಿ ಪ್ರಾರಂಭವಾಯಿತು.",
-    "image": "assets/images/landmarks/food/food1.jpg",
+    "image": "assets/images/destinations/food-dining/vv-puram-food-street.jpg",
     "visitorInfo": {
       "timing": "6:00 PM - 11:30 PM (Daily; most stalls open by 6:30 PM)",
       "timingKn": "ಸಂಜೆ 6:00 ರಿಂದ ರಾತ್ರಿ 11:30 (ಪ್ರತಿದಿನ)",
@@ -2550,7 +2550,7 @@ const PLACES = [
     "fullDescKn": "1924ರಲ್ಲಿ ಪರಮೇಶ್ವರ ಮಯ್ಯ ಅವರಿಂದ ಪ್ರಾರಂಭವಾದ ಎಂ.ಟಿ.ಆರ್. ಕರ್ನಾಟಕದ ಆಹಾರ ಪರಂಪರೆಯ ಮೈಲಿಗಲ್ಲು. ಎರಡನೇ ಮಹಾಯುದ್ಧದ ಸಮಯದಲ್ಲಿ ಅಕ್ಕಿಯ ಅಭಾವವಿದ್ದಾಗ ರವಾ ಇಡ್ಲಿಯನ್ನು ಸಂಶೋಧಿಸಿದ ಕೀರ್ತಿ ಈ ಸಂಸ್ಥೆಯದ್ದು. ತುಪ್ಪದ ರವಾ ಇಡ್ಲಿ, ಮಸಾಲೆ ದೋಸೆ ಹಾಗೂ ಸಾಂಪ್ರದಾಯಿಕ ಬೆಳ್ಳಿ ತಟ್ಟೆಯ ಊಟ ಇಲ್ಲಿನ ವಿಶೇಷ.",
     "history": "Celebrated its centenary (100 years of culinary service) in 2024; retains original recipes and bronze kettle coffee brewing.",
     "historyKn": "2024ರಲ್ಲಿ 100 ವರ್ಷಗಳ ಸಂಭ್ರಮವನ್ನು ಆಚರಿಸಿಕೊಂಡಿದೆ; ಶತಮಾನದ ಸಾಂಪ್ರದಾಯಿಕ ಪಾಕಪದ್ಧತಿಯನ್ನು ಇಂದಿಗೂ ಉಳಿಸಿಕೊಂಡಿದೆ.",
-    "image": "assets/images/landmarks/food/food2.jpg",
+    "image": "assets/images/destinations/food-dining/mtr-lalbagh.jpg",
     "visitorInfo": {
       "timing": "6:30 AM - 11:00 AM & 12:30 PM - 8:30 PM (Closed Mondays)",
       "timingKn": "ಬೆಳಗ್ಗೆ 6:30 - 11:00 ಮತ್ತು ಮಧ್ಯಾಹ್ನ 12:30 - ರಾತ್ರಿ 8:30 (ಸೋಮವಾರ ರಜೆ)",
@@ -2590,7 +2590,7 @@ const PLACES = [
     "fullDescKn": "1943ರಲ್ಲಿ ವೆಂಕಟರಮಣ ಉರಾಳರಿಂದ ವಿದ್ಯಾರ್ಥಿ ಭವನ ಪ್ರಾರಂಭವಾಯಿತು. ಕವಿಗಳು, ಸಾಹಿತಿಗಳು, ಕಲಾವಿದರ ನೆಚ್ಚಿನ ತಾಣವಾಗಿದ್ದ ಈ ಹೋಟೆಲ್‌ನ ಗೋಡೆಗಳಲ್ಲಿ ಮಹನೀಯರ ರೇಖಾಚಿತ್ರಗಳಿವೆ. ನುರಿತ ಸರ್ವರ್‌ಗಳು ಒಂದೇ ಬಾರಿಗೆ 15-20 ದೋಸೆಗಳ ತಟ್ಟೆಗಳನ್ನು ಕೈಯಲ್ಲಿ ಹಿಡಿದು ತರುವ ದೃಶ್ಯ ಅತ್ಯಂತ ಆಕರ್ಷಕ.",
     "history": "Founded in 1943; historically patronized by writers like Masti Venkatesha Iyengar, D.V. Gundappa, and G.P. Rajarathnam.",
     "historyKn": "1943ರಲ್ಲಿ ಸ್ಥಾಪಿತವಾಗಿ ಮಾಸ್ತಿ, ಡಿವಿಜಿ, ಜಿ.ಪಿ. ರಾಜರತ್ನಂ ಮುಂತಾದ ಸಾಹಿತ್ಯ ದಿಗ್ಗಜರ ಆಡುಂಬೋಲವಾಗಿತ್ತು.",
-    "image": "assets/images/landmarks/food/food3.jpg",
+    "image": "assets/images/destinations/food-dining/vidyarthi-bhavan.jpg",
     "visitorInfo": {
       "timing": "6:30 AM - 11:30 AM & 2:00 PM - 8:00 PM (Closed Fridays)",
       "timingKn": "ಬೆಳಗ್ಗೆ 6:30 - 11:30 ಮತ್ತು ಮಧ್ಯಾಹ್ನ 2:00 - ರಾತ್ರಿ 8:00 (ಶುಕ್ರವಾರ ರಜೆ)",
@@ -2630,7 +2630,7 @@ const PLACES = [
     "fullDescKn": "1920ರ ದಶಕದಲ್ಲಿ ಪ್ರಾರಂಭವಾದ ಸಿ.ಟಿ.ಆರ್. (ಶ್ರೀ ಸಾಗರ್) ಮಲ್ಲೇಶ್ವರಂನ ಹೆಮ್ಮೆಯಾಗಿದೆ. ಗರಿಗರಿಯಾದ ಬೆಣ್ಣೆ ಮಸಾಲೆ ದೋಸೆ, ಮದ್ದೂರು ವಡೆ, ಕೇಸರಿಬಾತ್ ಹಾಗೂ ಬಿಸಿ ಫಿಲ್ಟರ್ ಕಾಫಿ ಇಲ್ಲಿನ ಖಾಯಂ ಆಕರ್ಷಣೆ.",
     "history": "Founded in the 1920s by Y.V. Subramanyam and brothers; later sustained by Sanjeeva S. Poojari.",
     "historyKn": "1920ರ ದಶಕದಲ್ಲಿ ವೈ.ವಿ. ಸುಬ್ರಹ್ಮಣ್ಯಂ ಅವರಿಂದ ಸ್ಥಾಪಿತವಾಗಿ ಶತಮಾನದ ಸವಿಯನ್ನು ಮುಂದುವರಿಸಿದೆ.",
-    "image": "assets/images/landmarks/food/food4.jpg",
+    "image": "assets/images/destinations/food-dining/ctr-malleswaram.jpg",
     "visitorInfo": {
       "timing": "7:00 AM - 12:30 PM & 4:00 PM - 9:30 PM (Daily)",
       "timingKn": "ಬೆಳಗ್ಗೆ 7:00 - ಮಧ್ಯಾಹ್ನ 12:30 ಮತ್ತು ಸಂಜೆ 4:00 - ರಾತ್ರಿ 9:30 (ಪ್ರತಿದಿನ)",
@@ -2670,7 +2670,7 @@ const PLACES = [
     "fullDescKn": "400 ಎಕರೆ ವಿಸ್ತಾರವಾದ ಹಸಿರು ಆವರಣದಲ್ಲಿರುವ ಐ.ಐ.ಎಸ್ಸಿ. ಭಾರತದ ಪ್ರಮುಖ ಸಂಶೋಧನಾ ಕೇಂದ್ರವಾಗಿದೆ. 160 ಅಡಿ ಎತ್ತರದ ಗೋಪುರವಿರುವ ಸುಂದರ ಮುಖ್ಯ ಕಟ್ಟಡ, ಸರ್ ಸಿ.ವಿ. ರಾಮನ್, ಹೋಮಿ ಬಾಬಾ, ವಿಕ್ರಮ್ ಸಾರಾಭಾಯಿ ಮುಂತಾದ ಮಹಾನ್ ವಿಜ್ಞಾನಿಗಳು ಕಾರ್ಯನಿರ್ವಹಿಸಿದ ಪವಿತ್ರ ಭೂಮಿ.",
     "history": "Founded in 1909 with land generously donated by the Maharaja of Mysore; Sir C.V. Raman served as its first Indian Director in 1933.",
     "historyKn": "ಮೈಸೂರು ಮಹಾರಾಜರು ಉಚಿತವಾಗಿ ನೀಡಿದ ಜಮೀನಿನಲ್ಲಿ 1909ರಲ್ಲಿ ಪ್ರಾರಂಭವಾಯಿತು; 1933ರಲ್ಲಿ ಸರ್ ಸಿ.ವಿ. ರಾಮನ್ ಮೊದಲ ಭಾರತೀಯ ನಿರ್ದೇಶಕರಾಗಿದ್ದರು.",
-    "image": "assets/images/landmarks/tech/it1.jpg",
+    "image": "assets/images/destinations/technology-innovation/iisc-bangalore.jpg",
     "visitorInfo": {
       "timing": "Campus exterior viewable from perimeter; Annual Open Day held every March for public entry",
       "timingKn": "ಪ್ರತಿ ವರ್ಷ ಮಾರ್ಚ್ ತಿಂಗಳಲ್ಲಿ ಸಾರ್ವಜನಿಕರಿಗಾಗಿ ವಾರ್ಷಿಕ ಓಪನ್ ಡೇ ಆಯೋಜಿಸಲಾಗುತ್ತದೆ",
@@ -2710,7 +2710,7 @@ const PLACES = [
     "fullDescKn": "ಭಾರತ ಮತ್ತು ಸಿಂಗಾಪುರ್ ಸಹಯೋಗದಲ್ಲಿ 1998ರಲ್ಲಿ ಉದ್ಘಾಟನೆಗೊಂಡ ಐಟಿಪಿಬಿ, ಬೆಂಗಳೂರನ್ನು ವಿಶ್ವದ ತಂತ್ರಜ್ಞಾನ ನಕ್ಷೆಯಲ್ಲಿ ರಾರಾಜಿಸುವಂತೆ ಮಾಡಿತು. ಡಿಸ್ಕವರರ್ ಮತ್ತು ಇನ್ನೋವೇಟರ್ ಮುಂತಾದ ಬೃಹತ್ ಕಟ್ಟಡಗಳಲ್ಲಿ ನೂರಾರು ಜಾಗತಿಕ ಸಾಫ್ಟ್‌ವೇರ್ ಕಂಪನಿಗಳು ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತಿವೆ.",
     "history": "Jointly envisioned by Prime Ministers P.V. Narasimha Rao and Goh Chok Tong in 1992; opened in 1998.",
     "historyKn": "1992ರಲ್ಲಿ ಭಾರತ ಮತ್ತು ಸಿಂಗಾಪುರ ಪ್ರಧಾನಿಗಳ ಒಡಂಬಡಿಕೆಯಂತೆ ರೂಪುಗೊಂಡು 1998ರಲ್ಲಿ ಕಾರ್ಯಾರಂಭ ಮಾಡಿತು.",
-    "image": "assets/images/landmarks/tech/it2.jpg",
+    "image": "assets/images/destinations/technology-innovation/itpb-whitefield.jpg",
     "visitorInfo": {
       "timing": "24/7 Operations; Corporate visitors during 9:00 AM - 6:00 PM",
       "timingKn": "24/7 ಕಾರ್ಯಾಚರಣೆ; ಅಧಿಕೃತ ಭೇಟಿ ಬೆಳಗ್ಗೆ 9:00 - ಸಂಜೆ 6:00",
@@ -2750,7 +2750,7 @@ const PLACES = [
     "fullDescKn": "2022ರಲ್ಲಿ ಉದ್ಘಾಟನೆಗೊಂಡ ಟರ್ಮಿನಲ್ 2 ಯುನೆಸ್ಕೋ ಸಂಸ್ಥೆಯಿಂದ ಜಗತ್ತಿನ ಅತಿ ಸುಂದರ ವಿಮಾನ ನಿಲ್ದಾಣವೆಂದು ಪುರಸ್ಕೃತವಾಗಿದೆ. ನೈಸರ್ಗಿಕ ಬಿದಿರು, ಒಳಾಂಗಣ ಹಸಿರು ಉದ್ಯಾನಗಳು, ಜಲಪಾತಗಳು ಹಾಗೂ ಅತ್ಯಾಧುನಿಕ ಡಿಜಿಟಲ್ ತಂತ್ರಜ್ಞಾನಗಳು ಪ್ರವಾಸಿಗರಿಗೆ ಮರೆಯಲಾಗದ ಅನುಭವ ನೀಡುತ್ತವೆ.",
     "history": "Bengaluru's greenfield international airport opened in May 2008 in Devanahalli; Terminal 2 began operations in January 2023.",
     "historyKn": "2008ರಲ್ಲಿ ದೇವನಹಳ್ಳಿಯಲ್ಲಿ ಪ್ರಾರಂಭವಾದ ವಿಮಾನ ನಿಲ್ದಾಣದ ಟರ್ಮಿನಲ್ 2 ಜನವರಿ 2023ರಲ್ಲಿ ಕಾರ್ಯಾಚರಣೆಗೆ ಬಂದಿತು.",
-    "image": "assets/images/landmarks/essential/kia-terminal2.jpg",
+    "image": "assets/images/destinations/essential-services/kia-terminal2.jpg",
     "visitorInfo": {
       "timing": "24 Hours (Ticketed air passengers; Arrival visitor boulevard open)",
       "timingKn": "24 ಗಂಟೆ ಕಾರ್ಯಾಚರಣೆ",
@@ -2790,7 +2790,7 @@ const PLACES = [
     "fullDescKn": "ಕ್ರಾಂತಿವೀರ ಸಂಗೊಳ್ಳಿ ರಾಯಣ್ಣ ರೈಲು ನಿಲ್ದಾಣವು ಬೆಂಗಳೂರಿನ ಪ್ರಮುಖ ರೈಲ್ವೆ ಕೇಂದ್ರವಾಗಿದೆ. ಇದರ ಸಮೀಪದಲ್ಲೇ ನಾಡಪ್ರಭು ಕೆಂಪೇಗೌಡ ಮೆಜೆಸ್ಟಿಕ್ ಮೆಟ್ರೋ ಇಂಟರ್‌ಚೇಂಜ್ (ಹಸಿರು ಮತ್ತು ನೇರಳೆ ಮಾರ್ಗಗಳ ಸಂಗಮ) ಹಾಗೂ ಕೆಂಪೇಗೌಡ ಬಸ್ ನಿಲ್ದಾಣವಿದ್ದು, ಲಕ್ಷಾಂತರ ಪ್ರಯಾಣಿಕರಿಗೆ ಸಂಪರ್ಕ ಕಲ್ಪಿಸುತ್ತದೆ.",
     "history": "Opened in 1882 during the British Raj; interconnected with metro and high-speed rail corridors in modern times.",
     "historyKn": "1882ರಲ್ಲಿ ಸ್ಥಾಪಿತವಾಗಿ ನಂತರ ದೇಶದ ಅತ್ಯಂತ ಜನನಿಬಿಡ ಸಾರಿಗೆ ಕೇಂದ್ರಗಳಲ್ಲಿ ಒಂದಾಗಿ ಬೆಳೆದಿದೆ.",
-    "image": "assets/images/landmarks/essential/majestic.jpg",
+    "image": "assets/images/destinations/essential-services/ksr-bengaluru-majestic.jpg",
     "visitorInfo": {
       "timing": "24/7 Transit Services",
       "timingKn": "24 ಗಂಟೆ ಸಾರಿಗೆ ಸೇವೆ",
