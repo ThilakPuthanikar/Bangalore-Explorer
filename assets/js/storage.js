@@ -14,10 +14,21 @@ const StorageService = (function () {
   };
 
   const listeners = [];
+  const typedListeners = {};
 
   function subscribe(callback) {
     if (typeof callback === "function") {
       listeners.push(callback);
+    }
+  }
+
+  function on(eventName, callback) {
+    if (typeof callback === "function") {
+      if (!typedListeners[eventName]) typedListeners[eventName] = [];
+      typedListeners[eventName].push(callback);
+      return () => {
+        typedListeners[eventName] = typedListeners[eventName].filter((cb) => cb !== callback);
+      };
     }
   }
 
@@ -29,6 +40,24 @@ const StorageService = (function () {
         console.error("Storage listener error:", err);
       }
     });
+
+    if (typedListeners[event]) {
+      typedListeners[event].forEach((cb) => {
+        try {
+          cb(data);
+        } catch (err) {
+          console.error(`Storage ${event} listener error:`, err);
+        }
+      });
+    }
+
+    if (typeof window !== "undefined" && typeof window.dispatchEvent === "function") {
+      try {
+        window.dispatchEvent(new CustomEvent(`bengaluru:${event}`, { detail: data }));
+      } catch (e) {
+        // Safe fallback in non-browser or older environments
+      }
+    }
   }
 
   // Safe JSON getter
@@ -152,6 +181,7 @@ const StorageService = (function () {
 
   return {
     subscribe,
+    on,
     getFavorites,
     isFavorite,
     toggleFavorite,

@@ -1,7 +1,7 @@
 /**
  * Bangalore Explorer - Trip Planner & Curated Itineraries
  * Interactive itinerary visualizer and personal day-planner with
- * multi-stop Google Maps routing export.
+ * multi-stop Google Maps routing export and Lucide SVG icons.
  */
 
 const PlannerController = (function () {
@@ -35,14 +35,15 @@ const PlannerController = (function () {
           const placeName = activeLang === "ka" ? place.kannadaName : place.name;
           const noteText = activeLang === "ka" ? stop.note.ka : stop.note.en;
           const nb = activeLang === "ka" ? place.neighbourhoodKn : place.neighbourhood;
+          const isInTrip = StorageService.isInPlanner(place.id);
 
           return `
             <div class="itinerary-timeline-item">
               <div class="timeline-badge">${index + 1}</div>
               <div class="timeline-content">
                 <div class="timeline-header">
-                  <span class="timeline-time">⏰ ${stop.timeSlot}</span>
-                  <span class="timeline-nb">📍 ${nb}</span>
+                  <span class="timeline-time">${Icons.get("clock", { size: 14 })} ${stop.timeSlot}</span>
+                  <span class="timeline-nb">${Icons.get("map-pin", { size: 14 })} ${nb}</span>
                 </div>
                 <h4 class="timeline-place-title">
                   <a href="#/destination/${place.id}" class="place-link">${placeName}</a>
@@ -50,10 +51,10 @@ const PlannerController = (function () {
                 <p class="timeline-note">${noteText}</p>
                 <div class="timeline-actions">
                   <button class="btn btn-xs btn-outline-secondary" onclick="GeoService.openDirections(${place.coordinates.lat}, ${place.coordinates.lng}, '${encodeURIComponent(place.name)}')">
-                    🚗 ${activeLang === "ka" ? "ದಿಕ್ಕುಗಳು" : "Directions"}
+                    ${Icons.get("navigation", { size: 13 })} ${activeLang === "ka" ? "ದಿಕ್ಕುಗಳು" : "Directions"}
                   </button>
-                  <button class="btn btn-xs btn-outline-primary" onclick="PlannerController.addPlaceToPlanner('${place.id}')">
-                    ➕ ${activeLang === "ka" ? "ಟ್ರಿಪ್‌ಗೆ ಸೇರಿಸಿ" : "Add to Trip"}
+                  <button class="btn btn-xs ${isInTrip ? "btn-secondary" : "btn-outline-primary"}" onclick="PlannerController.addPlaceToPlanner('${place.id}')">
+                    ${Icons.get(isInTrip ? "check" : "plus", { size: 13 })} ${isInTrip ? (activeLang === "ka" ? "ಟ್ರಿಪ್‌ನಲ್ಲಿದೆ" : "In Trip") : (activeLang === "ka" ? "ಟ್ರಿಪ್‌ಗೆ ಸೇರಿಸಿ" : "Add to Trip")}
                   </button>
                 </div>
               </div>
@@ -67,27 +68,29 @@ const PlannerController = (function () {
 
       return `
         <article class="itinerary-card card mb-4">
-          <div class="card-header bg-surface-variant d-flex justify-content-between align-items-center flex-wrap">
+          <div class="card-header bg-surface-variant d-flex justify-content-between align-items-center flex-wrap gap-2">
             <div>
-              <span class="badge bg-primary text-white mb-1">⏱️ ${duration}</span>
-              <span class="badge bg-secondary text-white mb-1">🏃 ${pace}</span>
+              <div class="d-flex gap-2 mb-2 flex-wrap">
+                <span class="badge bg-primary text-white">${Icons.get("timer", { size: 13 })} ${duration}</span>
+                <span class="badge bg-secondary text-white">${Icons.get("route", { size: 13 })} ${pace}</span>
+              </div>
               <h3 class="itinerary-title mt-1 mb-0">${title}</h3>
             </div>
           </div>
           <div class="card-body">
             <p class="itinerary-summary lead-sm">${summary}</p>
             <div class="itinerary-meta mb-3">
-              <strong>🚇 ${activeLang === "ka" ? "ಶಿಫಾರಸು ಮಾಡಿದ ಸಾರಿಗೆ:" : "Recommended Transport:"}</strong> ${transport}
+              <strong>${Icons.get("train", { size: 14 })} ${activeLang === "ka" ? "ಶಿಫಾರಸು ಮಾಡಿದ ಸಾರಿಗೆ:" : "Recommended Transport:"}</strong> ${transport}
             </div>
             <div class="itinerary-timeline">
               ${stopsHtml}
             </div>
             <div class="itinerary-footer-actions mt-4 pt-3 border-top d-flex gap-2 flex-wrap">
               <button class="btn btn-primary" onclick="PlannerController.loadItineraryIntoPlanner('${itinerary.id}')">
-                ✨ ${loadPlanText}
+                ${Icons.get("route", { size: 16 })} ${loadPlanText}
               </button>
               <button class="btn btn-outline-primary" onclick="PlannerController.openItineraryInGoogleMaps('${itinerary.id}')">
-                🗺️ ${openFullRouteText}
+                ${Icons.get("map", { size: 16 })} ${openFullRouteText}
               </button>
             </div>
           </div>
@@ -109,16 +112,38 @@ const PlannerController = (function () {
   }
 
   /**
-   * Render Personal Planner Drawer/View
+   * Render Personal Planner Drawer/View in all matching containers
    */
-  function renderPersonalPlanner(containerId = "personal-planner-container") {
-    const container = document.getElementById(containerId);
-    if (!container) return;
+  function renderPersonalPlanner(targetContainerId = null) {
+    const targetContainers = [];
+    if (targetContainerId) {
+      const c = document.getElementById(targetContainerId);
+      if (c) targetContainers.push(c);
+    }
+    const drawerContent = document.getElementById("planner-drawer-content");
+    if (drawerContent && !targetContainers.includes(drawerContent)) {
+      targetContainers.push(drawerContent);
+    }
+    const personalContainer = document.getElementById("personal-planner-container");
+    if (personalContainer && !targetContainers.includes(personalContainer)) {
+      targetContainers.push(personalContainer);
+    }
 
     const stopIds = StorageService.getPlannerStops();
     const plannerPlaces = stopIds
       .map((id) => PLACES.find((p) => p.id === id))
       .filter(Boolean);
+
+    // Always update planner badge counters globally
+    const badges = document.querySelectorAll(".planner-count-badge, #planner-count-badge");
+    badges.forEach((b) => {
+      b.textContent = plannerPlaces.length;
+      if (b.classList.contains("badge")) {
+        b.style.display = plannerPlaces.length > 0 ? "inline-block" : "none";
+      }
+    });
+
+    if (targetContainers.length === 0) return;
 
     const title = activeLang === "ka" ? "ನನ್ನ ಪ್ರವಾಸ ಯೋಜನೆ" : "My Custom Trip Planner";
     const emptyMsg = activeLang === "ka" ? "ನಿಮ್ಮ ಪ್ರವಾಸ ಪಟ್ಟಿಯಲ್ಲಿ ಯಾವುದೇ ಸ್ಥಳಗಳಿಲ್ಲ. ಯಾವುದೇ ಕಾರ್ಡ್‌ನಿಂದ 'ಟ್ರಿಪ್‌ಗೆ ಸೇರಿಸಿ' ಕ್ಲಿಕ್ ಮಾಡಿ!" : "Your trip planner is empty. Click '+ Add to Trip' on any destination to build your personal route!";
@@ -127,7 +152,12 @@ const PlannerController = (function () {
 
     let stopsListHtml = "";
     if (plannerPlaces.length === 0) {
-      stopsListHtml = `<div class="planner-empty-state text-center py-5 text-muted"><p>${emptyMsg}</p></div>`;
+      stopsListHtml = `
+        <div class="planner-empty-state text-center py-5 text-muted">
+          <div class="mb-3 opacity-50">${Icons.get("route", { size: 40 })}</div>
+          <p class="fs-sm mb-0">${emptyMsg}</p>
+        </div>
+      `;
     } else {
       stopsListHtml = plannerPlaces
         .map((place, idx) => {
@@ -138,16 +168,16 @@ const PlannerController = (function () {
             <div class="planner-stop-item d-flex align-items-center justify-content-between p-2 mb-2 rounded bg-surface border" data-id="${place.id}">
               <div class="d-flex align-items-center gap-2">
                 <span class="stop-index badge bg-primary rounded-circle">${idx + 1}</span>
-                <img src="${place.image}" alt="" class="planner-thumb rounded" width="40" height="40" style="object-fit: cover;">
+                <img src="${place.image}" alt="" class="planner-thumb rounded" width="40" height="40" style="object-fit: cover;" onerror="this.src='assets/images/placeholder.jpg'">
                 <div>
                   <h6 class="mb-0 fs-sm font-weight-bold">${placeName}</h6>
-                  <small class="text-muted fs-xs">📍 ${nb}</small>
+                  <small class="text-muted fs-xs">${Icons.get("map-pin", { size: 11 })} ${nb}</small>
                 </div>
               </div>
               <div class="d-flex align-items-center gap-1">
-                <button class="btn btn-xs btn-icon btn-outline-secondary" onclick="PlannerController.moveStop('${place.id}', -1)" title="Move Up" ${idx === 0 ? "disabled" : ""}>▲</button>
-                <button class="btn btn-xs btn-icon btn-outline-secondary" onclick="PlannerController.moveStop('${place.id}', 1)" title="Move Down" ${idx === plannerPlaces.length - 1 ? "disabled" : ""}>▼</button>
-                <button class="btn btn-xs btn-icon btn-outline-danger" onclick="PlannerController.removePlaceFromPlanner('${place.id}')" title="Remove">✕</button>
+                <button class="btn btn-xs btn-icon btn-outline-secondary" onclick="PlannerController.moveStop('${place.id}', -1)" title="Move Up" ${idx === 0 ? "disabled" : ""}>${Icons.get("chevron-up", { size: 14 })}</button>
+                <button class="btn btn-xs btn-icon btn-outline-secondary" onclick="PlannerController.moveStop('${place.id}', 1)" title="Move Down" ${idx === plannerPlaces.length - 1 ? "disabled" : ""}>${Icons.get("chevron-down", { size: 14 })}</button>
+                <button class="btn btn-xs btn-icon btn-outline-danger" onclick="PlannerController.removePlaceFromPlanner('${place.id}')" title="Remove">${Icons.get("trash-2", { size: 14 })}</button>
               </div>
             </div>
           `;
@@ -155,11 +185,15 @@ const PlannerController = (function () {
         .join("");
     }
 
-    container.innerHTML = `
+    const htmlContent = `
       <div class="planner-panel-inner p-3">
         <div class="d-flex justify-content-between align-items-center border-bottom pb-2 mb-3">
-          <h4 class="m-0 fs-md">🗺️ ${title} (${plannerPlaces.length})</h4>
-          ${plannerPlaces.length > 0 ? `<button class="btn btn-xs btn-outline-danger" onclick="PlannerController.clearAllPlanner()">${clearText}</button>` : ""}
+          <h4 class="m-0 fs-md d-flex align-items-center gap-2">
+            ${Icons.get("route", { size: 18 })} 
+            <span>${title}</span>
+            <span class="badge bg-secondary fs-xs">${plannerPlaces.length}</span>
+          </h4>
+          ${plannerPlaces.length > 0 ? `<button class="btn btn-xs btn-outline-danger d-flex align-items-center gap-1" onclick="PlannerController.clearAllPlanner()">${Icons.get("trash-2", { size: 12 })} ${clearText}</button>` : ""}
         </div>
         <div class="planner-stops-list">
           ${stopsListHtml}
@@ -168,8 +202,8 @@ const PlannerController = (function () {
           plannerPlaces.length > 0
             ? `
           <div class="planner-actions mt-3 pt-2 border-top">
-            <button class="btn btn-primary w-100" onclick="PlannerController.exportToGoogleMaps()">
-              🚗 ${exportText}
+            <button class="btn btn-primary w-100 d-flex align-items-center justify-content-center gap-2" onclick="PlannerController.exportToGoogleMaps()">
+              ${Icons.get("navigation", { size: 16 })} ${exportText}
             </button>
           </div>
         `
@@ -178,12 +212,9 @@ const PlannerController = (function () {
       </div>
     `;
 
-    // Update planner badge in header if exists
-    const badge = document.getElementById("planner-count-badge");
-    if (badge) {
-      badge.textContent = plannerPlaces.length;
-      badge.style.display = plannerPlaces.length > 0 ? "inline-block" : "none";
-    }
+    targetContainers.forEach((c) => {
+      c.innerHTML = htmlContent;
+    });
   }
 
   function addPlaceToPlanner(placeId) {
@@ -262,6 +293,13 @@ const PlannerController = (function () {
     setTimeout(() => toast.classList.remove("show"), 2500);
   }
 
+  // Subscribe to storage changes automatically
+  StorageService.subscribe((event) => {
+    if (event === "planner_changed") {
+      renderPersonalPlanner();
+    }
+  });
+
   return {
     setLanguage,
     renderItinerariesView,
@@ -276,7 +314,6 @@ const PlannerController = (function () {
   };
 })();
 
-if (typeof module !== 'undefined' && module.exports) {
+if (typeof module !== "undefined" && module.exports) {
   module.exports = PlannerController;
 }
-

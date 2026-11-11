@@ -42,7 +42,7 @@ The platform provides verified GPS coordinates, zero-key interactive mapping via
 | **Geolocation** | Web Geolocation API | Haversine formula & directions URL builder (`geo.js`) |
 | **Storage** | Web Storage API | Favorites, custom trip planner, and user state (`storage.js`) |
 | **Search** | Client-Side In-Memory | Instant bilingual search & filter engine (`search.js`) |
-| **Mapping** | Leaflet.js & OpenStreetMap | Free, zero-key interactive map with SVG pins (`map.js`) |
+| **Mapping** | Leaflet.js & Google My Maps | Dual-mode zero-key maps: 68+ landmark pins with Dark Matter / Voyager & curated embed (`map.js`) |
 | **Trip Planning** | Custom Controller | 6 curated trails & multi-stop Google Maps exporter (`planner.js`) |
 | **Routing** | Client-Side Hash Router | Deep-linking, history, and view rendering (`router.js`) |
 | **Dialogs** | Accessible Modal 2.0 | Focus trapping, escape listener, and visitor info (`modal.js`) |

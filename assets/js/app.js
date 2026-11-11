@@ -1,7 +1,9 @@
 /**
  * Bangalore Explorer (ಬೆಂಗಳೂರು ಎಕ್ಸ್ಪ್ಲೋರರ್)
- * Master Application Coordinator & View Renderer
+ * Master Application Coordinator & View Renderer 2.0
  * 100% Client-Side Vanilla JS | Zero paid APIs | High-Performance Static App
+ * Features Lucide SVG Icon System, Dynamic CartoDB Dark Matter / Voyager Maps,
+ * Responsive Split-Screen Map View, and Real-Time State Synchronization.
  */
 
 const App = (function () {
@@ -11,6 +13,12 @@ const App = (function () {
   let activeSearchQuery = "";
   let activeSortBy = "featured";
   let isPlannerDrawerOpen = false;
+
+  // Split-Screen Map State
+  let activeMapSearch = "";
+  let activeMapCategory = "all";
+  let activeMapSelectedId = null;
+  let activeMapEngine = "interactive"; // "interactive" (Leaflet 68+ Places) | "mymaps" (Google My Maps Embed)
 
   // UI Strings Dictionary
   const I18N = {
@@ -129,10 +137,26 @@ const App = (function () {
     Router.init();
     PlannerController.renderPersonalPlanner();
 
-    // Subscribe to storage changes
-    StorageService.subscribe((event) => {
+    // Subscribe to storage changes for instant real-time synchronization
+    StorageService.subscribe((event, data) => {
       if (event === "favorites_changed" || event === "planner_changed") {
         updateBadges();
+
+        // Reactively update matching landmark cards
+        if (data && data.placeId) {
+          const place = PLACES.find((p) => p.id === data.placeId);
+          if (place) {
+            document.querySelectorAll(`.landmark-magazine-card[data-id="${data.placeId}"]`).forEach((card) => {
+              card.outerHTML = renderLandmarkCard(place);
+            });
+          }
+        } else {
+          document.querySelectorAll(".landmark-magazine-card").forEach((card) => {
+            const pid = card.getAttribute("data-id");
+            const place = PLACES.find((p) => p.id === pid);
+            if (place) card.outerHTML = renderLandmarkCard(place);
+          });
+        }
       }
     });
 
@@ -188,10 +212,16 @@ const App = (function () {
     document.body.setAttribute("data-theme", theme);
     document.body.classList.remove("light", "dark");
     document.body.classList.add(theme);
+
     const themeBtn = document.getElementById("themeToggle");
     if (themeBtn) {
-      themeBtn.textContent = theme === "dark" ? "☀️ Light" : "🌙 Dark";
-      themeBtn.setAttribute("aria-label", `Switch to ${theme === "dark" ? "light" : "dark"} mode`);
+      const isDark = theme === "dark";
+      themeBtn.innerHTML = `${Icons.get(isDark ? "sun" : "moon", { size: 15 })} <span>${isDark ? "Light" : "Dark"}</span>`;
+      themeBtn.setAttribute("aria-label", `Switch to ${isDark ? "light" : "dark"} mode`);
+    }
+
+    if (typeof MapController !== "undefined" && typeof MapController.switchTileTheme === "function") {
+      MapController.switchTileTheme(theme);
     }
   }
 
@@ -223,6 +253,8 @@ const App = (function () {
       renderExploreView(activeSearchCategory);
     } else if (currentRoute === "/categories") {
       renderCategoriesView();
+    } else if (currentRoute === "/map") {
+      renderMapView();
     } else if (currentRoute === "/stories") {
       renderStoriesView();
     } else if (currentRoute === "/itineraries") {
@@ -250,8 +282,6 @@ const App = (function () {
       const el = document.getElementById(id);
       if (el) el.textContent = t(map[id]);
     }
-    const brandSub = document.querySelector(".brand-sub");
-    if (brandSub) brandSub.textContent = currentLang === "ka" ? "ಬೆಂಗಳೂರು ಗೈಡ್" : "Bengaluru City Guide";
   }
 
   function updateBadges() {
@@ -283,10 +313,11 @@ const App = (function () {
     }
   }
 
-  /* ==========================================================================
-     ROUTE DEFINITIONS
-     ========================================================================== */
+  /**
+   * Router Route Definitions
+   */
   function setupRoutes() {
+    Router.register("/", () => renderHomeView());
     Router.register("/home", () => renderHomeView());
     Router.register("/explore", () => renderExploreView());
     Router.register("/categories", () => renderCategoriesView());
@@ -299,25 +330,20 @@ const App = (function () {
     Router.register("/about", () => renderAboutView());
     Router.register("/favorites", () => renderFavoritesView());
 
-    // Legacy section backwards compatibility
+    // Legacy backwards compatibility redirects
     const legacyMap = {
       temples: "temples-spirituality",
       it: "technology-innovation",
       shopping: "shopping-markets",
       sports: "sports-recreation",
       entertainment: "sports-recreation",
-      banks: "essential-services",
-      hotels: "stay-accommodation",
-      hospitals: "essential-services"
+      banks: "essential-services"
     };
-    for (const legacy in legacyMap) {
-      Router.register(`/${legacy}`, () => renderExploreView(legacyMap[legacy]));
+
+    for (const oldKey in legacyMap) {
+      Router.register(`/${oldKey}`, () => renderExploreView(legacyMap[oldKey]));
     }
   }
-
-  /* ==========================================================================
-     VIEW RENDERERS
-     ========================================================================== */
 
   /**
    * Home View
@@ -326,16 +352,18 @@ const App = (function () {
     const mainEl = document.getElementById("main-app-content");
     if (!mainEl) return;
 
-    const featuredPlaces = PLACES.filter((p) => p.featured).slice(0, 6);
+    const featuredPlaces = PLACES.filter((p) => p.featured || (p.rating && p.rating >= 4.7)).slice(0, 6);
 
     const categoriesCardsHtml = CATEGORIES.map((cat) => {
       const label = currentLang === "ka" ? cat.label.ka : cat.label.en;
       const tagline = currentLang === "ka" ? cat.tagline.ka : cat.tagline.en;
       const count = PLACES.filter((p) => p.category === cat.id).length;
+      const iconSvg = typeof Icons !== "undefined" ? Icons.get(cat.icon, { size: 26 }) : "";
+
       return `
         <a href="#/category/${cat.id}" class="category-grid-card text-decoration-none">
-          <div class="category-icon-wrapper" style="background-color: ${cat.color}15; color: ${cat.color};">
-            <span class="category-icon">${cat.icon}</span>
+          <div class="category-icon-wrapper" style="background-color: ${cat.color}18; color: ${cat.color};">
+            <span class="category-icon">${iconSvg}</span>
           </div>
           <h4 class="category-name">${label}</h4>
           <p class="category-tagline">${tagline}</p>
@@ -352,7 +380,10 @@ const App = (function () {
       return `
         <article class="story-preview-card card">
           <div class="card-body">
-            <span class="badge bg-secondary text-white mb-2">📜 ${story.era}</span>
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <span class="badge bg-secondary text-white d-inline-flex align-items-center gap-1">${Icons.get("book-open", { size: 12 })} ${story.era}</span>
+              <span class="text-muted fs-xs d-inline-flex align-items-center gap-1">${Icons.get("clock", { size: 12 })} ${story.readingTime}</span>
+            </div>
             <h4 class="story-preview-title mb-2">
               <a href="#/story/${story.id}" class="text-decoration-none text-heading">${title}</a>
             </h4>
@@ -371,14 +402,17 @@ const App = (function () {
         <div class="hero-backdrop-overlay"></div>
         <div class="container hero-container">
           <div class="hero-content text-center">
-            <span class="hero-pill-badge mb-3">✨ ${currentLang === "ka" ? "ಅಧಿಕೃತ ದ್ವಿಭಾಷಾ ನಗರ ಮಾರ್ಗದರ್ಶಿ" : "Official Bilingual City Discovery Platform"}</span>
+            <span class="hero-pill-badge mb-3 d-inline-flex align-items-center gap-2">
+              ${Icons.get("sparkles", { size: 14 })} 
+              <span>${currentLang === "ka" ? "ಅಧಿಕೃತ ದ್ವಿಭಾಷಾ ನಗರ ಮಾರ್ಗದರ್ಶಿ" : "Official Bilingual City Discovery Platform"}</span>
+            </span>
             <h1 class="hero-title display-heading mb-3">${t("siteTitle")}</h1>
             <p class="hero-subtitle lead mb-4">${t("tagline")}</p>
 
             <!-- Hero Search Bar -->
             <div class="hero-search-wrapper mb-4">
               <div class="hero-search-input-group">
-                <span class="search-input-icon">🔍</span>
+                <span class="search-input-icon">${Icons.get("search", { size: 18 })}</span>
                 <input
                   type="text"
                   id="heroSearchInput"
@@ -394,10 +428,18 @@ const App = (function () {
 
             <!-- Quick Action Links -->
             <div class="hero-quick-links d-flex justify-content-center gap-2 flex-wrap">
-              <a href="#/explore" class="btn btn-outline-light btn-sm">🏛️ ${currentLang === "ka" ? "ಎಲ್ಲಾ ತಾಣಗಳು" : "Explore All Places"}</a>
-              <a href="#/map" class="btn btn-outline-light btn-sm">🗺️ ${t("navMap")}</a>
-              <a href="#/itineraries" class="btn btn-outline-light btn-sm">🚶 ${t("navItineraries")}</a>
-              <button class="btn btn-outline-light btn-sm" id="heroNearMeBtn">📍 ${t("nearMe")}</button>
+              <a href="#/explore" class="btn btn-outline-light btn-sm d-inline-flex align-items-center gap-1">
+                ${Icons.get("landmark", { size: 14 })} <span>${currentLang === "ka" ? "ಎಲ್ಲಾ ತಾಣಗಳು" : "Explore Places"}</span>
+              </a>
+              <a href="#/map" class="btn btn-outline-light btn-sm d-inline-flex align-items-center gap-1">
+                ${Icons.get("map", { size: 14 })} <span>${t("navMap")}</span>
+              </a>
+              <a href="#/itineraries" class="btn btn-outline-light btn-sm d-inline-flex align-items-center gap-1">
+                ${Icons.get("route", { size: 14 })} <span>${t("navItineraries")}</span>
+              </a>
+              <button class="btn btn-outline-light btn-sm d-inline-flex align-items-center gap-1" id="heroNearMeBtn">
+                ${Icons.get("navigation", { size: 14 })} <span>${t("nearMe")}</span>
+              </button>
             </div>
           </div>
         </div>
@@ -473,25 +515,25 @@ const App = (function () {
       </section>
     `;
 
-    // Hook up search input
-    const heroInput = document.getElementById("heroSearchInput");
-    const heroBtn = document.getElementById("heroSearchBtn");
-    const nearMeBtn = document.getElementById("heroNearMeBtn");
-
-    if (heroBtn && heroInput) {
+    // Hook up hero search events
+    const searchInput = document.getElementById("heroSearchInput");
+    const searchBtn = document.getElementById("heroSearchBtn");
+    if (searchInput && searchBtn) {
       const doSearch = () => {
-        const val = heroInput.value.trim();
-        if (val) {
-          activeSearchQuery = val;
+        const q = searchInput.value.trim();
+        if (q) {
+          activeSearchQuery = q;
           Router.navigate("/explore");
         }
       };
-      heroBtn.addEventListener("click", doSearch);
-      heroInput.addEventListener("keydown", (e) => {
+      searchBtn.addEventListener("click", doSearch);
+      searchInput.addEventListener("keydown", (e) => {
         if (e.key === "Enter") doSearch();
       });
     }
 
+    // Hero Near Me button
+    const nearMeBtn = document.getElementById("heroNearMeBtn");
     if (nearMeBtn) {
       nearMeBtn.addEventListener("click", async () => {
         nearMeBtn.textContent = t("locating");
@@ -501,14 +543,14 @@ const App = (function () {
           Router.navigate("/explore");
         } catch (err) {
           alert(err.message || "Location access was denied.");
-          nearMeBtn.textContent = `📍 ${t("nearMe")}`;
+          nearMeBtn.innerHTML = `${Icons.get("navigation", { size: 14 })} <span>${t("nearMe")}</span>`;
         }
       });
     }
   }
 
   /**
-   * Explore View with Search, Category Pills, and Filters
+   * Explore View with Live Search, Filter Pills, and Sort
    */
   function renderExploreView(presetCategory = "all") {
     const mainEl = document.getElementById("main-app-content");
@@ -519,7 +561,7 @@ const App = (function () {
     }
 
     const categoriesPills = [
-      { id: "all", label: t("allCategories"), icon: "✨" },
+      { id: "all", label: t("allCategories"), icon: "sparkles" },
       ...CATEGORIES.map((c) => ({
         id: c.id,
         label: currentLang === "ka" ? c.label.ka : c.label.en,
@@ -535,7 +577,7 @@ const App = (function () {
           data-category="${c.id}"
           onclick="App.setCategoryFilter('${c.id}')"
         >
-          <span>${c.icon}</span> ${c.label}
+          <span>${Icons.get(c.icon, { size: 14 })}</span> ${c.label}
         </button>
       `
       )
@@ -554,7 +596,7 @@ const App = (function () {
             <div class="row g-2 align-items-center">
               <div class="col-md-7">
                 <div class="input-group">
-                  <span class="input-group-text bg-transparent border-end-0">🔍</span>
+                  <span class="input-group-text bg-transparent border-end-0">${Icons.get("search", { size: 16 })}</span>
                   <input
                     type="text"
                     id="exploreSearchInput"
@@ -565,22 +607,22 @@ const App = (function () {
                   />
                   ${
                     activeSearchQuery
-                      ? `<button class="btn btn-outline-secondary" onclick="App.clearSearchQuery()">✕</button>`
+                      ? `<button class="btn btn-outline-secondary" onclick="App.clearSearchQuery()">${Icons.get("x", { size: 14 })}</button>`
                       : ""
                   }
                 </div>
               </div>
               <div class="col-md-3">
                 <select id="sortSelect" class="form-select" onchange="App.setSortFilter(this.value)">
-                  <option value="featured" ${activeSortBy === "featured" ? "selected" : ""}>🌟 ${t("sortFeatured")}</option>
-                  <option value="rating" ${activeSortBy === "rating" ? "selected" : ""}>⭐ ${t("sortRating")}</option>
-                  <option value="name" ${activeSortBy === "name" ? "selected" : ""}>🔤 ${t("sortName")}</option>
-                  <option value="distance" ${activeSortBy === "distance" ? "selected" : ""}>📍 ${t("sortDistance")}</option>
+                  <option value="featured" ${activeSortBy === "featured" ? "selected" : ""}>${t("sortFeatured")}</option>
+                  <option value="rating" ${activeSortBy === "rating" ? "selected" : ""}>${t("sortRating")}</option>
+                  <option value="name" ${activeSortBy === "name" ? "selected" : ""}>${t("sortName")}</option>
+                  <option value="distance" ${activeSortBy === "distance" ? "selected" : ""}>${t("sortDistance")}</option>
                 </select>
               </div>
               <div class="col-md-2">
-                <button class="btn btn-outline-primary w-100" id="exploreNearMeBtn">
-                  📍 ${t("nearMe")}
+                <button class="btn btn-outline-primary w-100 d-inline-flex align-items-center justify-content-center gap-1" id="exploreNearMeBtn">
+                  ${Icons.get("navigation", { size: 14 })} <span>${t("nearMe")}</span>
                 </button>
               </div>
             </div>
@@ -596,7 +638,7 @@ const App = (function () {
             <div id="results-count-text" class="text-muted fs-sm font-weight-medium"></div>
             ${
               activeSearchQuery || activeSearchCategory !== "all"
-                ? `<button class="btn btn-link btn-sm text-decoration-none text-danger p-0" onclick="App.resetAllFilters()">${t("clearFilters")}</button>`
+                ? `<button class="btn btn-link btn-sm text-decoration-none text-danger p-0 d-inline-flex align-items-center gap-1" onclick="App.resetAllFilters()">${Icons.get("x", { size: 12 })} ${t("clearFilters")}</button>`
                 : ""
             }
           </div>
@@ -629,10 +671,10 @@ const App = (function () {
           const sortSelect = document.getElementById("sortSelect");
           if (sortSelect) sortSelect.value = "distance";
           executeSearch();
-          nearMeBtn.textContent = `📍 ${t("nearMe")}`;
+          nearMeBtn.innerHTML = `${Icons.get("navigation", { size: 14 })} <span>${t("nearMe")}</span>`;
         } catch (err) {
           alert(err.message || "Could not retrieve location.");
-          nearMeBtn.textContent = `📍 ${t("nearMe")}`;
+          nearMeBtn.innerHTML = `${Icons.get("navigation", { size: 14 })} <span>${t("nearMe")}</span>`;
         }
       });
     }
@@ -662,7 +704,7 @@ const App = (function () {
     if (results.length === 0) {
       gridEl.innerHTML = `
         <div class="no-results-state col-12 text-center py-5">
-          <span class="fs-1 d-block mb-3">🔍</span>
+          <div class="mb-3 opacity-50">${Icons.get("search", { size: 40 })}</div>
           <h4>${t("noResults")}</h4>
           <button class="btn btn-primary mt-3" onclick="App.resetAllFilters()">${t("clearFilters")}</button>
         </div>
@@ -701,7 +743,7 @@ const App = (function () {
   }
 
   /**
-   * Render individual Destination Card
+   * Render individual Destination Card with Lucide Icons
    */
   function renderLandmarkCard(place) {
     const isFav = StorageService.isFavorite(place.id);
@@ -721,7 +763,7 @@ const App = (function () {
         place.coordinates.lat,
         place.coordinates.lng
       );
-      distanceStr = `<span class="card-distance-badge">🚗 ${GeoService.formatDistance(dist, currentLang)}</span>`;
+      distanceStr = `<span class="card-distance-badge d-inline-flex align-items-center gap-1">${Icons.get("navigation", { size: 11 })} ${GeoService.formatDistance(dist, currentLang)}</span>`;
     }
 
     return `
@@ -732,7 +774,7 @@ const App = (function () {
             alt="${title}"
             class="card-thumb-img"
             loading="lazy"
-            onerror="this.src='assets/images/logo/logo.png'"
+            onerror="this.src='assets/images/placeholder.jpg'"
           />
           <div class="card-top-badges">
             <span class="badge badge-category">${(place.category || "").replace("-", " ").toUpperCase()}</span>
@@ -743,14 +785,16 @@ const App = (function () {
             onclick="event.stopPropagation(); App.toggleFavorite('${place.id}')"
             aria-label="Save to favorites"
           >
-            ${isFav ? "❤️" : "🤍"}
+            ${Icons.get(isFav ? "heart-filled" : "heart", { size: 16, class: isFav ? "text-danger" : "" })}
           </button>
         </div>
 
         <div class="card-info-wrap">
           <div class="card-meta-row d-flex justify-content-between align-items-center mb-1">
-            <span class="card-neighbourhood text-muted fs-xs">📍 ${nb || "Bengaluru"}</span>
-            ${place.rating ? `<span class="card-rating-badge fs-xs">⭐ ${place.rating}</span>` : ""}
+            <span class="card-neighbourhood text-muted fs-xs d-inline-flex align-items-center gap-1">
+              ${Icons.get("map-pin", { size: 12 })} <span>${nb || "Bengaluru"}</span>
+            </span>
+            ${place.rating ? `<span class="card-rating-badge fs-xs d-inline-flex align-items-center gap-1">${Icons.get("star-filled", { size: 11, class: "text-amber" })} ${place.rating}</span>` : ""}
           </div>
           <h3 class="card-title h5 mb-1">
             <a href="#/destination/${place.id}" class="text-decoration-none text-heading">${title}</a>
@@ -760,24 +804,24 @@ const App = (function () {
 
           <div class="card-actions-row d-flex gap-2">
             <button
-              class="btn btn-sm btn-outline-primary flex-grow-1"
+              class="btn btn-sm btn-outline-primary flex-grow-1 d-inline-flex align-items-center justify-content-center gap-1"
               onclick="ModalController.openModalById('${place.id}', '${currentLang}')"
             >
-              ${t("viewDetails")}
+              ${Icons.get("info", { size: 13 })} <span>${t("viewDetails")}</span>
             </button>
             <button
-              class="btn btn-sm btn-primary"
+              class="btn btn-sm btn-primary d-inline-flex align-items-center justify-content-center"
               onclick="GeoService.openDirections(${place.coordinates.lat}, ${place.coordinates.lng}, '${encodeURIComponent(place.name)}')"
               title="${t("getDirections")}"
             >
-              🚗
+              ${Icons.get("navigation", { size: 14 })}
             </button>
             <button
-              class="btn btn-sm ${inPlan ? "btn-secondary" : "btn-outline-secondary"}"
+              class="btn btn-sm ${inPlan ? "btn-secondary" : "btn-outline-secondary"} d-inline-flex align-items-center justify-content-center"
               onclick="App.togglePlanner('${place.id}')"
               title="${inPlan ? t("inTrip") : t("addToTrip")}"
             >
-              ${inPlan ? "✓" : "➕"}
+              ${Icons.get(inPlan ? "check" : "plus", { size: 14 })}
             </button>
           </div>
         </div>
@@ -788,12 +832,10 @@ const App = (function () {
   function toggleFavorite(placeId) {
     StorageService.toggleFavorite(placeId);
     updateBadges();
-    // Re-render card
-    const card = document.querySelector(`.landmark-magazine-card[data-id="${placeId}"]`);
-    if (card) {
+    document.querySelectorAll(`.landmark-magazine-card[data-id="${placeId}"]`).forEach((card) => {
       const place = PLACES.find((p) => p.id === placeId);
       if (place) card.outerHTML = renderLandmarkCard(place);
-    }
+    });
   }
 
   function togglePlanner(placeId) {
@@ -803,16 +845,14 @@ const App = (function () {
       StorageService.addToPlanner(placeId);
     }
     updateBadges();
-    // Re-render card
-    const card = document.querySelector(`.landmark-magazine-card[data-id="${placeId}"]`);
-    if (card) {
+    document.querySelectorAll(`.landmark-magazine-card[data-id="${placeId}"]`).forEach((card) => {
       const place = PLACES.find((p) => p.id === placeId);
       if (place) card.outerHTML = renderLandmarkCard(place);
-    }
+    });
   }
 
   /**
-   * Categories View
+   * Categories Showcase View
    */
   function renderCategoriesView() {
     const mainEl = document.getElementById("main-app-content");
@@ -822,12 +862,13 @@ const App = (function () {
       const label = currentLang === "ka" ? cat.label.ka : cat.label.en;
       const tagline = currentLang === "ka" ? cat.tagline.ka : cat.tagline.en;
       const placesInCat = PLACES.filter((p) => p.category === cat.id);
+      const iconSvg = typeof Icons !== "undefined" ? Icons.get(cat.icon, { size: 28 }) : "";
 
       return `
         <div class="category-showcase-card card mb-4 border-0 shadow-sm overflow-hidden">
           <div class="card-header d-flex justify-content-between align-items-center p-3" style="background-color: ${cat.color}15; border-bottom: 2px solid ${cat.color}40;">
             <div class="d-flex align-items-center gap-2">
-              <span class="fs-3">${cat.icon}</span>
+              <span class="fs-3" style="color: ${cat.color};">${iconSvg}</span>
               <div>
                 <h3 class="m-0 h4" style="color: ${cat.color};">${label}</h3>
                 <small class="text-muted">${tagline}</small>
@@ -846,9 +887,9 @@ const App = (function () {
                   return `
                   <div class="col-md-3 col-6">
                     <div class="category-mini-card" onclick="Router.navigate('/destination/${p.id}')">
-                      <img src="${p.image}" alt="${title}" class="img-fluid rounded mb-1" style="height: 120px; width: 100%; object-fit: cover;">
+                      <img src="${p.image}" alt="${title}" class="img-fluid rounded mb-1" style="height: 120px; width: 100%; object-fit: cover;" onerror="this.src='assets/images/placeholder.jpg'">
                       <h6 class="fs-sm mb-0 text-truncate font-weight-bold">${title}</h6>
-                      <small class="text-muted fs-xs">📍 ${currentLang === "ka" ? p.neighbourhoodKn : p.neighbourhood}</small>
+                      <small class="text-muted fs-xs d-inline-flex align-items-center gap-1">${Icons.get("map-pin", { size: 10 })} ${currentLang === "ka" ? p.neighbourhoodKn : p.neighbourhood}</small>
                     </div>
                   </div>
                 `;
@@ -876,70 +917,280 @@ const App = (function () {
   }
 
   /**
-   * Interactive Map View
+   * Split-Screen Interactive Map View & Classic Google My Maps
    */
   function renderMapView() {
     const mainEl = document.getElementById("main-app-content");
     if (!mainEl) return;
 
-    const categoriesPills = [
-      { id: "all", label: t("allCategories"), icon: "✨" },
+    const switcherHtml = `
+      <div class="map-controls-header bg-surface border-bottom px-3 py-2 d-flex justify-content-between align-items-center flex-wrap gap-2">
+        <div class="d-flex align-items-center gap-2">
+          <div class="map-view-switcher">
+            <button
+              class="map-view-switch-btn ${activeMapEngine === "interactive" ? "active" : ""}"
+              onclick="App.setMapEngine('interactive')"
+              title="${currentLang === "ka" ? "ಸಂವಾದಾತ್ಮಕ ತಾಣಗಳ ನಕ್ಷೆ (68+ ಸ್ಥಳಗಳು)" : "Interactive Landmark Map (68+ Destinations)"}"
+            >
+              ${Icons.get("map", { size: 14 })} <span>${currentLang === "ka" ? "ಸ್ಥಳಗಳ ನಕ್ಷೆ (68+)" : "Landmarks Map (68+)"}</span>
+            </button>
+            <button
+              class="map-view-switch-btn ${activeMapEngine === "mymaps" ? "active" : ""}"
+              onclick="App.setMapEngine('mymaps')"
+              title="${currentLang === "ka" ? "ಕ್ಲಾಸಿಕ್ ಗೂಗಲ್ ಮೈ ಮ್ಯಾಪ್ಸ್" : "Classic Google My Maps (Curated Embed)"}"
+            >
+              ${Icons.get("layers", { size: 14 })} <span>${currentLang === "ka" ? "ಕ್ಲಾಸಿಕ್ ಗೂಗಲ್ ಮ್ಯಾಪ್" : "Classic Google Map"}</span>
+            </button>
+          </div>
+        </div>
+        <div class="d-flex align-items-center gap-2">
+          ${
+            activeMapEngine === "interactive"
+              ? `
+            <button class="btn btn-sm btn-outline-primary d-inline-flex align-items-center gap-1" onclick="MapController.locateUser()">
+              ${Icons.get("navigation", { size: 13 })} <span>${t("nearMe")}</span>
+            </button>
+            <button class="btn btn-sm btn-outline-secondary d-md-none d-inline-flex align-items-center gap-1" id="mapMobileToggleBtn" onclick="App.toggleMapMobileMode()">
+              ${Icons.get("list", { size: 13 })} <span id="mapToggleBtnLabel">${currentLang === "ka" ? "ಪಟ್ಟಿ" : "List"}</span>
+            </button>
+          `
+              : `
+            <a href="${MapController.getMyMapsUrl()}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-primary d-inline-flex align-items-center gap-1">
+              ${Icons.get("external-link", { size: 13 })} <span>${currentLang === "ka" ? "ಗೂಗಲ್‌ನಲ್ಲಿ ತೆರೆಯಿರಿ" : "Open in Google Maps"}</span>
+            </a>
+          `
+          }
+        </div>
+      </div>
+    `;
+
+    if (activeMapEngine === "mymaps") {
+      mainEl.innerHTML = `
+        <section class="map-page-wrapper">
+          ${switcherHtml}
+          <div id="map-container-area" class="flex-grow-1 overflow-hidden" style="height: calc(100vh - 128px);"></div>
+        </section>
+      `;
+      MapController.renderGoogleMyMaps("map-container-area");
+      return;
+    }
+
+    // Default: Interactive Split-Screen Map View
+    mainEl.innerHTML = `
+      <section class="map-page-wrapper">
+        ${switcherHtml}
+        <div class="map-split-layout" id="mapSplitLayout">
+          <!-- Left Sidebar Places List -->
+          <aside class="map-sidebar-list" id="mapSidebarList">
+            <div class="map-sidebar-header">
+              <div class="map-sidebar-search-box">
+                <span class="search-icon">${Icons.get("search", { size: 14 })}</span>
+                <input
+                  type="text"
+                  id="mapSearchInput"
+                  placeholder="${currentLang === "ka" ? "ನಕ್ಷೆಯಲ್ಲಿ ಸ್ಥಳ ಹುಡುಕಿ..." : "Filter places on map..."}"
+                  value="${activeMapSearch}"
+                  autocomplete="off"
+                />
+              </div>
+              <div class="map-sidebar-pills">
+                ${renderMapCategoryPills()}
+              </div>
+            </div>
+            <div class="map-sidebar-meta" id="mapSidebarMeta"></div>
+            <div class="map-places-scroll-list" id="mapPlacesScrollList">
+              <!-- Injected by renderMapPlacesList -->
+            </div>
+          </aside>
+
+          <!-- Right Leaflet Map Canvas Pane -->
+          <div class="map-canvas-pane">
+            <div id="map-container" class="map-leaflet-canvas"></div>
+          </div>
+        </div>
+      </section>
+    `;
+
+    // Hook up search input
+    const mapSearchInput = document.getElementById("mapSearchInput");
+    if (mapSearchInput) {
+      mapSearchInput.addEventListener("input", (e) => {
+        activeMapSearch = e.target.value.trim().toLowerCase();
+        renderMapPlacesList();
+      });
+    }
+
+    renderMapPlacesList();
+
+    // Initialize Leaflet Map
+    setTimeout(() => {
+      MapController.init("map-container", currentLang);
+      MapController.onSelect((placeId) => {
+        highlightMapPlace(placeId, true);
+      });
+    }, 120);
+  }
+
+  function setMapEngine(engine) {
+    activeMapEngine = engine;
+    renderMapView();
+  }
+
+  function renderMapCategoryPills() {
+    const list = [
+      { id: "all", label: t("allCategories"), icon: "sparkles" },
       ...CATEGORIES.map((c) => ({
         id: c.id,
         label: currentLang === "ka" ? c.label.ka : c.label.en,
         icon: c.icon
       }))
     ];
-
-    const pillsHtml = categoriesPills
+    return list
       .map(
         (c) => `
-        <button
-          class="filter-pill ${activeSearchCategory === c.id ? "active" : ""}"
-          onclick="App.setMapCategory('${c.id}')"
-        >
-          <span>${c.icon}</span> ${c.label}
-        </button>
-      `
+      <button
+        class="filter-pill ${activeMapCategory === c.id ? "active" : ""}"
+        onclick="App.setMapCategory('${c.id}')"
+        style="padding: 4px 10px; font-size: 0.76rem;"
+      >
+        ${Icons.get(c.icon, { size: 12 })} <span>${c.label}</span>
+      </button>
+    `
       )
       .join("");
+  }
 
-    mainEl.innerHTML = `
-      <section class="map-page-section">
-        <div class="map-controls-bar bg-surface border-bottom p-3">
-          <div class="container d-flex justify-content-between align-items-center flex-wrap gap-2">
-            <div>
-              <h2 class="h5 m-0">🗺️ ${t("navMap")}</h2>
-              <small class="text-muted">${currentLang === "ka" ? "68+ ಪರಿಶೀಲಿತ ತಾಣಗಳ ಸಂವಾದಾತ್ಮಕ ನಕ್ಷೆ" : "68+ verified landmarks with instant Google Maps routing"}</small>
-            </div>
-            <div class="d-flex gap-2">
-              <button class="btn btn-sm btn-primary" onclick="MapController.locateUser()">
-                📍 ${t("nearMe")}
-              </button>
+  function renderMapPlacesList() {
+    const listEl = document.getElementById("mapPlacesScrollList");
+    const metaEl = document.getElementById("mapSidebarMeta");
+    if (!listEl) return;
+
+    let filtered = PLACES;
+    if (activeMapCategory !== "all") {
+      filtered = filtered.filter((p) => p.category === activeMapCategory);
+    }
+    if (activeMapSearch) {
+      filtered = filtered.filter((p) => {
+        const nameEn = (p.name || "").toLowerCase();
+        const nameKa = (p.kannadaName || "").toLowerCase();
+        const nbEn = (p.neighbourhood || "").toLowerCase();
+        const nbKa = (p.neighbourhoodKn || "").toLowerCase();
+        return (
+          nameEn.includes(activeMapSearch) ||
+          nameKa.includes(activeMapSearch) ||
+          nbEn.includes(activeMapSearch) ||
+          nbKa.includes(activeMapSearch)
+        );
+      });
+    }
+
+    if (metaEl) {
+      metaEl.textContent = `${filtered.length} ${currentLang === "ka" ? "ತಾಣಗಳು ಕಂಡುಬಂದಿವೆ" : "places found"}`;
+    }
+
+    if (filtered.length === 0) {
+      listEl.innerHTML = `<div class="p-4 text-center text-muted fs-sm">${t("noResults")}</div>`;
+      return;
+    }
+
+    listEl.innerHTML = filtered
+      .map((place) => {
+        const isSelected = activeMapSelectedId === place.id;
+        const title = currentLang === "ka" ? place.kannadaName : place.name;
+        const nb = currentLang === "ka" ? place.neighbourhoodKn : place.neighbourhood;
+        const catStyle = CATEGORIES.find((c) => c.id === place.category) || {};
+
+        return `
+          <div
+            class="map-place-item-card ${isSelected ? "is-active" : ""}"
+            data-id="${place.id}"
+            onclick="App.selectMapPlace('${place.id}')"
+          >
+            <img
+              src="${place.image}"
+              alt="${title}"
+              class="map-place-item-thumb"
+              loading="lazy"
+              onerror="this.src='assets/images/placeholder.jpg'"
+            />
+            <div class="map-place-item-info">
+              <div>
+                <div class="d-flex justify-content-between align-items-center mb-1">
+                  <span class="badge" style="background-color: ${catStyle.color || "#2563eb"}18; color: ${catStyle.color || "#2563eb"}; font-size: 0.65rem; font-weight: 700;">
+                    ${(place.category || "").replace("-", " ").toUpperCase()}
+                  </span>
+                  ${place.rating ? `<span class="fs-xs font-weight-bold d-inline-flex align-items-center gap-1 text-amber">${Icons.get("star-filled", { size: 10 })} ${place.rating}</span>` : ""}
+                </div>
+                <h4 class="map-place-item-title">${title}</h4>
+                <p class="map-place-item-nb">${Icons.get("map-pin", { size: 11 })} <span>${nb || "Bengaluru"}</span></p>
+              </div>
+              <div class="map-place-item-actions">
+                <button
+                  class="btn btn-xs btn-outline-primary d-inline-flex align-items-center gap-1"
+                  onclick="event.stopPropagation(); ModalController.openModalById('${place.id}', '${currentLang}')"
+                >
+                  ${Icons.get("info", { size: 11 })} <span>${t("viewDetails")}</span>
+                </button>
+                <button
+                  class="btn btn-xs btn-primary d-inline-flex align-items-center gap-1"
+                  onclick="event.stopPropagation(); GeoService.openDirections(${place.coordinates.lat}, ${place.coordinates.lng}, '${encodeURIComponent(place.name)}')"
+                >
+                  ${Icons.get("navigation", { size: 11 })} <span>${t("getDirections")}</span>
+                </button>
+              </div>
             </div>
           </div>
-          <div class="container mt-2">
-            <div class="category-pills-bar d-flex gap-2 flex-wrap">
-              ${pillsHtml}
-            </div>
-          </div>
-        </div>
-        <div id="map-container" class="interactive-map-frame" style="height: calc(100vh - 200px); min-height: 500px; width: 100%;"></div>
-      </section>
-    `;
-
-    // Initialize Leaflet Map
-    setTimeout(() => {
-      MapController.init("map-container", currentLang);
-    }, 100);
+        `;
+      })
+      .join("");
   }
 
   function setMapCategory(catId) {
-    activeSearchCategory = catId;
-    document.querySelectorAll(".map-controls-bar .filter-pill").forEach((pill) => {
-      pill.classList.toggle("active", pill.textContent.includes(catId));
-    });
+    activeMapCategory = catId;
+    const pillsContainer = document.querySelector(".map-sidebar-pills");
+    if (pillsContainer) {
+      pillsContainer.innerHTML = renderMapCategoryPills();
+    }
+    renderMapPlacesList();
     MapController.renderMarkers(catId);
+  }
+
+  function selectMapPlace(placeId) {
+    activeMapSelectedId = placeId;
+    highlightMapPlace(placeId, true);
+    MapController.focusPlace(placeId);
+
+    const layout = document.getElementById("mapSplitLayout");
+    if (layout && window.innerWidth <= 768 && layout.classList.contains("mobile-list-only")) {
+      toggleMapMobileMode();
+    }
+  }
+
+  function highlightMapPlace(placeId, shouldScroll = true) {
+    activeMapSelectedId = placeId;
+    document.querySelectorAll(".map-place-item-card").forEach((card) => {
+      const match = card.getAttribute("data-id") === placeId;
+      card.classList.toggle("is-active", match);
+      if (match && shouldScroll) {
+        card.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+    });
+  }
+
+  function toggleMapMobileMode() {
+    const layout = document.getElementById("mapSplitLayout");
+    const label = document.getElementById("mapToggleBtnLabel");
+    if (!layout) return;
+
+    if (layout.classList.contains("mobile-list-only")) {
+      layout.classList.remove("mobile-list-only");
+      layout.classList.add("mobile-map-only");
+      if (label) label.textContent = currentLang === "ka" ? "ಪಟ್ಟಿ" : "List";
+    } else {
+      layout.classList.remove("mobile-map-only");
+      layout.classList.add("mobile-list-only");
+      if (label) label.textContent = currentLang === "ka" ? "ನಕ್ಷೆ" : "Map";
+    }
   }
 
   /**
@@ -966,8 +1217,8 @@ const App = (function () {
         <article class="story-card card mb-4 shadow-sm border-0 overflow-hidden">
           <div class="card-body p-4">
             <div class="d-flex justify-content-between align-items-center mb-2">
-              <span class="badge bg-secondary text-white">📜 ${story.era}</span>
-              <span class="text-muted fs-xs">⏱️ ${story.readingTime} read</span>
+              <span class="badge bg-secondary text-white d-inline-flex align-items-center gap-1">${Icons.get("book-open", { size: 12 })} ${story.era}</span>
+              <span class="text-muted fs-xs d-inline-flex align-items-center gap-1">${Icons.get("clock", { size: 12 })} ${story.readingTime} read</span>
             </div>
             <h2 class="story-title h3 mb-2">
               <a href="#/story/${story.id}" class="text-decoration-none text-heading">${title}</a>
@@ -1024,7 +1275,7 @@ const App = (function () {
       .map((p) => `
         <div class="col-md-3 col-6">
           <div class="card p-2 text-center h-100" onclick="Router.navigate('/destination/${p.id}')" style="cursor: pointer;">
-            <img src="${p.image}" class="rounded mb-2" style="height: 100px; object-fit: cover;">
+            <img src="${p.image}" class="rounded mb-2" style="height: 100px; object-fit: cover;" onerror="this.src='assets/images/placeholder.jpg'">
             <h6 class="fs-xs font-weight-bold mb-0">${currentLang === "ka" ? p.kannadaName : p.name}</h6>
           </div>
         </div>
@@ -1036,7 +1287,7 @@ const App = (function () {
         <div class="container max-w-prose mx-auto">
           <a href="#/stories" class="btn btn-sm btn-link text-decoration-none mb-3">← ${currentLang === "ka" ? "ಎಲ್ಲಾ ಕಥೆಗಳಿಗೆ ಹಿಂತಿರುಗಿ" : "Back to City Stories"}</a>
           <header class="story-detail-header mb-4 border-bottom pb-4">
-            <span class="badge bg-secondary text-white mb-2">📜 ${story.era} • ⏱️ ${story.readingTime}</span>
+            <span class="badge bg-secondary text-white mb-2 d-inline-flex align-items-center gap-1">${Icons.get("book-open", { size: 12 })} ${story.era} • ${Icons.get("clock", { size: 12 })} ${story.readingTime}</span>
             <h1 class="story-detail-heading display-title mb-2">${title}</h1>
             <p class="story-detail-sub lead text-muted">${sub}</p>
           </header>
@@ -1048,7 +1299,7 @@ const App = (function () {
             relatedPlacesHtml
               ? `
             <div class="related-places-section mt-5 pt-4 border-top">
-              <h4 class="mb-3">📍 ${currentLang === "ka" ? "ಸಂಬಂಧಿತ ಸ್ಥಳಗಳು" : "Related Landmark Destinations"}</h4>
+              <h4 class="mb-3 d-flex align-items-center gap-2">${Icons.get("map-pin", { size: 16 })} <span>${currentLang === "ka" ? "ಸಂಬಂಧಿತ ಸ್ಥಳಗಳು" : "Related Landmark Destinations"}</span></h4>
               <div class="row g-2">${relatedPlacesHtml}</div>
             </div>
           `
@@ -1072,7 +1323,6 @@ const App = (function () {
       return;
     }
 
-    // Add to recently viewed
     StorageService.addRecentlyViewed(place.id);
 
     const isFav = StorageService.isFavorite(place.id);
@@ -1090,7 +1340,6 @@ const App = (function () {
     const metro = currentLang === "ka" ? info.nearestMetroKn || info.nearestMetro : info.nearestMetro || "BMTC Bus / Auto";
     const duration = currentLang === "ka" ? info.durationKn || info.duration : info.duration || "1 - 2 hours";
 
-    // Related places in same category
     const related = PLACES.filter((p) => p.category === place.category && p.id !== place.id).slice(0, 3);
     const relatedHtml = related.map((p) => renderLandmarkCard(p)).join("");
 
@@ -1101,12 +1350,12 @@ const App = (function () {
 
           <div class="card overflow-hidden border-0 shadow-sm mb-5">
             <div class="destination-hero-frame position-relative" style="max-height: 480px; overflow: hidden;">
-              <img src="${place.image}" alt="${title}" class="w-100" style="object-fit: cover; max-height: 480px;" onerror="this.src='assets/images/logo/logo.png'">
+              <img src="${place.image}" alt="${title}" class="w-100" style="object-fit: cover; max-height: 480px;" onerror="this.src='assets/images/placeholder.jpg'">
               <div class="position-absolute bottom-0 start-0 w-100 p-4 text-white" style="background: linear-gradient(transparent, rgba(0,0,0,0.85));">
                 <span class="badge bg-primary mb-2">${(place.category || "").replace("-", " ").toUpperCase()}</span>
                 <h1 class="display-title m-0 text-white">${title}</h1>
                 ${subTitle ? `<p class="fs-md opacity-75 m-0">${subTitle}</p>` : ""}
-                <p class="fs-sm opacity-90 mt-1 mb-0">📍 ${nb || "Bengaluru"}</p>
+                <p class="fs-sm opacity-90 mt-1 mb-0 d-flex align-items-center gap-1">${Icons.get("map-pin", { size: 14 })} <span>${nb || "Bengaluru"}</span></p>
               </div>
             </div>
 
@@ -1120,7 +1369,7 @@ const App = (function () {
                     historyText
                       ? `
                     <div class="history-banner p-3 rounded bg-surface-variant border-start border-4 border-primary mb-4">
-                      <h4 class="h6 text-primary text-uppercase mb-2">📜 ${currentLang === "ka" ? "ಐತಿಹಾಸಿಕ ಹಿನ್ನೆಲೆ" : "Heritage & History"}</h4>
+                      <h4 class="h6 text-primary text-uppercase mb-2 d-flex align-items-center gap-1">${Icons.get("book-open", { size: 14 })} <span>${currentLang === "ka" ? "ಐತಿಹಾಸಿಕ ಹಿನ್ನೆಲೆ" : "Heritage & History"}</span></h4>
                       <p class="m-0 fs-sm">${historyText}</p>
                     </div>
                   `
@@ -1128,36 +1377,36 @@ const App = (function () {
                   }
 
                   <div class="d-flex gap-2 flex-wrap mt-4">
-                    <button class="btn btn-primary" onclick="GeoService.openDirections(${place.coordinates.lat}, ${place.coordinates.lng}, '${encodeURIComponent(place.name)}')">
-                      🚗 ${t("getDirections")}
+                    <button class="btn btn-primary d-inline-flex align-items-center gap-2" onclick="GeoService.openDirections(${place.coordinates.lat}, ${place.coordinates.lng}, '${encodeURIComponent(place.name)}')">
+                      ${Icons.get("navigation", { size: 15 })} <span>${t("getDirections")}</span>
                     </button>
-                    <button class="btn ${inPlan ? "btn-secondary" : "btn-outline-primary"}" onclick="App.togglePlanner('${place.id}'); App.renderDestinationDetail('${place.id}');">
-                      ${inPlan ? "✓ " + t("inTrip") : "➕ " + t("addToTrip")}
+                    <button class="btn ${inPlan ? "btn-secondary" : "btn-outline-primary"} d-inline-flex align-items-center gap-2" onclick="App.togglePlanner('${place.id}'); App.renderDestinationDetail('${place.id}');">
+                      ${Icons.get(inPlan ? "check" : "plus", { size: 15 })} <span>${inPlan ? t("inTrip") : t("addToTrip")}</span>
                     </button>
-                    <button class="btn ${isFav ? "btn-danger" : "btn-outline-secondary"}" onclick="App.toggleFavorite('${place.id}'); App.renderDestinationDetail('${place.id}');">
-                      ${isFav ? "❤️ " + t("savedFavorites") : "🤍 Save"}
+                    <button class="btn ${isFav ? "btn-danger" : "btn-outline-secondary"} d-inline-flex align-items-center gap-2" onclick="App.toggleFavorite('${place.id}'); App.renderDestinationDetail('${place.id}');">
+                      ${Icons.get(isFav ? "heart-filled" : "heart", { size: 15, class: isFav ? "text-danger" : "" })} <span>${isFav ? t("savedFavorites") : "Save to Favorites"}</span>
                     </button>
                   </div>
                 </div>
 
                 <div class="col-lg-4">
                   <div class="visitor-guidelines-card card bg-surface-variant p-3 border">
-                    <h4 class="h5 border-bottom pb-2 mb-3">📋 ${currentLang === "ka" ? "ಸಂದರ್ಶಕರ ಮಾರ್ಗದರ್ಶಿ" : "Visitor Guidelines"}</h4>
+                    <h4 class="h5 border-bottom pb-2 mb-3">${currentLang === "ka" ? "ಸಂದರ್ಶಕರ ಮಾರ್ಗದರ್ಶಿ" : "Visitor Guidelines"}</h4>
                     <ul class="list-unstyled mb-0">
                       <li class="mb-3">
-                        <strong class="d-block fs-xs text-uppercase text-muted">🕒 ${t("timingLabel")}</strong>
+                        <strong class="d-block fs-xs text-uppercase text-muted d-flex align-items-center gap-1">${Icons.get("clock", { size: 12 })} ${t("timingLabel")}</strong>
                         <span class="fs-sm">${timing}</span>
                       </li>
                       <li class="mb-3">
-                        <strong class="d-block fs-xs text-uppercase text-muted">🎟️ ${t("feeLabel")}</strong>
+                        <strong class="d-block fs-xs text-uppercase text-muted d-flex align-items-center gap-1">${Icons.get("ticket", { size: 12 })} ${t("feeLabel")}</strong>
                         <span class="fs-sm">${fee}</span>
                       </li>
                       <li class="mb-3">
-                        <strong class="d-block fs-xs text-uppercase text-muted">🚇 ${t("metroNear")}</strong>
+                        <strong class="d-block fs-xs text-uppercase text-muted d-flex align-items-center gap-1">${Icons.get("train", { size: 12 })} ${t("metroNear")}</strong>
                         <span class="fs-sm">${metro}</span>
                       </li>
                       <li class="mb-0">
-                        <strong class="d-block fs-xs text-uppercase text-muted">⏱️ ${t("durationLabel")}</strong>
+                        <strong class="d-block fs-xs text-uppercase text-muted d-flex align-items-center gap-1">${Icons.get("timer", { size: 12 })} ${t("durationLabel")}</strong>
                         <span class="fs-sm">${duration}</span>
                       </li>
                     </ul>
@@ -1197,7 +1446,10 @@ const App = (function () {
       <section class="favorites-page py-4">
         <div class="container">
           <div class="section-intro text-center mb-5">
-            <h1 class="display-title mb-2">❤️ ${t("savedFavorites")} (${favPlaces.length})</h1>
+            <h1 class="display-title mb-2 d-flex align-items-center justify-content-center gap-2">
+              ${Icons.get("heart-filled", { size: 28, class: "text-danger" })} 
+              <span>${t("savedFavorites")} (${favPlaces.length})</span>
+            </h1>
             <p class="section-lead text-muted">${favPlaces.length === 0 ? t("noFavorites") : (currentLang === "ka" ? "ನಿಮ್ಮ ಮೆಚ್ಚಿನ ತಾಣಗಳ ಸಂಗ್ರಹ." : "Your bookmarked Bengaluru places ready for exploration.")}</p>
           </div>
           <div class="landmark-cards-grid">
@@ -1229,17 +1481,17 @@ const App = (function () {
           </div>
 
           <div class="card p-4 mb-4 border-0 shadow-sm bg-surface">
-            <h3 class="h4 mb-3 text-primary">🌿 ${currentLang === "ka" ? "ನಗರದ ಪರಿಚಯ" : "The City Overview"}</h3>
+            <h3 class="h4 mb-3 text-primary d-flex align-items-center gap-2">${Icons.get("trees", { size: 20 })} <span>${currentLang === "ka" ? "ನಗರದ ಪರಿಚಯ" : "The City Overview"}</span></h3>
             <p class="lead-sm text-body-secondary mb-3">${text}</p>
           </div>
 
           <div class="card p-4 mb-4 border-0 shadow-sm bg-surface">
-            <h3 class="h4 mb-3 text-primary">🎯 ${currentLang === "ka" ? "ಯೋಜನೆಯ ಧ್ಯೇಯ" : "Mission & Architecture"}</h3>
+            <h3 class="h4 mb-3 text-primary d-flex align-items-center gap-2">${Icons.get("sparkles", { size: 20 })} <span>${currentLang === "ka" ? "ಯೋಜನೆಯ ಧ್ಯೇಯ" : "Mission & Architecture"}</span></h3>
             <p class="fs-sm text-body-secondary">
               ${
                 currentLang === "ka"
-                  ? "ಬೆಂಗಳೂರು ಎಕ್ಸ್‌ಪ್ಲೋರರ್ ಒಂದು ಮುಕ್ತ, ದ್ವಿಭಾಷಾ ನಗರ ಮಾರ್ಗದರ್ಶಿಯಾಗಿದೆ. ಇದು ಯಾವುದೇ ಪಾವತಿಸಿದ ಎಪಿಐಗಳು ಅಥವಾ ಸರ್ವರ್ ಅಗತ್ಯವಿಲ್ಲದೆ, ಸಂಪೂರ್ಣ ಕ್ಲೈಂಟ್ ಸೈಡ್ ತಂತ್ರಜ್ಞಾನದಲ್ಲಿ ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತದೆ. ಓಪನ್‌ಸ್ಟ್ರೀಟ್‌ಮ್ಯಾಪ್, ಲೀಫ್‌ಲೆಟ್ ಹಾಗೂ ಗೂಗಲ್ ಮ್ಯಾಪ್ಸ್ ಡೈರೆಕ್ಷನ್ ಲಿಂಕ್‌ಗಳ ಮೂಲಕ ಬಳಕೆದಾರರಿಗೆ ನಿಖರ ಮಾರ್ಗದರ್ಶನ ನೀಡುತ್ತದೆ."
-                  : "Bangalore Explorer is an open, high-performance, bilingual digital city guide. Built with zero mandatory backend, zero tracking, and zero paid API keys, it couples Leaflet OpenStreetMap with Google Maps URL routing to deliver a premium discovery experience across 68+ verified landmarks."
+                  ? "ಬೆಂಗಳೂರು ಎಕ್ಸ್‌ಪ್ಲೋರರ್ ಒಂದು ಮುಕ್ತ, ದ್ವಿಭಾಷಾ ನಗರ ಮಾರ್ಗದರ್ಶಿಯಾಗಿದೆ. ಇದು ಯಾವುದೇ ಪಾವತಿಸಿದ ಎಪಿಐಗಳು ಅಥವಾ ಸರ್ವರ್ ಅಗತ್ಯವಿಲ್ಲದೆ, ಸಂಪೂರ್ಣ ಕ್ಲೈಂಟ್ ಸೈಡ್ ತಂತ್ರಜ್ಞಾನದಲ್ಲಿ ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತದೆ. ಲೀಫ್‌ಲೆಟ್, ಕಾರ್ಟೋಡಿಬಿ ಡಾರ್ಕ್ ಮ್ಯಾಟರ್ ಹಾಗೂ ಗೂಗಲ್ ಮ್ಯಾಪ್ಸ್ ಡೈರೆಕ್ಷನ್ ಲಿಂಕ್‌ಗಳ ಮೂಲಕ ಬಳಕೆದಾರರಿಗೆ ನಿಖರ ಮಾರ್ಗದರ್ಶನ ನೀಡುತ್ತದೆ."
+                  : "Bangalore Explorer is an open, high-performance, bilingual digital city guide. Built with zero mandatory backend, zero tracking, and zero paid API keys, it couples Leaflet CartoDB Voyager and Dark Matter tiles with Google Maps URL routing to deliver a premium discovery experience across 68+ verified landmarks."
               }
             </p>
           </div>
@@ -1257,6 +1509,10 @@ const App = (function () {
     clearSearchQuery,
     resetAllFilters,
     setMapCategory,
+    setMapEngine,
+    selectMapPlace,
+    highlightMapPlace,
+    toggleMapMobileMode,
     toggleFavorite,
     togglePlanner,
     togglePlannerDrawer,
@@ -1276,6 +1532,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-if (typeof module !== 'undefined' && module.exports) {
+if (typeof module !== "undefined" && module.exports) {
   module.exports = App;
 }

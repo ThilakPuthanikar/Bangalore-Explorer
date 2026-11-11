@@ -128,7 +128,18 @@ if (missing === 0) console.log('All image references verified successfully!');
 
 ---
 
-## 5. Deployment Guidelines
+## 5. Local Testing
+
+Bangalore Explorer runs in any modern browser without a backend or build step:
+- **VS Code Live Server (Recommended):** Right-click `index.html` > "Open with Live Server" (`http://127.0.0.1:5500`).
+- **Python Static Server:**
+  ```bash
+  python -m http.server 5500
+  ```
+
+---
+
+## 6. Deployment Guidelines
 
 Bangalore Explorer is 100% static:
 - **GitHub Pages:** Set publishing branch to `main`, folder to `/ (root)`.

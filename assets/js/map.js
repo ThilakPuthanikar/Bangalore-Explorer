@@ -1,45 +1,62 @@
 /**
- * Bangalore Explorer - Interactive Map Controller
- * Zero-key Leaflet.js + OpenStreetMap integration with category layers,
- * custom SVG markers, popup info cards, directions triggers, and offline fallback.
+ * Bangalore Explorer - Interactive Map Controller 2.0
+ * Zero-key Leaflet.js + CartoDB tile integration with dynamic Dark Matter / Voyager
+ * tile switching, Lucide SVG pin markers, responsive split-screen coordination,
+ * popup info cards, and directions triggers.
  */
 
 const MapController = (function () {
   let mapInstance = null;
   let markersLayer = null;
   let userMarker = null;
+  let currentTileLayer = null;
   let activeCategory = "all";
   let activeLang = "en";
+  let onSelectCallback = null;
 
-  // Category Marker Colors & Icons
+  // Category Marker Colors & Lucide Icon Names
   const CATEGORY_STYLES = {
-    "heritage-culture": { color: "#b45309", symbol: "🏛️" },
-    "nature-outdoors": { color: "#047857", symbol: "🌿" },
-    "food-dining": { color: "#c2410c", symbol: "☕" },
-    "shopping-markets": { color: "#9333ea", symbol: "🛍️" },
-    "technology-innovation": { color: "#0369a1", symbol: "💻" },
-    "temples-spirituality": { color: "#ea580c", symbol: "🕉️" },
-    "sports-recreation": { color: "#15803d", symbol: "🏏" },
-    "stay-accommodation": { color: "#4f46e5", symbol: "🏨" },
-    "essential-services": { color: "#0284c7", symbol: "🏥" }
+    "heritage-culture": { color: "#b45309", icon: "landmark" },
+    "nature-outdoors": { color: "#047857", icon: "trees" },
+    "food-dining": { color: "#c2410c", icon: "utensils" },
+    "shopping-markets": { color: "#9333ea", icon: "shopping-bag" },
+    "technology-innovation": { color: "#0369a1", icon: "cpu" },
+    "temples-spirituality": { color: "#ea580c", icon: "sparkles" },
+    "sports-recreation": { color: "#15803d", icon: "trophy" },
+    "stay-accommodation": { color: "#4f46e5", icon: "hotel" },
+    "essential-services": { color: "#0284c7", icon: "cross" }
   };
+
+  const TILE_URLS = {
+    light: "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",
+    dark: "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
+    osm: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+  };
+
+  const MY_MAPS_EMBED_URL = "https://www.google.com/maps/d/u/0/embed?mid=1pXvLrRbetLahyrEdzNnfaCJoM25uvXg&ehbc=2E312F";
+
+  const TILE_ATTRIBUTION =
+    '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions" target="_blank" rel="noopener">CARTO</a>';
 
   /**
    * Create custom SVG Leaflet DivIcon for pins
    */
-  function createCustomIcon(category) {
-    const style = CATEGORY_STYLES[category] || { color: "#2563eb", symbol: "📍" };
+  function createCustomIcon(category, isSelected = false) {
+    const style = CATEGORY_STYLES[category] || { color: "#2563eb", icon: "map-pin" };
+    const iconSvg = typeof Icons !== "undefined" ? Icons.get(style.icon, { size: 16 }) : "📍";
+    const selectedClass = isSelected ? "is-selected" : "";
+
     const html = `
-      <div class="custom-map-pin" style="--pin-color: ${style.color}">
-        <span class="pin-symbol">${style.symbol}</span>
+      <div class="custom-map-pin ${selectedClass}" style="--pin-color: ${style.color}">
+        <span class="pin-symbol">${iconSvg}</span>
       </div>
     `;
     return L.divIcon({
       html: html,
       className: "custom-div-icon",
-      iconSize: [36, 42],
-      iconAnchor: [18, 42],
-      popupAnchor: [0, -40]
+      iconSize: isSelected ? [42, 48] : [36, 42],
+      iconAnchor: isSelected ? [21, 48] : [18, 42],
+      popupAnchor: [0, -42]
     });
   }
 
@@ -60,6 +77,7 @@ const MapController = (function () {
     if (mapInstance) {
       mapInstance.remove();
       mapInstance = null;
+      currentTileLayer = null;
     }
 
     // Centered at Bangalore CBD (Vidhana Soudha / MG Road)
@@ -67,19 +85,16 @@ const MapController = (function () {
       center: [12.9716, 77.5946],
       zoom: 12,
       minZoom: 10,
-      maxZoom: 18,
+      maxZoom: 19,
       zoomControl: false
     });
 
     // Add zoom control at bottom-right
     L.control.zoom({ position: "bottomright" }).addTo(mapInstance);
 
-    // OpenStreetMap free tile server
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      attribution:
-        '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors',
-      maxZoom: 19
-    }).addTo(mapInstance);
+    // Initial tile layer according to current theme
+    const initialTheme = typeof StorageService !== "undefined" ? StorageService.getTheme() : "light";
+    applyTileTheme(initialTheme);
 
     markersLayer = L.layerGroup().addTo(mapInstance);
 
@@ -90,13 +105,36 @@ const MapController = (function () {
       if (mapInstance) {
         mapInstance.invalidateSize();
       }
-    }, 200);
+    }, 250);
+  }
+
+  /**
+   * Apply appropriate CartoDB tile layer based on active theme
+   */
+  function applyTileTheme(theme) {
+    if (!mapInstance) return;
+
+    const url = theme === "dark" ? TILE_URLS.dark : TILE_URLS.light;
+
+    if (currentTileLayer) {
+      mapInstance.removeLayer(currentTileLayer);
+    }
+
+    currentTileLayer = L.tileLayer(url, {
+      attribution: TILE_ATTRIBUTION,
+      subdomains: "abcd",
+      maxZoom: 19
+    }).addTo(mapInstance);
+  }
+
+  function switchTileTheme(theme) {
+    applyTileTheme(theme);
   }
 
   /**
    * Render destination markers based on category filter
    */
-  function renderMarkers(category = "all") {
+  function renderMarkers(category = "all", selectedPlaceId = null) {
     activeCategory = category;
     if (!mapInstance || !markersLayer) return;
 
@@ -110,31 +148,36 @@ const MapController = (function () {
     filtered.forEach((place) => {
       if (!place.coordinates || !place.coordinates.lat || !place.coordinates.lng) return;
 
+      const isSelected = selectedPlaceId && selectedPlaceId === place.id;
       const marker = L.marker([place.coordinates.lat, place.coordinates.lng], {
-        icon: createCustomIcon(place.category),
+        icon: createCustomIcon(place.category, isSelected),
         title: activeLang === "ka" ? place.kannadaName : place.name
       });
+
+      marker.placeId = place.id;
 
       const title = activeLang === "ka" ? place.kannadaName : place.name;
       const desc = activeLang === "ka" ? place.shortDescKn : place.shortDesc;
       const nb = activeLang === "ka" ? place.neighbourhoodKn : place.neighbourhood;
-      const directionsText = activeLang === "ka" ? "ದಿಕ್ಕುಗಳು ಪಡೆಯಿರಿ" : "Get Directions";
+      const directionsText = activeLang === "ka" ? "ದಿಕ್ಕುಗಳು" : "Directions";
       const viewDetailsText = activeLang === "ka" ? "ವಿವರ ನೋಡಿ" : "View Details";
 
       const popupHtml = `
         <div class="map-popup-card">
-          <img src="${place.image}" alt="${title}" class="map-popup-thumb" onerror="this.src='assets/images/logo/logo.png'">
+          <img src="${place.image}" alt="${title}" class="map-popup-thumb" onerror="this.src='assets/images/placeholder.jpg'">
           <div class="map-popup-body">
-            <span class="map-popup-cat">${place.category.replace("-", " ").toUpperCase()}</span>
+            <span class="map-popup-cat">${(place.category || "destination").replace("-", " ").toUpperCase()}</span>
             <h4 class="map-popup-title">${title}</h4>
-            <p class="map-popup-nb">📍 ${nb || "Bengaluru"}</p>
+            <p class="map-popup-nb d-flex align-items-center gap-1">
+              ${typeof Icons !== "undefined" ? Icons.get("map-pin", { size: 12 }) : "📍"} <span>${nb || "Bengaluru"}</span>
+            </p>
             <p class="map-popup-desc">${desc}</p>
             <div class="map-popup-actions">
-              <button class="btn btn-sm btn-outline-primary" onclick="window.Router ? window.Router.navigate('/destination/${place.id}') : (window.ModalController && window.ModalController.openModalById('${place.id}'))">
-                ${viewDetailsText}
+              <button class="btn btn-xs btn-outline-primary" onclick="window.Router ? window.Router.navigate('/destination/${place.id}') : (window.ModalController && window.ModalController.openModalById('${place.id}'))">
+                ${typeof Icons !== "undefined" ? Icons.get("info", { size: 12 }) : ""} ${viewDetailsText}
               </button>
-              <button class="btn btn-sm btn-primary" onclick="GeoService.openDirections(${place.coordinates.lat}, ${place.coordinates.lng}, '${encodeURIComponent(place.name)}')">
-                🚗 ${directionsText}
+              <button class="btn btn-xs btn-primary" onclick="GeoService.openDirections(${place.coordinates.lat}, ${place.coordinates.lng}, '${encodeURIComponent(place.name)}')">
+                ${typeof Icons !== "undefined" ? Icons.get("navigation", { size: 12 }) : ""} ${directionsText}
               </button>
             </div>
           </div>
@@ -142,6 +185,13 @@ const MapController = (function () {
       `;
 
       marker.bindPopup(popupHtml, { maxWidth: 300, className: "custom-leaflet-popup" });
+
+      marker.on("click", () => {
+        if (typeof onSelectCallback === "function") {
+          onSelectCallback(place.id);
+        }
+      });
+
       markersLayer.addLayer(marker);
     });
   }
@@ -199,7 +249,7 @@ const MapController = (function () {
   }
 
   /**
-   * Graceful offline fallback renderer if Leaflet CDN fails
+   * Graceful offline fallback renderer if Leaflet fails
    */
   function renderFallbackMap(container) {
     const directionsLabel = activeLang === "ka" ? "ಗೂಗಲ್ ಮ್ಯಾಪ್ಸ್‌ನಲ್ಲಿ ತೆರೆಯಿರಿ" : "Open in Google Maps";
@@ -212,7 +262,7 @@ const MapController = (function () {
             <h4>${title}</h4>
             <p>📍 ${nb} (${p.coordinates.lat.toFixed(4)}, ${p.coordinates.lng.toFixed(4)})</p>
             <a href="https://www.google.com/maps/dir/?api=1&destination=${p.coordinates.lat},${p.coordinates.lng}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary">
-              🚗 ${directionsLabel}
+              ${directionsLabel}
             </a>
           </div>
         `;
@@ -220,12 +270,38 @@ const MapController = (function () {
       .join("");
 
     container.innerHTML = `
-      <div class="map-offline-fallback">
-        <div class="map-fallback-banner">
-          <h3>🗺️ ${activeLang === "ka" ? "ಸ್ಥಳ ನಿರ್ದೇಶನ ನಕ್ಷೆ" : "Bengaluru City Destinations Map"}</h3>
-          <p>${activeLang === "ka" ? "ಎಲ್ಲಾ ಸ್ಥಳಗಳ ಅಧಿಕೃತ ನಿರ್ದೇಶಾಂಕಗಳು ಕೆಳಗೆ ಲಭ್ಯವಿದೆ. ದಿಕ್ಕುಗಳನ್ನು ಪಡೆಯಲು ಕ್ಲಿಕ್ ಮಾಡಿ:" : "Complete verified coordinates and navigation routes for Bengaluru landmarks:"}</p>
+      <div class="map-offline-fallback p-4 text-center">
+        <div class="map-fallback-banner mb-4">
+          <h3 class="h4">${activeLang === "ka" ? "ಸ್ಥಳ ನಿರ್ದೇಶನ ನಕ್ಷೆ" : "Bengaluru City Destinations Map"}</h3>
+          <p class="text-muted">${activeLang === "ka" ? "ಎಲ್ಲಾ ಸ್ಥಳಗಳ ಅಧಿಕೃತ ನಿರ್ದೇಶಾಂಕಗಳು ಕೆಳಗೆ ಲಭ್ಯವಿದೆ. ದಿಕ್ಕುಗಳನ್ನು ಪಡೆಯಲು ಕ್ಲಿಕ್ ಮಾಡಿ:" : "Complete verified coordinates and navigation routes for Bengaluru landmarks:"}</p>
         </div>
         <div class="fallback-map-grid">${cardsHtml}</div>
+      </div>
+    `;
+  }
+
+  function renderGoogleMyMaps(containerId = "map-container") {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    if (mapInstance) {
+      mapInstance.remove();
+      mapInstance = null;
+      currentTileLayer = null;
+    }
+
+    container.innerHTML = `
+      <div class="mymaps-view-wrapper">
+        <div class="mymaps-frame-card">
+          <iframe
+            src="${MY_MAPS_EMBED_URL}"
+            class="mymaps-iframe"
+            title="${activeLang === "ka" ? "ಬೆಂಗಳೂರು ಸಂವಾದಾತ್ಮಕ ನಕ್ಷೆ" : "Bangalore City Interactive Map"}"
+            loading="lazy"
+            sandbox="allow-scripts allow-same-origin allow-popups"
+            allowfullscreen
+          ></iframe>
+        </div>
       </div>
     `;
   }
@@ -237,17 +313,33 @@ const MapController = (function () {
     }
   }
 
+  function onSelect(cb) {
+    onSelectCallback = cb;
+  }
+
+  // Subscribe to theme updates
+  if (typeof StorageService !== "undefined") {
+    StorageService.subscribe((event, data) => {
+      if (event === "theme_changed" && data && data.theme) {
+        switchTileTheme(data.theme);
+      }
+    });
+  }
+
   return {
     init,
     renderMarkers,
     focusPlace,
     locateUser,
+    switchTileTheme,
+    renderGoogleMyMaps,
+    getMyMapsUrl: () => MY_MAPS_EMBED_URL,
     setLanguage,
+    onSelect,
     getMap: () => mapInstance
   };
 })();
 
-if (typeof module !== 'undefined' && module.exports) {
+if (typeof module !== "undefined" && module.exports) {
   module.exports = MapController;
 }
-

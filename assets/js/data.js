@@ -7,7 +7,7 @@
 const CATEGORIES = [
   {
     "id": "heritage-culture",
-    "icon": "🏛️",
+    "icon": "landmark",
     "label": {
       "en": "Heritage & Culture",
       "ka": "ಪರಂಪರೆ ಮತ್ತು ಸಂಸ್ಕೃತಿ"
@@ -20,7 +20,7 @@ const CATEGORIES = [
   },
   {
     "id": "nature-outdoors",
-    "icon": "🌿",
+    "icon": "trees",
     "label": {
       "en": "Nature & Outdoors",
       "ka": "ಪ್ರಕೃತಿ ಮತ್ತು ಉದ್ಯಾನಗಳು"
@@ -33,7 +33,7 @@ const CATEGORIES = [
   },
   {
     "id": "food-dining",
-    "icon": "☕",
+    "icon": "utensils",
     "label": {
       "en": "Food & Heritage Dining",
       "ka": "ಆಹಾರ ಮತ್ತು ಊಟೋಪಚಾರ"
@@ -46,7 +46,7 @@ const CATEGORIES = [
   },
   {
     "id": "shopping-markets",
-    "icon": "🛍️",
+    "icon": "shopping-bag",
     "label": {
       "en": "Shopping & Bazaars",
       "ka": "ಶಾಪಿಂಗ್ ಮತ್ತು ಮಾರುಕಟ್ಟೆಗಳು"
@@ -59,7 +59,7 @@ const CATEGORIES = [
   },
   {
     "id": "technology-innovation",
-    "icon": "💻",
+    "icon": "cpu",
     "label": {
       "en": "Technology & Innovation",
       "ka": "ತಂತ್ರಜ್ಞಾನ ಮತ್ತು ನಾವೀನ್ಯತೆ"
@@ -72,7 +72,7 @@ const CATEGORIES = [
   },
   {
     "id": "temples-spirituality",
-    "icon": "🕉️",
+    "icon": "sparkles",
     "label": {
       "en": "Temples & Spirituality",
       "ka": "ದೇವಾಲಯಗಳು ಮತ್ತು ಆಧ್ಯಾತ್ಮಿಕ ಸ್ಥಳಗಳು"
@@ -85,7 +85,7 @@ const CATEGORIES = [
   },
   {
     "id": "sports-recreation",
-    "icon": "🏏",
+    "icon": "trophy",
     "label": {
       "en": "Sports & Recreation",
       "ka": "ಕ್ರೀಡೆ ಮತ್ತು ಮನರಂಜನೆ"
@@ -98,7 +98,7 @@ const CATEGORIES = [
   },
   {
     "id": "stay-accommodation",
-    "icon": "🏨",
+    "icon": "hotel",
     "label": {
       "en": "Hotels & Stays",
       "ka": "ಹೋಟೆಲು ಮತ್ತು ವಾಸ್ತವ್ಯ"
@@ -111,7 +111,7 @@ const CATEGORIES = [
   },
   {
     "id": "essential-services",
-    "icon": "🏥",
+    "icon": "cross",
     "label": {
       "en": "Essential Services & Transit",
       "ka": "ಅಗತ್ಯ ಸೇವೆಗಳು ಮತ್ತು ಸಾರಿಗೆ"

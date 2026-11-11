@@ -15,7 +15,11 @@ Designed with an editorial travel-magazine aesthetic, Bangalore Explorer connect
 
 - **68+ Verified Destinations:** Spanning palaces, forts, botanical lungs, century-old tiffin houses, high streets, silk petes, tech campuses, stadiums, and transit junctions.
 - **Custom High-Resolution Photography:** Pristine, magazine-grade travel photography generated specifically for iconic Bengaluru landmarks (Vidhana Soudha, Bangalore Palace, Tipu Sultan's Summer Palace, Bengaluru Fort, Cubbon Park, Bannerghatta National Park, Sankey Tank, Ulsoor Lake, KR Market, Commercial Street, Chickpet, Gandhi Bazaar).
-- **Zero-Key Interactive Mapping:** Built on Leaflet.js and OpenStreetMap with custom color-coded SVG markers, interactive popups, category layer filtering, and automatic offline fallback.
+- **Zero-Key Dual-Mode Mapping:** Built on Leaflet.js with CartoDB Voyager (Light) and CartoDB Dark Matter (Dark) dynamic tile switching for 68+ landmark pins, paired with the fully restored, published **Google My Maps** curated embed. Zero API keys, zero credentials, and zero billing required.
+- **Split-Screen Interactive Map Layout:** A synchronized split view pairing an interactive sidebar list with the Leaflet map canvas for desktop and mobile discovery.
+- **Lucide SVG Icon System:** Zero-dependency inline vector icon registry replacing all emojis across navigation, categories, actions, and metadata grids.
+- **Real-Time State Synchronization:** Instant cross-component synchronization across cards, detail modals, badge counters, and the personal trip planner.
+- **100% Serverless & GitHub Pages Ready:** Pure client-side static web architecture. Deploys directly to GitHub Pages with zero build step, zero backend, and zero database.
 - **Turn-by-Turn Navigation:** Instant Google Maps driving, walking, and transit directions from the user's location via official URL routing schemes.
 - **Privacy-First Geolocation:** Requests location strictly upon explicit user interaction ("Near Me" / "Get Directions"), computing real-time distances via the Haversine formula without ever probing location on page load.
 - **6 Curated Day Itineraries:** Ready-to-explore walking and transit trails (Royal Heritage Trail, Green Heart Walk, South Bengaluru Culture & Tiffin Circuit, Silk Bazaars & Street Food, Silicon Plateau Circuit, Wildlife & Lakes Escape).
@@ -44,33 +48,45 @@ Designed with an editorial travel-magazine aesthetic, Bangalore Explorer connect
 
 ---
 
-## Quick Start & Running Locally
+## Quick Start & Local Development
 
 Bangalore Explorer requires **no build step, no npm install, and no backend server**.
 
-### Option 1: Direct Browser
-Simply double-click `index.html` in your file explorer to open it directly in Chrome, Firefox, Safari, or Edge.
+### Option 1: VS Code Live Server (Recommended)
+1. Open the project folder in VS Code.
+2. Right-click on `index.html` and select **"Open with Live Server"**.
+3. The application will open automatically at `http://127.0.0.1:5500`.
 
-### Option 2: Local Static Server (Recommended)
-Using Python:
+### Option 2: Python Static Server
 ```bash
-python -m http.server 8000
+python -m http.server 5500
 ```
-Or using Node.js `npx serve`:
-```bash
-npx serve .
-```
-Then navigate to `http://localhost:8000` in your browser.
+Then navigate to `http://localhost:5500` in your browser.
+
+---
+
+## GitHub Pages Deployment
+
+Bangalore Explorer is engineered specifically for direct static deployment:
+
+1. Push this repository to GitHub.
+2. Go to **Settings** > **Pages** in your GitHub repository.
+3. Under **Build and deployment**, set **Source** to `Deploy from a branch`.
+4. Select the `main` branch and `/ (root)` folder, then click **Save**.
+5. Your site will be live at `https://<your-username>.github.io/<repo-name>/`.
+6. Hash-based routing ensures all deep links (`#/explore`, `#/map`, `#/destination/:id`) work without 404 errors on refresh.
 
 ---
 
 ## Technology Stack
 
 - **Markup:** HTML5 Semantic Living Standard
-- **Presentation:** CSS3 Custom Properties, CSS Grid, Flexbox, Glassmorphism
+- **Presentation:** CSS3 Custom Properties, CSS Grid, Flexbox, Editorial Typography
 - **Scripting:** Pure Vanilla ECMAScript 2015+ (ES6+)
-- **Mapping:** Leaflet.js 1.9.4 + OpenStreetMap (Zero API key / zero billing)
-- **Directions:** Official Google Maps Direction & Multi-Stop Waypoint URL scheme
+- **Mapping (Dual Mode):**
+  - Mode 1: Leaflet.js with CartoDB Voyager & Dark Matter tiles (zero API key)
+  - Mode 2: Published Google My Maps curated iframe embed (zero API key)
+- **Directions:** Official Google Maps Navigation & Multi-Stop Waypoint URL scheme (zero API key)
 - **Storage:** Browser `localStorage` (Favorites, trip planner, recent items, theme, language)
 - **Offline / PWA:** Web App Manifest (`manifest.json`) + Service Worker (`sw.js`)
 
@@ -93,11 +109,12 @@ Bangalore-Explorer/
     │   ├── styles.css           # Core styling, variables & layout
     │   └── components.css       # Magazine cards, hero, map, planner & modal
     ├── js/
+    │   ├── icons.js             # Lucide SVG icon registry
     │   ├── data.js              # 68+ places, 9 categories, 6 trails, 4 chronicles
     │   ├── geo.js               # Geolocation, Haversine formula & routing URLs
     │   ├── storage.js           # LocalStorage state management
     │   ├── search.js            # Instant bilingual search & filter engine
-    │   ├── map.js               # Leaflet.js interactive map coordinator
+    │   ├── map.js               # Dual-mode map coordinator (Leaflet + Google My Maps)
     │   ├── planner.js           # Curated itineraries & custom trip planner
     │   ├── router.js            # Client-side hash router
     │   ├── modal.js             # Accessible focus-trapped Modal 2.0

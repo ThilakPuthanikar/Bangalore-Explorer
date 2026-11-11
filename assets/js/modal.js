@@ -1,7 +1,7 @@
 /**
  * Bangalore Explorer - Modal Controller 2.0
  * Accessible detail modal dialog featuring rich travel guide metadata,
- * visitor guidelines, metro connectivity, directions, and trip planner actions.
+ * visitor guidelines, metro connectivity, directions, Lucide SVG icons, and reactive actions.
  */
 
 const ModalController = (function () {
@@ -30,6 +30,15 @@ const ModalController = (function () {
         close();
       }
     });
+
+    // Reactive subscriber to storage events
+    if (typeof StorageService !== "undefined") {
+      StorageService.subscribe((event) => {
+        if ((event === "favorites_changed" || event === "planner_changed") && isOpen() && activePlace) {
+          renderModalContent(activePlace, activeLang);
+        }
+      });
+    }
   }
 
   function isOpen() {
@@ -92,18 +101,20 @@ const ModalController = (function () {
     modalContainerEl.innerHTML = `
       <button class="modal-close-btn modal-close-trigger" aria-label="Close dialog">&times;</button>
       <div class="modal-hero-wrapper">
-        <img src="${place.image || place.img}" alt="${title}" class="modal-hero-img" onerror="this.src='assets/images/logo/logo.png'">
+        <img src="${place.image || place.img}" alt="${title}" class="modal-hero-img" onerror="this.src='assets/images/placeholder.jpg'">
         <div class="modal-hero-gradient"></div>
         <div class="modal-hero-meta">
           <span class="badge badge-category">${(place.category || "destination").replace("-", " ").toUpperCase()}</span>
-          ${place.rating ? `<span class="badge badge-rating">⭐ ${place.rating}</span>` : ""}
+          ${place.rating ? `<span class="badge badge-rating d-inline-flex align-items-center gap-1">${Icons.get("star-filled", { size: 13, class: "text-amber" })} ${place.rating}</span>` : ""}
         </div>
       </div>
       <div class="modal-content-body p-4">
         <div class="modal-heading mb-3">
           <h2 class="modal-title h3 mb-1" id="modalTitle">${title}</h2>
           ${subTitle ? `<p class="modal-subtitle text-muted fs-sm mb-1">${subTitle}</p>` : ""}
-          <p class="modal-location text-primary fs-sm">📍 ${nb || "Bengaluru, Karnataka"}</p>
+          <p class="modal-location text-primary fs-sm d-flex align-items-center gap-1">
+            ${Icons.get("map-pin", { size: 14 })} <span>${nb || "Bengaluru, Karnataka"}</span>
+          </p>
         </div>
 
         <div class="modal-description mb-4">
@@ -112,7 +123,9 @@ const ModalController = (function () {
             historyText
               ? `
             <div class="history-callout p-3 rounded bg-surface-variant my-3 border-start border-4 border-primary">
-              <strong class="d-block text-primary fs-xs text-uppercase tracking-wider mb-1">📜 ${lang === "ka" ? "ಐತಿಹಾಸಿಕ ಮಹತ್ವ" : "Historical Significance"}</strong>
+              <strong class="d-flex align-items-center gap-1 text-primary fs-xs text-uppercase tracking-wider mb-1">
+                ${Icons.get("book-open", { size: 14 })} <span>${lang === "ka" ? "ಐತಿಹಾಸಿಕ ಮಹತ್ವ" : "Historical Significance"}</span>
+              </strong>
               <p class="fs-sm m-0">${historyText}</p>
             </div>
           `
@@ -122,28 +135,28 @@ const ModalController = (function () {
 
         <div class="visitor-info-grid mb-4">
           <div class="info-cell">
-            <span class="info-icon">🕒</span>
+            <span class="info-icon">${Icons.get("clock", { size: 18 })}</span>
             <div>
               <strong class="info-label">${lang === "ka" ? "ಸಮಯ" : "Timings"}</strong>
               <p class="info-val">${timing}</p>
             </div>
           </div>
           <div class="info-cell">
-            <span class="info-icon">🎟️</span>
+            <span class="info-icon">${Icons.get("ticket", { size: 18 })}</span>
             <div>
               <strong class="info-label">${lang === "ka" ? "ಪ್ರವೇಶ ಶುಲ್ಕ" : "Entry Fee"}</strong>
               <p class="info-val">${fee}</p>
             </div>
           </div>
           <div class="info-cell">
-            <span class="info-icon">🚇</span>
+            <span class="info-icon">${Icons.get("train", { size: 18 })}</span>
             <div>
               <strong class="info-label">${lang === "ka" ? "ಸಮೀಪದ ಮೆಟ್ರೋ" : "Nearest Metro"}</strong>
               <p class="info-val">${metro}</p>
             </div>
           </div>
           <div class="info-cell">
-            <span class="info-icon">⏱️</span>
+            <span class="info-icon">${Icons.get("timer", { size: 18 })}</span>
             <div>
               <strong class="info-label">${lang === "ka" ? "ಅಂದಾಜು ಅವಧಿ" : "Suggested Duration"}</strong>
               <p class="info-val">${duration}</p>
@@ -152,14 +165,14 @@ const ModalController = (function () {
         </div>
 
         <div class="modal-footer-actions d-flex gap-2 flex-wrap pt-3 border-top">
-          <button class="btn btn-primary flex-grow-1" onclick="GeoService.openDirections(${place.coordinates?.lat || 12.9716}, ${place.coordinates?.lng || 77.5946}, '${encodeURIComponent(place.name)}')">
-            🚗 ${dirText}
+          <button class="btn btn-primary flex-grow-1 d-inline-flex align-items-center justify-content-center gap-2" onclick="GeoService.openDirections(${place.coordinates?.lat || 12.9716}, ${place.coordinates?.lng || 77.5946}, '${encodeURIComponent(place.name)}')">
+            ${Icons.get("navigation", { size: 16 })} <span>${dirText}</span>
           </button>
-          <button class="btn ${inPlan ? "btn-secondary" : "btn-outline-primary"}" onclick="ModalController.togglePlannerAction('${place.id}')">
-            ${inPlan ? "✓" : "➕"} ${planText}
+          <button class="btn ${inPlan ? "btn-secondary" : "btn-outline-primary"} d-inline-flex align-items-center gap-2" onclick="ModalController.togglePlannerAction('${place.id}')">
+            ${Icons.get(inPlan ? "check" : "plus", { size: 16 })} <span>${planText}</span>
           </button>
-          <button class="btn ${isFav ? "btn-danger" : "btn-outline-secondary"}" onclick="ModalController.toggleFavoriteAction('${place.id}')" title="Favorite">
-            ${isFav ? "❤️" : "🤍"} ${favText}
+          <button class="btn ${isFav ? "btn-danger" : "btn-outline-secondary"} d-inline-flex align-items-center gap-2" onclick="ModalController.toggleFavoriteAction('${place.id}')" title="Favorite">
+            ${Icons.get(isFav ? "heart-filled" : "heart", { size: 16 })} <span>${favText}</span>
           </button>
         </div>
       </div>
@@ -206,6 +219,6 @@ const ModalController = (function () {
   };
 })();
 
-if (typeof module !== 'undefined' && module.exports) {
+if (typeof module !== "undefined" && module.exports) {
   module.exports = ModalController;
 }
