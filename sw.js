@@ -3,13 +3,14 @@
  * Offline caching for core assets, data, and styles.
  */
 
-const CACHE_NAME = 'bangalore-explorer-v2';
+const CACHE_NAME = 'bangalore-explorer-v2.1';
 const STATIC_ASSETS = [
   './',
   './index.html',
   './manifest.json',
   './assets/css/styles.css',
   './assets/css/components.css',
+  './assets/js/icons.js',
   './assets/js/data.js',
   './assets/js/geo.js',
   './assets/js/storage.js',
@@ -19,7 +20,8 @@ const STATIC_ASSETS = [
   './assets/js/router.js',
   './assets/js/modal.js',
   './assets/js/app.js',
-  './assets/images/logo/logo.png'
+  './assets/images/logo/logo.png',
+  './assets/images/placeholder.jpg'
 ];
 
 self.addEventListener('install', (event) => {

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, follow">
+    <title>404 - Page Not Found • ಪುಟ ಕಂಡುಬಂದಿಲ್ಲ | Bangalore Explorer</title>
+
+    <!-- Preconnect Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Favicon Suite -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/logo/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/logo/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/logo/apple-touch-icon.png">
+
+    <!-- Application Stylesheets -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+
+    <!-- Smart GitHub Pages Route Recovery Script -->
+    <script>
+      (function() {
+        // Detect if visitor hit a direct route (e.g. /Bangalore-Explorer/explore or /destination/lalbagh)
+        const path = window.location.pathname;
+        const repoName = "Bangalore-Explorer";
+        let subroute = "";
+
+        if (path.includes(repoName)) {
+          const parts = path.split(repoName);
+          if (parts[1] && parts[1] !== "/" && parts[1] !== "/index.html" && parts[1] !== "/404.html") {
+            subroute = parts[1].replace(/^\/+/, "");
+          }
+        } else if (path !== "/" && path !== "/index.html" && path !== "/404.html") {
+          subroute = path.replace(/^\/+/, "");
+        }
+
+        // If a valid application subroute was requested, redirect gracefully to index.html#/<subroute>
+        const knownSections = ["home", "explore", "categories", "map", "itineraries", "stories", "about", "favorites", "destination", "category", "story"];
+        const firstSegment = subroute.split("/")[0];
+        if (firstSegment && knownSections.includes(firstSegment)) {
+          const basePath = path.includes(repoName) ? "/" + repoName + "/" : "/";
+          const targetUrl = window.location.origin + basePath + "#/" + subroute + window.location.search;
+          window.location.replace(targetUrl);
+        }
+      })();
+    </script>
+  </head>
+  <body class="error-page-body">
+    <!-- Minimal Header -->
+    <header class="header">
+      <div class="header-left">
+        <a href="./#/home" class="brand">
+          <img src="assets/images/logo/logo.png" alt="Bangalore Explorer Emblem" class="logo" width="36" height="36">
+          <div class="title">
+            <span class="appname">Bangalore Explorer</span>
+            <span class="subtitle brand-sub">Bengaluru City Guide</span>
+          </div>
+        </a>
+      </div>
+      <div class="controls">
+        <a href="./#/home" class="btn btn-sm btn-outline-primary d-inline-flex align-items-center gap-1">
+          <span>Home / ಮುಖಪುಟ</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Error Card Container -->
+    <main class="container py-5 d-flex align-items-center justify-content-center" style="min-height: calc(100vh - 160px);">
+      <div class="card p-5 text-center shadow-lg border" style="max-width: 620px; border-radius: var(--radius-lg, 18px); background: var(--card-bg);">
+        <div class="mb-3">
+          <span class="badge px-3 py-2 text-primary" style="background: rgba(37, 99, 235, 0.12); border-radius: var(--radius-full); font-size: 0.85rem; font-weight: 700;">
+            404 • ROUTE NOT FOUND
+          </span>
+        </div>
+        <h1 class="display-title mb-2" style="font-size: 2rem;">Page Not Found</h1>
+        <h2 class="h5 text-primary mb-3" style="font-weight: 600;">ಪುಟ ಕಂಡುಬಂದಿಲ್ಲ</h2>
+        <p class="text-secondary mb-4" style="line-height: 1.65;">
+          The landmark, itinerary trail, or heritage story you are looking for does not exist, has moved, or the link has changed.<br>
+          <span class="fs-sm text-muted">ನೀವು ಹುಡುಕುತ್ತಿರುವ ತಾಣ ಅಥವಾ ಪುಟ ಲಭ್ಯವಿಲ್ಲ. ದಯವಿಟ್ಟು ಮುಖಪುಟಕ್ಕೆ ತೆರಳಿ.</span>
+        </p>
+
+        <div class="d-flex flex-wrap gap-2 justify-content-center">
+          <a href="./#/home" class="btn btn-primary d-inline-flex align-items-center gap-2">
+            <span>Return to Home / ಮುಖಪುಟ</span>
+          </a>
+          <a href="./#/explore" class="btn btn-outline-primary d-inline-flex align-items-center gap-2">
+            <span>Explore 68+ Landmarks</span>
+          </a>
+          <a href="./#/map" class="btn btn-secondary d-inline-flex align-items-center gap-2">
+            <span>Interactive Map</span>
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <!-- Minimal Footer -->
+    <footer class="app-footer-minimal border-top bg-surface py-3 text-center fs-xs text-muted">
+      <span>Bangalore Explorer • ಬೆಂಗಳೂರು ಎಕ್ಸ್‌ಪ್ಲೋರರ್ • © 2026 Namma Bengaluru</span>
+    </footer>
+  </body>
+</html>

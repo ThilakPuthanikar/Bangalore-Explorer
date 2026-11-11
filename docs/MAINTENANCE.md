@@ -139,10 +139,13 @@ Bangalore Explorer runs in any modern browser without a backend or build step:
 
 ---
 
-## 6. Deployment Guidelines
+## 6. Deployment Guidelines & Automated CI/CD
 
 Bangalore Explorer is 100% static:
-- **GitHub Pages:** Set publishing branch to `main`, folder to `/ (root)`.
+- **GitHub Pages (Automated):** The repository includes `.github/workflows/deploy.yml`. Pushes to `main` automatically validate all JS syntax and deploy to GitHub Pages without manual intervention.
+- **GitHub Pages (Manual Setting):** Go to Settings > Pages, select source `Deploy from a branch`, branch `main`, folder `/ (root)`.
+- **Custom 404 Route Recovery:** `404.html` handles any non-root direct accesses under GitHub Pages subpaths and seamlessly routes the browser back to `index.html#/<route>`.
+- **Search Engine Discovery:** Whenever adding new routes or chronicles, ensure `sitemap.xml` is updated with canonical URLs and bilingual hreflangs.
 - **Netlify:** Drag and drop the repository folder or link the git repository with publish directory `.`.
 - **Vercel:** Import project as "Other" static framework with output directory `.`.
 - **Apache / Nginx:** Copy all files directly to the web root (`/var/www/html/`). No server runtime or PHP required.

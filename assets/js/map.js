@@ -35,7 +35,7 @@ const MapController = (function () {
   };
 
   const TILE_ATTRIBUTION =
-    '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors';
+    '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a> contributors';
 
   /**
    * Create custom SVG Leaflet DivIcon for pins
@@ -122,7 +122,7 @@ const MapController = (function () {
     if (window.CARTO_API_KEY) {
       url = (theme === "dark" ? TILE_URLS.cartoDark : TILE_URLS.cartoLight) + `?key=${window.CARTO_API_KEY}`;
       subdomains = "abcd";
-      attribution += ' &copy; <a href="https://carto.com/attributions" target="_blank" rel="noopener">CARTO</a>';
+      attribution += ' &copy; <a href="https://carto.com/attributions" target="_blank" rel="noopener noreferrer">CARTO</a>';
     }
 
     if (currentTileLayer) {

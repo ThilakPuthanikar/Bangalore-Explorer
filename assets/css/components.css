@@ -162,9 +162,6 @@ body.light .hero-quick-links .btn:hover {
   color: var(--accent) !important;
   box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
 }
-  padding: 10px 24px;
-  font-weight: 700;
-}
 
 /* ==========================================================================
    2. Key Stats Bar

@@ -66,7 +66,9 @@ const App = (function () {
       statsPlaces: "Verified Destinations",
       statsCategories: "Curated Themes",
       statsTrails: "Ready Day Trails",
-      statsParity: "Bilingual Parity"
+      statsParity: "Bilingual Parity",
+      privacyPolicy: "Privacy Policy",
+      termsConditions: "Terms & Conditions"
     },
     ka: {
       siteTitle: "ಬೆಂಗಳೂರು ಎಕ್ಸ್‌ಪ್ಲೋರರ್",
@@ -113,12 +115,32 @@ const App = (function () {
       statsPlaces: "ಪರಿಶೀಲಿತ ತಾಣಗಳು",
       statsCategories: "ಕ್ಯುರೇಟೆಡ್ ವಿಭಾಗಗಳು",
       statsTrails: "ಸಿದ್ಧ ದಿನದ ಪ್ರವಾಸಗಳು",
-      statsParity: "ದ್ವಿಭಾಷಾ ಸಂಪೂರ್ಣತೆ"
+      statsParity: "ದ್ವಿಭಾಷಾ ಸಂಪೂರ್ಣತೆ",
+      privacyPolicy: "ಗೌಪ್ಯತಾ ನೀತಿ",
+      termsConditions: "ನಿಯಮಗಳು & ಷರತ್ತುಗಳು"
     }
   };
 
   function t(key) {
     return I18N[currentLang][key] || I18N["en"][key] || key;
+  }
+
+  function escapeHtml(str) {
+    if (!str || typeof str !== "string") return "";
+    return str
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  }
+
+  function openPrivacyPolicyModal() {
+    ModalController.openPrivacyPolicy(currentLang);
+  }
+
+  function openTermsModal() {
+    ModalController.openTerms(currentLang);
   }
 
   /**
@@ -242,6 +264,12 @@ const App = (function () {
     // Refresh current view
     const currentRoute = Router.getCurrentRoute();
     const params = Router.getParams();
+
+    // Dynamically update document title and meta description for the active route
+    if (typeof Router !== "undefined" && Router.updatePageMeta) {
+      Router.updatePageMeta(currentRoute, params);
+    }
+
     if (currentRoute.startsWith("/destination/")) {
       renderDestinationDetail(params.id);
     } else if (currentRoute.startsWith("/story/")) {
@@ -281,6 +309,12 @@ const App = (function () {
       const el = document.getElementById(id);
       if (el) el.textContent = t(map[id]);
     }
+
+    // Update compact footer legal buttons
+    const privacyBtn = document.getElementById("footerPrivacyBtn");
+    if (privacyBtn) privacyBtn.textContent = t("privacyPolicy");
+    const termsBtn = document.getElementById("footerTermsBtn");
+    if (termsBtn) termsBtn.textContent = t("termsConditions");
   }
 
   function updateBadges() {
@@ -601,7 +635,7 @@ const App = (function () {
                     id="exploreSearchInput"
                     class="form-control border-start-0"
                     placeholder="${t("searchPlaceholder")}"
-                    value="${activeSearchQuery}"
+                    value="${escapeHtml(activeSearchQuery)}"
                     autocomplete="off"
                   />
                   ${
@@ -957,7 +991,7 @@ const App = (function () {
                   type="text"
                   id="mapSearchInput"
                   placeholder="${currentLang === "ka" ? "ನಕ್ಷೆಯಲ್ಲಿ ಸ್ಥಳ ಹುಡುಕಿ..." : "Filter places on map..."}"
-                  value="${activeMapSearch}"
+                  value="${escapeHtml(activeMapSearch)}"
                   autocomplete="off"
                 />
                 <button
@@ -1708,7 +1742,10 @@ const App = (function () {
     toggleFavorite,
     togglePlanner,
     togglePlannerDrawer,
-    renderDestinationDetail
+    renderDestinationDetail,
+    openPrivacyPolicyModal,
+    openTermsModal,
+    escapeHtml
   };
 })();
 

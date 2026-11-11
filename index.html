@@ -4,7 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Discover, explore, and experience Bengaluru (Bangalore) with curated destinations, verified GPS coordinates, interactive OpenStreetMap, curated itineraries, cultural stories, and authentic bilingual English and Kannada coverage.">
-    <title>Bangalore Explorer | ಬೆಂಗಳೂರು ಎಕ್ಸ್‌ಪ್ಲೋರರ್</title>
+    <title>Bangalore Explorer | Discover Bengaluru's Places, Culture & Heritage</title>
+
+    <!-- Canonical URL for GitHub Pages -->
+    <link rel="canonical" href="https://thilakputhanikar.github.io/Bangalore-Explorer/">
+
+    <!-- Content Security Policy (Meta-Delivered for Static GitHub Pages) -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https://*.tile.openstreetmap.org https://*.basemaps.cartocdn.com https://unpkg.com; frame-src 'self' https://www.google.com; connect-src 'self' https://*.tile.openstreetmap.org https://*.basemaps.cartocdn.com;">
+
+    <!-- Open Graph Metadata -->
+    <meta property="og:site_name" content="Bangalore Explorer">
+    <meta property="og:title" content="Bangalore Explorer | Discover Bengaluru's Places, Culture & Heritage">
+    <meta property="og:description" content="Discover, explore, and experience Bengaluru with 68+ curated destinations, verified GPS coordinates, interactive map, curated day itineraries, and rich cultural stories.">
+    <meta property="og:image" content="https://thilakputhanikar.github.io/Bangalore-Explorer/assets/images/og-bangalore-explorer.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://thilakputhanikar.github.io/Bangalore-Explorer/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_IN">
+    <meta property="og:locale:alternate" content="kn_IN">
+
+    <!-- Twitter Card Metadata -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Bangalore Explorer | Discover Bengaluru">
+    <meta name="twitter:description" content="Discover Bengaluru with 68+ verified landmarks, curated day itineraries, and authentic English and Kannada coverage.">
+    <meta name="twitter:image" content="https://thilakputhanikar.github.io/Bangalore-Explorer/assets/images/og-bangalore-explorer.png">
+
+    <!-- Preload Hero Above-the-Fold Image -->
+    <link rel="preload" as="image" href="assets/images/home/hero-bangalore.jpg" fetchpriority="high">
 
     <!-- Preconnect Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,10 +45,49 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/components.css">
 
+    <!-- Multi-Resolution Favicon Suite -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/logo/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/logo/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/logo/apple-touch-icon.png">
+
     <!-- Web App Manifest -->
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#2563eb">
-    <link rel="icon" type="image/png" href="assets/images/logo/logo.png">
+
+    <!-- Schema.org JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://thilakputhanikar.github.io/Bangalore-Explorer/#website",
+          "url": "https://thilakputhanikar.github.io/Bangalore-Explorer/",
+          "name": "Bangalore Explorer",
+          "alternateName": "ಬೆಂಗಳೂರು ಎಕ್ಸ್‌ಪ್ಲೋರರ್",
+          "description": "Discover, explore, and experience Bengaluru with 68+ curated destinations, verified GPS coordinates, interactive maps, day itineraries, and authentic bilingual stories.",
+          "inLanguage": ["en", "kn"],
+          "creator": {
+            "@type": "Person",
+            "name": "Thilak Puthanikar",
+            "url": "https://github.com/ThilakPuthanikar"
+          }
+        },
+        {
+          "@type": "City",
+          "@id": "https://www.wikidata.org/wiki/Q1355",
+          "name": "Bengaluru",
+          "alternateName": "Bangalore",
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 12.9716,
+            "longitude": 77.5946
+          }
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <!-- Top Global Header -->
@@ -124,12 +190,17 @@
       </button>
     </nav>
 
-    <!-- Global Ultra-Minimal Compact Footer (No Quick Links) -->
+    <!-- Global Ultra-Minimal Compact Footer -->
     <footer class="app-footer-minimal border-top bg-surface">
       <div class="container d-flex justify-content-between align-items-center flex-wrap gap-2 py-3 fs-xs text-muted">
         <div class="d-flex align-items-center gap-2">
           <img src="assets/images/logo/logo.png" alt="Bangalore Explorer" width="20" height="20" class="opacity-80">
           <span class="font-weight-medium">Bangalore Explorer • ಬೆಂಗಳೂರು ಎಕ್ಸ್‌ಪ್ಲೋರರ್</span>
+        </div>
+        <div class="footer-legal-links d-flex align-items-center gap-2">
+          <button class="btn btn-link fs-xs text-muted p-0 text-decoration-none" id="footerPrivacyBtn" onclick="App.openPrivacyPolicyModal()">Privacy Policy</button>
+          <span>•</span>
+          <button class="btn btn-link fs-xs text-muted p-0 text-decoration-none" id="footerTermsBtn" onclick="App.openTermsModal()">Terms &amp; Conditions</button>
         </div>
         <div>
           <span>© 2026 Namma Bengaluru • 100% Static &amp; Open • Built and Managed by Thilak Puthanikar</span>

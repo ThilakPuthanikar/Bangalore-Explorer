@@ -19,6 +19,11 @@
 | **Client-Side Routing**| Hash-Based SPA Router with Deep Linking | Fully Implemented | `assets/js/router.js` |
 | **Localization** | 100% Authentic English & Kannada Parity | Fully Implemented | `assets/js/app.js` & `data.js` |
 | **Theming** | Accessible Light & Dark Modes with LocalStorage | Fully Implemented | `assets/css/styles.css` & `app.js` |
+| **Dynamic SEO** | Per-Route Titles, Descriptions & Open Graph | Fully Implemented | `assets/js/router.js` & `index.html` |
+| **Legal Privacy**| Bilingual Privacy Policy & Terms Accessible Modals | Fully Implemented | `assets/js/modal.js` & `index.html` |
+| **Route Recovery**| Deep-Link Route Fallback on Subpath Refresh | Fully Implemented | `404.html` |
+| **Security** | CSP Header, HTML Escaping, Noopener Referrers | Fully Implemented | `index.html` & `assets/js/app.js` |
+| **CI/CD** | Automated GitHub Actions Lint & Pages Deployment | Fully Implemented | `.github/workflows/deploy.yml` |
 | **PWA & Offline** | Standalone Installability & Service Worker Cache | Fully Implemented | `manifest.json` & `sw.js` |
 
 ---

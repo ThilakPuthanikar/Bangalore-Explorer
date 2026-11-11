@@ -48,6 +48,15 @@ Designed with an editorial travel-magazine aesthetic, Bangalore Explorer connect
 
 ---
 
+## Live Deployment
+
+- **Production URL:** [https://thilakputhanikar.github.io/Bangalore-Explorer/](https://thilakputhanikar.github.io/Bangalore-Explorer/)
+- **Hosting Environment:** GitHub Pages (Native automated CI/CD via `.github/workflows/deploy.yml`)
+- **Architecture:** 100% Client-Side Static (Zero Node.js servers, zero mandatory build tools, zero database)
+- **API Cost:** ₹0.00 / $0.00 (Zero paid Google Maps API keys or third-party paid subscriptions)
+
+---
+
 ## Quick Start & Local Development
 
 Bangalore Explorer requires **no build step, no npm install, and no backend server**.
@@ -65,16 +74,29 @@ Then navigate to `http://localhost:5500` in your browser.
 
 ---
 
-## GitHub Pages Deployment
+## GitHub Pages Deployment & CI/CD
 
-Bangalore Explorer is engineered specifically for direct static deployment:
+Bangalore Explorer is engineered specifically for direct static deployment and subpath resilience:
 
-1. Push this repository to GitHub.
-2. Go to **Settings** > **Pages** in your GitHub repository.
-3. Under **Build and deployment**, set **Source** to `Deploy from a branch`.
-4. Select the `main` branch and `/ (root)` folder, then click **Save**.
-5. Your site will be live at `https://<your-username>.github.io/<repo-name>/`.
-6. Hash-based routing ensures all deep links (`#/explore`, `#/map`, `#/destination/:id`) work without 404 errors on refresh.
+1. **Automated CI/CD Workflow (`.github/workflows/deploy.yml`):**
+   - Automatically runs on every push to `main`.
+   - Executes syntax validation (`node -c assets/js/*.js`).
+   - Packages and deploys directly to GitHub Pages using official GitHub Actions (`actions/deploy-pages@v4`).
+
+2. **Route Recovery & Deep-Linking (`404.html`):**
+   - Direct path refreshes under GitHub Pages subpaths (e.g. `/explore` or `/itineraries`) are gracefully caught by `404.html` and instantly routed to the corresponding hash route (`index.html#/explore`) without 404 dead ends.
+
+3. **Production SEO & Social Sharing:**
+   - Pre-rendered `sitemap.xml` with canonical subpath URLs and `hreflang` language alternates.
+   - Comprehensive `robots.txt` allowing full indexing.
+   - Dynamic document title and meta description updates per route in both English and Kannada.
+   - Rich Open Graph card (`assets/images/og-bangalore-explorer.png`) and Twitter Card metadata.
+   - Full Schema.org JSON-LD structured data for WebSite and TouristDestination entities.
+
+4. **Privacy-First & Secure:**
+   - Content Security Policy (CSP) enforcing strict origins for scripts, styles, fonts, and tiles.
+   - Zero tracking cookies and zero server log retention.
+   - Accessible, bilingual Privacy Policy and Terms dialogs built directly into the UI.
 
 ---
 
@@ -83,12 +105,13 @@ Bangalore Explorer is engineered specifically for direct static deployment:
 - **Markup:** HTML5 Semantic Living Standard
 - **Presentation:** CSS3 Custom Properties, CSS Grid, Flexbox, Editorial Typography
 - **Scripting:** Pure Vanilla ECMAScript 2015+ (ES6+)
-- **Mapping (Dual Mode):**
-  - Mode 1: Leaflet.js with CartoDB Voyager & Dark Matter tiles (zero API key)
-  - Mode 2: Published Google My Maps curated iframe embed (zero API key)
+- **Mapping:**
+  - Primary: Leaflet.js with CartoDB Voyager & Dark Matter tiles (zero API key)
+  - Curated: Published Google My Maps curated iframe embed (zero API key)
 - **Directions:** Official Google Maps Navigation & Multi-Stop Waypoint URL scheme (zero API key)
 - **Storage:** Browser `localStorage` (Favorites, trip planner, recent items, theme, language)
 - **Offline / PWA:** Web App Manifest (`manifest.json`) + Service Worker (`sw.js`)
+- **Favicons:** Full multi-size suite (`favicon.ico`, 16×16, 32×32, Apple Touch 180×180, Android 192×192 & 512×512)
 
 ---
 
@@ -97,9 +120,16 @@ Bangalore Explorer is engineered specifically for direct static deployment:
 ```text
 Bangalore-Explorer/
 ├── index.html                   # Semantic HTML5 application shell & navigation
+├── 404.html                     # Custom branded 404 page & GitHub Pages route recovery
+├── robots.txt                   # Search crawler directives & sitemap location
+├── sitemap.xml                  # Canonical XML sitemap with bilingual hreflang tags
 ├── manifest.json                # PWA manifest
 ├── sw.js                        # Service worker for offline caching
+├── favicon.ico                  # Multi-resolution favicon (16x16, 32x32, 48x48)
 ├── README.md                    # Main project overview & documentation
+├── .github/
+│   └── workflows/
+│       └── deploy.yml           # Automated GitHub Pages CI/CD workflow
 ├── docs/                        # Consolidated documentation
 │   ├── PROJECT_OVERVIEW.md      # Architecture, objectives & scope
 │   ├── FEATURES.md              # Complete feature matrix & data schema
@@ -116,16 +146,16 @@ Bangalore-Explorer/
     │   ├── search.js            # Instant bilingual search & filter engine
     │   ├── map.js               # Dual-mode map coordinator (Leaflet + Google My Maps)
     │   ├── planner.js           # Curated itineraries & custom trip planner
-    │   ├── router.js            # Client-side hash router
-    │   ├── modal.js             # Accessible focus-trapped Modal 2.0
+    │   ├── router.js            # Client-side hash router with dynamic SEO metadata
+    │   ├── modal.js             # Accessible focus-trapped Modal 2.0 & Legal dialogs
     │   └── app.js               # Master application bootstrapper
     └── images/
-        ├── logo/                # Project logo & PWA icons
-        ├── backgrounds/         # Editorial backgrounds & patterns
-        ├── home/                # Hero banners
+        ├── logo/                # Project logo & multi-resolution favicon suite
+        ├── og-bangalore-explorer.png # 1200x630 Open Graph & Twitter social card
+        ├── home/                # Hero banners (optimized Web JPEGs)
         ├── about/               # About page photography
         ├── stories/             # Cultural chronicles illustrations
-        └── landmarks/           # Categorized landmark photography
+        └── destinations/        # Web-optimized categorized destination photography
 ```
 
 ---

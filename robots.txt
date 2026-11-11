@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://thilakputhanikar.github.io/Bangalore-Explorer/sitemap.xml
+

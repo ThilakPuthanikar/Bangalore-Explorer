@@ -44,13 +44,23 @@ The platform provides verified GPS coordinates, zero-key interactive mapping via
 | **Search** | Client-Side In-Memory | Instant bilingual search & filter engine (`search.js`) |
 | **Mapping** | Leaflet.js & Google My Maps | Dual-mode zero-key maps: 68+ landmark pins with Dark Matter / Voyager & curated embed (`map.js`) |
 | **Trip Planning** | Custom Controller | 6 curated trails & multi-stop Google Maps exporter (`planner.js`) |
-| **Routing** | Client-Side Hash Router | Deep-linking, history, and view rendering (`router.js`) |
-| **Dialogs** | Accessible Modal 2.0 | Focus trapping, escape listener, and visitor info (`modal.js`) |
+| **Routing & SEO** | Client-Side Hash Router | Deep-linking, route recovery (`404.html`), dynamic document title & meta description updates (`router.js`) |
+| **Dialogs & Legal** | Accessible Modal 2.0 | Focus trapping, escape listener, destination info, and bilingual Privacy Policy & Terms (`modal.js`) |
 | **PWA & Offline** | Web App Manifest & Service Worker | Cache-first offline shell (`manifest.json` & `sw.js`) |
+| **CI/CD** | GitHub Actions | Automated lint/syntax verification & GitHub Pages deployment (`deploy.yml`) |
 
 ---
 
-## 5. Information Architecture & Discovery Categories
+## 5. Deployment & Production SEO Architecture
+
+- **Public Subpath:** Designed natively for subpath hosting (`https://thilakputhanikar.github.io/Bangalore-Explorer/`) without breaking assets or links.
+- **Route Recovery (`404.html`):** Intercepts deep-linked subpath reloads and redirects users directly to their target hash route without 404 abandonment.
+- **Search Engine Discovery:** Includes canonical `sitemap.xml`, permissive `robots.txt`, Schema.org JSON-LD structured data for City and WebSite, and high-resolution Open Graph social cards.
+- **Security:** Static Content Security Policy (`CSP`), DOM XSS input sanitization via HTML character escaping, and `rel="noopener noreferrer"` external links.
+
+---
+
+## 6. Information Architecture & Discovery Categories
 
 1. **Heritage & Culture (`heritage-culture`):** Vidhana Soudha, Bangalore Palace, Tipu Sultan's Summer Palace, Bengaluru Fort, Attara Kacheri.
 2. **Nature & Outdoors (`nature-outdoors`):** Lalbagh Botanical Garden, Cubbon Park, Bannerghatta Biological Park, Sankey Tank, Ulsoor Lake.
